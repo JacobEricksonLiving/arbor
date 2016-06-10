@@ -21,7 +21,7 @@
 			sys.renderer = Renderer("#viewport");
 
 			//the object with the branch is to prune the node form the system then add it back in with all the same connections
-			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX'});
+			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':true});
 
 			var AXConnections = {
 				nodes:{
@@ -43,6 +43,7 @@
 			}
 			sys.graft(AXConnections);//set up AXEdges
 			
+			/**
 			//wait 5 seconds then call clip
 			setTimeout(function(){
 			function clip(nName){//removes edges of AX
@@ -51,12 +52,13 @@
 			}
 
 			clip(AX);
-			},5000);
+			},4000);
 
 		//wait 10 seconds the reset edges of AX
 		setTimeout(function(){
 			sys.graft(AXConnections);
-		},10000);
+		},8000);
+		**/
 		</script>
 	</body>
 </html>
