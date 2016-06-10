@@ -22,7 +22,7 @@
 
 			//the object with the branch is to prune the node form the system then add it back in with all the same connections
 			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX'});
-			/**
+			
 			//nodes
 			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX'});
 			var Cofax = sys.addNode('Cofax',{'color':'blue','shape':'dot', 'label':'Cofax'});
@@ -46,45 +46,11 @@
 			sys.addEdge(Vision, Corepoint,{directed:true, weight:5});
 			sys.addEdge(Corepoint, BizTalk,{directed:true, weight:5});
 			sys.addEdge(BizTalk, BizTalk360,{weight:5});
-			**/
-
-			var AXConnections = {
-				nodes:{
-					Cofax: {'color':'blue','shape':'dot', 'label':'Cofax'},
-					Peoplesoft: {'color':'blue','shape':'dot', 'label':'Peoplesoft'},
-					GSMS: {'color':'blue','shape':'dot', 'label':'GSMS'},
-					Vision: {'color':'blue','shape':'dot', 'label':'Vision'},
-					Symphony: {'color':'blue','shape':'dot', 'label':'Symphony'},
-					Hyperion: {'color':'blue','shape':'dot', 'label':'Hyperion'}
-				},
-
-				edges:{
-					AX:{Cofax:{directed:true, weight:5}, Peoplesoft:{directed:true, weight:5},
-						GSMS:{directed:true, weight:5}, Vision:{directed:true, weight:5},
-						Symphony:{directed:true, weight:5},
-						Hyperion:{directed:true, weight:5}
-					}
-				}
-			}
-			sys.graft(AXConnections);//set up AXEdges
 			
-			//wait 5 seconds then call clip
-			setTimeout(function(){
-			function clip(nName){//removes edges of AX
-				sys.pruneNode(nName);
-				var temp = sys.addNode(AX.name, {'color':AX.data.color, 'shape':AX.data.shape, 'label':AX.data.label});
-			}
 
-			clip(AX);
-		},5000);
+			
 
-		//wait 10 seconds the reset edges of AX
-		setTimeout(function(){
-			sys.graft(AXConnections);
-		},10000);
-			//sys.graft(AXConnections);
-			//version control test
-			/**Trying making invisible, encounter error when 
+ 
 			//make edges invisible
 			sys.tweenEdge(sys.getEdges(AX, Cofax), 1, {color:'white'});
 			sys.tweenNode(sys.getEdgesFrom(AX)[0].target, 1, {color:'white'});//acess the target of the edge at index 0.
@@ -110,7 +76,7 @@
 				}
 			}
 			makeVisible(AX);
-			**/
+			
 
 
 
