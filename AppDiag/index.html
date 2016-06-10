@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<script language="javascript" type="text/javascript" 
+			src="../../arbor/AppDiag/js/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" 
+			src="../../arbor/AppDiag/js/arbor.js"></script>
+		<script language="javascript" type="text/javascript" 
+			src="../../arbor/AppDiag/js/graphics.js"></script>
+		<script language="javascript" type="text/javascript" 
+			src="../../arbor/AppDiag/js/renderer.js"></script>
+		<script language="javascript" type="text/javascript" 
+			src="../../arbor/AppDiag/js/tween/easing.js"></script>
+		<script language="javascript" type="text/javascript" 
+			src="../../arbor/AppDiag/js/tween/arbor-tween.js"></script>
+	</head>
+	<body>
+		<canvas id="viewport" width="1000" height="800"></canvas>
+		<script language="javascript" type="text/javascript">
+			var sys = arbor.ParticleSystem(500, 500, 1);
+			sys.parameters({gravity:true});
+			sys.renderer = Renderer("#viewport");
+
+			//nodes
+			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX'});
+			var Cofax = sys.addNode('Cofax',{'color':'blue','shape':'dot', 'label':'Cofax'});
+			var Peoplesoft = sys.addNode('Peoplesoft',{'color':'blue','shape':'dot', 'label':'Peoplesoft'});
+			var GSMS = sys.addNode('GSMS',{'color':'blue','shape':'dot', 'label':'GSMS'});
+			var Vision = sys.addNode('Vision',{'color':'blue','shape':'dot', 'label':'Vision'});
+			var Symphony = sys.addNode('Symphony',{'color':'blue','shape':'dot', 'label':'Symphony'});
+			var Hyperion = sys.addNode('Hyperion',{'color':'blue','shape':'dot', 'label':'Hyperion'});
+			var BizTalk = sys.addNode('BizTalk',{'color':'blue','shape':'dot', 'label':'BizTalk'});
+			var BizTalk360 = sys.addNode('BizTalk360',{'color':'blue','shape':'dot', 'label':'BizTalk360'});
+			var Corepoint = sys.addNode('Corepoint',{'color':'blue','shape':'dot', 'label':'Corepoint'});
+
+			//edges
+			sys.addEdge(AX, Cofax,{directed:true, weight:5});
+			sys.addEdge(AX, Peoplesoft,{directed:true, weight:5});
+			sys.addEdge(AX, GSMS,{directed:true, weight:5});
+			sys.addEdge(AX, Vision,{directed:true, weight:5});
+			sys.addEdge(AX, Symphony,{directed:true, weight:5});
+			sys.addEdge(AX, Hyperion,{directed:true, weight:5});
+			sys.addEdge(AX, Cofax,{directed:true, weight:5});
+			sys.addEdge(Vision, Corepoint,{directed:true, weight:5});
+			sys.addEdge(Corepoint, BizTalk,{directed:true, weight:5});
+			sys.addEdge(BizTalk, BizTalk360,{weight:5});
+
+			/**Trying making invisible, encounter error when 
+			//make edges invisible
+			sys.tweenEdge(sys.getEdges(AX, Cofax), 1, {color:'white'});
+			sys.tweenNode(sys.getEdgesFrom(AX)[0].target, 1, {color:'white'});//acess the target of the edge at index 0.
+			sys.tweenEdge(sys.getEdges(AX, Cofax)[0], 1, {color:'white'});
+
+			
+			function makeInvisible(nName){
+				for(var i=0; i<sys.getEdgesFrom(nName).length; ++i){
+					//make nodes invisible
+					sys.tweenNode(sys.getEdgesFrom(nName)[i].target, 5, {color:'white'});
+					//make edges invisible
+					//sys.tweenEdge(sys.getEdgesFrom(nName)[i], 5, {color:'white'});
+				}
+			}
+			makeInvisible(AX);
+			
+			function makeVisible(nName){
+				for(var i=0; i<sys.getEdgesFrom(nName).length; ++i){
+					//make nodes invisible
+					sys.tweenNode(sys.getEdgesFrom(nName)[i].target, 5, {color:'blue'});
+					//make edges invisible
+					sys.tweenEdge(sys.getEdgesFrom(nName)[i], 5, {color:'blue'});
+				}
+			}
+			makeVisible(AX);
+			**/
+
+
+
+		</script>
+	</body>
+</html>
