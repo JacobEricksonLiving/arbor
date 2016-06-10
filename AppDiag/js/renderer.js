@@ -132,7 +132,17 @@
             _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
             selected = nearest = dragged = particleSystem.nearest(_mouseP);
 
-            if (dragged.node !== null) dragged.node.fixed = true
+            if (dragged && dragged.node !== null){
+               var nName;
+               if(dragged.node.data.expanded){//if it is expanded clip it
+                  dragged.node.data.expanded = false;
+                  nName = dragged.node.name;
+                  clip(nName);
+               } else {
+                  sys.graft(AXConnections);
+                  dragged.node.data.expanded = true;
+               }
+            } 
 
             $(canvas).bind('mousemove', handler.dragged)
             $(window).bind('mouseup', handler.dropped)
@@ -202,6 +212,10 @@
     }
 
     return that
-  }//end Renderer    
+  }//end Renderer  
+  function clip(nName){//removes edges of AX
+        sys.pruneNode(nName);
+        var temp = sys.addNode(AX.name, {'color':AX.data.color, 'shape':AX.data.shape, 'label':AX.data.label});
+      }  
 })()//end outter function class
 
