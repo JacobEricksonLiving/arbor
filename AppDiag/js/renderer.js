@@ -133,14 +133,28 @@
             selected = nearest = dragged = particleSystem.nearest(_mouseP);
 
             if (dragged && dragged.node !== null){
-               var nName;
-               if(dragged.node.data.expanded){//if it is expanded clip it
-                  dragged.node.data.expanded = false;
-                  nName = dragged.node.name;
-                  clip(nName);
-               } else {
-                  sys.graft(AXConnections);
-                  dragged.node.data.expanded = true;
+
+               var clickedNode = dragged.node;
+               if(!clickedNode.data.expanded){//if it is not expanded
+                  clickedNode.data.expanded = true;
+                  switchNode(clickedNode.name);
+               } else {//expanded = true remove node
+                  clickedNode.data.expanded = false;
+                  //parent of the clickedNode
+                  if(clickedNode.data.base===false){//if it is not a base node
+                    var parent = sys.getNode(clickedNode.data.parent);
+                    parent.data.expanded = false;
+                  }
+                  //for each node in the system if it has the clickedNode for a parent prune the node
+                  sys.prune(function(node, from, to){
+                    if(node.data.parent === clickedNode.name){
+                      return true
+                    }
+                  });
+                  //if the node is not a "base" node prune it
+                  if(clickedNode.data.base===0){
+                    sys.pruneNode(clickedNode);
+                  }
                }
             } 
 
@@ -212,10 +226,38 @@
     }
 
     return that
-  }//end Renderer  
-  function clip(nName){//removes edges of AX
+  }//end Renderer
+
+  function clip(nName){//removes edges of a node
         sys.pruneNode(nName);
-        var temp = sys.addNode(AX.name, {'color':AX.data.color, 'shape':AX.data.shape, 'label':AX.data.label});
-      }  
+        var temp = sys.addNode(nName.name, {'color':nName.data.color, 'shape':nName.data.shape, 'label':nName.data.label});
+  }  
+
+  //switch case for which node edges are to be restored
+  function switchNode(nName){
+    switch(nName){
+      case "AX":
+        sys.graft(AXConnections);
+        break;
+      case "BizTalk":
+        sys.graft(BizTalkConnections);
+        break;
+      case "Cofax":
+        sys.graft(CofaxConnections);
+        break;
+      case "Corepoint":
+        sys.graft(CorepointConnections);
+        break;  
+      case "GSMS":
+        sys.graft(GSMSConnections);
+        break;
+      case "Vision":
+        sys.graft(VisionConnections);
+        break;
+
+
+    }
+  }
+
 })()//end outter function class
 
