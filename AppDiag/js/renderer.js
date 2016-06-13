@@ -142,8 +142,12 @@
                   clickedNode.data.expanded = false;
                   //parent of the clickedNode
                   if(clickedNode.data.base===false){//if it is not a base node
-                    var parent = sys.getNode(clickedNode.data.parent);
-                    parent.data.expanded = false;
+                    var parent = sys.getNode(clickedNode.data.parent);//get parent node
+                    if(parent === undefined){//if no parent prune the node
+                      sys.pruneNode(clickedNode);
+                    }else{//else the parent is no longer expanded
+                      parent.data.expanded = false;
+                    }
                   }
                   //for each node in the system if it has the clickedNode for a parent prune the node
                   sys.prune(function(node, from, to){
@@ -152,7 +156,7 @@
                     }
                   });
                   //if the node is not a "base" node prune it
-                  if(clickedNode.data.base===0){
+                  if(clickedNode.data.base===false){
                     sys.pruneNode(clickedNode);
                   }
                }
