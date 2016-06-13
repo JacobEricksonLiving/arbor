@@ -21,16 +21,16 @@
 			sys.renderer = Renderer("#viewport");
 
 			//the object with the branch is to prune the node form the system then add it back in with all the same connections
-			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':true});
-
+			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'null', 'base':true});
+			var b = sys.addNode('b', {'label':'b'});
 			var AXConnections = {
 				nodes:{
-					Cofax: {'color':'blue','shape':'dot', 'label':'Cofax'},
-					Peoplesoft: {'color':'blue','shape':'dot', 'label':'Peoplesoft'},
-					GSMS: {'color':'blue','shape':'dot', 'label':'GSMS'},
-					Vision: {'color':'blue','shape':'dot', 'label':'Vision'},
-					Symphony: {'color':'blue','shape':'dot', 'label':'Symphony'},
-					Hyperion: {'color':'blue','shape':'dot', 'label':'Hyperion'}
+					Cofax: {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false},
+					Peoplesoft: {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false},
+					GSMS: {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false},
+					Vision: {'color':'blue','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':false},
+					Symphony: {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false},
+					Hyperion: {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'AX', 'base':false}
 				},
 
 				edges:{
@@ -40,9 +40,99 @@
 						Hyperion:{directed:true, weight:5}
 					}
 				}
+			}//end AXConnections
+
+			var BizTalkConnections = {
+				nodes:{
+					BizTalk360:{'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false}
+				},
+				edges:{
+					BizTalk:{BizTalk360:{directed:true, weight:5}}
+				}
+
+			}//end BizTalkConnections
+
+			var BizTalk360Connections = {
+				nodes:{
+
+				},
+				edges:{
+
+				}
+
+			}//end BizTalk360Connections
+
+			var CofaxConnections = {
+				nodes:{
+
+				},
+				edges:{
+
+				}
+
+			}//end CofaxConnections
+
+			var CorepointConnections = {
+				nodes:{
+					BizTalk:{'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false}
+				},
+				edges:{
+					Corepoint:{BizTalk:{directed:true, weight:5}}
+				}
+
+			}//end CorepointConnections
+
+			var GSMSConnections = {
+				nodes:{
+					a: {'expanded':false, 'label':'a', 'parent':'GSMS'}
+				},
+				edges:{
+					GSMS:{a:{directed:true, weight:5}}
+				}
 			}
-			sys.graft(AXConnections);//set up AXEdges
-			
+
+			var HyperionConnections = {
+				nodes:{
+
+				},
+				edges:{
+
+				}
+
+			}//end HyperionConnections
+
+			var PeoplesoftConnections = {
+				nodes:{
+
+				},
+				edges:{
+
+				}
+
+			}//end PeoplesoftConnections
+
+			var SymphonyConnections = {
+				nodes:{
+
+				},
+				edges:{
+
+				}
+
+			}//end SymphonyConnections
+
+			var VisionConnections = {
+				nodes:{
+					Corepoint: {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false}
+				},
+				edges:{
+					Vision:{
+						Corepoint:{directed:true, weight:5}
+					}
+				}
+
+			}//end VisionConnections
+
 			/**
 			//wait 5 seconds then call clip
 			setTimeout(function(){
