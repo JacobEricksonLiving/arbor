@@ -135,11 +135,14 @@
             if (dragged && dragged.node !== null){
 
                var clickedNode = dragged.node;
+
                if(!clickedNode.data.expanded){//if it is not expanded
                   clickedNode.data.expanded = true;
                   switchNode(clickedNode.name);
+
                } else {//expanded = true remove node
                   clickedNode.data.expanded = false;
+                  
                   //parent of the clickedNode
                   if(clickedNode.data.base===false){//if it is not a base node
                     var parent = sys.getNode(clickedNode.data.parent);//get parent node
@@ -149,12 +152,14 @@
                       parent.data.expanded = false;
                     }
                   }
+
                   //for each node in the system if it has the clickedNode for a parent prune the node
                   sys.prune(function(node, from, to){
                     if(node.data.parent === clickedNode.name){
                       return true
                     }
                   });
+
                   //if the node is not a "base" node prune it
                   if(clickedNode.data.base===false){
                     sys.pruneNode(clickedNode);
@@ -232,7 +237,7 @@
     return that
   }//end Renderer
 
-  function clip(nName){//removes edges of a node
+  function clip(nName){//removes edges of a node but not the node
         sys.pruneNode(nName);
         var temp = sys.addNode(nName.name, {'color':nName.data.color, 'shape':nName.data.shape, 'label':nName.data.label});
   }  
@@ -246,6 +251,9 @@
       case "BizTalk":
         sys.graft(BizTalkConnections);
         break;
+      case "BizTalk360":
+        sys.graft(BizTalk360Connections);
+        break;
       case "Cofax":
         sys.graft(CofaxConnections);
         break;
@@ -255,11 +263,15 @@
       case "GSMS":
         sys.graft(GSMSConnections);
         break;
+      case "Hyperion":
+        sys.graft(HyperionConnections);
+        break;
+      case "Peoplesoft":
+        sys.graft(PeoplesoftConnections);
+        break;    
       case "Vision":
         sys.graft(VisionConnections);
         break;
-
-
     }
   }
 
