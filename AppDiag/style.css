@@ -1,0 +1,11 @@
+#info{
+  position:absolute;
+  right:0px;
+  top:0;
+  width:256px;
+  bottom:0px;
+  overflow:hidden;
+  border:1px solid #ccb;
+  padding-left:0px;
+  background:white;
+}
