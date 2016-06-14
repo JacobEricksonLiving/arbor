@@ -124,8 +124,6 @@
         var dragged = null;
         var oldmass = 1
 
-        var doubleClickTime = 0;
-        var threshold = 200;
         // set up a handler object that will initially listen for mousedowns then
         // for moves and mouseups while dragging
         var handler = {
@@ -181,11 +179,6 @@
                   }
                }
             } 
-
-            //used for dragging functionality
-            //$(canvas).bind('mousemove', handler.dragged)
-            //$(window).bind('mouseup', handler.dropped)
-
             return false
           },
 
