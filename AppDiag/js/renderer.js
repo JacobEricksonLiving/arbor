@@ -209,7 +209,8 @@
 
         $(canvas).mousedown(handler.leftMouseDowned);//when mousedown start clicked function
         $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
-        $(canvas).bind('contextmenu', function(e){//disable contextmenu also display node info
+        //disable contextmenu from displaying also display info on node on right click
+        $(canvas).bind('contextmenu', function(e){
           var div = document.getElementById('info');
           //var content = document.createTextNode("Hello"); possible option if below does not work
           //div.appendChild(content);
