@@ -204,11 +204,20 @@
             $(window).unbind('mouseup', handler.dropped)
             _mouseP = null
             return false
+          },
+
+          description:function(e){
+            var pos = $(canvas).offset();
+            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
+            nearest = particleSystem.nearest(_mouseP);
+            console.log(nearest.name);
           }
-        }
+
+        }//end handler
 
         $(canvas).mousedown(handler.clicked);//when mousedown start clicked function
         $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
+        //$(canvas).mouseover(handler.description);
       }
 
     }
