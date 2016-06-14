@@ -210,7 +210,12 @@
         $(canvas).mousedown(handler.leftMouseDowned);//when mousedown start clicked function
         $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
         $(canvas).bind('contextmenu', function(e){//disable contextmenu also display node info
-          console.log(nearest.node);
+          var div = document.getElementById('info');
+          //var content = document.createTextNode("Hello"); possible option if below does not work
+          //div.appendChild(content);
+          div.innerHTML = "";
+          div.innerHTML += "The node's name is: " + nearest.node.name + ".<br />";
+          div.innerHTML += "The node's parent is: " + nearest.node.data.parent + ".<br />";
           return false;
         });
 
