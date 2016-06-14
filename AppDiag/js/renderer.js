@@ -124,9 +124,25 @@
         var dragged = null;
         var oldmass = 1
 
+        var doubleClickTime = 0;
+        var threshold = 200;
         // set up a handler object that will initially listen for mousedowns then
         // for moves and mouseups while dragging
         var handler = {
+
+          clicked:function(e){
+            var pos = $(canvas).offset();
+            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
+            selected = nearest = dragged = particleSystem.nearest(_mouseP);
+
+            if (dragged.node !== null) dragged.node.fixed = true
+
+            $(canvas).bind('mousemove', handler.dragged)
+            $(window).bind('mouseup', handler.dropped)
+
+            return false
+          },
+
           doubleClicked:function(e){
             var pos = $(canvas).offset();
             _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
@@ -134,7 +150,7 @@
             if (dragged && dragged.node !== null){
 
                var clickedNode = dragged.node;
-
+               console.log(clickedNode.data.expanded);
                if(!clickedNode.data.expanded){//if it is not expanded
                   clickedNode.data.expanded = true;
                   switchNode(clickedNode.name);
@@ -172,6 +188,7 @@
 
             return false
           },
+
           dragged:function(e){
             var old_nearest = nearest && nearest.node._id
             var pos = $(canvas).offset();
@@ -198,8 +215,9 @@
             return false
           }
         }
-        $(canvas).mousedown(handler.doubleClicked);
 
+        $(canvas).mousedown(handler.clicked);//when mousedown start clicked function
+        $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
       }
 
     }
