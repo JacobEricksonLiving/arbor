@@ -209,7 +209,7 @@
 
         $(canvas).mousedown(handler.leftMouseDowned);//when mousedown start clicked function
         $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
-        $(canvas).bind('contextmenu', function(e){
+        $(canvas).bind('contextmenu', function(e){//disable contextmenu also display node info
           console.log(nearest.node);
           return false;
         });
