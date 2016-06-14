@@ -124,13 +124,13 @@
 
         // set up a handler object that will initially listen for mousedowns then
         // for moves and mouseups while dragging
+        //also listen for a dblclick
         var handler = {
 
-          clicked:function(e){
+          leftMouseDowned:function(e){
             var pos = $(canvas).offset();
             _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
             selected = nearest = dragged = particleSystem.nearest(_mouseP);
-
             if (dragged.node !== null) dragged.node.fixed = true
 
             $(canvas).bind('mousemove', handler.dragged)
@@ -146,7 +146,6 @@
             if (dragged && dragged.node !== null){
 
                var clickedNode = dragged.node;
-               console.log(clickedNode.data.expanded);
                if(!clickedNode.data.expanded){//if it is not expanded
                   clickedNode.data.expanded = true;
                   switchNode(clickedNode.name);
@@ -204,20 +203,17 @@
             $(window).unbind('mouseup', handler.dropped)
             _mouseP = null
             return false
-          },
-
-          description:function(e){
-            var pos = $(canvas).offset();
-            _mouseP = arbor.Point(e.pageX-pos.left, e.pageY-pos.top)
-            nearest = particleSystem.nearest(_mouseP);
-            console.log(nearest.name);
           }
 
         }//end handler
 
-        $(canvas).mousedown(handler.clicked);//when mousedown start clicked function
+        $(canvas).mousedown(handler.leftMouseDowned);//when mousedown start clicked function
         $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
-        //$(canvas).mouseover(handler.description);
+        $(canvas).bind('contextmenu', function(e){
+          console.log(nearest.node);
+          return false;
+        });
+
       }
 
     }
