@@ -154,7 +154,7 @@
                   clickedNode.data.expanded = false;
                   
                   //parent of the clickedNode
-                  if(clickedNode.data.base===false){//if it is not a base node
+                  if(!clickedNode.data.base){//if it is not a base node
                     var parent = sys.getNode(clickedNode.data.parent);//get parent node
                     if(parent === undefined){//if no parent prune the node
                       sys.pruneNode(clickedNode);
@@ -163,14 +163,20 @@
                     }
                   }
 
-                  //for each node in the system if it has the clickedNode for a parent prune the node
+                  //for each node in the system if it has the clickedNode for a 
+                  //parent and it is not a base node
+                  //prune the node
                   sys.prune(function(node, from, to){
-                    if(node.data.parent === clickedNode.name){
-                      return true
+                    if(node.data.parent === clickedNode.name || node.name ===clickedNode.data.parent){
+                      if(!node.data.base){//if it isnt a base node
+                        return true;
+                      } else {
+                        return false;
+                      }
                     }
                   });
 
-                  //if the node is not a "base" node prune it
+                  //if the node is not a "base" node prune it(handles excess branches)
                   if(clickedNode.data.base===false){
                     sys.pruneNode(clickedNode);
                   }
@@ -289,7 +295,9 @@
         break;
       case "Peoplesoft":
         sys.graft(PeoplesoftConnections);
-        break;    
+        break; 
+      case "Symphony":
+        sys.graft(SymphonyConnections);   
       case "Vision":
         sys.graft(VisionConnections);
         break;
