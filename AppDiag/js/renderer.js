@@ -313,7 +313,8 @@
         sys.graft(PeoplesoftConnections);
         break; 
       case "Symphony":
-        sys.graft(SymphonyConnections);   
+        sys.graft(SymphonyConnections);
+        break;   
       case "Vision":
         sys.graft(VisionConnections);
         break;
