@@ -215,8 +215,9 @@
           //var content = document.createTextNode("Hello"); possible option if below does not work
           //div.appendChild(content);
           div.innerHTML = "";
-          div.innerHTML += "The node's name is: " + nearest.node.name + ".<br />";
-          div.innerHTML += "The node's parent is: " + nearest.node.data.parent + ".<br />";
+          div.innerHTML += "NAME: " + nearest.node.name + "<br /><br />";
+          div.innerHTML += "DESCRIPTION: " + nearest.node.data.description + "<br /><br />";
+          div.innerHTML += "SERVERS: " +"<br /><br />";
           return false;
         });
 

@@ -26,30 +26,31 @@
 			sys.renderer = Renderer("#viewport");
 
 			//the object with the branch is to prune the node form the system then add it back in with all the same connections
-			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'null', 'base':true});
+			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'null', 'base':true, 'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'});
 			var b = sys.addNode('b', {'label':'b'});
 			var AXConnections = {
 				nodes:{
-					Cofax: {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false},
-					Peoplesoft: {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false},
-					GSMS: {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false},
-					Vision: {'color':'blue','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':false},
-					Symphony: {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false},
-					Hyperion: {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'AX', 'base':false}
+					Cofax: {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Converts documents into usable computer images.'},
+					Peoplesoft: {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false, 'description':''},
+					GSMS: {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
+					Vision: {'color':'blue','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Handles new resident information.'},
+					Symphony: {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Dinning Services applications. Handles dinning revenue.'},
+					Hyperion: {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Used to Exctract financial data for high level purposes.'}
 				},
 
 				edges:{
-					AX:{Cofax:{directed:true, weight:5}, Peoplesoft:{directed:true, weight:5},
-						GSMS:{directed:true, weight:5}, Vision:{directed:true, weight:5},
-						Symphony:{directed:true, weight:5},
-					},
-					Hyperion:{AX:{directed:true, weight:5}}
+					Cofax:{AX:{directed:true, weight:5}},
+					Peoplesoft:{AX:{directed:true, weight:5}},
+					GSMS:{AX:{directed:true, weight:5}},
+					Vision:{AX:{directed:true, weight:5}},
+					Symphony:{AX:{directed:true, weight:5}},
+					AX:{Hyperion:{directed:true, weight:5}}
 				}
 			}//end AXConnections
 
 			var BizTalkConnections = {
 				nodes:{
-					BizTalk360:{'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false}
+					BizTalk360:{'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'}
 				},
 				edges:{
 					BizTalk:{BizTalk360:{directed:true, weight:5}}
@@ -79,7 +80,7 @@
 
 			var CorepointConnections = {
 				nodes:{
-					BizTalk:{'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false}
+					BizTalk:{'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'}
 				},
 				edges:{
 					Corepoint:{BizTalk:{directed:true, weight:5}}
@@ -89,10 +90,10 @@
 
 			var GSMSConnections = {
 				nodes:{
-					a: {'expanded':false, 'label':'a', 'parent':'GSMS'}
+					
 				},
 				edges:{
-					GSMS:{a:{directed:true, weight:5}}
+					
 				}
 			}
 
@@ -128,7 +129,7 @@
 
 			var VisionConnections = {
 				nodes:{
-					Corepoint: {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false}
+					Corepoint: {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 'description':'Designed to handle healthcare information. Corepoint puts data through logic checks then sends an xml message to ECIX(BizTalk).'}
 				},
 				edges:{
 					Vision:{
