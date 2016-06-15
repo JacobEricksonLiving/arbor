@@ -167,17 +167,27 @@
                   //parent and it is not a base node
                   //prune the node
                   sys.prune(function(node, from, to){
-                    if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){//if node parent or node child is clciked
+                    if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){//if node parent or node child is clickedNode
                       if(!node.data.base){//if it isnt a base node
                         return true;
                       }
                     }
                   });
-
+                  //used when clickedNode.data.base=true, instead of clickedNode keeping it's
+                  //edges with other base nodes the edge will be deleted.
+                  sys.eachNode(function(node, pt){
+                    if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){
+                      if(node.data.base && clickedNode.data.base){
+                        clip(clickedNode);
+                      }
+                    }                    
+                  });
+                  
                   //if the node is not a "base" node prune it(handles removing the node that is clicked)
                   if(!clickedNode.data.base){
                     sys.pruneNode(clickedNode);
                   }
+                  ;
                }
             } 
             return false
@@ -262,9 +272,17 @@
     return that
   }//end Renderer
 
-  function clip(nName){//removes edges of a node but not the node
-        sys.pruneNode(nName);
-        var temp = sys.addNode(nName.name, {'color':nName.data.color, 'shape':nName.data.shape, 'label':nName.data.label});
+  function clip(nName1){//removes edges of a node but not the node
+        sys.pruneNode(nName1);
+        //sys.pruneNode(nName2);
+        var temp = sys.addNode(nName1.name, {'color':nName1.data.color, 'shape':nName1.data.shape, 
+          'label':nName1.data.label, 'expanded':nName1.data.expanded,
+          'parent':nName1.data.parent, 'base':nName1.data.base, 'description':nName1.data.description
+        });
+        //var temp2 = sys.addNode(nName2.name, {'color':nName2.data.color, 'shape':nName2.data.shape, 
+        //  'label':nName2.data.label, 'expanded':nName2.data.expanded,
+        //  'parent':nName2.data.parent, 'base':nName2.data.base, 'description':nName2.data.description
+        //});
   }  
 
   //switch case for which node edges are to be restored
