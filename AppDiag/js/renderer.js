@@ -174,8 +174,8 @@
                     }
                   });
 
-                  //if the node is not a "base" node prune it(handles excess branches)
-                  if(clickedNode.data.base===false){
+                  //if the node is not a "base" node prune it(handles removing the node that is clicked)
+                  if(!clickedNode.data.base){
                     sys.pruneNode(clickedNode);
                   }
                }

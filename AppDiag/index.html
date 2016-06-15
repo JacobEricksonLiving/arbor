@@ -18,8 +18,9 @@
 	<body>
 		<canvas id="viewport" width="1000" height="800"></canvas>
 		<div id="info" style="width:25%; height: 100%;">
-			To expand a node double click on it. <br /> 
-			To see info on the node right click on it.
+			To expand a node double click on it. <br /> <br />
+			To remove an expanded node double click on it. Note this will also remove it's direct children and parent nodes.<br /> <br />
+			To see the node information right click it.
 		</div>
 		<script language="javascript" type="text/javascript">
 			var sys = arbor.ParticleSystem(500, 500, 1);
@@ -135,12 +136,16 @@
 					Corepoint: {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 
 						'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
 					AX:{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 
-						'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'}
+						'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
+					a:{'label':'a', 'parent':'Vision'},
+					b:{'label':'b','parent':'Vision'}
 				},
 				edges:{
 					Vision:{
 						Corepoint:{directed:true, weight:5},
-						AX:{directed:true, weight:5}
+						AX:{directed:true, weight:5},
+						a:{directed:true},
+						b:{directed:true}
 					}
 				}
 
