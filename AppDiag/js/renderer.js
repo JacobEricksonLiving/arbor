@@ -167,11 +167,9 @@
                   //parent and it is not a base node
                   //prune the node
                   sys.prune(function(node, from, to){
-                    if(node.data.parent === clickedNode.name || node.name ===clickedNode.data.parent){
+                    if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){//if node parent or node child is clciked
                       if(!node.data.base){//if it isnt a base node
                         return true;
-                      } else {
-                        return false;
                       }
                     }
                   });
