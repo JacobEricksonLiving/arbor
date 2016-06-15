@@ -19,7 +19,7 @@
 		<canvas id="viewport" width="1000" height="800"></canvas>
 		<div id="info" style="width:25%; height: 100%;">
 			To expand a node double click on it. <br /> <br />
-			To remove an expanded node double click on it. Note this will also remove it's direct children and parent nodes.<br /> <br />
+			To remove an expanded node double click on it. Note this will also remove it's direct children and parent nodes. Red nodes cannot be removed<br /> <br />
 			To see the node information right click it.
 		</div>
 		<script language="javascript" type="text/javascript">
@@ -31,7 +31,7 @@
 			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'});
 			var Vision = sys.addNode('Vision', {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'description':'Census Software. Handles new resident information.'});
 
-			var empty = sys.addNode('empty', {'label':'empty'});
+			//var empty = sys.addNode('empty', {'label':'empty'});
 			var AXConnections = {
 				nodes:{
 					Cofax: {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Converts documents into usable computer images.'},
