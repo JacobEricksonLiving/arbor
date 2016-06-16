@@ -22,7 +22,14 @@
 			To expand a node double click on it. <br /> <br />
 			To remove an expanded node double click on it. Note this will also remove it's direct children and parent nodes. Red nodes cannot be removed<br /> <br />
 			To see the node information right click it.
-			<div id="info" style="width:100%; height: 75%;"></div>
+			<div id="info" style="width:100%; height: 25%;"></div>
+			<div id="input_output" style="width:100%; height:50%;">
+				<input id="input" type="text" style="width:100%; height:50%" placeholder="Enter a node's name to reveal it's server(s)"></input>
+				<div id="output" style="width:100%; height:50%;"></div>
+			</div>
+			
+			<button name="server_button" onclick="displayServer()" type="button">Generate Servers</button>
+			<button name="clear_button" onclick="clearServer()" type="button">Delete Servers</button>
 		</div>
 		<script language="javascript" type="text/javascript">
 			var sys = arbor.ParticleSystem(500, 500, 1);
