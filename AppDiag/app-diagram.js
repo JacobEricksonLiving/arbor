@@ -158,6 +158,17 @@ var VisionConnections = {
 
 }//end VisionConnections
 
+var AXServers = {
+	nodes:{
+		a :{'color':'green', 'label':'a'}
+	},
+	edges:{
+		AX:{ a:{weight:5}}
+	}
+}
+
+
+
 //switch case for which node edges are to be restored
 function switchNode(nName){
 	switch(nName){
@@ -203,4 +214,29 @@ function clip(nName1){//removes edges of a node but not the node
     	'label':nName1.data.label, 'expanded':nName1.data.expanded,
         'parent':nName1.data.parent, 'base':nName1.data.base, 'description':nName1.data.description
     });
-}   
+} 
+
+function displayServer(){
+	var inputText = document.getElementById("input");
+	var nName = inputText.value;
+	switch(nName){
+		case "AX":
+			sys.graft(AXServers);
+			break;
+		default:
+			var outputText = document.getElementById("output");
+			outputText.innerHTML = "";
+			outputText.innerHTML += "Pleas enter correct node name.";
+	}
+}  
+
+function clearServer(){
+	var inputText = document.getElementById("input");
+	var nName = inputText.value;
+	switch(nName){
+		case "AX":
+			for(var nodes in AXServers.nodes){
+				sys.pruneNode(nodes);
+			}
+	}
+}
