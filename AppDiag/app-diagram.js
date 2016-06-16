@@ -170,7 +170,7 @@ var AXServers = {
 
 
 //switch case for which node edges are to be restored
-function switchNode(nName){
+function expandNode(nName){
 	switch(nName){
 		case "AX":
 			sys.graft(AXConnections);
