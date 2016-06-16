@@ -22,16 +22,14 @@
 			To expand a node double click on it. <br /> <br />
 			To remove an expanded node double click on it. Note this will also remove it's direct children and parent nodes. Red nodes cannot be removed<br /> <br />
 			To see the node information right click it.
-			<div id="info" style="width:100%; height: 75%;">
-
-			</div>
+			<div id="info" style="width:100%; height: 75%;"></div>
 		</div>
 		<script language="javascript" type="text/javascript">
 			var sys = arbor.ParticleSystem(500, 500, 1);
 			sys.parameters({gravity:true});
 			sys.renderer = Renderer("#viewport");
 
-			//the object with the branch is to prune the node form the system then add it back in with all the same connections
+			//These are the inital nodes that will appear on screen
 			var AX = sys.addNode('AX',{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'});
 			var Vision = sys.addNode('Vision', {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'description':'Census Software. Handles new resident information.'});
 		</script>
