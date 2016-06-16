@@ -223,6 +223,9 @@ function displayServer(){
 		case "AX":
 			sys.graft(AXServers);
 			break;
+		case "expand":
+			expand();
+			break;
 		default:
 			var outputText = document.getElementById("output");
 			outputText.innerHTML = "";
@@ -239,4 +242,8 @@ function clearServer(){
 				sys.pruneNode(nodes);
 			}
 	}
+}
+
+function expand(){
+
 }
