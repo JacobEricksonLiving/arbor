@@ -3,18 +3,26 @@
 //Also Holds utility functions used by renderer.js
 
 //list of all nodes in the system.
-var AX = {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 
+var AX = {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'server':'N/A', 
 			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
-BizTalk = {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'};
-BizTalk360 = {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
-Cofax = {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Converts documents into usable computer images.'},
-Corepoint = {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 
+BizTalk = {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'server':'N/A',
+			 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'};
+BizTalk360 = {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'server':'N/A',
+				 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
+Cofax = {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+			 'description':'Converts documents into usable computer images.'},
+Corepoint = {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 'server':'N/A',
 				'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
-GSMS = {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
-Hyperion = {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'description':'Used to Exctract financial data for high level purposes.'},
-Peoplesoft = {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false, 'description':''},
-Symphony = {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Dinning Services applications. Handles dinning revenue.'},
-Vision = {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'description':'Census Software. Handles new resident information.'}
+GSMS = {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+			 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
+Hyperion = {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
+			'description':'Used to Exctract financial data for high level purposes.'},
+Peoplesoft = {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+				 'description':''},
+Symphony = {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+			 'description':'Dinning Services applications. Handles dinning revenue.'},
+Vision = {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'server':'N/A',
+			 'description':'Census Software. Handles new resident information.'}
 
 //NodeConnections
 var AXConnections = {
