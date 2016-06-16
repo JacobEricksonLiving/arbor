@@ -1,13 +1,30 @@
-//Holds teh connection data used to regraph nodes once they are removed.
+//Holds the connection data used to regraph nodes once they are removed.
+//Holds the data for all nodes in the system.
 //Also Holds utility functions used by renderer.js
+
+//list of all nodes in the system.
+var AX = {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 
+			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
+BizTalk = {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'};
+BizTalk360 = {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
+Cofax = {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Converts documents into usable computer images.'},
+Corepoint = {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 
+				'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
+GSMS = {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
+Hyperion = {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'description':'Used to Exctract financial data for high level purposes.'},
+Peoplesoft = {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false, 'description':''},
+Symphony = {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Dinning Services applications. Handles dinning revenue.'},
+Vision = {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'description':'Census Software. Handles new resident information.'}
+
+//NodeConnections
 var AXConnections = {
 	nodes:{
-		Cofax: {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Converts documents into usable computer images.'},
-		Peoplesoft: {'color':'blue','shape':'dot', 'label':'Peoplesoft', 'expanded':false, 'parent':'AX', 'base':false, 'description':''},
-		GSMS: {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
-		Vision: {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'description':'Census Software. Handles new resident information.'},
-		Symphony: {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'description':'Dinning Services applications. Handles dinning revenue.'},
-		Hyperion: {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'description':'Used to Exctract financial data for high level purposes.'}
+		Cofax,
+		Peoplesoft,
+		GSMS,
+		Vision,
+		Symphony,
+		Hyperion
 	},
 
 	edges:{
@@ -22,7 +39,7 @@ var AXConnections = {
 
 var BizTalkConnections = {
 	nodes:{
-		BizTalk360:{'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'}
+		BizTalk360
 	},
 	edges:{
 		BizTalk:{BizTalk360:{directed:true, weight:5}}
@@ -52,7 +69,7 @@ var CofaxConnections = {
 
 var CorepointConnections = {
 	nodes:{
-		BizTalk:{'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'}
+		BizTalk
 	},
 	edges:{
 		Corepoint:{BizTalk:{directed:true, weight:5}}
@@ -101,11 +118,8 @@ var SymphonyConnections = {
 
 var VisionConnections = {
 	nodes:{
-		Corepoint: {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 
-					'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
-		AX:{'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 
-			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'
-		}
+		Corepoint,
+		AX
 	},
 	edges:{
 		Vision:{
