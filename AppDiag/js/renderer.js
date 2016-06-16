@@ -148,48 +148,48 @@
                var clickedNode = dragged.node;
                if(!clickedNode.data.expanded){//if it is not expanded
                   clickedNode.data.expanded = true;
-                  switchNode(clickedNode.name);
+                  switchNode(clickedNode.name);//expands node
 
-               } else {//expanded = true remove node
+               } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
                   
-                  //parent of the clickedNode
-                  if(!clickedNode.data.base){//if it is not a base node
-                    var parent = sys.getNode(clickedNode.data.parent);//get parent node
-                    if(parent === undefined){//if no parent prune the node
-                      sys.pruneNode(clickedNode);
-                    }else{//else the parent is no longer expanded
-                      parent.data.expanded = false;
-                    }
+                  //node with no edges, just remove
+                  var to = sys.getEdgesTo(clickedNode);
+                  var from = sys.getEdgesFrom(clickedNode);
+                  if(to === [] && from === []){
+                    sys.prune(clickedNode);
                   }
 
-                  //for each node in the system if it has the clickedNode for a 
-                  //parent and it is not a base node
-                  //prune the node
-                  sys.prune(function(node, from, to){
-                    if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){//if node parent or node child is clickedNode
-                      if(!node.data.base){//if it isnt a base node
-                        return true;
-                      }
-                    }
-                  });
-                  //used when clickedNode.data.base=true, instead of clickedNode keeping it's
-                  //edges with other base nodes the edge will be deleted.
-                  sys.eachNode(function(node, pt){
-                    if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){
-                      if(node.data.base && clickedNode.data.base){
-                        clip(clickedNode);
-                      }
-                    }                    
-                  });
-                  
-                  //if the node is not a "base" node prune it(handles removing the node that is clicked)
+                  //if it is not a base node
                   if(!clickedNode.data.base){
+                    sys.eachNode(function(node, pt){
+                      if(node.data.parent === clickedNode.name || clickedNode.data.parent === node.name){//if node is clickedNode's child or parent
+                        node.data.expanded = false;
+                      }              
+                    });
                     sys.pruneNode(clickedNode);
                   }
-                  ;
-               }
-            } 
+
+                  //if it is a base node
+                  if(clickedNode.data.base){
+                    sys.prune(function(node, from, to){//prune each node if it is child/parent of clickedNode and if node is not a base node
+                      if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){//if node is clickedNodes's child or parent
+                        if(!node.data.base){//if node isnt a base node
+                          return true;
+                        }
+                      }
+                    });
+                    sys.eachNode(function(node, pt){//each node if it is child/parent of clickedNode and both node and clicked are base then clip(clicked)
+                      if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){
+                        if(node.data.base && clickedNode.data.base){
+                          node.data.expanded = false;
+                          clip(clickedNode);
+                        }
+                      }                    
+                    });
+                  }//is base node
+               }//end if clicked is not expanded
+            } //end if dragged
             return false
           },
 
