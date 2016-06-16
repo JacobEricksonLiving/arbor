@@ -231,7 +231,7 @@
           div.innerHTML = "";
           div.innerHTML += "NAME: " + nearest.node.name + "<br /><br />";
           div.innerHTML += "DESCRIPTION: " + nearest.node.data.description + "<br /><br />";
-          div.innerHTML += "SERVERS: " + nearest.node.data.servers +"<br /><br />";
+          div.innerHTML += "SERVERS: " + nearest.node.data.server +"<br /><br />";
           return false;
         });
 
