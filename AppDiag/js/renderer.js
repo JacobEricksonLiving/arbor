@@ -271,55 +271,5 @@
 
     return that
   }//end Renderer
-
-  function clip(nName1){//removes edges of a node but not the node
-        sys.pruneNode(nName1);
-        //sys.pruneNode(nName2);
-        var temp = sys.addNode(nName1.name, {'color':nName1.data.color, 'shape':nName1.data.shape, 
-          'label':nName1.data.label, 'expanded':nName1.data.expanded,
-          'parent':nName1.data.parent, 'base':nName1.data.base, 'description':nName1.data.description
-        });
-        //var temp2 = sys.addNode(nName2.name, {'color':nName2.data.color, 'shape':nName2.data.shape, 
-        //  'label':nName2.data.label, 'expanded':nName2.data.expanded,
-        //  'parent':nName2.data.parent, 'base':nName2.data.base, 'description':nName2.data.description
-        //});
-  }  
-
-  //switch case for which node edges are to be restored
-  function switchNode(nName){
-    switch(nName){
-      case "AX":
-        sys.graft(AXConnections);
-        break;
-      case "BizTalk":
-        sys.graft(BizTalkConnections);
-        break;
-      case "BizTalk360":
-        sys.graft(BizTalk360Connections);
-        break;
-      case "Cofax":
-        sys.graft(CofaxConnections);
-        break;
-      case "Corepoint":
-        sys.graft(CorepointConnections);
-        break;  
-      case "GSMS":
-        sys.graft(GSMSConnections);
-        break;
-      case "Hyperion":
-        sys.graft(HyperionConnections);
-        break;
-      case "Peoplesoft":
-        sys.graft(PeoplesoftConnections);
-        break; 
-      case "Symphony":
-        sys.graft(SymphonyConnections);
-        break;   
-      case "Vision":
-        sys.graft(VisionConnections);
-        break;
-    }
-  }
-
 })()//end outter function class
 
