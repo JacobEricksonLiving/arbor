@@ -27,137 +27,139 @@ Vision = {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'pare
 			 'description':'Census Software. Handles new resident information.'}
 
 //NodeConnections
-var AXConnections = {
-	nodes:{
-		Cofax,
-		PeopleSoft,
-		GSMS,
-		Vision,
-		Symphony,
-		Hyperion
-	},
+var Connections = {
+	AXConnections : {
+		nodes:{
+			Cofax,
+			PeopleSoft,
+			GSMS,
+			Vision,
+			Symphony,
+			Hyperion
+		},
 
-	edges:{
-		Cofax:{AX:{directed:true, weight:5}},
-		PeopleSoft:{AX:{directed:true, weight:5}},
-		GSMS:{AX:{directed:true, weight:5}},
-		Vision:{AX:{directed:true, weight:5}},
-		Symphony:{AX:{directed:true, weight:5}},
-		AX:{Hyperion:{directed:true, weight:5}}
-	}
-}//end AXConnections
-
-var BizTalkConnections = {
-	nodes:{
-		BizTalk360
-	},
-	edges:{
-		BizTalk:{BizTalk360:{directed:true, weight:5}}
-	}
-
-}//end BizTalkConnections
-
-var BizTalk360Connections = {
-	nodes:{
-
-	},
-	edges:{
-
-	}
-
-}//end BizTalk360Connections
-
-var CofaxConnections = {
-	nodes:{
-		AX,
-		PeopleSoft
-	},
-	edges:{
-		Cofax:{
-			AX:{directed:true, weight:5},
-			PeopleSoft:{directed:true, weight:5}
+		edges:{
+			Cofax:{AX:{directed:true, weight:5}},
+			PeopleSoft:{AX:{directed:true, weight:5}},
+			GSMS:{AX:{directed:true, weight:5}},
+			Vision:{AX:{directed:true, weight:5}},
+			Symphony:{AX:{directed:true, weight:5}},
+			AX:{Hyperion:{directed:true, weight:5}}
 		}
-	}
+	},//end AXConnections
 
-}//end CofaxConnections
-
-var CorepointConnections = {
-	nodes:{
-		BizTalk
-	},
-	edges:{
-		Corepoint:{BizTalk:{directed:true, weight:5}}
-	}
-
-}//end CorepointConnections
-
-var GSMSConnections = {
-	nodes:{
-					
-	},
-	edges:{
-					
-	}
-}
-
-var HyperionConnections = {
-	nodes:{
-		AX,
-		SalesForce
-	},
-	edges:{
-		AX:{Hyperion:{directed:true, weight:5}},
-		SalesForce:{Hyperion:{directed:true, weight:5}}
-	}
-
-}//end HyperionConnections
-
-var PeopleSoftConnections = {
-	nodes:{
-		AX,
-		Cofax
-	},
-	edges:{
-		PeopleSoft:{AX:{directed:true, weight:5}},
-		Cofax:{PeopleSoft:{directed:true, weight:5}}
-	}
-
-}//end PeopleSoftConnections
-
-var SalesForceConnections = {
-	nodes:{
-		Hyperion
-	},
-	edges:{
-		SalesForce:{Hyperion:{directed:true, weight:5}}
-	}
-
-}//end SalesForceConnections
-
-var SymphonyConnections = {
-	nodes:{
-
-	},
-	edges:{
-
-	}
-
-}//end SymphonyConnections
-
-var VisionConnections = {
-	nodes:{
-		Corepoint,
-		AX
-	},
-	edges:{
-		Vision:{
-			Corepoint:{directed:true, weight:5},
-			AX:{directed:true, weight:5}
+	BizTalkConnections : {
+		nodes:{
+			BizTalk360
+		},
+		edges:{
+			BizTalk:{BizTalk360:{directed:true, weight:5}}
 		}
-	}
 
-}//end VisionConnections
+	},//end BizTalkConnections
 
+	BizTalk360Connections : {
+		nodes:{
+
+		},
+		edges:{
+
+		}
+
+	},//end BizTalk360Connections
+
+	CofaxConnections : {
+		nodes:{
+			AX,
+			PeopleSoft
+		},
+		edges:{
+			Cofax:{
+				AX:{directed:true, weight:5},
+				PeopleSoft:{directed:true, weight:5}
+			}
+		}
+
+	},//end CofaxConnections
+
+	CorepointConnections : {
+		nodes:{
+			BizTalk
+		},
+		edges:{
+			Corepoint:{BizTalk:{directed:true, weight:5}}
+		}
+
+	},//end CorepointConnections
+
+	GSMSConnections : {
+		nodes:{
+					
+		},
+		edges:{
+					
+		}
+	},//end GSMSConnections
+
+	HyperionConnections : {
+		nodes:{
+			AX,
+			SalesForce
+		},
+		edges:{
+			AX:{Hyperion:{directed:true, weight:5}},
+			SalesForce:{Hyperion:{directed:true, weight:5}}
+		}
+
+	},//end HyperionConnections
+
+	PeopleSoftConnections : {
+		nodes:{
+			AX,
+			Cofax
+		},
+		edges:{
+			PeopleSoft:{AX:{directed:true, weight:5}},
+			Cofax:{PeopleSoft:{directed:true, weight:5}}
+		}
+
+	},//end PeopleSoftConnections
+
+	SalesForceConnections : {
+		nodes:{
+			Hyperion
+		},
+		edges:{
+			SalesForce:{Hyperion:{directed:true, weight:5}}
+		}
+
+	},//end SalesForceConnections
+
+	SymphonyConnections : {
+		nodes:{
+
+		},
+		edges:{
+
+		}
+
+	},//end SymphonyConnections
+
+	VisionConnections : {
+		nodes:{
+			Corepoint,
+			AX
+		},
+		edges:{
+			Vision:{
+				Corepoint:{directed:true, weight:5},
+				AX:{directed:true, weight:5}
+			}
+		}
+
+	}//end VisionConnections
+
+}//end Connections
 var AXServers = {
 	nodes:{
 		a :{'color':'green', 'label':'a'}
@@ -173,37 +175,37 @@ var AXServers = {
 function expandNode(nName){
 	switch(nName){
 		case "AX":
-			sys.graft(AXConnections);
+			sys.graft(Connections.AXConnections);
 			break;
 		case "BizTalk":
-			sys.graft(BizTalkConnections);
+			sys.graft(Connections.BizTalkConnections);
 			break;
 		case "BizTalk360":
-			sys.graft(BizTalk360Connections);
+			sys.graft(Connections.BizTalk360Connections);
 			break;
 		case "Cofax":
-			sys.graft(CofaxConnections);
+			sys.graft(Connections.CofaxConnections);
 			break;
 		case "Corepoint":
-			sys.graft(CorepointConnections);
+			sys.graft(Connections.CorepointConnections);
 			break;  
 		case "GSMS":
-			sys.graft(GSMSConnections);
+			sys.graft(Connections.GSMSConnections);
 			break;
 		case "Hyperion":
-			sys.graft(HyperionConnections);
+			sys.graft(Connections.HyperionConnections);
 			break;
 		case "PeopleSoft":
-			sys.graft(PeopleSoftConnections);
+			sys.graft(Connections.PeopleSoftConnections);
 			break; 
 		case "SalesForce":
-			sys.graft(SalesForceConnections);
+			sys.graft(Connections.SalesForceConnections);
 			break;
 		case "Symphony":
-			sys.graft(SymphonyConnections);
+			sys.graft(Connections.SymphonyConnections);
 			break;   
 		case "Vision":
-			sys.graft(VisionConnections);
+			sys.graft(Connections.VisionConnections);
 			break;
 	}
 }
@@ -224,7 +226,7 @@ function displayServer(){
 			sys.graft(AXServers);
 			break;
 		case "expand":
-			expand();
+			expandAll();
 			break;
 		default:
 			var outputText = document.getElementById("output");
@@ -244,6 +246,6 @@ function clearServer(){
 	}
 }
 
-function expand(){
-
+function expandAll(){
+	
 }
