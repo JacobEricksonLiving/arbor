@@ -1,4 +1,12 @@
-//list of all applicationnodes in the system.
+/*
+application_data.js
+
+Holds the information on each applicationNode in the system as well as their connections
+Also contains method used to expand specific applicationNodes
+*/
+
+
+//List of all the applicationNodes in the system
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'server':'N/A', 
 			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
@@ -25,7 +33,7 @@ var applicationNodes = {
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'SalesForce', 'base':true, 'server':'N/A',
 			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
-//applicationConnections
+//List of the connections for each applicationNode in the system.
 var applicationConnections = {
 	AXConnections : {
 		nodes:{
@@ -176,7 +184,7 @@ var applicationConnections = {
 
 }//end applicationsConnections
 
-//switch case for which applicationNode edges are to be restored
+//switch case for which applicationNode connections should be graphed
 function expandApplicationNode(nName){
 	switch(nName){
 		case "AX":
