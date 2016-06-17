@@ -26,7 +26,7 @@ var Nodes = {
 				'description':''},
 	Symphony : {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 			 'description':'Dinning Services applications. Handles dinning revenue.'},
-	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'server':'N/A',
+	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'SalesForce', 'base':true, 'server':'N/A',
 			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 //NodeConnections
@@ -140,10 +140,14 @@ var Connections = {
 
 	SalesForceConnections : {
 		nodes:{
-			Hyperion:Nodes.Hyperion
+			Hyperion:Nodes.Hyperion,
+			Vision:Nodes.Vision
 		},
 		edges:{
-			SalesForce:{Hyperion:{directed:true, weight:5}}
+			SalesForce:{
+				Hyperion:{directed:true, weight:5},
+				Vision:{directed:true, weight:5}
+			}
 		}
 
 	},//end SalesForceConnections
@@ -161,13 +165,15 @@ var Connections = {
 	VisionConnections : {
 		nodes:{
 			AX:Nodes.AX,
-			Corepoint:Nodes.Corepoint
+			Corepoint:Nodes.Corepoint,
+			SalesForce:Nodes.SalesForce
 		},
 		edges:{
 			Vision:{
 				AX:{directed:true, weight:5},
 				Corepoint:{directed:true, weight:5}
-			}
+			},
+			SalesForce:{Vision:{directed:true, weight:5}}
 		}
 
 	}//end VisionConnections
