@@ -24,12 +24,14 @@ var applicationNodes = {
 			 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
 			'description':'Used to Exctract financial data for high level purposes.'},
+	NetMenu : {'color':'blue','shape':'dot', 'label':'NetMenu', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
+			'description':'Note: not yet in use. Allows a chef to create a menu item then directly communicate that information Simphony'},
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 				 'description':''},
 	SalesForce : {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
 				'description':''},
-	Symphony : {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
-			 'description':'Dinning Services applications. Handles dinning revenue.'},
+	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+			 'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors.'},
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'SalesForce', 'base':true, 'server':'N/A',
 			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
@@ -41,7 +43,7 @@ var applicationConnections = {
 			PeopleSoft:applicationNodes.PeopleSoft,
 			GSMS:applicationNodes.GSMS,
 			Vision:applicationNodes.Vision,
-			Symphony:applicationNodes.Symphony,
+			Simphony:applicationNodes.Simphony,
 			Hyperion:applicationNodes.Hyperion
 		},
 
@@ -50,7 +52,7 @@ var applicationConnections = {
 			PeopleSoft:{AX:{directed:true, weight:5}},
 			GSMS:{AX:{directed:true, weight:5}},
 			Vision:{AX:{directed:true, weight:5}},
-			Symphony:{AX:{directed:true, weight:5}},
+			Simphony:{AX:{directed:true, weight:5}},
 			AX:{Hyperion:{directed:true, weight:5}}
 		}
 	},//end AXConnections
@@ -130,6 +132,16 @@ var applicationConnections = {
 
 	},//end HyperionConnections
 
+	NetMenuConnections: {
+		nodes:{
+			Simphony:applicationNodes.Simphony
+		},
+		edges:{
+			Simphony:{NetMenu:{directed:true, weight:5}},
+			NetMenu:{Simphony:{directed:true, weight:5}}
+		}
+	},//end NetMenuConnections
+
 	PeopleSoftConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
@@ -156,15 +168,16 @@ var applicationConnections = {
 
 	},//end SalesForceConnections
 
-	SymphonyConnections : {
+	SimphonyConnections : {
 		nodes:{
-
+			NetMenu:applicationNodes.NetMenu
 		},
 		edges:{
-
+			Simphony:{NetMenu:{directed:true, weight:5}},
+			NetMenu:{Simphony:{directed:true, weight:5}}
 		}
 
-	},//end SymphonyConnections
+	},//end SimphonyConnections
 
 	VisionConnections : {
 		nodes:{
@@ -212,14 +225,17 @@ function expandApplicationNode(nName){
 		case "Hyperion":
 			sys.graft(applicationConnections.HyperionConnections);
 			break;
+		case "NetMenu":
+			sys.graft(applicationConnections.NetMenuConnections);
+			break;
 		case "PeopleSoft":
 			sys.graft(applicationConnections.PeopleSoftConnections);
 			break; 
 		case "SalesForce":
 			sys.graft(applicationConnections.SalesForceConnections);
 			break;
-		case "Symphony":
-			sys.graft(applicationConnections.SymphonyConnections);
+		case "Simphony":
+			sys.graft(applicationConnections.SimphonyConnections);
 			break;   
 		case "Vision":
 			sys.graft(applicationConnections.VisionConnections);
