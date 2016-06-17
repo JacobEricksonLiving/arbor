@@ -25,11 +25,11 @@
 			<div id="info" style="width:100%; height: 25%;"></div>
 			<div id="input_output" style="width:100%; height:50%;">
 				<input id="input" type="text" style="width:100%; height:25%" placeholder="Enter a node's name to reveal it's server(s)"></input>
-				<div id="output" style="width:100%; height:75%;"> To generate the servers for a specific node type the node's name then click the enter button.<br />To delete a node's servers enter the node's name then click the remove button.<br/><br/>ADDITIONAL COMMANDS<br/>Expand Button Commands:<br/> -expand all<br/> Remove Button Commands:<br/> -remove all</div>
+				<div id="output" style="width:100%; height:75%;"> To generate the servers for a specific node type the node's name then click the enter button.<br />To delete a node's servers enter the node's name then click the remove button.<br/><br/>ADDITIONAL COMMANDS<br/>Expand Button Commands:<br/> -expand all applications<br/> Remove Button Commands:<br/> -remove all applications</div>
 			</div>
 			
-			<button name="enter_button" onclick="displayServer()" type="button">Expand</button>
-			<button name="clear_button" onclick="clearServer()" type="button">Remove</button>
+			<button name="enter_button" onclick="displayNodes()" type="button">Expand</button>
+			<button name="clear_button" onclick="clearNodes()" type="button">Remove</button>
 		</div>
 		<script language="javascript" type="text/javascript">
 			var sys = arbor.ParticleSystem(500, 500, 1);
