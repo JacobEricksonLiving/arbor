@@ -30,7 +30,7 @@ var Nodes = {
 			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 //NodeConnections
-var Connections = {
+var applicationConnections = {
 	AXConnections : {
 		nodes:{
 			Cofax : Nodes.Cofax,
@@ -178,7 +178,7 @@ var Connections = {
 
 	}//end VisionConnections
 
-}//end Connections
+}//end applicationsConnections
 var AXServers = {
 	nodes:{
 		a :{'color':'green', 'label':'a'}
@@ -194,41 +194,41 @@ var AXServers = {
 function expandNode(nName){
 	switch(nName){
 		case "AX":
-			sys.graft(Connections.AXConnections);
+			sys.graft(applicationConnections.AXConnections);
 			break;
 		case "BizTalk":
-			sys.graft(Connections.BizTalkConnections);
+			sys.graft(applicationConnections.BizTalkConnections);
 			break;
 		case "BizTalk360":
-			sys.graft(Connections.BizTalk360Connections);
+			sys.graft(applicationConnections.BizTalk360Connections);
 			break;
 		case "Centricity":
-			sys.graft(Connections.CentricityConnections);
+			sys.graft(applicationConnections.CentricityConnections);
 			sys.addNode('Centricity', Nodes.Centricity);//note this is used since Centricty has no connections
 			break;
 		case "Cofax":
-			sys.graft(Connections.CofaxConnections);
+			sys.graft(applicationConnections.CofaxConnections);
 			break;
 		case "Corepoint":
-			sys.graft(Connections.CorepointConnections);
+			sys.graft(applicationConnections.CorepointConnections);
 			break;  
 		case "GSMS":
-			sys.graft(Connections.GSMSConnections);
+			sys.graft(applicationConnections.GSMSConnections);
 			break;
 		case "Hyperion":
-			sys.graft(Connections.HyperionConnections);
+			sys.graft(applicationConnections.HyperionConnections);
 			break;
 		case "PeopleSoft":
-			sys.graft(Connections.PeopleSoftConnections);
+			sys.graft(applicationConnections.PeopleSoftConnections);
 			break; 
 		case "SalesForce":
-			sys.graft(Connections.SalesForceConnections);
+			sys.graft(applicationConnections.SalesForceConnections);
 			break;
 		case "Symphony":
-			sys.graft(Connections.SymphonyConnections);
+			sys.graft(applicationConnections.SymphonyConnections);
 			break;   
 		case "Vision":
-			sys.graft(Connections.VisionConnections);
+			sys.graft(applicationConnections.VisionConnections);
 			break;
 	}
 }
