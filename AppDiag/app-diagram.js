@@ -2,7 +2,7 @@
 //Holds the data for all nodes in the system.
 //Also Holds utility functions used by renderer.js
 
-//list of all nodes in the system.
+//list of all applicationnodes in the system.
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'server':'N/A', 
 			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
@@ -29,7 +29,7 @@ var applicationNodes = {
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'SalesForce', 'base':true, 'server':'N/A',
 			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
-//NodeConnections
+//applicationConnections
 var applicationConnections = {
 	AXConnections : {
 		nodes:{
@@ -190,8 +190,8 @@ var AXServers = {
 
 
 
-//switch case for which node edges are to be restored
-function expandNode(nName){
+//switch case for which applicationNode edges are to be restored
+function expandApplicationNode(nName){
 	switch(nName){
 		case "AX":
 			sys.graft(applicationConnections.AXConnections);
@@ -231,7 +231,7 @@ function expandNode(nName){
 			sys.graft(applicationConnections.VisionConnections);
 			break;
 	}
-}
+}//end expandApplicationNode
 
 function clip(nName1){//removes edges of a node but not the node
 	sys.pruneNode(nName1);
@@ -274,7 +274,7 @@ function clearNodes(){
 
 function expandAllApplications(){
 	for(node in applicationNodes){
-		expandNode(node);
+		expandApplicationNode(node);
 	}
 }
 function removeAllApplications(){
