@@ -148,7 +148,7 @@
                var clickedNode = dragged.node;
                if(!clickedNode.data.expanded){//if it is not expanded
                   clickedNode.data.expanded = true;
-                  expandNode(clickedNode.name);//expands node
+                  expandApplicationNode(clickedNode.name);//expands node
 
                } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
