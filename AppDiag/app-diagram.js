@@ -248,5 +248,7 @@ function clearServer(){
 }
 
 function expandAll(){
-	
+	for(node in Nodes){
+		expandNode(node);
+	}
 }
