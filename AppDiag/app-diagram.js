@@ -252,9 +252,7 @@ function displayServer(){
 			expandAll();
 			break;
 		default:
-			var outputText = document.getElementById("output");
-			outputText.innerHTML = "";
-			outputText.innerHTML += "Pleas enter correct command.";
+			alert("Please enter correct command");
 	}
 }  
 
@@ -268,10 +266,9 @@ function clearServer(){
 			}
 		case "remove all":
 			removeAll();
+			break;
 		default:
-			var outputText = document.getElementById("output");
-			outputText.innerHTML = "";
-			outputText.innerHTML += "Pleas enter correct command.";
+			alert("Please enter correct command");
 	}
 }
 
