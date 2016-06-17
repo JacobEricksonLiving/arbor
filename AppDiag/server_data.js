@@ -19,5 +19,23 @@ var serverConnections = {
 		edges:{
 			AX:{ AX_a:{weight:2}}
 		}
+	},
+
+	BizTalkServers :{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	BizTalk360Connections:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
 	}
 }//end serverConnections
