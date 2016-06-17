@@ -10,6 +10,8 @@ var Nodes = {
 			 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'},
 	BizTalk360 : {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'server':'N/A',
 				 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
+	Centricity : {'color':'blue','shape':'dot', 'label':'Centricity', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
+			 'description':'Keeps track of medical data for inhouse hospitals. Going to change to new application soon'},
 	Cofax : {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 			 'description':'Converts documents into usable computer images.'},
 	Corepoint : {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 'server':'N/A',
@@ -25,7 +27,7 @@ var Nodes = {
 	Symphony : {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 			 'description':'Dinning Services applications. Handles dinning revenue.'},
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'server':'N/A',
-			 'description':'Census Software. Handles new resident information.'}
+			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 //NodeConnections
 var Connections = {
@@ -68,6 +70,16 @@ var Connections = {
 		}
 
 	},//end BizTalk360Connections
+
+	CentricityConnections : {
+		nodes:{
+
+		},
+		edges:{
+
+		}
+
+	},//end CentricityConnections
 
 	CofaxConnections : {
 		nodes:{
@@ -183,6 +195,10 @@ function expandNode(nName){
 			break;
 		case "BizTalk360":
 			sys.graft(Connections.BizTalk360Connections);
+			break;
+		case "Centricity":
+			sys.graft(Connections.CentricityConnections);
+			sys.addNode('Centricity', Nodes.Centricity);//note this is used since Centricty has no connections
 			break;
 		case "Cofax":
 			sys.graft(Connections.CofaxConnections);
