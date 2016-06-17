@@ -11,7 +11,7 @@ function displayNodes(){
 	var nName = inputText.value;
 	switch(nName){
 		case "AX":
-			sys.graft(AXServers);
+			sys.graft(serverConnections.AXServers);
 			break;
 		case "expand all applications":
 			expandAllApplications();
@@ -26,7 +26,8 @@ function clearNodes(){
 	var nName = inputText.value;
 	switch(nName){
 		case "AX":
-			for(node in AXServers.nodes){
+			for(node in serverConnections.AXServers.nodes){
+				console.log(node);
 				sys.pruneNode(node);
 			}
 			break;
