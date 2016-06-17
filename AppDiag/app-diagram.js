@@ -3,7 +3,7 @@
 //Also Holds utility functions used by renderer.js
 
 //list of all nodes in the system.
-var Nodes = {
+var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'server':'N/A', 
 			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'server':'N/A',
@@ -33,12 +33,12 @@ var Nodes = {
 var applicationConnections = {
 	AXConnections : {
 		nodes:{
-			Cofax : Nodes.Cofax,
-			PeopleSoft:Nodes.PeopleSoft,
-			GSMS:Nodes.GSMS,
-			Vision:Nodes.Vision,
-			Symphony:Nodes.Symphony,
-			Hyperion:Nodes.Hyperion
+			Cofax : applicationNodes.Cofax,
+			PeopleSoft:applicationNodes.PeopleSoft,
+			GSMS:applicationNodes.GSMS,
+			Vision:applicationNodes.Vision,
+			Symphony:applicationNodes.Symphony,
+			Hyperion:applicationNodes.Hyperion
 		},
 
 		edges:{
@@ -53,7 +53,7 @@ var applicationConnections = {
 
 	BizTalkConnections : {
 		nodes:{
-			BizTalk360:Nodes.BizTalk360
+			BizTalk360:applicationNodes.BizTalk360
 		},
 		edges:{
 			BizTalk:{BizTalk360:{directed:true, weight:5}}
@@ -83,8 +83,8 @@ var applicationConnections = {
 
 	CofaxConnections : {
 		nodes:{
-			AX:Nodes.AX,
-			PeopleSoft:Nodes.PeopleSoft
+			AX:applicationNodes.AX,
+			PeopleSoft:applicationNodes.PeopleSoft
 		},
 		edges:{
 			Cofax:{
@@ -97,7 +97,7 @@ var applicationConnections = {
 
 	CorepointConnections : {
 		nodes:{
-			BizTalk:Nodes.BizTalk
+			BizTalk:applicationNodes.BizTalk
 		},
 		edges:{
 			Corepoint:{BizTalk:{directed:true, weight:5}}
@@ -116,8 +116,8 @@ var applicationConnections = {
 
 	HyperionConnections : {
 		nodes:{
-			AX:Nodes.AX,
-			SalesForce:Nodes.SalesForce
+			AX:applicationNodes.AX,
+			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			AX:{Hyperion:{directed:true, weight:5}},
@@ -128,8 +128,8 @@ var applicationConnections = {
 
 	PeopleSoftConnections : {
 		nodes:{
-			AX:Nodes.AX,
-			Cofax:Nodes.Cofax
+			AX:applicationNodes.AX,
+			Cofax:applicationNodes.Cofax
 		},
 		edges:{
 			PeopleSoft:{AX:{directed:true, weight:5}},
@@ -140,8 +140,8 @@ var applicationConnections = {
 
 	SalesForceConnections : {
 		nodes:{
-			Hyperion:Nodes.Hyperion,
-			Vision:Nodes.Vision
+			Hyperion:applicationNodes.Hyperion,
+			Vision:applicationNodes.Vision
 		},
 		edges:{
 			SalesForce:{
@@ -164,9 +164,9 @@ var applicationConnections = {
 
 	VisionConnections : {
 		nodes:{
-			AX:Nodes.AX,
-			Corepoint:Nodes.Corepoint,
-			SalesForce:Nodes.SalesForce
+			AX:applicationNodes.AX,
+			Corepoint:applicationNodes.Corepoint,
+			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			Vision:{
@@ -204,7 +204,7 @@ function expandNode(nName){
 			break;
 		case "Centricity":
 			sys.graft(applicationConnections.CentricityConnections);
-			sys.addNode('Centricity', Nodes.Centricity);//note this is used since Centricty has no connections
+			sys.addNode('Centricity', applicationNodes.Centricity);//note this is used since Centricty has no connections
 			break;
 		case "Cofax":
 			sys.graft(applicationConnections.CofaxConnections);
@@ -261,8 +261,8 @@ function clearNodes(){
 	var nName = inputText.value;
 	switch(nName){
 		case "AX":
-			for(var nodes in AXServers.nodes){
-				sys.pruneNode(nodes);
+			for(node in AXServers.nodes){
+				sys.pruneNode(node);
 			}
 		case "remove all applications":
 			removeAllApplications();
@@ -273,15 +273,15 @@ function clearNodes(){
 }
 
 function expandAllApplications(){
-	for(node in Nodes){
+	for(node in applicationNodes){
 		expandNode(node);
 	}
 }
 function removeAllApplications(){
 	expandAllApplications();//fixes unexpected behavior where system is not completely expanded yet
-	for(node in Nodes){
+	for(node in applicationNodes){
 		sys.pruneNode(node);		
 	}
-	sys.addNode('AX', Nodes.AX);//since this are removed with the for loop add back it
-	sys.addNode('Vision', Nodes.Vision);
+	sys.addNode('AX', applicationNodes.AX);//since this are removed with the for loop add back it
+	sys.addNode('Vision', applicationNodes.Vision);
 }
