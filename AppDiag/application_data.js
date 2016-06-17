@@ -218,18 +218,3 @@ function expandApplicationNode(nName){
 			break;
 	}
 }//end expandApplicationNode
-
-function expandAllApplications(){
-	for(node in applicationNodes){
-		expandApplicationNode(node);
-	}
-}
-
-function removeAllApplications(){
-	expandAllApplications();//fixes unexpected behavior where system is not completely expanded yet
-	for(node in applicationNodes){
-		sys.pruneNode(node);		
-	}
-	sys.addNode('AX', applicationNodes.AX);//since this are removed with the for loop add back it
-	sys.addNode('Vision', applicationNodes.Vision);
-}
