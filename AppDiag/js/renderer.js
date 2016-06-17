@@ -232,6 +232,7 @@
           div.innerHTML += "NAME: " + nearest.node.name + "<br /><br />";
           div.innerHTML += "DESCRIPTION: " + nearest.node.data.description + "<br /><br />";
           div.innerHTML += "SERVERS: " + nearest.node.data.server +"<br /><br />";
+          console.log(Nodes.AX);
           return false;
         });
 

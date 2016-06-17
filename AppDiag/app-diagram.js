@@ -3,39 +3,40 @@
 //Also Holds utility functions used by renderer.js
 
 //list of all nodes in the system.
-var AX = {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'server':'N/A', 
+var Nodes = {
+	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'parent':'Hyperion', 'base':true, 'server':'N/A', 
 			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
-BizTalk = {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'server':'N/A',
-			 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'};
-BizTalk360 = {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'server':'N/A',
+	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'parent':'Corepoint', 'base':false, 'server':'N/A',
+			 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'},
+	BizTalk360 : {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'parent':'BizTalk', 'base':false, 'server':'N/A',
 				 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
-Cofax = {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+	Cofax : {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 			 'description':'Converts documents into usable computer images.'},
-Corepoint = {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 'server':'N/A',
+	Corepoint : {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'parent':'Vision', 'base':false, 'server':'N/A',
 				'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
-GSMS = {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 			 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
-Hyperion = {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
+	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
 			'description':'Used to Exctract financial data for high level purposes.'},
-PeopleSoft = {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 				 'description':''},
-SalesForce = {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
+	SalesForce : {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 'parent':'null', 'base':false, 'server':'N/A',
 				'description':''},
-Symphony = {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
+	Symphony : {'color':'blue','shape':'dot', 'label':'Symphony', 'expanded':false, 'parent':'AX', 'base':false, 'server':'N/A',
 			 'description':'Dinning Services applications. Handles dinning revenue.'},
-Vision = {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'server':'N/A',
+	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'parent':'AX', 'base':true, 'server':'N/A',
 			 'description':'Census Software. Handles new resident information.'}
-
+}
 //NodeConnections
 var Connections = {
 	AXConnections : {
 		nodes:{
-			Cofax,
-			PeopleSoft,
-			GSMS,
-			Vision,
-			Symphony,
-			Hyperion
+			Cofax : Nodes.Cofax,
+			PeopleSoft:Nodes.PeopleSoft,
+			GSMS:Nodes.GSMS,
+			Vision:Nodes.Vision,
+			Symphony:Nodes.Symphony,
+			Hyperion:Nodes.Hyperion
 		},
 
 		edges:{
@@ -50,7 +51,7 @@ var Connections = {
 
 	BizTalkConnections : {
 		nodes:{
-			BizTalk360
+			BizTalk360:Nodes.BizTalk360
 		},
 		edges:{
 			BizTalk:{BizTalk360:{directed:true, weight:5}}
@@ -70,8 +71,8 @@ var Connections = {
 
 	CofaxConnections : {
 		nodes:{
-			AX,
-			PeopleSoft
+			AX:Nodes.AX,
+			PeopleSoft:Nodes.PeopleSoft
 		},
 		edges:{
 			Cofax:{
@@ -84,7 +85,7 @@ var Connections = {
 
 	CorepointConnections : {
 		nodes:{
-			BizTalk
+			BizTalk:Nodes.BizTalk
 		},
 		edges:{
 			Corepoint:{BizTalk:{directed:true, weight:5}}
@@ -103,8 +104,8 @@ var Connections = {
 
 	HyperionConnections : {
 		nodes:{
-			AX,
-			SalesForce
+			AX:Nodes.AX,
+			SalesForce:Nodes.SalesForce
 		},
 		edges:{
 			AX:{Hyperion:{directed:true, weight:5}},
@@ -115,8 +116,8 @@ var Connections = {
 
 	PeopleSoftConnections : {
 		nodes:{
-			AX,
-			Cofax
+			AX:Nodes.AX,
+			Cofax:Nodes.Cofax
 		},
 		edges:{
 			PeopleSoft:{AX:{directed:true, weight:5}},
@@ -127,7 +128,7 @@ var Connections = {
 
 	SalesForceConnections : {
 		nodes:{
-			Hyperion
+			Hyperion:Nodes.Hyperion
 		},
 		edges:{
 			SalesForce:{Hyperion:{directed:true, weight:5}}
@@ -147,13 +148,13 @@ var Connections = {
 
 	VisionConnections : {
 		nodes:{
-			Corepoint,
-			AX
+			AX:Nodes.AX,
+			Corepoint:Nodes.Corepoint
 		},
 		edges:{
 			Vision:{
-				Corepoint:{directed:true, weight:5},
-				AX:{directed:true, weight:5}
+				AX:{directed:true, weight:5},
+				Corepoint:{directed:true, weight:5}
 			}
 		}
 
