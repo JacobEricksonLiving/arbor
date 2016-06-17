@@ -241,22 +241,22 @@ function clip(nName1){//removes edges of a node but not the node
     });
 } 
 
-function displayServer(){
+function displayNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
 		case "AX":
 			sys.graft(AXServers);
 			break;
-		case "expand all":
-			expandAll();
+		case "expand all applications":
+			expandAllApplications();
 			break;
 		default:
 			alert("Please enter correct command");
 	}
 }  
 
-function clearServer(){
+function clearNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
@@ -264,21 +264,21 @@ function clearServer(){
 			for(var nodes in AXServers.nodes){
 				sys.pruneNode(nodes);
 			}
-		case "remove all":
-			removeAll();
+		case "remove all applications":
+			removeAllApplications();
 			break;
 		default:
 			alert("Please enter correct command");
 	}
 }
 
-function expandAll(){
+function expandAllApplications(){
 	for(node in Nodes){
 		expandNode(node);
 	}
 }
-function removeAll(){
-	expandAll();//fixes unexpected behavior where system is not completely expanded yet
+function removeAllApplications(){
+	expandAllApplications();//fixes unexpected behavior where system is not completely expanded yet
 	for(node in Nodes){
 		sys.pruneNode(node);		
 	}
