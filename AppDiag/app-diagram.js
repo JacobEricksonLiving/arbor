@@ -226,13 +226,13 @@ function displayServer(){
 		case "AX":
 			sys.graft(AXServers);
 			break;
-		case "expand":
+		case "expand all":
 			expandAll();
 			break;
 		default:
 			var outputText = document.getElementById("output");
 			outputText.innerHTML = "";
-			outputText.innerHTML += "Pleas enter correct node name.";
+			outputText.innerHTML += "Pleas enter correct command.";
 	}
 }  
 
@@ -244,6 +244,12 @@ function clearServer(){
 			for(var nodes in AXServers.nodes){
 				sys.pruneNode(nodes);
 			}
+		case "remove all":
+			removeAll();
+		default:
+			var outputText = document.getElementById("output");
+			outputText.innerHTML = "";
+			outputText.innerHTML += "Pleas enter correct command.";
 	}
 }
 
@@ -251,4 +257,12 @@ function expandAll(){
 	for(node in Nodes){
 		expandNode(node);
 	}
+}
+function removeAll(){
+	expandAll();//fixes unexpected behavior where system is not completely expanded yet
+	for(node in Nodes){
+		sys.pruneNode(node);		
+	}
+	sys.addNode('AX', Nodes.AX);//since this are removed with the for loop add back it
+	sys.addNode('Vision', Nodes.Vision);
 }
