@@ -56,7 +56,7 @@ var serverNodes ={
 	},
 
 	SimphonyServers:{
-
+		Simphony_md1_ap64:{'color':'green', 'label':'md1-ap64'}
 	},
 
 	VisionServers:{
@@ -67,13 +67,33 @@ var serverNodes ={
 //List of the connections for each serverNode in the system.
 var serverConnections = {
 	AXServers : {
-		nodes:{
-			AX_a:serverNodes.AXServers.AX_a
+		development:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		},
-		edges:{
-			AX:{ AX_a:{weight:2}}
+
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+				AX_a:serverNodes.AXServers.AX_a
+			},
+			edges:{
+				AX:{ AX_a:{weight:2}}
+			}
 		}
-	},
+	},//end AXServers
 
 	BizTalkServers :{
 		nodes:{
@@ -175,11 +195,31 @@ var serverConnections = {
 	},
 
 	SimphonyServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+				Simphony_md1_ap64:serverNodes.SimphonyServers.Simphony_md1_ap64
+			},
+			edges:{
+				Simphony:{Simphony_md1_ap64:{weight:2}}
+			}
 		}
 	},
 
