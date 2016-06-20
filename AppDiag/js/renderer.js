@@ -163,7 +163,7 @@
                   //if it is not a base node
                   if(!clickedNode.data.base){
                     sys.eachNode(function(node, pt){
-                      if(node.data.parent === clickedNode.name || clickedNode.data.parent === node.name){//if node is clickedNode's child or parent
+                      if(node.data.to === clickedNode.name || clickedNode.data.to === node.name){//if node is clickedNode's child or to
                         node.data.expanded = false;
                       }              
                     });
@@ -172,15 +172,15 @@
 
                   //if it is a base node
                   if(clickedNode.data.base){
-                    sys.prune(function(node, from, to){//prune each node if it is child/parent of clickedNode and if node is not a base node
-                      if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){//if node is clickedNodes's child or parent
+                    sys.prune(function(node, from, to){//prune each node if it is child/to of clickedNode and if node is not a base node
+                      if(node.data.to === clickedNode.name || node.name === clickedNode.data.to){//if node is clickedNodes's child or to
                         if(!node.data.base){//if node isnt a base node
                           return true;
                         }
                       }
                     });
-                    sys.eachNode(function(node, pt){//each node if it is child/parent of clickedNode and both node and clicked are base then clip(clicked)
-                      if(node.data.parent === clickedNode.name || node.name === clickedNode.data.parent){
+                    sys.eachNode(function(node, pt){//each node if it is child/to of clickedNode and both node and clicked are base then clip(clicked)
+                      if(node.data.to === clickedNode.name || node.name === clickedNode.data.to){
                         if(node.data.base && clickedNode.data.base){
                           node.data.expanded = false;
                           clip(clickedNode);
