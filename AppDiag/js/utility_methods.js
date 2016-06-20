@@ -1,4 +1,4 @@
-function clip(nName1){//removes edges of a node but not the node
+function clipNode(nName1){//removes edges of a node but not the node
 	sys.pruneNode(nName1);
     var temp = sys.addNode(nName1.name, {'color':nName1.data.color, 'shape':nName1.data.shape, 
     	'label':nName1.data.label, 'expanded':nName1.data.expanded,
@@ -517,4 +517,14 @@ function removeAllApplications(){
 	}
 	sys.addNode('AX', applicationNodes.AX);//since this are removed with the for loop add back it
 	sys.addNode('Vision', applicationNodes.Vision);
+}
+function clipBranch(nName){
+	sys.eachNode(function(node, pt){
+		for(i=0; i<nName.data.from.length; ++i){
+			if(nName.from[i]===node.name){
+				clipBranch(node);
+				sys.pruneNode(node);
+			}
+		}
+	});
 }
