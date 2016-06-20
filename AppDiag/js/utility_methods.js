@@ -10,6 +10,10 @@ function displayNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
+
+		case "AX":
+			expandApplicationNode("AX");
+			break;
 		case "AX development":
 			sys.graft(serverConnections.AXServers.development);
 			break;
@@ -20,6 +24,10 @@ function displayNodes(){
 			sys.graft(serverConnections.AXServers.production);
 			break;
 
+
+		case "BizTalk":
+			expandApplicationNode("BizTalk");
+			break;
 		case "BizTalk development":
 			sys.graft(serverConnections.BizTalkServers.development);
 			break;
@@ -30,6 +38,10 @@ function displayNodes(){
 			sys.graft(serverConnections.BizTalkServers.production);
 			break;
 
+
+		case "BizTalk360":
+			expandApplicationNode("BizTalk360");
+			break;
 		case "BizTalk360 development":
 			sys.graft(serverConnections.BizTalk360Servers.development);
 			break;
@@ -40,6 +52,9 @@ function displayNodes(){
 			sys.graft(serverConnections.BizTalk360Servers.production);
 			break;
 
+
+		case "Centricity":
+			expandApplicationNode("Centricity");
 		case "Centricity development":
 			sys.graft(serverConnections.CentricityServers.development);
 			break;
@@ -50,6 +65,10 @@ function displayNodes(){
 			sys.graft(serverConnections.CentricityServers.production);
 			break;
 
+
+		case "Cofax":
+			expandApplicationNode("Cofax");
+			break;
 		case "Cofax development":
 			sys.graft(serverConnections.CofaxServers.development);
 			break;
@@ -60,6 +79,10 @@ function displayNodes(){
 			sys.graft(serverConnections.CofaxServers.production);
 			break;
 
+
+		case "Corepoint":
+			expandApplicationNode("Corepoint");
+			break;
 		case "Corepoint development":
 			sys.graft(serverConnections.CorepointServers.development);
 			break;
@@ -70,6 +93,10 @@ function displayNodes(){
 			sys.graft(serverConnections.CorepointServers.production);
 			break;
 
+
+		case "GSMS":
+			expandApplicationNode("GSMS");
+			break;
 		case "GSMS development":
 			sys.graft(serverConnections.GSMSServers.development);
 			break;
@@ -80,6 +107,10 @@ function displayNodes(){
 			sys.graft(serverConnections.GSMSServers.production);
 			break;
 
+
+		case "Hyperion":
+			expandApplicationNode("Hyperion");
+			break;
 		case "Hyperion development":
 			sys.graft(serverConnections.HyperionServers.development);
 			break;
@@ -90,6 +121,10 @@ function displayNodes(){
 			sys.graft(serverConnections.HyperionServers.production);
 			break;
 
+
+		case "NetMenu":
+			expandApplicationNode("NetMenu");
+			break;
 		case "NetMenu development":
 			sys.graft(serverConnections.NetMenuServers.development);
 			break;
@@ -100,6 +135,10 @@ function displayNodes(){
 			sys.graft(serverConnections.NetMenuServers.production);
 			break;
 
+
+		case "Odyssey":
+			expandApplicationNode("Odyssey");
+			break;
 		case "Odyssey development":
 			sys.graft(serverConnections.OdysseyServers.development);
 			break;
@@ -110,6 +149,10 @@ function displayNodes(){
 			sys.graft(serverConnections.OdysseyServers.production);
 			break;
 
+
+		case "PeopleSoft":
+			expandApplicationNode("PeopleSoft");
+			break;
 		case "PeopleSoft development":
 			sys.graft(serverConnections.PeopleSoftServers.development);
 			break;
@@ -120,6 +163,10 @@ function displayNodes(){
 			sys.graft(serverConnections.PeopleSoftServers.production);
 			break;
 
+
+		case "SalesForce":
+			expandApplicationNode("SalesForce");
+			break;
 		case "SalesForce development":
 			sys.graft(serverConnections.SalesForceServers.development);
 			break;
@@ -130,6 +177,10 @@ function displayNodes(){
 			sys.graft(serverConnections.SalesForceServers.production);
 			break;
 
+
+		case "Simphony":
+			expandApplicationNode("Simphony");
+			break;
 		case "Simphony development":
 			sys.graft(serverConnections.SimphonyServers.development);
 			break;
@@ -140,6 +191,10 @@ function displayNodes(){
 			sys.graft(serverConnections.SimphonyServers.production);
 			break;
 
+
+		case "Vision":
+			expandApplicationNode("Vision");
+			break;
 		case "Vision development":
 			sys.graft(serverConnections.VisionServers.development);
 			break;
