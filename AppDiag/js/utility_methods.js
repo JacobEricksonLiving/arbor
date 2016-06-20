@@ -13,6 +13,9 @@ function displayNodes(){
 		case "AX":
 			sys.graft(serverConnections.AXServers.production);
 			break;
+		case "Odyssey":
+			sys.graft(serverConnections.OdysseyServers.production);
+			break;
 		case "Simphony":
 			sys.graft(serverConnections.SimphonyServers.production);
 			break;
@@ -30,6 +33,16 @@ function clearNodes(){
 	switch(nName){
 		case "AX":
 			for(node in serverConnections.AXServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Odyssey":
+			for(node in serverConnections.OdysseyServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Simphony":
+			for(node in serverConnections.SimphonyServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

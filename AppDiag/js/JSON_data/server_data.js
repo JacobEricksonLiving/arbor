@@ -7,62 +7,8 @@ Also contains method used to expand specific serverNodes
 
 //List of all the serverNodes in the system
 var serverNodes ={
-	AXServers:{
-		AX_a :{'color':'green', 'label':'a'}
-	},
 
-	BizTalkServers:{
-
-	},
-
-	BizTalk360Servers:{
-
-	},
-
-	CentricityServers:{
-
-	},
-
-	CofaxServers:{
-
-	},
-
-	CorepointServers:{
-
-	},
-
-	GSMSServers:{
-
-	},
-
-	HyperionServers:{
-
-	},
-
-	NetMenuServers:{
-
-	},
-
-	OdysseyServers:{
-
-	},
-
-	PeopleSoftServers:{
-
-	},
-
-	SalesForceServers:{
-
-	},
-
-	SimphonyServers:{
-		Simphony_md1_ap64:{'color':'green', 'label':'md1-ap64'}
-	},
-
-	VisionServers:{
-
-	}
-}//end serverNodes
+}
 
 //List of the connections for each serverNode in the system.
 var serverConnections = {
@@ -87,7 +33,7 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				AX_a:serverNodes.AXServers.AX_a
+				AX_a:{'color':'green', 'label':'a'}
 			},
 			edges:{
 				AX:{ AX_a:{weight:2}}
@@ -96,103 +42,323 @@ var serverConnections = {
 	},//end AXServers
 
 	BizTalkServers :{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end BizTalkServers
 
 	BizTalk360Servers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//BizTalk360Servers
 
 	CentricityServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end CentricityServers
 
 	CofaxServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end CofaxServers
 
 	CorepointServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end CorepointServers
 
 	GSMSServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end GSMSServers
 
 	HyperionServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end HyperionServers
 
 	NetMenuServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end NetMenuServers
 
 	OdysseyServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+				Odyssey_md1_ap68:{'color':'green', 'label':'md1-ap68'}
+			},
+			edges:{
+				Odyssey:{Odyssey_md1_ap68:{weight:2}}
+			}
 		}
-	},
+	},//end OdysseyServers
 
 	PeopleSoftServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end PeopleSoftServers
 
 	SalesForceServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
 
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	},
+	},//end SalesForceServers
 
 	SimphonyServers:{
 		development:{
@@ -215,20 +381,48 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				Simphony_md1_ap64:serverNodes.SimphonyServers.Simphony_md1_ap64
+				Simphony_md1_ap64:{'color':'green', 'label':'md1-ap64'},
+				Simphony_md1_ap65:{'color':'green', 'label':'md1-ap65'},
+				Simphony_md1_ap66:{'color':'green', 'label':'md1-ap66'},
+				Simphony_md1_ap67:{'color':'green', 'label':'md1-ap67'},
 			},
 			edges:{
-				Simphony:{Simphony_md1_ap64:{weight:2}}
+				Simphony:{
+					Simphony_md1_ap64:{weight:2},
+					Simphony_md1_ap65:{weight:2},
+					Simphony_md1_ap66:{weight:2},
+					Simphony_md1_ap67:{weight:2}
+				}
 			}
 		}
-	},
+	},//end SimphonyServers
 
 	VisionServers:{
-		nodes:{
+		development:{
+			nodes:{
 
+			},
+			edges:{
+
+			}
 		},
-		edges:{
-			
+
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
 		}
-	}
+	}//end VisionServers
 }//end serverConnections
