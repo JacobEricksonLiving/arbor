@@ -154,12 +154,14 @@
                } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
                   
-                  //node with no edges, just remove
+                  /*//node with no edges, just remove
                   var to = sys.getEdgesTo(clickedNode);
                   var from = sys.getEdgesFrom(clickedNode);
+                  console.log(to);
+                  console.log(from);
                   if(to === [] && from === []){
                     sys.prune(clickedNode);
-                  }
+                  }*/
 
                   //if it is not a base node
                   if(!clickedNode.data.base){

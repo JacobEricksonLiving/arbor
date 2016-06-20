@@ -69,7 +69,7 @@ var applicationConnections = {
 
 	BizTalk360Connections : {
 		nodes:{
-
+			
 		},
 		edges:{
 
