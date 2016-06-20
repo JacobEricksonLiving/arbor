@@ -163,6 +163,9 @@ function clearNodes(){
 	var nName = inputText.value;
 	switch(nName){
 
+		case "AX":
+			alert("Red nodes cannot be removed");
+			break;
 		case "AX development":
 			for(node in serverConnections.AXServers.development.nodes){
 				sys.pruneNode(node);
@@ -179,6 +182,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "BizTalk":
+			sys.pruneNode("BizTalk");
+			break;
 		case "BizTalk development":
 			for(node in serverConnections.BizTalkServers.development.nodes){
 				sys.pruneNode(node);
@@ -195,6 +202,9 @@ function clearNodes(){
 			}
 			break;
 
+		case "BizTalk360":
+			sys.pruneNode("BizTalk360");
+			break;
 		case "BizTalk360 development":
 			for(node in serverConnections.BizTalk360Servers.development.nodes){
 				sys.pruneNode(node);
@@ -211,6 +221,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Centricity":
+			sys.pruneNode("Centricity");
+			break;
 		case "Centricity development":
 			for(node in serverConnections.CentricityServers.development.nodes){
 				sys.pruneNode(node);
@@ -227,6 +241,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Cofax":
+			sys.pruneNode("Cofax");
+			break;
 		case "Cofax development":
 			for(node in serverConnections.CofaxServers.development.nodes){
 				sys.pruneNode(node);
@@ -243,6 +261,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Corepoint":
+			sys.pruneNode("Corepoint");
+			break;
 		case "Corepoint development":
 			for(node in serverConnections.CorepointServers.development.nodes){
 				sys.pruneNode(node);
@@ -259,6 +281,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "GSMS":
+			sys.pruneNode("GSMS");
+			break;
 		case "GSMS development":
 			for(node in serverConnections.GSMSServers.development.nodes){
 				sys.pruneNode(node);
@@ -275,6 +301,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Hyperion":
+			sys.pruneNode("Hyperion");
+			break;
 		case "Hyperion development":
 			for(node in serverConnections.HyperionServers.development.nodes){
 				sys.pruneNode(node);
@@ -291,6 +321,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "NetMenu":
+			sys.pruneNode("NetMenu");
+			break;
 		case "NetMenu development":
 			for(node in serverConnections.NetMenuServers.development.nodes){
 				sys.pruneNode(node);
@@ -307,6 +341,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Odyssey":
+			sys.pruneNode("Odyssey");
+			break;
 		case "Odyssey development":
 			for(node in serverConnections.OdysseyServers.development.nodes){
 				sys.pruneNode(node);
@@ -323,6 +361,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "PeopleSoft":
+			sys.pruneNode("PeopleSoft");
+			break;
 		case "PeopleSoft development":
 			for(node in serverConnections.PeopleSoftServers.development.nodes){
 				sys.pruneNode(node);
@@ -339,6 +381,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "SalesForce":
+			sys.pruneNode("SalesForce");
+			break;
 		case "SalesForce development":
 			for(node in serverConnections.SalesForceServers.development.nodes){
 				sys.pruneNode(node);
@@ -355,6 +401,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Simphony":
+			sys.pruneNode("Simphony");
+			break;
 		case "Simphony development":
 			for(node in serverConnections.SimphonyServers.development.nodes){
 				sys.pruneNode(node);
@@ -371,6 +421,10 @@ function clearNodes(){
 			}
 			break;
 
+
+		case "Vision":
+			alert("Red nodes cannot be removed");
+			break;
 		case "Vision development":
 			for(node in serverConnections.VisionServers.development.nodes){
 				sys.pruneNode(node);
@@ -386,6 +440,7 @@ function clearNodes(){
 				sys.pruneNode(node);
 			}
 			break;
+
 
 		case "remove all applications":
 			removeAllApplications();
