@@ -10,28 +10,43 @@ Also contains method used to expand specific applicationNodes
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 'to':['Cofax', 'GSMS', 'PeopleSoft', 'Simphony', 'Vision'], 'from':['Hyperion'], 'base':true, 'server':'N/A', 
 			'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
+	
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 'to':['Corepoint'], 'from':['BizTalk360'], 'base':false, 'server':'N/A',
 			 'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'},
+	
 	BizTalk360 : {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 'to':['BizTalk'], 'from':[], 'base':false, 'server':'N/A',
 				 'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
+	
 	Centricity : {'color':'blue','shape':'dot', 'label':'Centricity', 'expanded':false, 'to':[], 'from':[], 'base':false, 'server':'N/A',
 			 'description':'Keeps track of medical data for inhouse hospitals. Going to change to new application soon'},
+	
 	Cofax : {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 'to':[], 'from':['AX', 'PeopleSoft'], 'base':false, 'server':'N/A',
 			 'description':'Converts documents into usable computer images.'},
+	
 	Corepoint : {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 'to':['Vision'], 'from':['BizTalk'], 'base':false, 'server':'N/A',
 				'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
+	
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 'to':[], 'from':['AX'], 'base':false, 'server':'N/A',
 			 'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
+	
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 'to':['AX', 'SalesForce'], 'from':[], 'base':false, 'server':'N/A',
 			'description':'Used to Exctract financial data for high level purposes.'},
+	
 	NetMenu : {'color':'blue','shape':'dot', 'label':'NetMenu', 'expanded':false, 'to':['Simphony'], 'from':['Simphony'], 'base':false, 'server':'N/A',
 			'description':'Note: not yet in use. Allows a chef to create a menu item then directly communicate that information Simphony'},
+	
+	Odyssey : {'color':'blue', 'shape':'dot', 'label':'Odyssey', 'expanded':false, 'to':['BizTalk'], 'from':['Vision'], 'base':false, 'server':'N/A',
+				'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information recieved form Vision'},
+	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 'to':['Cofax'], 'from':['PeopleSoft'], 'base':false, 'server':'N/A',
 				 'description':''},
+	
 	SalesForce : {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 'to':[], 'from':['Hyperion', 'Vision'], 'base':false, 'server':'N/A',
 				'description':''},
+	
 	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 'to':['NetMenu'], 'from':['NetMenu'], 'base':false, 'server':'N/A',
-			 'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors.'},
+			 'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
+	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 'to':['SalesForce'], 'from':['AX', 'Corepoint'], 'base':true, 'server':'N/A',
 			 'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
@@ -60,11 +75,17 @@ var applicationConnections = {
 	BizTalkConnections : {
 		nodes:{
 			BizTalk360:applicationNodes.BizTalk360,
-			Corepoint:applicationNodes.Corepoint
+			Corepoint:applicationNodes.Corepoint,
+			Odyssey:applicationNodes.Odyssey,
+			Vision:applicationNodes.Vision
 		},
 		edges:{
-			BizTalk:{BizTalk360:{directed:true, weight:5}},
-			Corepoint:{BizTalk:{directed:true, weight:5}}
+			BizTalk:{
+				BizTalk360:{directed:true, weight:5},
+				Odyssey:{directed:true, weight:5}
+			},
+			Corepoint:{BizTalk:{directed:true, weight:5}},
+			Vision:{BizTalk:{directed:true, weight:5}}
 		}
 
 	},//end BizTalkConnections
@@ -146,6 +167,17 @@ var applicationConnections = {
 		}
 	},//end NetMenuConnections
 
+	OdysseyConnections:{
+		nodes:{
+			BizTalk:applicationNodes.BizTalk,
+			Vision:applicationNodes.Vision
+		},
+		edges:{
+			Odyssey:{Vision:{directed:true, weight:5}},
+			BizTalk:{Odyssey:{directed:true, weight:5}}
+		}
+	},
+
 	PeopleSoftConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
@@ -190,13 +222,17 @@ var applicationConnections = {
 	VisionConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
+			BizTalk:applicationNodes.BizTalk,
 			Corepoint:applicationNodes.Corepoint,
+			Odyssey:applicationNodes.Odyssey,
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
+			Odyssey:{Vision:{directed:true, weight:5}},
 			SalesForce:{Vision:{directed:true, weight:5}},
 			Vision:{
 				AX:{directed:true, weight:5},
+				BizTalk:{directed:true, weight:5},
 				Corepoint:{directed:true, weight:5}
 			}		
 		}
@@ -235,6 +271,9 @@ function expandApplicationNode(nName){
 			break;
 		case "NetMenu":
 			sys.graft(applicationConnections.NetMenuConnections);
+			break;
+		case "Odyssey":
+			sys.graft(applicationConnections.OdysseyConnections);
 			break;
 		case "PeopleSoft":
 			sys.graft(applicationConnections.PeopleSoftConnections);

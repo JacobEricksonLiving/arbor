@@ -93,6 +93,15 @@ var serverConnections = {
 		}
 	},
 
+	OdysseyServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
 	PeopleSoftServers:{
 		nodes:{
 
