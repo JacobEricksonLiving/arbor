@@ -10,13 +10,13 @@ function displayNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
-		case "AX":
+		case "AX production":
 			sys.graft(serverConnections.AXServers.production);
 			break;
-		case "Odyssey":
+		case "Odyssey production":
 			sys.graft(serverConnections.OdysseyServers.production);
 			break;
-		case "Simphony":
+		case "Simphony production":
 			sys.graft(serverConnections.SimphonyServers.production);
 			break;
 		case "expand all applications":
@@ -31,17 +31,17 @@ function clearNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
-		case "AX":
+		case "AX production":
 			for(node in serverConnections.AXServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
-		case "Odyssey":
+		case "Odyssey production":
 			for(node in serverConnections.OdysseyServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
-		case "Simphony":
+		case "Simphony production":
 			for(node in serverConnections.SimphonyServers.production.nodes){
 				sys.pruneNode(node);
 			}
