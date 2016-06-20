@@ -163,30 +163,66 @@
                   //if it is not a base node
                   if(!clickedNode.data.base){
                     sys.eachNode(function(node, pt){
-                      if(node.data.to === clickedNode.name || clickedNode.data.to === node.name){//if node is clickedNode's child or to
-                        node.data.expanded = false;
-                      }              
+                      for(i=0; i<clickedNode.data.to.length; ++i){//check the to array
+                        if(clickedNode.data.to[i]===node.name){//if the node has edge to clickedNode
+                          node.data.expanded = false;
+                          console.log(clickedNode.data.to[i]);
+                        }
+                      }
+
+                      for(i=0; i<clickedNode.data.from.length; ++i){//check from array
+                        if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
+                          node.data.expanded = false;
+                          console.log(clickedNode.data.from[i]);
+                        }
+                      }            
                     });
                     sys.pruneNode(clickedNode);
-                  }
+                  }//end if not base node
 
                   //if it is a base node
                   if(clickedNode.data.base){
                     sys.prune(function(node, from, to){//prune each node if it is child/to of clickedNode and if node is not a base node
-                      if(node.data.to === clickedNode.name || node.name === clickedNode.data.to){//if node is clickedNodes's child or to
-                        if(!node.data.base){//if node isnt a base node
-                          return true;
+                      for(i=0; i<clickedNode.data.to.length; ++i){//check to array
+                        if(clickedNode.data.to[i]===node.name){//if the ndoe has edge to clickedNode
+                          if(!node.data.base){//if node isnt a base node
+                            return true;
+                          }
                         }
-                      }
-                    });
+                      }//end to for loop
+
+                      //check from array
+                      for(i=0; i<clickedNode.data.from.length; ++i){
+                        if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
+                          if(!node.data.base){
+                            return true;
+                          }
+                        }
+                      }//end from forloop 
+                    });//end sys.prune
+
                     sys.eachNode(function(node, pt){//each node if it is child/to of clickedNode and both node and clicked are base then clip(clicked)
-                      if(node.data.to === clickedNode.name || node.name === clickedNode.data.to){
-                        if(node.data.base && clickedNode.data.base){
-                          node.data.expanded = false;
-                          clip(clickedNode);
+                       for(i=0; i<clickedNode.data.to.length; ++i){//check to array
+                        if(clickedNode.data.to[i]===node.name){//if the ndoe has edge to clickedNode
+                          if(node.data.base && clickedNode.data.base){
+                            node.data.expanded = false;
+                            clip(clickedNode);
+                          }
                         }
-                      }                    
-                    });
+                      }//end to for loop
+
+                      //check from array
+                      for(i=0; i<clickedNode.data.from.length; ++i){
+                        if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
+                          if(node.data.base && clickedNode.data.base){
+                            node.data.expanded = false;
+                            clip(clickedNode);
+                          }
+                        }
+                      }//end from forloop 
+
+                    });//end sys.eachNode
+
                   }//is base node
                }//end if clicked is not expanded
             } //end if dragged
