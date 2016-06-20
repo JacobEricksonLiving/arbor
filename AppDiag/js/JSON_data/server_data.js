@@ -30,12 +30,102 @@ var serverConnections = {
 		}
 	},
 
-	BizTalk360Connections:{
+	BizTalk360Servers:{
 		nodes:{
 
 		},
 		edges:{
 
+		}
+	},
+
+	CentricityServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	CofaxServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	CorepointServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	GSMSServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	HyperionServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	NetMenuServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	PeopleSoftServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	SalesForceServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	SimphonyServers:{
+		nodes:{
+
+		},
+		edges:{
+
+		}
+	},
+
+	VisionServers:{
+		nodes:{
+
+		},
+		edges:{
+			
 		}
 	}
 }//end serverConnections
