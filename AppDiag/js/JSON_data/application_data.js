@@ -40,39 +40,41 @@ var applicationConnections = {
 	AXConnections : {
 		nodes:{
 			Cofax : applicationNodes.Cofax,
-			PeopleSoft:applicationNodes.PeopleSoft,
 			GSMS:applicationNodes.GSMS,
-			Vision:applicationNodes.Vision,
+			Hyperion:applicationNodes.Hyperion,
+			PeopleSoft:applicationNodes.PeopleSoft,
 			Simphony:applicationNodes.Simphony,
-			Hyperion:applicationNodes.Hyperion
+			Vision:applicationNodes.Vision
 		},
 
 		edges:{
+			AX:{Hyperion:{directed:true, weight:5}},
 			Cofax:{AX:{directed:true, weight:5}},
-			PeopleSoft:{AX:{directed:true, weight:5}},
 			GSMS:{AX:{directed:true, weight:5}},
-			Vision:{AX:{directed:true, weight:5}},
+			PeopleSoft:{AX:{directed:true, weight:5}},
 			Simphony:{AX:{directed:true, weight:5}},
-			AX:{Hyperion:{directed:true, weight:5}}
+			Vision:{AX:{directed:true, weight:5}}
 		}
 	},//end AXConnections
 
 	BizTalkConnections : {
 		nodes:{
-			BizTalk360:applicationNodes.BizTalk360
+			BizTalk360:applicationNodes.BizTalk360,
+			Corepoint:applicationNodes.Corepoint
 		},
 		edges:{
-			BizTalk:{BizTalk360:{directed:true, weight:5}}
+			BizTalk:{BizTalk360:{directed:true, weight:5}},
+			Corepoint:{BizTalk:{directed:true, weight:5}}
 		}
 
 	},//end BizTalkConnections
 
 	BizTalk360Connections : {
 		nodes:{
-			
+			BizTalk:applicationNodes.BizTalk
 		},
 		edges:{
-
+			BizTalk:{BizTalk360:{directed:true, weight:5}}
 		}
 
 	},//end BizTalk360Connections
@@ -103,20 +105,22 @@ var applicationConnections = {
 
 	CorepointConnections : {
 		nodes:{
-			BizTalk:applicationNodes.BizTalk
+			BizTalk:applicationNodes.BizTalk,
+			Vision:applicationNodes.Vision
 		},
 		edges:{
-			Corepoint:{BizTalk:{directed:true, weight:5}}
+			Corepoint:{BizTalk:{directed:true, weight:5}},
+			Vision:{Corepoint:{directed:true, weight:5}}
 		}
 
 	},//end CorepointConnections
 
 	GSMSConnections : {
 		nodes:{
-					
+			AX:applicationNodes.AX,
 		},
 		edges:{
-					
+			GSMS:{AX:{directed:true, weight:5}}
 		}
 	},//end GSMSConnections
 
@@ -148,8 +152,8 @@ var applicationConnections = {
 			Cofax:applicationNodes.Cofax
 		},
 		edges:{
-			PeopleSoft:{AX:{directed:true, weight:5}},
-			Cofax:{PeopleSoft:{directed:true, weight:5}}
+			Cofax:{PeopleSoft:{directed:true, weight:5}},
+			PeopleSoft:{AX:{directed:true, weight:5}}			
 		}
 
 	},//end PeopleSoftConnections
@@ -170,10 +174,14 @@ var applicationConnections = {
 
 	SimphonyConnections : {
 		nodes:{
+			AX:applicationNodes.AX,
 			NetMenu:applicationNodes.NetMenu
 		},
 		edges:{
-			Simphony:{NetMenu:{directed:true, weight:5}},
+			Simphony:{
+				AX:{directed:true, weight:5},
+				NetMenu:{directed:true, weight:5}
+			},
 			NetMenu:{Simphony:{directed:true, weight:5}}
 		}
 
@@ -186,11 +194,11 @@ var applicationConnections = {
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
+			SalesForce:{Vision:{directed:true, weight:5}},
 			Vision:{
 				AX:{directed:true, weight:5},
 				Corepoint:{directed:true, weight:5}
-			},
-			SalesForce:{Vision:{directed:true, weight:5}}
+			}		
 		}
 
 	}//end VisionConnections
