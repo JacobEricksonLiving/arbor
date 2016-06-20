@@ -21,15 +21,15 @@
 		<canvas id="viewport" width="1000" height="800"></canvas>
 		<div id="welcome" style="width:25%; height: 100%;">
 			Application Diagram <br /><br />
-			To expand a node double click on it. <br /> <br />
-			To remove an expanded node double click on it. Red nodes cannot be removed.<br /> <br />
+			To expand an application node double click on it. <br /> <br />
+			To remove an expanded applicaton node double click on it. Red nodes cannot be removed.<br /> <br />
 			To see the node information right click it.
 			<div id="info" style="width:100%; height: 25%;"></div>
 			<div id="input_output" style="width:100%; height:50%;">
 				<input id="input" type="text" style="width:100%; height:12%" placeholder="Enter commands here"></input>
-				<button name="enter_button" onclick="displayNodes()" type="button">Expand</button>
+				<button name="enter_button" onclick="displayNodes()" type="button">Generate</button>
 				<button name="clear_button" onclick="clearNodes()" type="button">Remove</button>
-				<div id="output" style="width:100%; height:75%;"><br/> To generate the servers for a specific node, type the node's name and the server type(development, test, production). Then click the expand button.<br/>Example: AX production<br /><br/>To delete a node's servers enter the node's name followed by the server type(development, test, production). Then click the remove button.<br/>Example: AX production<br/><br/>ADDITIONAL COMMANDS<br/>Expand Button Commands:<br/> -expand all applications<br/> Remove Button Commands:<br/> -remove all applications</div>
+				<div id="output" style="width:100%; height:75%;"><br/> To generate or remove application nodes(blue) you can type the node's name and click the appropriate button.<br/> To generate or remove server nodes for a specific node, type the node's name followed by the server type(development, test, production). Then click the appropriate button.<br/>Example: AX production<br/> Note: Development servers are orange, test are yellow, and production are green.<br/><br/>ADDITIONAL COMMANDS<br/>Expand Button Commands:<br/> -expand all applications<br/> Remove Button Commands:<br/> -remove all applications</div>
 			</div>
 			
 			
