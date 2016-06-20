@@ -166,14 +166,12 @@
                       for(i=0; i<clickedNode.data.to.length; ++i){//check the to array
                         if(clickedNode.data.to[i]===node.name){//if the node has edge to clickedNode
                           node.data.expanded = false;
-                          console.log(clickedNode.data.to[i]);
                         }
                       }
 
                       for(i=0; i<clickedNode.data.from.length; ++i){//check from array
                         if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
                           node.data.expanded = false;
-                          console.log(clickedNode.data.from[i]);
                         }
                       }            
                     });
@@ -267,7 +265,7 @@
           div.innerHTML = "";
           div.innerHTML += "NAME: " + nearest.node.name + "<br /><br />";
           div.innerHTML += "DESCRIPTION: " + nearest.node.data.description + "<br /><br />";
-          div.innerHTML += "SERVERS: " + nearest.node.data.server +"<br /><br />";
+          div.innerHTML += "SERVERS: " + nearest.node.data.expanded +"<br /><br />";
           return false;
         });
 
