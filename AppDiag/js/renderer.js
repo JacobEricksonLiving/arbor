@@ -202,12 +202,12 @@
                       }//end from forloop 
                     });//end sys.prune
 
-                    sys.eachNode(function(node, pt){//each node if it is child/to of clickedNode and both node and clicked are base then clip(clicked)
+                    sys.eachNode(function(node, pt){//each node if it is child/to of clickedNode and both node and clicked are base then clipNode(clicked)
                        for(i=0; i<clickedNode.data.to.length; ++i){//check to array
                         if(clickedNode.data.to[i]===node.name){//if the ndoe has edge to clickedNode
                           if(node.data.base && clickedNode.data.base){
                             node.data.expanded = false;
-                            clip(clickedNode);
+                            clipNode(clickedNode);
                           }
                         }
                       }//end to for loop
@@ -217,7 +217,7 @@
                         if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
                           if(node.data.base && clickedNode.data.base){
                             node.data.expanded = false;
-                            clip(clickedNode);
+                            clipNode(clickedNode);
                           }
                         }
                       }//end from forloop 
