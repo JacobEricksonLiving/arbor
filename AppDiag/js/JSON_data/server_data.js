@@ -264,6 +264,48 @@ var serverConnections = {
 		}
 	},//end CorepointServers
 
+	DocuTrackServers:{
+		database:{
+			nodes:{
+				DocuTrack_md1_db04:{'color':'purple', 'label':'md1-db04', 'description':'Shared DB'}
+			},
+			edges:{
+				DocuTrack:{DocuTrack_md1_db04:{weight:2}}
+			}
+		},
+
+		development:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+				DocuTrack_md1_xa100:{'color':'green', 'label':'md1-xa100', 'description':''},
+				DocuTrack_md1_xa101:{'color':'green', 'label':'md1-xa101', 'description':''}
+			},
+			edges:{
+				DocuTrack:{
+					DocuTrack_md1_xa100:{weight:2},
+					DocuTrack_md1_xa101:{weight:2}
+				}
+			}
+		}
+	},//end DocuTrackServers
+
 	GSMSServers:{
 		database:{
 			nodes:{
