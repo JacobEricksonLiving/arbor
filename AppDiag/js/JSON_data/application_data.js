@@ -147,6 +147,7 @@ var applicationConnections = {
 
 	CentricityConnections : {
 		nodes:{
+			DocuTrack:applicationNodes.DocuTrack,
 			MedicalManager:applicationNodes.MedicalManager,
 			Portal:applicationNodes.Portal
 		},
