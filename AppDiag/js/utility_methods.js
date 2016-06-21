@@ -11,46 +11,67 @@ function clipNode(nName1){
 function expandApplicationNode(nName){
 	switch(nName){
 		case "AX":
+			sys.addNode('AX', applicationNodes.AX);
 			sys.graft(applicationConnections.AXConnections);
 			break;
 		case "BizTalk":
+			sys.addNode('BizTalk', applicationNodes.BizTalk);
 			sys.graft(applicationConnections.BizTalkConnections);
 			break;
 		case "BizTalk360":
+			sys.addNode('BizTalk360', applicationNodes.BizTalk360);
 			sys.graft(applicationConnections.BizTalk360Connections);
 			break;
 		case "Centricity":
+			sys.addNode('Centricity', applicationNodes.Centricity);
 			sys.graft(applicationConnections.CentricityConnections);
-			sys.addNode('Centricity', applicationNodes.Centricity);//note this is used since Centricty has no connections
 			break;
 		case "Cofax":
+			sys.addNode('Cofax', applicationNodes.Cofax);
 			sys.graft(applicationConnections.CofaxConnections);
 			break;
 		case "Corepoint":
+			sys.addNode('Corepoint', applicationNodes.Corepoint);
 			sys.graft(applicationConnections.CorepointConnections);
 			break;  
 		case "GSMS":
+			sys.addNode('GSMS', applicationNodes.GSMS);
 			sys.graft(applicationConnections.GSMSConnections);
 			break;
 		case "Hyperion":
+			sys.addNode('Hyperion', applicationNodes.Hyperion);
 			sys.graft(applicationConnections.HyperionConnections);
 			break;
+		case "MedicalManager":
+			sys.addNode('MedicalManager', applicationNodes.MedicalManager);
+			sys.graft(applicationConnections.MedicalManagerConnections);
+			break;
 		case "NetMenu":
+			sys.addNode('NetMenu', applicationNodes.NetMenu);
 			sys.graft(applicationConnections.NetMenuConnections);
 			break;
 		case "Odyssey":
+			sys.addNode('Odyssey', applicationNodes.Odyssey);
 			sys.graft(applicationConnections.OdysseyConnections);
 			break;
 		case "PeopleSoft":
+			sys.addNode('PeopleSoft', applicationNodes.PeopleSoft);
 			sys.graft(applicationConnections.PeopleSoftConnections);
 			break; 
+		case "Portal":
+			sys.addNode('Portal', applicationNodes.Portal);
+			sys.graft(applicationConnections.PortalConnections);
+			break; 
 		case "SalesForce":
+			sys.addNode('SalesForce', applicationNodes.SalesForce);
 			sys.graft(applicationConnections.SalesForceConnections);
 			break;
 		case "Simphony":
+			sys.addNode('Simphony', applicationNodes.Simphony);
 			sys.graft(applicationConnections.SimphonyConnections);
 			break;   
 		case "Vision":
+			sys.addNode('Vision', applicationNodes.Vision);
 			sys.graft(applicationConnections.VisionConnections);
 			break;
 	}
@@ -173,6 +194,20 @@ function displayNodes(){
 			break;
 
 
+		case "MedicalManager":
+			expandApplicationNode("MedicalManager");
+			break;
+		case "MedicalManager development":
+			sys.graft(serverConnections.MedicalManagerServers.development);
+			break;
+		case "MedicalManager test":
+			sys.graft(serverConnections.MedicalManagerServers.test);
+			break;
+		case "MedicalManager production":
+			sys.graft(serverConnections.MedicalManagerServers.production);
+			break;
+
+
 		case "NetMenu":
 			expandApplicationNode("NetMenu");
 			break;
@@ -212,6 +247,20 @@ function displayNodes(){
 			break;
 		case "PeopleSoft production":
 			sys.graft(serverConnections.PeopleSoftServers.production);
+			break;
+
+
+		case "Portal":
+			expandApplicationNode("Portal");
+			break;
+		case "Portal development":
+			sys.graft(serverConnections.PortalServers.development);
+			break;
+		case "Portal test":
+			sys.graft(serverConnections.PortalServers.test);
+			break;
+		case "Portal production":
+			sys.graft(serverConnections.PortalServers.production);
 			break;
 
 
@@ -429,6 +478,26 @@ function clearNodes(){
 			break;
 
 
+		case "MedicalManager":
+			sys.pruneNode("MedicalManager");
+			break;
+		case "MedicalManager development":
+			for(node in serverConnections.MedicalManagerServers.development.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "MedicalManager test":
+			for(node in serverConnections.MedicalManagerServers.test.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "MedicalManager production":
+			for(node in serverConnections.MedicalManagerServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
 		case "NetMenu":
 			sys.pruneNode("NetMenu");
 			break;
@@ -484,6 +553,26 @@ function clearNodes(){
 			break;
 		case "PeopleSoft production":
 			for(node in serverConnections.PeopleSoftServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "Portal":
+			sys.pruneNode("Portal");
+			break;
+		case "Portal development":
+			for(node in serverConnections.PortalServers.development.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Portal test":
+			for(node in serverConnections.PortalServers.test.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Portal production":
+			for(node in serverConnections.PortalServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
