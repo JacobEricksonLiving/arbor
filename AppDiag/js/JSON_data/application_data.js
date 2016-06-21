@@ -13,8 +13,8 @@ var applicationNodes = {
 	'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 
-	'to':['Corepoint'], 
-	'from':['BizTalk360'], 'base':false, 'server':'N/A',
+	'to':['CorePoint'], 
+	'from':['BizTalk360', 'CorePoint'], 'base':false, 'server':'N/A',
 	'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'},
 	
 	BizTalk360 : {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 
@@ -33,11 +33,11 @@ var applicationNodes = {
 	'base':false, 'server':'N/A',
 	'description':'Converts documents into usable computer images.'},
 	
-	Corepoint : {'color':'blue','shape':'dot', 'label':'Corepoint', 'expanded':false, 
-	'to':['MedicalManager', 'Vision'], 
-	'from':['BizTalk', 'MedicalManager'], 
-	'base':false, 'server':'N/A',
-	'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
+	CorePoint : {'color':'red','shape':'dot', 'label':'CorePoint', 'expanded':false, 
+	'to':['BizTalk', 'MedicalManager', 'Vision'], 
+	'from':['BizTalk', 'MedicalManager', 'Vision'], 
+	'base':true, 'server':'N/A',
+	'description':'Designed to handle healthcare information. CorePoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
 	
 	DocuTrack:{'color':'blue','shape':'dot', 'label':'DocuTrack', 'expanded':false, 
 	'to':[], 
@@ -56,8 +56,8 @@ var applicationNodes = {
 	'description':'Used to Exctract financial data for high level purposes.'},
 	
 	MedicalManager : {'color':'blue','shape':'dot', 'label':'MedicalManager', 'expanded':false, 
-	'to':['Centricity', 'Corepoint'], 
-	'from':['Centricity', 'Corepoint'], 'base':false, 'server':'N/A',
+	'to':['Centricity', 'CorePoint'], 
+	'from':['Centricity', 'CorePoint'], 'base':false, 'server':'N/A',
 	'description':'Houses demographic information and handles appointments/billing on site.'},
 
 	NetMenu : {'color':'blue','shape':'dot', 'label':'NetMenu', 'expanded':false, 
@@ -91,8 +91,8 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
-	'to':['SalesForce'], 
-	'from':['AX', 'Corepoint', 'Portal'], 'base':true, 'server':'N/A',
+	'to':['CorePoint', 'SalesForce', 'Vision'], 
+	'from':['AX', 'CorePoint', 'Portal'], 'base':true, 'server':'N/A',
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 //List of the connections for each applicationNode in the system.
@@ -120,17 +120,17 @@ var applicationConnections = {
 	BizTalkConnections : {
 		nodes:{
 			BizTalk360:applicationNodes.BizTalk360,
-			Corepoint:applicationNodes.Corepoint,
+			CorePoint:applicationNodes.CorePoint,
 			Odyssey:applicationNodes.Odyssey,
 			Vision:applicationNodes.Vision
 		},
 		edges:{
 			BizTalk:{
 				BizTalk360:{directed:true, weight:5},
+				CorePoint:{directed:true, weight:5},
 				Odyssey:{directed:true, weight:5}
 			},
-			Corepoint:{BizTalk:{directed:true, weight:5}},
-			Vision:{BizTalk:{directed:true, weight:5}}
+			CorePoint:{BizTalk:{directed:true, weight:5}},
 		}
 
 	},//end BizTalkConnections
@@ -176,22 +176,24 @@ var applicationConnections = {
 
 	},//end CofaxConnections
 
-	CorepointConnections : {
+	CorePointConnections : {
 		nodes:{
 			BizTalk:applicationNodes.BizTalk,
 			MedicalManager:applicationNodes.MedicalManager,
 			Vision:applicationNodes.Vision
 		},
 		edges:{
-			Corepoint:{
+			BizTalk:{CorePoint:{directed:true, weight:5}},
+			CorePoint:{
 				BizTalk:{directed:true, weight:5},
-				MedicalManager:{directed:true, weight:5}
+				MedicalManager:{directed:true, weight:5},
+				Vision:{directed:true, weight:5}
 			},
-			MedicalManager:{Corepoint:{directed:true, weight:5}},
-			Vision:{Corepoint:{directed:true, weight:5}}
+			MedicalManager:{CorePoint:{directed:true, weight:5}},
+			Vision:{CorePoint:{directed:true, weight:5}}
 		}
 
-	},//end CorepointConnections
+	},//end CorePointConnections
 
 	DocuTrackConnections:{
 		nodes:{
@@ -226,15 +228,15 @@ var applicationConnections = {
 	MedicalManagerConnections: {
 		nodes:{
 			Centricity:applicationNodes.Centricity,
-			Corepoint:applicationNodes.Corepoint
+			CorePoint:applicationNodes.CorePoint
 		},
 		edges:{
 			MedicalManager:{
 				Centricity:{directed:true, weight:5},
-				Corepoint:{directed:true, weight:5}
+				CorePoint:{directed:true, weight:5}
 			},
 			Centricity:{MedicalManager:{directed:true, weight:5}},
-			Corepoint:{MedicalManager:{directed:true, weight:5}}
+			CorePoint:{MedicalManager:{directed:true, weight:5}}
 
 		}
 	},//end MedicalManagerConnections
@@ -315,19 +317,18 @@ var applicationConnections = {
 	VisionConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
-			BizTalk:applicationNodes.BizTalk,
-			Corepoint:applicationNodes.Corepoint,
+			CorePoint:applicationNodes.CorePoint,
 			Odyssey:applicationNodes.Odyssey,
 			Portal:applicationNodes.Portal,
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
+			CorePoint:{Vision:{directed:true, weight:5}},
 			Odyssey:{Vision:{directed:true, weight:5}},
 			SalesForce:{Vision:{directed:true, weight:5}},
 			Vision:{
 				AX:{directed:true, weight:5},
-				BizTalk:{directed:true, weight:5},
-				Corepoint:{directed:true, weight:5},
+				CorePoint:{directed:true, weight:5},
 				Portal:{directed:true, weight:5}
 			}		
 		}
