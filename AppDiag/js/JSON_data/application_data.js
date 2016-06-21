@@ -39,6 +39,12 @@ var applicationNodes = {
 	'base':false, 'server':'N/A',
 	'description':'Designed to handle healthcare information. Corepoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
 	
+	DocuTrack:{'color':'blue','shape':'dot', 'label':'DocuTrack', 'expanded':false, 
+	'to':[], 
+	'from':['Centricity'], 
+	'base':false, 'server':'N/A',
+	'description':'Used to scan documents into Centricity'},
+
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
 	'to':[], 
 	'from':['AX'], 'base':false, 'server':'N/A',
@@ -145,6 +151,7 @@ var applicationConnections = {
 			Portal:applicationNodes.Portal
 		},
 		edges:{
+			DocuTrack:{Centricity:{directed:true, weight:5}},
 			Centricity:{
 				Portal:{directed:true, weight:5},
 				MedicalManager:{directed:true, weight:5}
@@ -184,6 +191,15 @@ var applicationConnections = {
 		}
 
 	},//end CorepointConnections
+
+	DocuTrackConnections:{
+		nodes:{
+			Centricity:applicationNodes.Centricity
+		},
+		edges:{
+			DocuTrack:{Centricity:{directed:true, weight:5}}
+		}
+	},
 
 	GSMSConnections : {
 		nodes:{
