@@ -1,11 +1,6 @@
-//function which removes edges of a node but not the node itself.
-function clipNode(nName1){
-	sys.pruneNode(nName1);
-    var temp = sys.addNode(nName1.name, {'color':nName1.data.color, 'shape':nName1.data.shape, 
-    	'label':nName1.data.label, 'expanded':nName1.data.expanded,
-        'parent':nName1.data.parent, 'base':nName1.data.base, 'description':nName1.data.description
-    });
-} 
+/*
+Contains functions which are called throughout the entire Application Diagram Program
+*/
 
 //switch case for which applicationNode connections should be graphed
 function expandApplicationNode(nName){
@@ -847,14 +842,11 @@ function removeAllApplications(){
 	}
 }
 
-//Recursive function used to remove every node in a branch.
-function clipBranch(nName){
-	sys.eachNode(function(node, pt){
-		for(i=0; i<nName.data.from.length; ++i){
-			if(nName.from[i]===node.name){
-				clipBranch(node);
-				sys.pruneNode(node);
-			}
-		}
-	});
-}
+//function which removes edges of a node but not the node itself.
+function clipNode(nName1){
+	sys.pruneNode(nName1);
+    var temp = sys.addNode(nName1.name, {'color':nName1.data.color, 'shape':nName1.data.shape, 
+    	'label':nName1.data.label, 'expanded':nName1.data.expanded,
+        'parent':nName1.data.parent, 'base':nName1.data.base, 'description':nName1.data.description
+    });
+} 
