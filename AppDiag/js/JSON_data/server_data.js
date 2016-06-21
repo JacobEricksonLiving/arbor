@@ -9,10 +9,16 @@ var serverConnections = {
 	AXServers : {
 		database:{
 			nodes:{
-
+				md1_db39:{'color':'purple', 'label':'md1-db39', 'description':''},
+				md1_db40:{'color':'purple', 'label':'md1-db40', 'description':''},
+				md1_db41:{'color':'purple', 'label':'md1-db41', 'description':''},
 			},
 			edges:{
-
+				AX:{
+					md1_db39:{weight:2},
+					md1_db40:{weight:2},
+					md1_db41:{weight:2}
+				}
 			}
 		},
 
@@ -36,10 +42,20 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				AX_a:{'color':'green', 'label':'a'}
+				md1_ap75:{'color':'green', 'label':'md1-ap90', 'description':''},
+				md1_ap90:{'color':'green', 'label':'md1-ap90', 'description':''},
+				md1_ap91:{'color':'green', 'label':'md1-ap91', 'description':''},
+				md1_ap92:{'color':'green', 'label':'md1-ap92', 'description':''},
+				md1_ws23:{'color':'green', 'label':'md1-ws23', 'description':''}
 			},
 			edges:{
-				AX:{ AX_a:{weight:2}}
+				AX:{
+					md1_ap75:{weight:2},
+					md1_ap90:{weight:2},
+					md1_ap91:{weight:2},
+					md1_ap92:{weight:2},
+					md1_ws23:{weight:2}
+				}
 			}
 		}
 	},//end AXServers
