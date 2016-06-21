@@ -826,6 +826,8 @@ function clearNodes(){
 function generateAllApplications(){
 	for(node in applicationNodes){
 		expandApplicationNode(node);
+		var nodeObj = sys.getNode(node);
+		nodeObj.data.expanded = true;
 	}
 }
 
@@ -833,10 +835,14 @@ function generateAllApplications(){
 function removeAllApplications(){
 	generateAllApplications();//fixes unexpected behavior where system is not completely expanded yet
 	for(node in applicationNodes){
+		var nodeObj = sys.getNode(node);
+		nodeObj.data.expanded = false;
 		sys.pruneNode(node);		
 	}
-	sys.addNode('AX', applicationNodes.AX);//since this are removed with the for loop add back it
+	//since these base nodes are removed with the for loop you need to add them back in
+	sys.addNode('AX', applicationNodes.AX);
 	sys.addNode('Vision', applicationNodes.Vision);
+	sys.addNode('CorePoint', applicationNodes.CorePoint);
 }
 
 //Recursive function used to remove every node in a branch.
