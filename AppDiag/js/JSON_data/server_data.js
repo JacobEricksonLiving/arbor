@@ -157,14 +157,14 @@ var serverConnections = {
 				md1_ap10:{'color':'green', 'label':'md1-ap10', 'description':'Report Server'},
 				md1_ap14:{'color':'green', 'label':'md1-ap14', 'description':'Utility Integration Server'},
 				md1_ap37:{'color':'green', 'label':'md1-ap37', 'description':'ePerscription Server'},
-				md1_ap42:{'color':'green', 'label':'md1-ap42', 'description':'Corepoint Server'},
+				md1_ap42:{'color':'green', 'label':'md1-ap42', 'description':'CorePoint Server'},
 				md1_ap51:{'color':'green', 'label':'md1-ap51', 'description':'Secure Messaging/Patient Portal'},
 				md1_ap52:{'color':'green', 'label':'md1-ap52', 'description':'Houses/Configure files for DocuTrack'},
 				md1_ap53:{'color':'green', 'label':'md1-ap53', 'description':'Data Transfer Station. Inbound'},
 				md1_ap54:{'color':'green', 'label':'md1-ap54', 'description':'Data Transfer Station. Outbound'},
 				md1_ap55:{'color':'green', 'label':'md1-ap55', 'description':'Data Transfer Station. Clinical'},
 				md1_ap73:{'color':'green', 'label':'md1-ap73', 'description':'Java Boss Server. Runs Reports. Secure Messaging/Patient Portal.'},
-				md1_ap74:{'color':'green', 'label':'md1-ap74', 'description':'java Boss Server. Corepoint Server used to export changes.'},
+				md1_ap74:{'color':'green', 'label':'md1-ap74', 'description':'java Boss Server. CorePoint Server used to export changes.'},
 				Minnow_01:{'color':'green', 'label':'Minnow-01', 'description':'DMZ Web Server for Secure Messaging/Patient Portal'},
 				xa102__xa117:{'color':'green', 'label':'xa102--xa117', 'description':'Some are in reserver'}
 			},
@@ -226,7 +226,7 @@ var serverConnections = {
 		}
 	},//end CofaxServers
 
-	CorepointServers:{
+	CorePointServers:{
 		database:{
 			nodes:{
 
@@ -262,7 +262,7 @@ var serverConnections = {
 
 			}
 		}
-	},//end CorepointServers
+	},//end CorePointServers
 
 	DocuTrackServers:{
 		database:{
