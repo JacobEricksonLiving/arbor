@@ -7,6 +7,15 @@ Holds the information on each serverNode in the system as well as their connecti
 //List of the connections for each serverNode in the system.
 var serverConnections = {
 	AXServers : {
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -36,6 +45,15 @@ var serverConnections = {
 	},//end AXServers
 
 	BizTalkServers :{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -65,6 +83,15 @@ var serverConnections = {
 	},//end BizTalkServers
 
 	BizTalk360Servers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -94,6 +121,15 @@ var serverConnections = {
 	},//BizTalk360Servers
 
 	CentricityServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -123,6 +159,15 @@ var serverConnections = {
 	},//end CentricityServers
 
 	CofaxServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -152,6 +197,15 @@ var serverConnections = {
 	},//end CofaxServers
 
 	CorepointServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -181,6 +235,15 @@ var serverConnections = {
 	},//end CorepointServers
 
 	GSMSServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -210,6 +273,15 @@ var serverConnections = {
 	},//end GSMSServers
 
 	HyperionServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -239,6 +311,15 @@ var serverConnections = {
 	},//end HyperionServers
 
 	MedicalManagerServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -268,6 +349,15 @@ var serverConnections = {
 	},//end MedicalManagerServers
 
 	NetMenuServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -297,6 +387,15 @@ var serverConnections = {
 	},//end NetMenuServers
 
 	OdysseyServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -326,6 +425,15 @@ var serverConnections = {
 	},//end OdysseyServers
 
 	PeopleSoftServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -355,6 +463,15 @@ var serverConnections = {
 	},//end PeopleSoftServers
 
 	PortalServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -384,6 +501,15 @@ var serverConnections = {
 	},//end PortalServers
 
 	SalesForceServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -413,6 +539,15 @@ var serverConnections = {
 	},//end SalesForceServers
 
 	SimphonyServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
 		development:{
 			nodes:{
 
@@ -450,6 +585,15 @@ var serverConnections = {
 	},//end SimphonyServers
 
 	VisionServers:{
+		database:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+		
 		development:{
 			nodes:{
 
