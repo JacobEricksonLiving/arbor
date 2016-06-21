@@ -659,10 +659,16 @@ var serverConnections = {
 	VisionServers:{
 		database:{
 			nodes:{
-
+				md1_db06:{'color':'purple', 'label':'md1-db06', 'description':'EnterpriseRPT'},
+				md1_db11:{'color':'purple', 'label':'md1-db11', 'description':''},
+				md1_db28:{'color':'purple', 'label':'md1-db28', 'description':'Report Server/EnterpriseRPT'}
 			},
 			edges:{
-
+				Vision:{
+					md1_db06:{weight:2},
+					md1_db11:{weight:2},
+					md1_db28:{weight:2}
+				}
 			}
 		},
 		
@@ -686,10 +692,22 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-
+				md1_ap27:{'color':'green', 'label':'md1-ap27', 'description':''},
+				md1_ws36:{'color':'green', 'label':'md1-ws36', 'description':''},
+				md1_ws37:{'color':'green', 'label':'md1-ws37', 'description':''},
+				md1_ws38:{'color':'green', 'label':'md1-ws38', 'description':''},
+				md1_ws39:{'color':'green', 'label':'md1-ws39', 'description':''},
+				md1_ws99:{'color':'green', 'label':'md1-ws99', 'description':''}
 			},
 			edges:{
-
+				Vision:{
+					md1_ap27:{weight:2},
+					md1_ws36:{weight:2},
+					md1_ws37:{weight:2},
+					md1_ws38:{weight:2},
+					md1_ws39:{weight:2},
+					md1_ws99:{weight:2},
+				}
 			}
 		}
 	}//end VisionServers
