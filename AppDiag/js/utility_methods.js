@@ -34,6 +34,10 @@ function expandApplicationNode(nName){
 			sys.addNode('Corepoint', applicationNodes.Corepoint);
 			sys.graft(applicationConnections.CorepointConnections);
 			break;  
+		case "DocuTrack":
+			sys.addNode('DocuTrack', applicationNodes.DocuTrack);
+			sys.graft(applicationConnections.DocuTrackConnections);
+			break; 
 		case "GSMS":
 			sys.addNode('GSMS', applicationNodes.GSMS);
 			sys.graft(applicationConnections.GSMSConnections);
@@ -163,6 +167,20 @@ function displayNodes(){
 			break;
 		case "Corepoint production":
 			sys.graft(serverConnections.CorepointServers.production);
+			break;
+
+
+		case "DocuTrack":
+			expandApplicationNode("DocuTrack");
+			break;
+		case "DocuTrack development":
+			sys.graft(serverConnections.DocuTrackServers.development);
+			break;
+		case "DocuTrack test":
+			sys.graft(serverConnections.DocuTrackServers.test);
+			break;
+		case "DocuTrack production":
+			sys.graft(serverConnections.DocuTrackServers.production);
 			break;
 
 
@@ -433,6 +451,26 @@ function clearNodes(){
 			break;
 		case "Corepoint production":
 			for(node in serverConnections.CorepointServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "DocuTrack":
+			sys.pruneNode("DocuTrack");
+			break;
+		case "DocuTrack development":
+			for(node in serverConnections.DocuTrackServers.development.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "DocuTrack test":
+			for(node in serverConnections.DocuTrackServers.test.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "DocuTrack production":
+			for(node in serverConnections.DocuTrackServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
