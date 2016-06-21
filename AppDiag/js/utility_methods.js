@@ -30,9 +30,9 @@ function expandApplicationNode(nName){
 			sys.addNode('Cofax', applicationNodes.Cofax);
 			sys.graft(applicationConnections.CofaxConnections);
 			break;
-		case "Corepoint":
-			sys.addNode('Corepoint', applicationNodes.Corepoint);
-			sys.graft(applicationConnections.CorepointConnections);
+		case "CorePoint":
+			sys.addNode('CorePoint', applicationNodes.CorePoint);
+			sys.graft(applicationConnections.CorePointConnections);
 			break;  
 		case "DocuTrack":
 			sys.addNode('DocuTrack', applicationNodes.DocuTrack);
@@ -172,20 +172,20 @@ function displayNodes(){
 			break;
 
 
-		case "Corepoint":
-			expandApplicationNode("Corepoint");
+		case "CorePoint":
+			expandApplicationNode("CorePoint");
 			break;
-		case "Corepoint database":
-			sys.graft(serverConnections.CorepointServers.database);
+		case "CorePoint database":
+			sys.graft(serverConnections.CorePointServers.database);
 			break;
-		case "Corepoint development":
-			sys.graft(serverConnections.CorepointServers.development);
+		case "CorePoint development":
+			sys.graft(serverConnections.CorePointServers.development);
 			break;
-		case "Corepoint test":
-			sys.graft(serverConnections.CorepointServers.test);
+		case "CorePoint test":
+			sys.graft(serverConnections.CorePointServers.test);
 			break;
-		case "Corepoint production":
-			sys.graft(serverConnections.CorepointServers.production);
+		case "CorePoint production":
+			sys.graft(serverConnections.CorePointServers.production);
 			break;
 
 
@@ -514,26 +514,26 @@ function clearNodes(){
 			break;
 
 
-		case "Corepoint":
-			sys.pruneNode("Corepoint");
+		case "CorePoint":
+			sys.pruneNode("CorePoint");
 			break;
-		case "Corepoint database":
-			for(node in serverConnections.CorepointServers.database.nodes){
+		case "CorePoint database":
+			for(node in serverConnections.CorePointServers.database.nodes){
 				sys.pruneNode(node);
 			}
 			break;
-		case "Corepoint development":
-			for(node in serverConnections.CorepointServers.development.nodes){
+		case "CorePoint development":
+			for(node in serverConnections.CorePointServers.development.nodes){
 				sys.pruneNode(node);
 			}
 			break;
-		case "Corepoint test":
-			for(node in serverConnections.CorepointServers.test.nodes){
+		case "CorePoint test":
+			for(node in serverConnections.CorePointServers.test.nodes){
 				sys.pruneNode(node);
 			}
 			break;
-		case "Corepoint production":
-			for(node in serverConnections.CorepointServers.production.nodes){
+		case "CorePoint production":
+			for(node in serverConnections.CorePointServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
