@@ -340,6 +340,10 @@ function clearNodes(){
 		case "AX":
 			alert("Red nodes cannot be removed");
 			break;
+		case "AX database":
+			for(node in serverConnections.AXServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "AX development":
 			for(node in serverConnections.AXServers.development.nodes){
 				sys.pruneNode(node);
@@ -360,6 +364,10 @@ function clearNodes(){
 		case "BizTalk":
 			sys.pruneNode("BizTalk");
 			break;
+		case "BizTalk database":
+			for(node in serverConnections.BizTalkServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "BizTalk development":
 			for(node in serverConnections.BizTalkServers.development.nodes){
 				sys.pruneNode(node);
@@ -376,9 +384,14 @@ function clearNodes(){
 			}
 			break;
 
+
 		case "BizTalk360":
 			sys.pruneNode("BizTalk360");
 			break;
+		case "BizTalk360 database":
+			for(node in serverConnections.BizTalk360Servers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "BizTalk360 development":
 			for(node in serverConnections.BizTalk360Servers.development.nodes){
 				sys.pruneNode(node);
@@ -399,6 +412,10 @@ function clearNodes(){
 		case "Centricity":
 			sys.pruneNode("Centricity");
 			break;
+		case "Centricity database":
+			for(node in serverConnections.CentricityServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Centricity development":
 			for(node in serverConnections.CentricityServers.development.nodes){
 				sys.pruneNode(node);
@@ -419,6 +436,10 @@ function clearNodes(){
 		case "Cofax":
 			sys.pruneNode("Cofax");
 			break;
+		case "Cofax database":
+			for(node in serverConnections.CofaxServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Cofax development":
 			for(node in serverConnections.CofaxServers.development.nodes){
 				sys.pruneNode(node);
@@ -439,6 +460,10 @@ function clearNodes(){
 		case "Corepoint":
 			sys.pruneNode("Corepoint");
 			break;
+		case "Corepoint database":
+			for(node in serverConnections.CorepointServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Corepoint development":
 			for(node in serverConnections.CorepointServers.development.nodes){
 				sys.pruneNode(node);
@@ -459,6 +484,10 @@ function clearNodes(){
 		case "DocuTrack":
 			sys.pruneNode("DocuTrack");
 			break;
+		case "DocuTrack database":
+			for(node in serverConnections.DocuTrackServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "DocuTrack development":
 			for(node in serverConnections.DocuTrackServers.development.nodes){
 				sys.pruneNode(node);
@@ -479,6 +508,10 @@ function clearNodes(){
 		case "GSMS":
 			sys.pruneNode("GSMS");
 			break;
+		case "GSMS database":
+			for(node in serverConnections.GSMSServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "GSMS development":
 			for(node in serverConnections.GSMSServers.development.nodes){
 				sys.pruneNode(node);
@@ -499,6 +532,10 @@ function clearNodes(){
 		case "Hyperion":
 			sys.pruneNode("Hyperion");
 			break;
+		case "Hyperion database":
+			for(node in serverConnections.HyperionServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Hyperion development":
 			for(node in serverConnections.HyperionServers.development.nodes){
 				sys.pruneNode(node);
@@ -519,6 +556,10 @@ function clearNodes(){
 		case "MedicalManager":
 			sys.pruneNode("MedicalManager");
 			break;
+		case "MedicalManager database":
+			for(node in serverConnections.MedicalManagerServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "MedicalManager development":
 			for(node in serverConnections.MedicalManagerServers.development.nodes){
 				sys.pruneNode(node);
@@ -539,6 +580,10 @@ function clearNodes(){
 		case "NetMenu":
 			sys.pruneNode("NetMenu");
 			break;
+		case "NetMenu database":
+			for(node in serverConnections.NetMenuServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "NetMenu development":
 			for(node in serverConnections.NetMenuServers.development.nodes){
 				sys.pruneNode(node);
@@ -559,6 +604,10 @@ function clearNodes(){
 		case "Odyssey":
 			sys.pruneNode("Odyssey");
 			break;
+		case "Odyssey database":
+			for(node in serverConnections.OdysseyServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Odyssey development":
 			for(node in serverConnections.OdysseyServers.development.nodes){
 				sys.pruneNode(node);
@@ -579,6 +628,10 @@ function clearNodes(){
 		case "PeopleSoft":
 			sys.pruneNode("PeopleSoft");
 			break;
+		case "PeopleSoft database":
+			for(node in serverConnections.PeopleSoftServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "PeopleSoft development":
 			for(node in serverConnections.PeopleSoftServers.development.nodes){
 				sys.pruneNode(node);
@@ -599,6 +652,10 @@ function clearNodes(){
 		case "Portal":
 			sys.pruneNode("Portal");
 			break;
+		case "Portal database":
+			for(node in serverConnections.PortalServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Portal development":
 			for(node in serverConnections.PortalServers.development.nodes){
 				sys.pruneNode(node);
@@ -619,6 +676,10 @@ function clearNodes(){
 		case "SalesForce":
 			sys.pruneNode("SalesForce");
 			break;
+		case "SalesForce database":
+			for(node in serverConnections.SalesForceServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "SalesForce development":
 			for(node in serverConnections.SalesForceServers.development.nodes){
 				sys.pruneNode(node);
@@ -639,6 +700,10 @@ function clearNodes(){
 		case "Simphony":
 			sys.pruneNode("Simphony");
 			break;
+		case "Simphony database":
+			for(node in serverConnections.SimphonyServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Simphony development":
 			for(node in serverConnections.SimphonyServers.development.nodes){
 				sys.pruneNode(node);
@@ -659,6 +724,10 @@ function clearNodes(){
 		case "Vision":
 			alert("Red nodes cannot be removed");
 			break;
+		case "Vision database":
+			for(node in serverConnections.VisionServers.database.nodes){
+				sys.pruneNode(node);
+			}
 		case "Vision development":
 			for(node in serverConnections.VisionServers.development.nodes){
 				sys.pruneNode(node);
