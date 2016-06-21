@@ -2,7 +2,6 @@
 application_data.js
 
 Holds the information on each applicationNode in the system as well as their connections
-Also contains method used to expand specific applicationNodes
 */
 
 
@@ -240,52 +239,3 @@ var applicationConnections = {
 	}//end VisionConnections
 
 }//end applicationsConnections
-
-//switch case for which applicationNode connections should be graphed
-function expandApplicationNode(nName){
-	switch(nName){
-		case "AX":
-			sys.graft(applicationConnections.AXConnections);
-			break;
-		case "BizTalk":
-			sys.graft(applicationConnections.BizTalkConnections);
-			break;
-		case "BizTalk360":
-			sys.graft(applicationConnections.BizTalk360Connections);
-			break;
-		case "Centricity":
-			sys.graft(applicationConnections.CentricityConnections);
-			sys.addNode('Centricity', applicationNodes.Centricity);//note this is used since Centricty has no connections
-			break;
-		case "Cofax":
-			sys.graft(applicationConnections.CofaxConnections);
-			break;
-		case "Corepoint":
-			sys.graft(applicationConnections.CorepointConnections);
-			break;  
-		case "GSMS":
-			sys.graft(applicationConnections.GSMSConnections);
-			break;
-		case "Hyperion":
-			sys.graft(applicationConnections.HyperionConnections);
-			break;
-		case "NetMenu":
-			sys.graft(applicationConnections.NetMenuConnections);
-			break;
-		case "Odyssey":
-			sys.graft(applicationConnections.OdysseyConnections);
-			break;
-		case "PeopleSoft":
-			sys.graft(applicationConnections.PeopleSoftConnections);
-			break; 
-		case "SalesForce":
-			sys.graft(applicationConnections.SalesForceConnections);
-			break;
-		case "Simphony":
-			sys.graft(applicationConnections.SimphonyConnections);
-			break;   
-		case "Vision":
-			sys.graft(applicationConnections.VisionConnections);
-			break;
-	}
-}//end expandApplicationNode
