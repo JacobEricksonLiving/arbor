@@ -1,4 +1,5 @@
-function clipNode(nName1){//removes edges of a node but not the node
+//function which removes edges of a node but not the node itself.
+function clipNode(nName1){
 	sys.pruneNode(nName1);
     var temp = sys.addNode(nName1.name, {'color':nName1.data.color, 'shape':nName1.data.shape, 
     	'label':nName1.data.label, 'expanded':nName1.data.expanded,
@@ -6,6 +7,56 @@ function clipNode(nName1){//removes edges of a node but not the node
     });
 } 
 
+//switch case for which applicationNode connections should be graphed
+function expandApplicationNode(nName){
+	switch(nName){
+		case "AX":
+			sys.graft(applicationConnections.AXConnections);
+			break;
+		case "BizTalk":
+			sys.graft(applicationConnections.BizTalkConnections);
+			break;
+		case "BizTalk360":
+			sys.graft(applicationConnections.BizTalk360Connections);
+			break;
+		case "Centricity":
+			sys.graft(applicationConnections.CentricityConnections);
+			sys.addNode('Centricity', applicationNodes.Centricity);//note this is used since Centricty has no connections
+			break;
+		case "Cofax":
+			sys.graft(applicationConnections.CofaxConnections);
+			break;
+		case "Corepoint":
+			sys.graft(applicationConnections.CorepointConnections);
+			break;  
+		case "GSMS":
+			sys.graft(applicationConnections.GSMSConnections);
+			break;
+		case "Hyperion":
+			sys.graft(applicationConnections.HyperionConnections);
+			break;
+		case "NetMenu":
+			sys.graft(applicationConnections.NetMenuConnections);
+			break;
+		case "Odyssey":
+			sys.graft(applicationConnections.OdysseyConnections);
+			break;
+		case "PeopleSoft":
+			sys.graft(applicationConnections.PeopleSoftConnections);
+			break; 
+		case "SalesForce":
+			sys.graft(applicationConnections.SalesForceConnections);
+			break;
+		case "Simphony":
+			sys.graft(applicationConnections.SimphonyConnections);
+			break;   
+		case "Vision":
+			sys.graft(applicationConnections.VisionConnections);
+			break;
+	}
+}//end expandApplicationNode
+
+//switch case for different commands when clicking the Generate button
 function displayNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
@@ -213,6 +264,7 @@ function displayNodes(){
 	}
 }  
 
+//switch case for different commands when clicking the Remove button
 function clearNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
@@ -505,11 +557,14 @@ function clearNodes(){
 	}
 }
 
+//function which will expand all the applications with their connections
 function expandAllApplications(){
 	for(node in applicationNodes){
 		expandApplicationNode(node);
 	}
 }
+
+//function which will remove all but the base(red) applications and their connections.
 function removeAllApplications(){
 	expandAllApplications();//fixes unexpected behavior where system is not completely expanded yet
 	for(node in applicationNodes){
@@ -518,6 +573,8 @@ function removeAllApplications(){
 	sys.addNode('AX', applicationNodes.AX);//since this are removed with the for loop add back it
 	sys.addNode('Vision', applicationNodes.Vision);
 }
+
+//Recursive function used to remove every node in a branch.
 function clipBranch(nName){
 	sys.eachNode(function(node, pt){
 		for(i=0; i<nName.data.from.length; ++i){
