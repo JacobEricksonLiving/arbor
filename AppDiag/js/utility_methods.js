@@ -837,12 +837,14 @@ function removeAllApplications(){
 	for(node in applicationNodes){
 		var nodeObj = sys.getNode(node);
 		nodeObj.data.expanded = false;
-		sys.pruneNode(node);		
+		if(!nodeObj.data.base){
+			sys.pruneNode(nodeObj);
+		}
+		if(nodeObj.data.base){
+			clipNode(nodeObj);
+		}
+				
 	}
-	//since these base nodes are removed with the for loop you need to add them back in
-	sys.addNode('AX', applicationNodes.AX);
-	sys.addNode('Vision', applicationNodes.Vision);
-	sys.addNode('CorePoint', applicationNodes.CorePoint);
 }
 
 //Recursive function used to remove every node in a branch.
