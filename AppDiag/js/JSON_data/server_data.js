@@ -123,10 +123,14 @@ var serverConnections = {
 	CentricityServers:{
 		database:{
 			nodes:{
-
+				Centricity_md1_db16:{'color':'purple', 'label':'md1-db16', 'description':'Primary database'},
+				Centricity_md1_db25:{'color':'purple', 'label':'md1-db16', 'description':'Shared DB used for Secure Messaging/Patient Portal'}				
 			},
 			edges:{
-
+				Centricity:{
+					Centricity_md1_db16:{weight:2},
+					Centricity_md1_db25:{weight:2}
+				}
 			}
 		},
 
@@ -150,10 +154,36 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-
+				Centricity_md1_ap10:{'color':'green', 'label':'md1-ap10', 'description':'Report Server'},
+				Centricity_md1_ap14:{'color':'green', 'label':'md1-ap14', 'description':'Utility Integration Server'},
+				Centricity_md1_ap37:{'color':'green', 'label':'md1-ap37', 'description':'ePerscription Server'},
+				Centricity_md1_ap42:{'color':'green', 'label':'md1-ap42', 'description':'Corepoint Server'},
+				Centricity_md1_ap51:{'color':'green', 'label':'md1-ap51', 'description':'Secure Messaging/Patient Portal'},
+				Centricity_md1_ap52:{'color':'green', 'label':'md1-ap52', 'description':'Houses/Configure files for DocuTrack'},
+				Centricity_md1_ap53:{'color':'green', 'label':'md1-ap53', 'description':'Data Transfer Station. Inbound'},
+				Centricity_md1_ap54:{'color':'green', 'label':'md1-ap54', 'description':'Data Transfer Station. Outbound'},
+				Centricity_md1_ap55:{'color':'green', 'label':'md1-ap55', 'description':'Data Transfer Station. Clinical'},
+				Centricity_md1_ap73:{'color':'green', 'label':'md1-ap73', 'description':'Java Boss Server. Runs Reports. Secure Messaging/Patient Portal.'},
+				Centricity_md1_ap74:{'color':'green', 'label':'md1-ap74', 'description':'java Boss Server. Corepoint Server used to export changes.'},
+				Centricity_Minnow_01:{'color':'green', 'label':'Minnow-01', 'description':'DMZ Web Server for Secure Messaging/Patient Portal'},
+				Centricity_xa102__xa117:{'color':'green', 'label':'xa102--xa117', 'description':'Some are in reserver'}
 			},
 			edges:{
-
+				Centricity:{
+					Centricity_md1_ap10:{weight:2},
+					Centricity_md1_ap14:{weight:2},
+					Centricity_md1_ap37:{weight:2},
+					Centricity_md1_ap42:{weight:2},
+					Centricity_md1_ap51:{weight:2},
+					Centricity_md1_ap52:{weight:2},
+					Centricity_md1_ap53:{weight:2},
+					Centricity_md1_ap54:{weight:2},
+					Centricity_md1_ap55:{weight:2},
+					Centricity_md1_ap73:{weight:2},
+					Centricity_md1_ap74:{weight:2},
+					Centricity_Minnow_01:{weight:2},
+					Centricity_xa102__xa117:{weight:2}
+				}
 			}
 		}
 	},//end CentricityServers
