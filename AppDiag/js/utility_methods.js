@@ -90,6 +90,9 @@ function displayNodes(){
 		case "AX":
 			expandApplicationNode("AX");
 			break;
+		case "AX database":
+			sys.graft(serverConnections.AXServers.database);
+			break;
 		case "AX development":
 			sys.graft(serverConnections.AXServers.development);
 			break;
@@ -103,6 +106,9 @@ function displayNodes(){
 
 		case "BizTalk":
 			expandApplicationNode("BizTalk");
+			break;
+		case "BizTalk database":
+			sys.graft(serverConnections.BizTalkServers.database);
 			break;
 		case "BizTalk development":
 			sys.graft(serverConnections.BizTalkServers.development);
@@ -118,6 +124,9 @@ function displayNodes(){
 		case "BizTalk360":
 			expandApplicationNode("BizTalk360");
 			break;
+		case "BizTalk360 database":
+			sys.graft(serverConnections.BizTalk360Servers.database);
+			break;
 		case "BizTalk360 development":
 			sys.graft(serverConnections.BizTalk360Servers.development);
 			break;
@@ -131,6 +140,10 @@ function displayNodes(){
 
 		case "Centricity":
 			expandApplicationNode("Centricity");
+			break;
+		case "Centricity database":
+			sys.graft(serverConnections.CentricityServers.database);
+			break;
 		case "Centricity development":
 			sys.graft(serverConnections.CentricityServers.development);
 			break;
@@ -144,6 +157,9 @@ function displayNodes(){
 
 		case "Cofax":
 			expandApplicationNode("Cofax");
+			break;
+		case "Cofax database":
+			sys.graft(serverConnections.CofaxServers.database);
 			break;
 		case "Cofax development":
 			sys.graft(serverConnections.CofaxServers.development);
@@ -159,6 +175,9 @@ function displayNodes(){
 		case "Corepoint":
 			expandApplicationNode("Corepoint");
 			break;
+		case "Corepoint database":
+			sys.graft(serverConnections.CorepointServers.database);
+			break;
 		case "Corepoint development":
 			sys.graft(serverConnections.CorepointServers.development);
 			break;
@@ -172,6 +191,9 @@ function displayNodes(){
 
 		case "DocuTrack":
 			expandApplicationNode("DocuTrack");
+			break;
+		case "DocuTrack database":
+			sys.graft(serverConnections.DocuTrackServers.database);
 			break;
 		case "DocuTrack development":
 			sys.graft(serverConnections.DocuTrackServers.development);
@@ -187,6 +209,9 @@ function displayNodes(){
 		case "GSMS":
 			expandApplicationNode("GSMS");
 			break;
+		case "GSMS database":
+			sys.graft(serverConnections.GSMSServers.database);
+			break;
 		case "GSMS development":
 			sys.graft(serverConnections.GSMSServers.development);
 			break;
@@ -200,6 +225,9 @@ function displayNodes(){
 
 		case "Hyperion":
 			expandApplicationNode("Hyperion");
+			break;
+		case "Hyperion database":
+			sys.graft(serverConnections.HyperionServers.database);
 			break;
 		case "Hyperion development":
 			sys.graft(serverConnections.HyperionServers.development);
@@ -215,6 +243,9 @@ function displayNodes(){
 		case "MedicalManager":
 			expandApplicationNode("MedicalManager");
 			break;
+		case "MedicalManager database":
+			sys.graft(serverConnections.MedicalManagerServers.database);
+			break;
 		case "MedicalManager development":
 			sys.graft(serverConnections.MedicalManagerServers.development);
 			break;
@@ -228,6 +259,9 @@ function displayNodes(){
 
 		case "NetMenu":
 			expandApplicationNode("NetMenu");
+			break;
+		case "NetMenu database":
+			sys.graft(serverConnections.NetMenuServers.database);
 			break;
 		case "NetMenu development":
 			sys.graft(serverConnections.NetMenuServers.development);
@@ -243,6 +277,9 @@ function displayNodes(){
 		case "Odyssey":
 			expandApplicationNode("Odyssey");
 			break;
+		case "Odyssey database":
+			sys.graft(serverConnections.OdysseyServers.database);
+			break;
 		case "Odyssey development":
 			sys.graft(serverConnections.OdysseyServers.development);
 			break;
@@ -256,6 +293,9 @@ function displayNodes(){
 
 		case "PeopleSoft":
 			expandApplicationNode("PeopleSoft");
+			break;
+		case "PeopleSoft database":
+			sys.graft(serverConnections.PeopleSoftServers.database);
 			break;
 		case "PeopleSoft development":
 			sys.graft(serverConnections.PeopleSoftServers.development);
@@ -271,6 +311,9 @@ function displayNodes(){
 		case "Portal":
 			expandApplicationNode("Portal");
 			break;
+		case "Portal database":
+			sys.graft(serverConnections.PortalServers.database);
+			break;
 		case "Portal development":
 			sys.graft(serverConnections.PortalServers.development);
 			break;
@@ -284,6 +327,9 @@ function displayNodes(){
 
 		case "SalesForce":
 			expandApplicationNode("SalesForce");
+			break;
+		case "SalesForce database":
+			sys.graft(serverConnections.SalesForceServers.database);
 			break;
 		case "SalesForce development":
 			sys.graft(serverConnections.SalesForceServers.development);
@@ -299,6 +345,9 @@ function displayNodes(){
 		case "Simphony":
 			expandApplicationNode("Simphony");
 			break;
+		case "Simphony database":
+			sys.graft(serverConnections.SimphonyServers.database);
+			break;
 		case "Simphony development":
 			sys.graft(serverConnections.SimphonyServers.development);
 			break;
@@ -313,6 +362,9 @@ function displayNodes(){
 		case "Vision":
 			expandApplicationNode("Vision");
 			break;
+		case "Vision database":
+			sys.graft(serverConnections.VisionServers.database);
+			break;
 		case "Vision development":
 			sys.graft(serverConnections.VisionServers.development);
 			break;
@@ -323,8 +375,8 @@ function displayNodes(){
 			sys.graft(serverConnections.VisionServers.production);
 			break;
 
-		case "expand all applications":
-			expandAllApplications();
+		case "generate all applications":
+			generateAllApplications();
 			break;
 		default:
 			alert("Please enter correct command");
@@ -344,6 +396,7 @@ function clearNodes(){
 			for(node in serverConnections.AXServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "AX development":
 			for(node in serverConnections.AXServers.development.nodes){
 				sys.pruneNode(node);
@@ -368,6 +421,7 @@ function clearNodes(){
 			for(node in serverConnections.BizTalkServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "BizTalk development":
 			for(node in serverConnections.BizTalkServers.development.nodes){
 				sys.pruneNode(node);
@@ -392,6 +446,7 @@ function clearNodes(){
 			for(node in serverConnections.BizTalk360Servers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "BizTalk360 development":
 			for(node in serverConnections.BizTalk360Servers.development.nodes){
 				sys.pruneNode(node);
@@ -416,6 +471,7 @@ function clearNodes(){
 			for(node in serverConnections.CentricityServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Centricity development":
 			for(node in serverConnections.CentricityServers.development.nodes){
 				sys.pruneNode(node);
@@ -440,6 +496,7 @@ function clearNodes(){
 			for(node in serverConnections.CofaxServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Cofax development":
 			for(node in serverConnections.CofaxServers.development.nodes){
 				sys.pruneNode(node);
@@ -464,6 +521,7 @@ function clearNodes(){
 			for(node in serverConnections.CorepointServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Corepoint development":
 			for(node in serverConnections.CorepointServers.development.nodes){
 				sys.pruneNode(node);
@@ -488,6 +546,7 @@ function clearNodes(){
 			for(node in serverConnections.DocuTrackServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "DocuTrack development":
 			for(node in serverConnections.DocuTrackServers.development.nodes){
 				sys.pruneNode(node);
@@ -512,6 +571,7 @@ function clearNodes(){
 			for(node in serverConnections.GSMSServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "GSMS development":
 			for(node in serverConnections.GSMSServers.development.nodes){
 				sys.pruneNode(node);
@@ -536,6 +596,7 @@ function clearNodes(){
 			for(node in serverConnections.HyperionServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Hyperion development":
 			for(node in serverConnections.HyperionServers.development.nodes){
 				sys.pruneNode(node);
@@ -560,6 +621,7 @@ function clearNodes(){
 			for(node in serverConnections.MedicalManagerServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "MedicalManager development":
 			for(node in serverConnections.MedicalManagerServers.development.nodes){
 				sys.pruneNode(node);
@@ -584,6 +646,7 @@ function clearNodes(){
 			for(node in serverConnections.NetMenuServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "NetMenu development":
 			for(node in serverConnections.NetMenuServers.development.nodes){
 				sys.pruneNode(node);
@@ -608,6 +671,7 @@ function clearNodes(){
 			for(node in serverConnections.OdysseyServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Odyssey development":
 			for(node in serverConnections.OdysseyServers.development.nodes){
 				sys.pruneNode(node);
@@ -632,6 +696,7 @@ function clearNodes(){
 			for(node in serverConnections.PeopleSoftServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "PeopleSoft development":
 			for(node in serverConnections.PeopleSoftServers.development.nodes){
 				sys.pruneNode(node);
@@ -656,6 +721,7 @@ function clearNodes(){
 			for(node in serverConnections.PortalServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Portal development":
 			for(node in serverConnections.PortalServers.development.nodes){
 				sys.pruneNode(node);
@@ -680,6 +746,7 @@ function clearNodes(){
 			for(node in serverConnections.SalesForceServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "SalesForce development":
 			for(node in serverConnections.SalesForceServers.development.nodes){
 				sys.pruneNode(node);
@@ -704,6 +771,7 @@ function clearNodes(){
 			for(node in serverConnections.SimphonyServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Simphony development":
 			for(node in serverConnections.SimphonyServers.development.nodes){
 				sys.pruneNode(node);
@@ -728,6 +796,7 @@ function clearNodes(){
 			for(node in serverConnections.VisionServers.database.nodes){
 				sys.pruneNode(node);
 			}
+			break;
 		case "Vision development":
 			for(node in serverConnections.VisionServers.development.nodes){
 				sys.pruneNode(node);
@@ -754,7 +823,7 @@ function clearNodes(){
 }
 
 //function which will expand all the applications with their connections
-function expandAllApplications(){
+function generateAllApplications(){
 	for(node in applicationNodes){
 		expandApplicationNode(node);
 	}
@@ -762,7 +831,7 @@ function expandAllApplications(){
 
 //function which will remove all but the base(red) applications and their connections.
 function removeAllApplications(){
-	expandAllApplications();//fixes unexpected behavior where system is not completely expanded yet
+	generateAllApplications();//fixes unexpected behavior where system is not completely expanded yet
 	for(node in applicationNodes){
 		sys.pruneNode(node);		
 	}
