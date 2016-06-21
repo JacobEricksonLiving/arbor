@@ -238,6 +238,35 @@ var serverConnections = {
 		}
 	},//end HyperionServers
 
+	MedicalManagerServers:{
+		development:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end MedicalManagerServers
+
 	NetMenuServers:{
 		development:{
 			nodes:{
@@ -324,6 +353,35 @@ var serverConnections = {
 			}
 		}
 	},//end PeopleSoftServers
+
+	PortalServers:{
+		development:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		test:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end PortalServers
 
 	SalesForceServers:{
 		development:{
