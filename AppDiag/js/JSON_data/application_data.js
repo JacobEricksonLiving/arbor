@@ -112,7 +112,7 @@ var applicationEdges ={
 		Cofax_PeopleSoft:{directed:true, weight:5, label:'Document Images'},
 
 		CorePoint_BizTalk:{directed:true, weight:5, label:'Reconfigure Data'},
-		CorePoint_MedicalManager:{directed:true, weight:5, label:'Reconfing. Demographic Data from Vision'},
+		CorePoint_MedicalManager:{directed:true, weight:5, label:'Reconfig. Demographic Data to/from Vision'},
 		CorePoint_NetMenu:{directed:true, weight:5, label:''},
 		CorePoint_Vision:{directed:true, weight:5, label:'Demographic Data'},
 
@@ -121,7 +121,7 @@ var applicationEdges ={
 		GSMS_AX:{directed:true, weight:5, label:'Housekeeping/maintance fees'},
 
 		MedicalManager_Centricity:{directed:true, weight:5, label:'Demographic Data'},
-		MedicalManager_CorePoint:{directed:true, weight:5, label:'Demographic Data to be prossed for Vision'},
+		MedicalManager_CorePoint:{directed:true, weight:5, label:'Reconfig. Demographic Data to/from Vision'},
 
 		NetMenu_Simphony:{directed:true, weight:5, label:'Menu Items'},
 
