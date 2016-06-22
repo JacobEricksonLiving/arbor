@@ -91,29 +91,54 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
-	'to':['CorePoint', 'Odyssey', 'SalesForce', 'Vision'], 
+	'to':['CorePoint', 'Odyssey', 'SalesForce'], 
 	'from':['AX', 'CorePoint', 'Portal'], 'base':true, 'server':'N/A',
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 
 //List of all the application to application edges in the system.
 var applicationEdges ={
-	AXEdges:{
+	//note edges are named as Source_Destination
 		AX_Hyperion:{directed:true, weight:5, label:'HELLO'},
-		Cofax_AX:{directed:true, weight:5, label:'2'},
-		GSMS_AX:{directed:true, weight:5, label:'3'},
-		PeopleSoft_AX:{directed:true, weight:5, label:'4'},
-		Simphony_AX:{directed:true, weight:5, label:'2'},
-		Vision_AX:{directed:true, weight:5, label:'2'}
-	},//end AXEdges
 
-	BizTalkEdges:{
 		BizTalk_BizTalk360:{directed:true, weight:5, label:''},
 		BizTalk_CorePoint:{directed:true, weight:5, label:''},
 		BizTalk_Odyssey:{directed:true, weight:5, label:''},
-		CorePoint_BizTalk:{directed:true, weight:5, label:''},
-	},//end BizTalkEdges
 
+		Centricity_MedicalManager:{directed:true, weight:5, label:''},
+		Centricity_Portal:{directed:true, weight:5, label:''},
+
+		Cofax_AX:{directed:true, weight:5, label:''},
+		Cofax_PeopleSoft:{directed:true, weight:5, label:''},
+
+		CorePoint_BizTalk:{directed:true, weight:5, label:''},
+		CorePoint_MedicalManager:{directed:true, weight:5, label:''},
+		CorePoint_NetMenu:{directed:true, weight:5, label:''},
+		CorePoint_Vision:{directed:true, weight:5, label:''},
+
+		DocuTrack_Centricity:{directed:true, weight:5, label:''},
+
+		GSMS_AX:{directed:true, weight:5, label:''},
+
+		MedicalManager_Centricity:{directed:true, weight:5, label:''},
+		MedicalManager_CorePoint:{directed:true, weight:5, label:''},
+
+		NetMenu_Simphony:{directed:true, weight:5, label:''},
+
+		Odyssey_Vision:{directed:true, weight:5, label:''},
+
+		PeopleSoft_AX:{directed:true, weight:5, label:''},
+
+		SalesForce_Hyperion:{directed:true, weight:5, label:''},
+		SalesForce_Vision:{directed:true, weight:5, label:''},
+
+		Simphony_AX:{directed:true, weight:5, label:''},
+		Simphony_NetMenu:{directed:true, weight:5, label:''},
+
+		Vision_AX:{directed:true, weight:5, label:''},
+		Vision_CorePoint:{directed:true, weight:5, label:''},
+		Vision_Portal:{directed:true, weight:5, label:''}
+	
 }
 //List of the connections for each applicationNode in the system.
 var applicationConnections = {
@@ -128,12 +153,12 @@ var applicationConnections = {
 		},
 
 		edges:{
-			AX:{Hyperion:applicationEdges.AXEdges.AX_Hyperion},
-			Cofax:{AX:applicationEdges.AXEdges.Cofax_AX},
-			GSMS:{AX:applicationEdges.AXEdges.GSMS_AX},
-			PeopleSoft:{AX:applicationEdges.AXEdges.PeopleSoft_AX},
-			Simphony:{AX:applicationEdges.AXEdges.Simphony_AX},
-			Vision:{AX:applicationEdges.AXEdges.Vision_AX}
+			AX:{Hyperion:applicationEdges.AX_Hyperion},
+			Cofax:{AX:applicationEdges.Cofax_AX},
+			GSMS:{AX:applicationEdges.GSMS_AX},
+			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX},
+			Simphony:{AX:applicationEdges.Simphony_AX},
+			Vision:{AX:applicationEdges.Vision_AX}
 		}
 	},//end AXConnections
 
@@ -145,11 +170,11 @@ var applicationConnections = {
 		},
 		edges:{
 			BizTalk:{
-				BizTalk360:applicationEdges.BizTalkEdges.BizTalk_BizTalk360,
-				CorePoint:applicationEdges.BizTalkEdges.BizTalk_CorePoint,
-				Odyssey:applicationEdges.BizTalkEdges.BizTalk_Odyssey
+				BizTalk360:applicationEdges.BizTalk_BizTalk360,
+				CorePoint:applicationEdges.BizTalk_CorePoint,
+				Odyssey:applicationEdges.BizTalk_Odyssey
 			},
-			CorePoint:{BizTalk:applicationEdges.BizTalkEdges.CorePoint_BizTalk}
+			CorePoint:{BizTalk:applicationEdges.CorePoint_BizTalk}
 		}
 
 	},//end BizTalkConnections
@@ -159,7 +184,7 @@ var applicationConnections = {
 			BizTalk:applicationNodes.BizTalk
 		},
 		edges:{
-			BizTalk:{BizTalk360:{directed:true, weight:5}}
+			BizTalk:{BizTalk360:applicationEdges.BizTalk_BizTalk360}
 		}
 
 	},//end BizTalk360Connections
@@ -171,12 +196,12 @@ var applicationConnections = {
 			Portal:applicationNodes.Portal
 		},
 		edges:{
-			DocuTrack:{Centricity:{directed:true, weight:5}},
+			DocuTrack:{Centricity:applicationEdges.DocuTrack_Centricity},
 			Centricity:{
-				Portal:{directed:true, weight:5},
-				MedicalManager:{directed:true, weight:5}
+				Portal:applicationEdges.Centricity_Portal,
+				MedicalManager:applicationEdges.Centricity_MedicalManager
 			},
-			MedicalManager:{Centricity:{directed:true, weight:5}}
+			MedicalManager:{Centricity:applicationEdges.MedicalManager_Centricity}
 		}
 
 	},//end CentricityConnections
@@ -188,8 +213,8 @@ var applicationConnections = {
 		},
 		edges:{
 			Cofax:{
-				AX:{directed:true, weight:5},
-				PeopleSoft:{directed:true, weight:5}
+				AX:applicationEdges.Cofax_AX,
+				PeopleSoft:applicationEdges.Cofax_PeopleSoft
 			}
 		}
 
@@ -203,15 +228,15 @@ var applicationConnections = {
 			Vision:applicationNodes.Vision
 		},
 		edges:{
-			BizTalk:{CorePoint:{directed:true, weight:5}},
+			BizTalk:{CorePoint:applicationEdges.BizTalk_CorePoint},
 			CorePoint:{
-				BizTalk:{directed:true, weight:5},
-				MedicalManager:{directed:true, weight:5},
-				NetMenu:{directed:true, weight:5},
-				Vision:{directed:true, weight:5}
+				BizTalk:applicationEdges.CorePoint_BizTalk,
+				MedicalManager:applicationEdges.CorePoint_MedicalManager,
+				NetMenu:applicationEdges.CorePoint_NetMenu,
+				Vision:applicationEdges.CorePoint_Vision
 			},
-			MedicalManager:{CorePoint:{directed:true, weight:5}},
-			Vision:{CorePoint:{directed:true, weight:5}}
+			MedicalManager:{CorePoint:applicationEdges.MedicalManager_CorePoint},
+			Vision:{CorePoint:applicationEdges.Vision_CorePoint}
 		}
 
 	},//end CorePointConnections
@@ -221,7 +246,7 @@ var applicationConnections = {
 			Centricity:applicationNodes.Centricity
 		},
 		edges:{
-			DocuTrack:{Centricity:{directed:true, weight:5}}
+			DocuTrack:{Centricity:applicationEdges.DocuTrack_Centricity}
 		}
 	},
 
@@ -230,7 +255,7 @@ var applicationConnections = {
 			AX:applicationNodes.AX,
 		},
 		edges:{
-			GSMS:{AX:{directed:true, weight:5}}
+			GSMS:{AX:applicationEdges.GSMS_AX}
 		}
 	},//end GSMSConnections
 
@@ -240,8 +265,8 @@ var applicationConnections = {
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
-			AX:{Hyperion:{directed:true, weight:5}},
-			SalesForce:{Hyperion:{directed:true, weight:5}}
+			AX:{Hyperion:applicationEdges.AX_Hyperion},
+			SalesForce:{Hyperion:applicationEdges.SalesForce_Hyperion}
 		}
 
 	},//end HyperionConnections
@@ -253,11 +278,11 @@ var applicationConnections = {
 		},
 		edges:{
 			MedicalManager:{
-				Centricity:{directed:true, weight:5},
-				CorePoint:{directed:true, weight:5}
+				Centricity:applicationEdges.MedicalManager_Centricity,
+				CorePoint:applicationEdges.MedicalManager_CorePoint
 			},
-			Centricity:{MedicalManager:{directed:true, weight:5}},
-			CorePoint:{MedicalManager:{directed:true, weight:5}}
+			Centricity:{MedicalManager:applicationEdges.Centricity_MedicalManager},
+			CorePoint:{MedicalManager:applicationEdges.CorePoint_MedicalManager}
 
 		}
 	},//end MedicalManagerConnections
@@ -268,9 +293,9 @@ var applicationConnections = {
 			Simphony:applicationNodes.Simphony
 		},
 		edges:{
-			CorePoint:{NetMenu:{directed:true, weight:5}},
-			NetMenu:{Simphony:{directed:true, weight:5}},
-			Simphony:{NetMenu:{directed:true, weight:5}}
+			CorePoint:{NetMenu:applicationEdges.CorePoint_NetMenu},
+			NetMenu:{Simphony:applicationEdges.NetMenu_Simphony},
+			Simphony:{NetMenu:applicationEdges.Simphony_NetMenu}
 		}
 	},//end NetMenuConnections
 
@@ -280,8 +305,8 @@ var applicationConnections = {
 			Vision:applicationNodes.Vision
 		},
 		edges:{
-			Odyssey:{Vision:{directed:true, weight:5}},
-			BizTalk:{Odyssey:{directed:true, weight:5}}
+			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
+			BizTalk:{Odyssey:applicationEdges.BizTalk_Odyssey}
 		}
 	},//end OdysseyConnections
 
@@ -291,8 +316,8 @@ var applicationConnections = {
 			Cofax:applicationNodes.Cofax
 		},
 		edges:{
-			Cofax:{PeopleSoft:{directed:true, weight:5}},
-			PeopleSoft:{AX:{directed:true, weight:5}}			
+			Cofax:{PeopleSoft:applicationEdges.Cofax_PeopleSoft},
+			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX}			
 		}
 
 	},//end PeopleSoftConnections
@@ -303,8 +328,8 @@ var applicationConnections = {
 			Vision:applicationNodes.Vision
 		},
 		edges:{
-			Centricity:{Portal:{directed:true, weight:5}},
-			Vision:{Portal:{directed:true, weight:5}}
+			Centricity:{Portal:applicationEdges.Centricity_Portal},
+			Vision:{Portal:applicationEdges.Vision_Portal}
 		}
 	},//end PortalConnections
 
@@ -315,8 +340,8 @@ var applicationConnections = {
 		},
 		edges:{
 			SalesForce:{
-				Hyperion:{directed:true, weight:5},
-				Vision:{directed:true, weight:5}
+				Hyperion:applicationEdges.SalesForce_Hyperion,
+				Vision:applicationEdges.SalesForce_Vision
 			}
 		}
 
@@ -329,10 +354,10 @@ var applicationConnections = {
 		},
 		edges:{
 			Simphony:{
-				AX:{directed:true, weight:5},
-				NetMenu:{directed:true, weight:5}
+				AX:applicationEdges.Simphony_AX,
+				NetMenu:applicationEdges.Simphony_NetMenu
 			},
-			NetMenu:{Simphony:{directed:true, weight:5}}
+			NetMenu:{Simphony:applicationEdges.NetMenu_Simphony}
 		}
 
 	},//end SimphonyConnections
@@ -346,13 +371,13 @@ var applicationConnections = {
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
-			CorePoint:{Vision:{directed:true, weight:5}},
-			Odyssey:{Vision:{directed:true, weight:5}},
-			SalesForce:{Vision:{directed:true, weight:5}},
+			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
+			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
+			SalesForce:{Vision:applicationEdges.SalesForce_Vision},
 			Vision:{
-				AX:{directed:true, weight:5},
-				CorePoint:{directed:true, weight:5},
-				Portal:{directed:true, weight:5}
+				AX:applicationEdges.Vision_AX,
+				CorePoint:applicationEdges.Vision_CorePoint,
+				Portal:applicationEdges.Vision_Portal
 			}		
 		}
 
