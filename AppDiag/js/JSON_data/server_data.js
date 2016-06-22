@@ -363,10 +363,12 @@ var serverConnections = {
 	HyperionServers:{
 		database:{
 			nodes:{
-
+				md1_db36:{'color':'purple', 'label':'md1-db36', 'description':'Relational Database Server'}
 			},
 			edges:{
-
+				Hyperion:{
+					md1_db36:{weight:2}
+				}
 			}
 		},
 
@@ -390,10 +392,16 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-
+				md1_ap25:{'color':'green', 'label':'md1-ap25', 'description':'Foundation Services'},
+				md1_ap26:{'color':'green', 'label':'md1-ap26', 'description':'Essbase Server'},
+				md1_ws14:{'color':'green', 'label':'md1-ws14', 'description':'Planning/Reporting/Analysis '}
 			},
 			edges:{
-
+				Hyperion:{
+					md1_ap25:{weight:2},
+					md1_ap26:{weight:2},
+					md1_ws14:{weight:2}
+				}
 			}
 		}
 	},//end HyperionServers
