@@ -119,7 +119,7 @@
             mid_x = (tail.x+head.x)/2;
             mid_y = (tail.y+head.y)/2;
             ctx.save();
-              ctx.font = "1.1em Arial";
+              ctx.font = ".9em Arial";
               ctx.textAlign = "center";
               ctx.lineWidth = 4;
               ctx.strokeStyle = 'rgba(255,255,255,1)';
