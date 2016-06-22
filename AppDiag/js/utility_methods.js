@@ -77,7 +77,7 @@ function expandApplicationNode(nName){
 }//end expandApplicationNode
 
 //switch case for different commands when clicking the Generate button
-function displayNodes(){
+function generateNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
@@ -379,7 +379,7 @@ function displayNodes(){
 }  
 
 //switch case for different commands when clicking the Remove button
-function clearNodes(){
+function removeNodes(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
