@@ -145,23 +145,23 @@
             selected = nearest = dragged = particleSystem.nearest(_mouseP);
             if (dragged && dragged.node !== null){
 
-               var clickedNode = dragged.node;
+              var clickedNode = dragged.node;
+
+              /* //node with no edges, just remove
+              var to = sys.getEdgesTo(clickedNode);
+              var from = sys.getEdgesFrom(clickedNode);
+              console.log(to);
+              console.log(from);
+              if(to.length === 0 && from.length === 0){
+                sys.pruneNode(clickedNode);
+              }*/
+
                if(!clickedNode.data.expanded){//if it is not expanded
-                  clickedNode.data.expanded = true;
                   clickedNode.data.expanded = true;
                   expandApplicationNode(clickedNode.name);//expands nodes
 
                } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
-                  
-                  /*//node with no edges, just remove
-                  var to = sys.getEdgesTo(clickedNode);
-                  var from = sys.getEdgesFrom(clickedNode);
-                  console.log(to);
-                  console.log(from);
-                  if(to === [] && from === []){
-                    sys.prune(clickedNode);
-                  }*/
 
                   //if it is not a base node
                   if(!clickedNode.data.base){
