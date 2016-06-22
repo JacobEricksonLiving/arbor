@@ -91,7 +91,7 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
-	'to':['CorePoint', 'SalesForce', 'Vision'], 
+	'to':['CorePoint', 'Odyssey', 'SalesForce', 'Vision'], 
 	'from':['AX', 'CorePoint', 'Portal'], 'base':true, 'server':'N/A',
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
