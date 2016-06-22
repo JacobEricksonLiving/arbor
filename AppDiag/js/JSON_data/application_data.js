@@ -95,6 +95,18 @@ var applicationNodes = {
 	'from':['AX', 'CorePoint', 'Portal'], 'base':true, 'server':'N/A',
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
+
+//List of all the application to application edges in the system.
+var applicationEdges ={
+	AXEdges:{
+		AX_Hyperion:{directed:true, weight:5, label:'HELLO'},
+		Cofax_AX:{directed:true, weight:5, label:'2'},
+		GSMS_AX:{directed:true, weight:5, label:'3'},
+		PeopleSoft_AX:{directed:true, weight:5, label:'4'},
+		Simphony_AX:{directed:true, weight:5, label:'2'},
+		Vision_AX:{directed:true, weight:5, label:'2'}
+	}//end AXEdges
+}
 //List of the connections for each applicationNode in the system.
 var applicationConnections = {
 	AXConnections : {
@@ -108,12 +120,12 @@ var applicationConnections = {
 		},
 
 		edges:{
-			AX:{Hyperion:{directed:true, weight:5, label:'HELLO'}},
-			Cofax:{AX:{directed:true, weight:5}},
-			GSMS:{AX:{directed:true, weight:5}},
-			PeopleSoft:{AX:{directed:true, weight:5}},
-			Simphony:{AX:{directed:true, weight:5}},
-			Vision:{AX:{directed:true, weight:5}}
+			AX:{Hyperion:applicationEdges.AXEdges.AX_Hyperion},
+			Cofax:{AX:applicationEdges.AXEdges.Cofax_AX},
+			GSMS:{AX:applicationEdges.AXEdges.GSMS_AX},
+			PeopleSoft:{AX:applicationEdges.AXEdges.PeopleSoft_AX},
+			Simphony:{AX:applicationEdges.AXEdges.Simphony_AX},
+			Vision:{AX:applicationEdges.AXEdges.Vision_AX}
 		}
 	},//end AXConnections
 
