@@ -178,8 +178,6 @@
                   //node with no edges, just remove
                   var to = sys.getEdgesTo(clickedNode);
                   var from = sys.getEdgesFrom(clickedNode);
-                  console.log(to);
-                  console.log(from);
                   if(to.length === 0 && from.length === 0 && !clickedNode.data.base){
                     clickedNode.data.expanded = false;
                     sys.pruneNode(clickedNode);
