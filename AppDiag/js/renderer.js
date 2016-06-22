@@ -283,7 +283,7 @@
           div.innerHTML = "";
           div.innerHTML += "NAME: " + nearest.node.name + "<br /><br />";
           div.innerHTML += "DESCRIPTION: " + nearest.node.data.description + "<br /><br />";
-          div.innerHTML += "SERVERS: " + nearest.node.data.expanded +"<br /><br />";
+          div.innerHTML += "EXPANDED: " + nearest.node.data.expanded +"<br /><br />";
           return false;
         });
 
