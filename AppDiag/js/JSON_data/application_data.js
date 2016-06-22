@@ -108,7 +108,7 @@ var applicationConnections = {
 		},
 
 		edges:{
-			AX:{Hyperion:{directed:true, weight:5}},
+			AX:{Hyperion:{directed:true, weight:5, label:'HELLO'}},
 			Cofax:{AX:{directed:true, weight:5}},
 			GSMS:{AX:{directed:true, weight:5}},
 			PeopleSoft:{AX:{directed:true, weight:5}},

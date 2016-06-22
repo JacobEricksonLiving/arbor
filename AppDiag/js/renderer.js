@@ -112,6 +112,22 @@
               ctx.fill();
             ctx.restore()
           }
+
+          //add label attribute to .data
+          var label = edge.data.label ? $.trim(edge.data.label) : '';
+          if (label != '' && ctx){
+            mid_x = (tail.x+head.x)/2;
+            mid_y = (tail.y+head.y)/2;
+            ctx.save();
+              ctx.font = "1.1em Arial";
+              ctx.textAlign = "center";
+              ctx.lineWidth = 4;
+              ctx.strokeStyle = 'rgba(255,255,255,1)';
+              ctx.strokeText(label, mid_x, mid_y);
+              ctx.fillStyle = "black";
+              ctx.fillText(label, mid_x, mid_y);
+            ctx.restore();
+          }
         })
 
       },
