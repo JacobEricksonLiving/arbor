@@ -105,7 +105,15 @@ var applicationEdges ={
 		PeopleSoft_AX:{directed:true, weight:5, label:'4'},
 		Simphony_AX:{directed:true, weight:5, label:'2'},
 		Vision_AX:{directed:true, weight:5, label:'2'}
-	}//end AXEdges
+	},//end AXEdges
+
+	BizTalkEdges:{
+		BizTalk_BizTalk360:{directed:true, weight:5, label:''},
+		BizTalk_CorePoint:{directed:true, weight:5, label:''},
+		BizTalk_Odyssey:{directed:true, weight:5, label:''},
+		CorePoint_BizTalk:{directed:true, weight:5, label:''},
+	},//end BizTalkEdges
+
 }
 //List of the connections for each applicationNode in the system.
 var applicationConnections = {
@@ -133,16 +141,15 @@ var applicationConnections = {
 		nodes:{
 			BizTalk360:applicationNodes.BizTalk360,
 			CorePoint:applicationNodes.CorePoint,
-			Odyssey:applicationNodes.Odyssey,
-			Vision:applicationNodes.Vision
+			Odyssey:applicationNodes.Odyssey
 		},
 		edges:{
 			BizTalk:{
-				BizTalk360:{directed:true, weight:5},
-				CorePoint:{directed:true, weight:5},
-				Odyssey:{directed:true, weight:5}
+				BizTalk360:applicationEdges.BizTalkEdges.BizTalk_BizTalk360,
+				CorePoint:applicationEdges.BizTalkEdges.BizTalk_CorePoint,
+				Odyssey:applicationEdges.BizTalkEdges.BizTalk_Odyssey
 			},
-			CorePoint:{BizTalk:{directed:true, weight:5}},
+			CorePoint:{BizTalk:applicationEdges.BizTalkEdges.CorePoint_BizTalk}
 		}
 
 	},//end BizTalkConnections
