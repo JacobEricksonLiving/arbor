@@ -147,18 +147,31 @@
 
               var clickedNode = dragged.node;
 
-              /* //node with no edges, just remove
+               //node with no edges, just remove
               var to = sys.getEdgesTo(clickedNode);
               var from = sys.getEdgesFrom(clickedNode);
               console.log(to);
               console.log(from);
               if(to.length === 0 && from.length === 0){
                 sys.pruneNode(clickedNode);
-              }*/
+              }
 
                if(!clickedNode.data.expanded){//if it is not expanded
                   clickedNode.data.expanded = true;
-                  expandApplicationNode(clickedNode.name);//expands nodes
+
+                  //node with no edges, just remove
+                  var to = sys.getEdgesTo(clickedNode);
+                  var from = sys.getEdgesFrom(clickedNode);
+                  console.log(to);
+                  console.log(from);
+                  if(to.length === 0 && from.length === 0 && !clickedNode.data.base){
+                    clickedNode.data.expanded = false;
+                    sys.pruneNode(clickedNode);
+                  } else {
+                    expandApplicationNode(clickedNode.name);//expands nodes
+                  }
+
+                  
 
                } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
@@ -186,6 +199,7 @@
                     sys.prune(function(node, from, to){//prune each node if it is child/to of clickedNode and if node is not a base node
                       for(i=0; i<clickedNode.data.to.length; ++i){//check to array
                         if(clickedNode.data.to[i]===node.name){//if the ndoe has edge to clickedNode
+                          node.data.expanded = false;
                           if(!node.data.base){//if node isnt a base node
                             return true;
                           }
@@ -195,6 +209,7 @@
                       //check from array
                       for(i=0; i<clickedNode.data.from.length; ++i){
                         if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
+                          node.data.expanded = false;
                           if(!node.data.base){
                             return true;
                           }
