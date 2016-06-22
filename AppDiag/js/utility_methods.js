@@ -7,70 +7,87 @@ function expandApplicationNode(nName){
 	switch(nName){
 		case "AX":
 			sys.addNode('AX', applicationNodes.AX);
+			applicationNodes.AX.expanded = true;
 			sys.graft(applicationConnections.AXConnections);
 			break;
 		case "BizTalk":
 			sys.addNode('BizTalk', applicationNodes.BizTalk);
+			applicationNodes.BizTalk.expanded = true;
 			sys.graft(applicationConnections.BizTalkConnections);
 			break;
 		case "BizTalk360":
 			sys.addNode('BizTalk360', applicationNodes.BizTalk360);
+			applicationNodes.BizTalk360.expanded = true;
 			sys.graft(applicationConnections.BizTalk360Connections);
 			break;
 		case "Centricity":
 			sys.addNode('Centricity', applicationNodes.Centricity);
+			applicationNodes.Centricity.expanded = true;
 			sys.graft(applicationConnections.CentricityConnections);
 			break;
 		case "Cofax":
 			sys.addNode('Cofax', applicationNodes.Cofax);
+			applicationNodes.Cofax.expanded = true;
 			sys.graft(applicationConnections.CofaxConnections);
 			break;
 		case "CorePoint":
 			sys.addNode('CorePoint', applicationNodes.CorePoint);
+			applicationNodes.CorePoint.expanded = true;
 			sys.graft(applicationConnections.CorePointConnections);
 			break;  
 		case "DocuTrack":
 			sys.addNode('DocuTrack', applicationNodes.DocuTrack);
+			applicationNodes.DocuTrack.expanded = true;
 			sys.graft(applicationConnections.DocuTrackConnections);
 			break; 
 		case "GSMS":
 			sys.addNode('GSMS', applicationNodes.GSMS);
+			applicationNodes.GSMS.expanded = true;
 			sys.graft(applicationConnections.GSMSConnections);
 			break;
 		case "Hyperion":
 			sys.addNode('Hyperion', applicationNodes.Hyperion);
+			applicationNodes.Hyperion.expanded = true;
 			sys.graft(applicationConnections.HyperionConnections);
 			break;
 		case "MedicalManager":
 			sys.addNode('MedicalManager', applicationNodes.MedicalManager);
+			applicationNodes.MedicalManager.expanded = true;
 			sys.graft(applicationConnections.MedicalManagerConnections);
 			break;
 		case "NetMenu":
 			sys.addNode('NetMenu', applicationNodes.NetMenu);
+			applicationNodes.NetMenu.expanded = true;
 			sys.graft(applicationConnections.NetMenuConnections);
 			break;
 		case "Odyssey":
 			sys.addNode('Odyssey', applicationNodes.Odyssey);
+			applicationNodes.Odyssey.expanded = true;
 			sys.graft(applicationConnections.OdysseyConnections);
 			break;
 		case "PeopleSoft":
 			sys.addNode('PeopleSoft', applicationNodes.PeopleSoft);
+			applicationNodes.PeopleSoft.expanded = true;
 			sys.graft(applicationConnections.PeopleSoftConnections);
 			break; 
 		case "Portal":
 			sys.addNode('Portal', applicationNodes.Portal);
+			applicationNodes.Portal.expanded = true;
 			sys.graft(applicationConnections.PortalConnections);
 			break; 
 		case "SalesForce":
 			sys.addNode('SalesForce', applicationNodes.SalesForce);
+			applicationNodes.SalesForce.expanded = true;
 			sys.graft(applicationConnections.SalesForceConnections);
 			break;
 		case "Simphony":
 			sys.addNode('Simphony', applicationNodes.Simphony);
+			applicationNodes.Simphony.expanded = true;
 			sys.graft(applicationConnections.SimphonyConnections);
 			break;   
 		case "Vision":
 			sys.addNode('Vision', applicationNodes.Vision);
+			applicationNodes.Vision.expanded = true;
 			sys.graft(applicationConnections.VisionConnections);
 			break;
 	}
@@ -410,6 +427,7 @@ function removeNodes(){
 
 
 		case "BizTalk":
+			applicationNodes.BizTalk.expanded = false;
 			sys.pruneNode("BizTalk");
 			break;
 		case "BizTalk database":
@@ -435,6 +453,7 @@ function removeNodes(){
 
 
 		case "BizTalk360":
+			applicationNodes.BizTalk360.expanded = false;
 			sys.pruneNode("BizTalk360");
 			break;
 		case "BizTalk360 database":
@@ -460,6 +479,7 @@ function removeNodes(){
 
 
 		case "Centricity":
+			applicationNodes.Centricity.expanded = false;
 			sys.pruneNode("Centricity");
 			break;
 		case "Centricity database":
@@ -485,6 +505,7 @@ function removeNodes(){
 
 
 		case "Cofax":
+			applicationNodes.Cofax.expanded = false;
 			sys.pruneNode("Cofax");
 			break;
 		case "Cofax database":
@@ -510,7 +531,7 @@ function removeNodes(){
 
 
 		case "CorePoint":
-			sys.pruneNode("CorePoint");
+			alert("Red nodes cannot be removed");
 			break;
 		case "CorePoint database":
 			for(node in serverConnections.CorePointServers.database.nodes){
@@ -535,6 +556,7 @@ function removeNodes(){
 
 
 		case "DocuTrack":
+			applicationNodes.DocuTrack.expanded = false;
 			sys.pruneNode("DocuTrack");
 			break;
 		case "DocuTrack database":
@@ -560,6 +582,7 @@ function removeNodes(){
 
 
 		case "GSMS":
+			applicationNodes.GSMS.expanded = false;
 			sys.pruneNode("GSMS");
 			break;
 		case "GSMS database":
@@ -585,6 +608,7 @@ function removeNodes(){
 
 
 		case "Hyperion":
+			applicationNodes.Hyperion.expanded = false;
 			sys.pruneNode("Hyperion");
 			break;
 		case "Hyperion database":
@@ -610,6 +634,7 @@ function removeNodes(){
 
 
 		case "MedicalManager":
+			applicationNodes.MedicalManager.expanded = false;
 			sys.pruneNode("MedicalManager");
 			break;
 		case "MedicalManager database":
@@ -635,6 +660,7 @@ function removeNodes(){
 
 
 		case "NetMenu":
+			applicationNodes.NetMenu.expanded = false;
 			sys.pruneNode("NetMenu");
 			break;
 		case "NetMenu database":
@@ -660,6 +686,7 @@ function removeNodes(){
 
 
 		case "Odyssey":
+			applicationNodes.Odyssey.expanded = false;
 			sys.pruneNode("Odyssey");
 			break;
 		case "Odyssey database":
@@ -685,6 +712,7 @@ function removeNodes(){
 
 
 		case "PeopleSoft":
+			applicationNodes.PeopleSoft.expanded = false;
 			sys.pruneNode("PeopleSoft");
 			break;
 		case "PeopleSoft database":
@@ -710,6 +738,7 @@ function removeNodes(){
 
 
 		case "Portal":
+			applicationNodes.Portal.expanded = false;
 			sys.pruneNode("Portal");
 			break;
 		case "Portal database":
@@ -735,6 +764,7 @@ function removeNodes(){
 
 
 		case "SalesForce":
+			applicationNodes.SalesForce.expanded = false;
 			sys.pruneNode("SalesForce");
 			break;
 		case "SalesForce database":
@@ -760,6 +790,7 @@ function removeNodes(){
 
 
 		case "Simphony":
+			applicationNodes.Simphony.expanded = false;
 			sys.pruneNode("Simphony");
 			break;
 		case "Simphony database":
@@ -821,8 +852,6 @@ function removeNodes(){
 function generateAllApplications(){
 	for(node in applicationNodes){
 		expandApplicationNode(node);
-		var nodeObj = sys.getNode(node);
-		nodeObj.data.expanded = true;
 	}
 }
 
@@ -833,12 +862,10 @@ function removeAllApplications(){
 		var nodeObj = sys.getNode(node);
 		nodeObj.data.expanded = false;
 		if(!nodeObj.data.base){
-			sys.pruneNode(nodeObj);
-		}
-		if(nodeObj.data.base){
+			sys.pruneNode(node);
+		} else {
 			clipNode(nodeObj);
-		}
-				
+		}				
 	}
 }
 
