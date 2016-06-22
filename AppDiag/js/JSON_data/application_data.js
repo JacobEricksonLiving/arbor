@@ -99,45 +99,45 @@ var applicationNodes = {
 //List of all the application to application edges in the system.
 var applicationEdges ={
 	//note edges are named as Source_Destination
-		AX_Hyperion:{directed:true, weight:5, label:'HELLO'},
+		AX_Hyperion:{directed:true, weight:5, label:'Extract financial Data'},
 
-		BizTalk_BizTalk360:{directed:true, weight:5, label:''},
-		BizTalk_CorePoint:{directed:true, weight:5, label:''},
-		BizTalk_Odyssey:{directed:true, weight:5, label:''},
+		BizTalk_BizTalk360:{directed:true, weight:5, label:'Interfaces'},
+		BizTalk_CorePoint:{directed:true, weight:5, label:'Reconfigure Data'},
+		BizTalk_Odyssey:{directed:true, weight:5, label:'Reconfig. Demographic Data from Vision'},
 
-		Centricity_MedicalManager:{directed:true, weight:5, label:''},
-		Centricity_Portal:{directed:true, weight:5, label:''},
+		Centricity_MedicalManager:{directed:true, weight:5, label:'Demographic Data'},
+		Centricity_Portal:{directed:true, weight:5, label:'ERM Data'},
 
-		Cofax_AX:{directed:true, weight:5, label:''},
-		Cofax_PeopleSoft:{directed:true, weight:5, label:''},
+		Cofax_AX:{directed:true, weight:5, label:'Document Images'},
+		Cofax_PeopleSoft:{directed:true, weight:5, label:'Document Images'},
 
-		CorePoint_BizTalk:{directed:true, weight:5, label:''},
-		CorePoint_MedicalManager:{directed:true, weight:5, label:''},
+		CorePoint_BizTalk:{directed:true, weight:5, label:'Reconfigure Data'},
+		CorePoint_MedicalManager:{directed:true, weight:5, label:'Reconfing. Demographic Data from Vision'},
 		CorePoint_NetMenu:{directed:true, weight:5, label:''},
-		CorePoint_Vision:{directed:true, weight:5, label:''},
+		CorePoint_Vision:{directed:true, weight:5, label:'Demographic Data'},
 
-		DocuTrack_Centricity:{directed:true, weight:5, label:''},
+		DocuTrack_Centricity:{directed:true, weight:5, label:'Scanned Documents'},
 
-		GSMS_AX:{directed:true, weight:5, label:''},
+		GSMS_AX:{directed:true, weight:5, label:'Housekeeping/maintance fees'},
 
-		MedicalManager_Centricity:{directed:true, weight:5, label:''},
-		MedicalManager_CorePoint:{directed:true, weight:5, label:''},
+		MedicalManager_Centricity:{directed:true, weight:5, label:'Demographic Data'},
+		MedicalManager_CorePoint:{directed:true, weight:5, label:'Demographic Data to be prossed for Vision'},
 
-		NetMenu_Simphony:{directed:true, weight:5, label:''},
+		NetMenu_Simphony:{directed:true, weight:5, label:'Menu Items'},
 
-		Odyssey_Vision:{directed:true, weight:5, label:''},
+		Odyssey_Vision:{directed:true, weight:5, label:'Accounts receivable'},
 
-		PeopleSoft_AX:{directed:true, weight:5, label:''},
+		PeopleSoft_AX:{directed:true, weight:5, label:'Wage Fee Files'},
 
 		SalesForce_Hyperion:{directed:true, weight:5, label:''},
 		SalesForce_Vision:{directed:true, weight:5, label:''},
 
-		Simphony_AX:{directed:true, weight:5, label:''},
-		Simphony_NetMenu:{directed:true, weight:5, label:''},
+		Simphony_AX:{directed:true, weight:5, label:'Dinning Revenue'},
+		Simphony_NetMenu:{directed:true, weight:5, label:'Menu Items'},
 
-		Vision_AX:{directed:true, weight:5, label:''},
-		Vision_CorePoint:{directed:true, weight:5, label:''},
-		Vision_Portal:{directed:true, weight:5, label:''}
+		Vision_AX:{directed:true, weight:5, label:'Billing from Residents'},
+		Vision_CorePoint:{directed:true, weight:5, label:'Demographic Data'},
+		Vision_Portal:{directed:true, weight:5, label:'ERM Data'}
 	
 }
 //List of the connections for each applicationNode in the system.
