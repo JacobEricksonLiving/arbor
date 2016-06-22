@@ -35,7 +35,7 @@ var applicationNodes = {
 	
 	CorePoint : {'color':'red','shape':'dot', 'label':'CorePoint', 'expanded':false, 
 	'to':['BizTalk', 'MedicalManager', 'Vision'], 
-	'from':['BizTalk', 'MedicalManager', 'Vision'], 
+	'from':['BizTalk', 'MedicalManager', 'NetMenu', 'Vision'], 
 	'base':true, 'server':'N/A',
 	'description':'Designed to handle healthcare information. CorePoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
 	
@@ -61,7 +61,7 @@ var applicationNodes = {
 	'description':'Houses demographic information and handles appointments/billing on site.'},
 
 	NetMenu : {'color':'blue','shape':'dot', 'label':'NetMenu', 'expanded':false, 
-	'to':['Simphony'], 
+	'to':['NetMenu', 'Simphony'], 
 	'from':['Simphony'], 'base':false, 'server':'N/A',
 	'description':'Note: not yet in use. Allows a chef to create a menu item then directly communicate that information Simphony'},
 	
@@ -180,6 +180,7 @@ var applicationConnections = {
 		nodes:{
 			BizTalk:applicationNodes.BizTalk,
 			MedicalManager:applicationNodes.MedicalManager,
+			NetMenu:applicationNodes.NetMenu,
 			Vision:applicationNodes.Vision
 		},
 		edges:{
@@ -187,6 +188,7 @@ var applicationConnections = {
 			CorePoint:{
 				BizTalk:{directed:true, weight:5},
 				MedicalManager:{directed:true, weight:5},
+				NetMenu:{directed:true, weight:5},
 				Vision:{directed:true, weight:5}
 			},
 			MedicalManager:{CorePoint:{directed:true, weight:5}},
@@ -243,11 +245,13 @@ var applicationConnections = {
 
 	NetMenuConnections: {
 		nodes:{
+			CorePoint:applicationNodes.CorePoint,
 			Simphony:applicationNodes.Simphony
 		},
 		edges:{
-			Simphony:{NetMenu:{directed:true, weight:5}},
-			NetMenu:{Simphony:{directed:true, weight:5}}
+			CorePoint:{NetMenu:{directed:true, weight:5}},
+			NetMenu:{Simphony:{directed:true, weight:5}},
+			Simphony:{NetMenu:{directed:true, weight:5}}
 		}
 	},//end NetMenuConnections
 
