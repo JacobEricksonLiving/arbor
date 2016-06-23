@@ -256,6 +256,20 @@
             } //end if dragged
             return false
           },
+          /*
+          detectEdgeLabel:function(e){
+            var pos = findPos(this);
+            var x = e.pageX - pos.x;
+            var y = e.pageY - pos.y;
+            var coord = "x=" + x + ", y=" + y;
+            var c = this.getContext('2d');
+            var p = c.getImageData(x, y, 1, 1).data; 
+            var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+            if(hex==="#cccccc"){
+              $('#info').html(coord + "<br>" + hex);
+            }
+            
+          },*/
 
           dragged:function(e){
             var old_nearest = nearest && nearest.node._id
@@ -287,6 +301,7 @@
 
         $(canvas).mousedown(handler.leftMouseDowned);//when mousedown start clicked function
         $(canvas).dblclick(handler.doubleClicked);//when doublclick do doublClicked function
+        //$(canvas).mousemove(handler.detectEdgeLabel);//when mouseover do detectEdgeLabel
         //disable contextmenu from displaying also display info on node on right click
         $(canvas).bind('contextmenu', function(e){
           var div = document.getElementById('info');
@@ -299,7 +314,27 @@
           return false;
         });
 
-      }
+        /*
+        //called functions for detectEdgeLabel
+        function findPos(obj) {
+        var curleft = 0, curtop = 0;
+        if (obj.offsetParent) {
+          do {
+            curleft += obj.offsetLeft;
+            curtop += obj.offsetTop;
+          } while (obj = obj.offsetParent);
+            return { x: curleft, y: curtop };
+          }
+          return undefined;
+        }
+        //called functions for detectEdgeLabel
+        function rgbToHex(r, g, b) {
+        if (r > 255 || g > 255 || b > 255)
+          throw "Invalid color component";
+          return ((r << 16) | (g << 8) | b).toString(16);
+        }*/
+
+      }//end initMouseHandling
 
     }
 
