@@ -205,19 +205,39 @@ var serverConnections = {
 	GSMSServers:{
 		pre_production:{
 			nodes:{
-
+				md1_devap01:{'color':'orange', 'label':'md1-devap01', 'description':''},
+				md1_testap11:{'color':'brown', 'label':'md1-testap11', 'description':''},
+				md1_testap12:{'color':'brown', 'label':'md1-testap12', 'description':''},
+				md1_testap13:{'color':'brown', 'label':'md1-testap13', 'description':''},
+				md1_ws05:{'color':'brown', 'label':'md1-ws05', 'description':''},//may need to change the color here
+				md1_ws07:{'color':'brown', 'label':'md1-ws07', 'description':''}//may change color here
 			},
 			edges:{
-
+				GSMS:{
+					md1_devap01:{weight:2},
+					md1_testap11:{weight:2},
+					md1_testap12:{weight:2},
+					md1_testap13:{weight:2},
+					md1_ws05:{weight:2},
+					md1_ws07:{weight:2}
+				}
 			}
 		},
 
 		production:{
 			nodes:{
-
+				csl_ws01:{'color':'green', 'label':'csl-ws01', 'description':''},
+				csl_ap11:{'color':'green', 'label':'csl-ap11', 'description':''},
+				csl_ap12:{'color':'green', 'label':'csl-ws01', 'description':''},
+				md1_testap25:{'color':'green', 'label':'csl-ws01', 'description':''},
 			},
 			edges:{
-
+				GSMS:{
+					csl_ws01:{weight:2},
+					csl_ap11:{weight:2},
+					csl_ap12:{weight:2},
+					md1_testap25:{weight:2}
+				}
 			}
 		}
 	},//end GSMSServers
