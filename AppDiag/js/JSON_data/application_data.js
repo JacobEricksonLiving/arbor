@@ -55,7 +55,7 @@ var applicationNodes = {
 	'from':[], 'base':false, 'server':'N/A',
 	'description':'Exctracts financial data for high level purposes. It shows community and corprate financial data. Displays a summary level of the information.'},
 	
-	JDE : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
+	JDE : {'color':'blue','shape':'dot', 'label':'JDE', 'expanded':false, 
 	'to':[], 
 	'from':['Hyperion'], 'base':false, 'server':'N/A',
 	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
