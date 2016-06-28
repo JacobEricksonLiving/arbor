@@ -36,44 +36,44 @@
 
 
   nearest:function(y){if(v!==null){y=h.fromScreen(y)}var x={node:null,point:null,distance:null};var w=h;$.each(d.nodes,function(C,z){var A=z._p;if(A.x===null||A.y===null){return}var B=A.subtract(y).magnitude();if(x.distance===null||B<x.distance){x={node:z,point:A,distance:B};if(v!==null){x.screenPoint=h.toScreen(A)}}});if(x.node){if(v!==null){x.distance=h.toScreen(x.node.p).subtract(h.toScreen(y)).magnitude()}return x}else{return null}},
-/*
-  nearestNext : function(x, closest) {
-                if (u !== null) {
-                    x = g.fromScreen(x);
+
+  nearestNext : function(y, closest) {
+                if (v !== null ) {
+                    y = h.fromScreen(y)//y is mouse point
                 }
-                var w = {
-                    node : null,
-                    point : null,
-                    distance : null
+                var x = {//x will be filled with nearest node's info
+                    node: null ,
+                    point: null ,
+                    distance: null
                 };
-                var v = g;
-                $.each(c.nodes, function(B, y) {
-                    var z = y._p;
-                    if (z.x === null || z.y === null) {
+                var w = h;//h is renderer
+                $.each(d.nodes, function(C, z) {
+                    var A = z._p;//z is the node being compared in the iteration
+                    if (A.x === null || A.y === null ) {
                         return
                     }
-                    var A = z.subtract(x).magnitude();
-                    if ((w.distance === null || A < w.distance) && (closest.node != y)) {
-                        w = {
-                            node : y,
-                            point : z,
-                            distance : A
+                    var B = A.subtract(y).magnitude();//B is the distance between mousepoint and compared node
+                    //if x isnt empty, new distance < old x distance, and compared node isnt the same as closest node
+                    if (x.distance === null || B < x.distance && z!==closest.node) {
+                        x = {
+                            node: z,
+                            point: A,
+                            distance: B
                         };
-                        if (u !== null) {
-                            w.screenPoint = g.toScreen(z)
+                        if (v !== null ) {//v is canvas dimensions
+                            x.screenPoint = h.toScreen(A)//make nearest node's screen point the correct screen point of A
                         }
                     }
                 });
-                if (w.node) {
-                    if (u !== null) {
-                        w.distance = g.toScreen(w.node.p).subtract(
-                                g.toScreen(x)).magnitude()
+                if (x.node) {
+                    if (v !== null ) {
+                        x.distance = h.toScreen(x.node.p).subtract(h.toScreen(y)).magnitude()
                     }
-                    return w
+                    return x
                 } else {
                     return null
                 }
-            },*/
+            },
 
 
 
