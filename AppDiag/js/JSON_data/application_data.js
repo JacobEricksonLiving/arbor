@@ -48,7 +48,7 @@ var applicationNodes = {
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
 	'to':['PeopleSoft', 'Vision'], 
 	'from':['AX', 'Vision'], 'base':false, 'server':'N/A',
-	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of their costs.'},
+	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of who is charged.'},
 	
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
 	'to':['AX', 'SalesForce'], 
