@@ -445,7 +445,7 @@ function removeNodes(){
 			applicationNodes.Hyperion.expanded = false;
 			sys.pruneNode("Hyperion");
 			break;
-		case "Hyperion pre_-roduction":
+		case "Hyperion pre-production":
 			for(node in serverConnections.HyperionServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
@@ -461,7 +461,7 @@ function removeNodes(){
 			applicationNodes.JDE.expanded = false;
 			sys.pruneNode("JDE");
 			break;
-		case "JDE pre_-roduction":
+		case "JDE pre-production":
 			for(node in serverConnections.JDEServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
