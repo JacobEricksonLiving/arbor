@@ -50,6 +50,11 @@ function expandApplicationNode(nName){
 			applicationNodes.Hyperion.expanded = true;
 			sys.graft(applicationConnections.HyperionConnections);
 			break;
+		case "JDE":
+			sys.addNode('JDE', applicationNodes.JDE);
+			applicationNodes.JDE.expanded = true;
+			sys.graft(applicationConnections.JDEConnections);
+			break;
 		case "MedicalManager":
 			sys.addNode('MedicalManager', applicationNodes.MedicalManager);
 			applicationNodes.MedicalManager.expanded = true;
@@ -195,6 +200,17 @@ function generateNodes(){
 			break;
 		case "Hyperion production":
 			sys.graft(serverConnections.HyperionServers.production);
+			break;
+
+
+		case "JDE":
+			expandApplicationNode("JDE");
+			break;
+		case "JDE pre-production":
+			sys.graft(serverConnections.JDEServers.pre_production);
+			break;
+		case "JDE production":
+			sys.graft(serverConnections.JDEServers.production);
 			break;
 
 
@@ -436,6 +452,22 @@ function removeNodes(){
 			break;
 		case "Hyperion production":
 			for(node in serverConnections.HyperionServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "JDE":
+			applicationNodes.JDE.expanded = false;
+			sys.pruneNode("JDE");
+			break;
+		case "JDE pre_-roduction":
+			for(node in serverConnections.JDEServers.pre_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "JDE production":
+			for(node in serverConnections.JDEServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
