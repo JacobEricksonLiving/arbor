@@ -302,18 +302,8 @@ function removeNodes(){
 		case "AX":
 			alert("Red nodes cannot be removed");
 			break;
-		case "AX database":
-			for(node in serverConnections.AXServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "AX development":
-			for(node in serverConnections.AXServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "AX test":
-			for(node in serverConnections.AXServers.test.nodes){
+		case "AX pre-production":
+			for(node in serverConnections.AXServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -328,18 +318,8 @@ function removeNodes(){
 			applicationNodes.BizTalk.expanded = false;
 			sys.pruneNode("BizTalk");
 			break;
-		case "BizTalk database":
-			for(node in serverConnections.BizTalkServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "BizTalk development":
-			for(node in serverConnections.BizTalkServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "BizTalk test":
-			for(node in serverConnections.BizTalkServers.test.nodes){
+		case "BizTalk pre-production":
+			for(node in serverConnections.BizTalkServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -354,18 +334,8 @@ function removeNodes(){
 			applicationNodes.BizTalk360.expanded = false;
 			sys.pruneNode("BizTalk360");
 			break;
-		case "BizTalk360 database":
-			for(node in serverConnections.BizTalk360Servers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "BizTalk360 development":
-			for(node in serverConnections.BizTalk360Servers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "BizTalk360 test":
-			for(node in serverConnections.BizTalk360Servers.test.nodes){
+		case "BizTalk360 pre-production":
+			for(node in serverConnections.BizTalk360Servers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -380,18 +350,8 @@ function removeNodes(){
 			applicationNodes.Centricity.expanded = false;
 			sys.pruneNode("Centricity");
 			break;
-		case "Centricity database":
-			for(node in serverConnections.CentricityServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Centricity development":
-			for(node in serverConnections.CentricityServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Centricity test":
-			for(node in serverConnections.CentricityServers.test.nodes){
+		case "Centricity pre-production":
+			for(node in serverConnections.CentricityServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -406,18 +366,8 @@ function removeNodes(){
 			applicationNodes.Cofax.expanded = false;
 			sys.pruneNode("Cofax");
 			break;
-		case "Cofax database":
-			for(node in serverConnections.CofaxServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Cofax development":
-			for(node in serverConnections.CofaxServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Cofax test":
-			for(node in serverConnections.CofaxServers.test.nodes){
+		case "Cofax pre-production":
+			for(node in serverConnections.CofaxServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -431,18 +381,8 @@ function removeNodes(){
 		case "CorePoint":
 			alert("Red nodes cannot be removed");
 			break;
-		case "CorePoint database":
-			for(node in serverConnections.CorePointServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "CorePoint development":
-			for(node in serverConnections.CorePointServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "CorePoint test":
-			for(node in serverConnections.CorePointServers.test.nodes){
+		case "CorePoint pre-production":
+			for(node in serverConnections.CorePointServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -457,18 +397,8 @@ function removeNodes(){
 			applicationNodes.DocuTrack.expanded = false;
 			sys.pruneNode("DocuTrack");
 			break;
-		case "DocuTrack database":
-			for(node in serverConnections.DocuTrackServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "DocuTrack development":
-			for(node in serverConnections.DocuTrackServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "DocuTrack test":
-			for(node in serverConnections.DocuTrackServers.test.nodes){
+		case "DocuTrack pre-production":
+			for(node in serverConnections.DocuTrackServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -483,18 +413,8 @@ function removeNodes(){
 			applicationNodes.GSMS.expanded = false;
 			sys.pruneNode("GSMS");
 			break;
-		case "GSMS database":
-			for(node in serverConnections.GSMSServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "GSMS development":
-			for(node in serverConnections.GSMSServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "GSMS test":
-			for(node in serverConnections.GSMSServers.test.nodes){
+		case "GSMS pre-production":
+			for(node in serverConnections.GSMSServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -509,18 +429,8 @@ function removeNodes(){
 			applicationNodes.Hyperion.expanded = false;
 			sys.pruneNode("Hyperion");
 			break;
-		case "Hyperion database":
-			for(node in serverConnections.HyperionServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Hyperion development":
-			for(node in serverConnections.HyperionServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Hyperion test":
-			for(node in serverConnections.HyperionServers.test.nodes){
+		case "Hyperion pre_-roduction":
+			for(node in serverConnections.HyperionServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -535,18 +445,8 @@ function removeNodes(){
 			applicationNodes.MedicalManager.expanded = false;
 			sys.pruneNode("MedicalManager");
 			break;
-		case "MedicalManager database":
-			for(node in serverConnections.MedicalManagerServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "MedicalManager development":
-			for(node in serverConnections.MedicalManagerServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "MedicalManager test":
-			for(node in serverConnections.MedicalManagerServers.test.nodes){
+		case "MedicalManager pre-production":
+			for(node in serverConnections.MedicalManagerServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -561,18 +461,8 @@ function removeNodes(){
 			applicationNodes.NetMenu.expanded = false;
 			sys.pruneNode("NetMenu");
 			break;
-		case "NetMenu database":
-			for(node in serverConnections.NetMenuServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "NetMenu development":
-			for(node in serverConnections.NetMenuServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "NetMenu test":
-			for(node in serverConnections.NetMenuServers.test.nodes){
+		case "NetMenu pre-production":
+			for(node in serverConnections.NetMenuServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -587,18 +477,8 @@ function removeNodes(){
 			applicationNodes.Odyssey.expanded = false;
 			sys.pruneNode("Odyssey");
 			break;
-		case "Odyssey database":
-			for(node in serverConnections.OdysseyServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Odyssey development":
-			for(node in serverConnections.OdysseyServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Odyssey test":
-			for(node in serverConnections.OdysseyServers.test.nodes){
+		case "Odyssey pre-production":
+			for(node in serverConnections.OdysseyServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -613,18 +493,8 @@ function removeNodes(){
 			applicationNodes.PeopleSoft.expanded = false;
 			sys.pruneNode("PeopleSoft");
 			break;
-		case "PeopleSoft database":
-			for(node in serverConnections.PeopleSoftServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "PeopleSoft development":
-			for(node in serverConnections.PeopleSoftServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "PeopleSoft test":
-			for(node in serverConnections.PeopleSoftServers.test.nodes){
+		case "PeopleSoft pre-production":
+			for(node in serverConnections.PeopleSoftServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -639,18 +509,8 @@ function removeNodes(){
 			applicationNodes.Portal.expanded = false;
 			sys.pruneNode("Portal");
 			break;
-		case "Portal database":
-			for(node in serverConnections.PortalServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Portal development":
-			for(node in serverConnections.PortalServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Portal test":
-			for(node in serverConnections.PortalServers.test.nodes){
+		case "Portal pre-production":
+			for(node in serverConnections.PortalServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -665,18 +525,8 @@ function removeNodes(){
 			applicationNodes.SalesForce.expanded = false;
 			sys.pruneNode("SalesForce");
 			break;
-		case "SalesForce database":
-			for(node in serverConnections.SalesForceServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "SalesForce development":
-			for(node in serverConnections.SalesForceServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "SalesForce test":
-			for(node in serverConnections.SalesForceServers.test.nodes){
+		case "SalesForce pre-production":
+			for(node in serverConnections.SalesForceServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -691,18 +541,8 @@ function removeNodes(){
 			applicationNodes.Simphony.expanded = false;
 			sys.pruneNode("Simphony");
 			break;
-		case "Simphony database":
-			for(node in serverConnections.SimphonyServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Simphony development":
-			for(node in serverConnections.SimphonyServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Simphony test":
-			for(node in serverConnections.SimphonyServers.test.nodes){
+		case "Simphony pre-production":
+			for(node in serverConnections.SimphonyServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -716,18 +556,8 @@ function removeNodes(){
 		case "Vision":
 			alert("Red nodes cannot be removed");
 			break;
-		case "Vision database":
-			for(node in serverConnections.VisionServers.database.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Vision development":
-			for(node in serverConnections.VisionServers.development.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "Vision test":
-			for(node in serverConnections.VisionServers.test.nodes){
+		case "Vision pre-production":
+			for(node in serverConnections.VisionServers.pre_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
