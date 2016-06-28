@@ -424,10 +424,21 @@ var serverConnections = {
 				md1_testws06:{'color':'brown', 'label':'md1-testws06', 'description':'DEV'},
 				md1_testws07:{'color':'brown', 'label':'md1-testws07', 'description':'EA'},
 				md1_testws08:{'color':'brown', 'label':'md1-testws08', 'description':'TEST'},
-				md1_testws31:{'color':'brown', 'label':'md1-testws31', 'description':'TRAIN'},
+				md1_testws31:{'color':'brown', 'label':'md1-testws31', 'description':'TRAIN'}
 			},
 			edges:{
-
+				Vision:{
+					md1_testdb19:{weight:2},
+					md1_testdb30:{weight:2},
+					md1_testdb31:{weight:2},
+					md1_testdb32:{weight:2},
+					md1_testdb33:{weight:2},
+					md1_testws05:{weight:2},
+					md1_testws06:{weight:2},
+					md1_testws07:{weight:2},
+					md1_testws08:{weight:2},
+					md1_testws31:{weight:2}
+				}
 			}
 		},
 
