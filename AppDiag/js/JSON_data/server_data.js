@@ -350,7 +350,7 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_db03:{'color':'purple', 'label':'md1_db03', 'description':''},
+				md1_db03:{'color':'purple', 'label':'md1-db03', 'description':''},
 				md1_ap68:{'color':'green', 'label':'md1-ap68', 'description':''}
 			},
 			edges:{
@@ -374,7 +374,8 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-
+				md1_ap86:{'color':'green', 'label':'md1-ap86', 'description':'PSNT Prcs Scheduler, TCC and Kronos Batch Files run from this server'},
+				md1_ap87:{'color':'green', 'label':'md1-ap87', 'description':'PSNT Prcs Scheduler'}
 			},
 			edges:{
 
