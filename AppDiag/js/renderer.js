@@ -268,6 +268,17 @@
             var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
             if(hex==="#cccccc"){
               $('#info').html(coord + "<br>" + hex);
+              var node1 = particleSystem.nearest(_mouseP);
+              var node2 = particleSystem.nearestNext(_mouseP, node1);
+              console.log(node2.point.x)
+              sys.eachEdge(function(edge, pt1, pt2){
+                console.log(pt1)
+                console.log(edge.source._p, edge.target._p)
+                if( pt1===pt2 ){
+                  alert();
+                  sys.pruneEdge(edge);
+                }
+              });
             }
             
           },
