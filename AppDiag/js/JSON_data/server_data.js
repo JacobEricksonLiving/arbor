@@ -278,6 +278,26 @@ var serverConnections = {
 		}
 	},//end HyperionServers
 
+	JDEServers:{
+		pre_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end JDEServers
+
 	MedicalManagerServers:{
 		pre_production:{
 			nodes:{
