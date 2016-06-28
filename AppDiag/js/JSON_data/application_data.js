@@ -46,9 +46,9 @@ var applicationNodes = {
 	'description':'Used to scan documents into Centricity'},
 
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
-	'to':[], 
-	'from':['AX'], 'base':false, 'server':'N/A',
-	'description':'(General Service Management System) Tracks maintenance and housekeeping costs.'},
+	'to':['PeopleSoft', 'Vision'], 
+	'from':['AX', 'Vision'], 'base':false, 'server':'N/A',
+	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of their costs.'},
 	
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
 	'to':['AX', 'SalesForce'], 
@@ -72,7 +72,7 @@ var applicationNodes = {
 	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
 	'to':['Cofax'], 
-	'from':['PeopleSoft'], 'base':false, 'server':'N/A',
+	'from':['GSMS'], 'base':false, 'server':'N/A',
 	'description':''},
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
@@ -91,8 +91,8 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
-	'to':['CorePoint', 'Odyssey', 'SalesForce'], 
-	'from':['AX', 'CorePoint', 'Portal'], 'base':true, 'server':'N/A',
+	'to':['CorePoint', 'GSMS', 'Odyssey', 'SalesForce'], 
+	'from':['AX', 'CorePoint', 'GSMS','Portal'], 'base':true, 'server':'N/A',
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 
@@ -118,7 +118,8 @@ var applicationEdges ={
 
 		DocuTrack_Centricity:{directed:true, weight:5, label:'Scanned Documents'},
 
-		GSMS_AX:{directed:true, weight:5, label:'Housekeeping/maintance fees'},
+		GSMS_AX:{directed:true, weight:5, label:'Corprate Housing/Maintance fees'},
+		GSMS_Vision:{directed:true, weight:5, label:'To GSMS:resident data, To Vision:resident billing'},
 
 		MedicalManager_Centricity:{directed:true, weight:5, label:'Demographic Data'},
 		MedicalManager_CorePoint:{directed:true, weight:5, label:'Reconfig. Demographic Data to/from Vision'},
@@ -128,6 +129,7 @@ var applicationEdges ={
 		Odyssey_Vision:{directed:true, weight:5, label:'Accounts receivable'},
 
 		PeopleSoft_AX:{directed:true, weight:5, label:'Wage Fee Files'},
+		PeopleSoft_GSMS:{directed:true, weight:5, label:'Employee name/department/id for ticket'},
 
 		SalesForce_Hyperion:{directed:true, weight:5, label:''},
 		SalesForce_Vision:{directed:true, weight:5, label:''},
@@ -137,6 +139,7 @@ var applicationEdges ={
 
 		Vision_AX:{directed:true, weight:5, label:'Billing from Residents'},
 		Vision_CorePoint:{directed:true, weight:5, label:'Demographic Data'},
+		Vision_GSMS:{directed:true, weight:5, label:'To GSMS:resident data, To Vision:resident billing'},
 		Vision_Portal:{directed:true, weight:5, label:'ERM Data'}
 	
 }
@@ -253,9 +256,16 @@ var applicationConnections = {
 	GSMSConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
+			PeopleSoft:applicationNodes.PeopleSoft,
+			Vision:applicationNodes.Vision
 		},
 		edges:{
-			GSMS:{AX:applicationEdges.GSMS_AX}
+			GSMS:{
+				AX:applicationEdges.GSMS_AX,
+				Vision:applicationEdges.GSMS_Vision
+			},
+			PeopleSoft:{GSMS:applicationEdges.PeopleSoft_GSMS},
+			Vision:{GSMS:applicationEdges.Vision_GSMS}
 		}
 	},//end GSMSConnections
 
@@ -313,11 +323,15 @@ var applicationConnections = {
 	PeopleSoftConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
-			Cofax:applicationNodes.Cofax
+			Cofax:applicationNodes.Cofax,
+			GSMS:applicationNodes.GSMS
 		},
 		edges:{
 			Cofax:{PeopleSoft:applicationEdges.Cofax_PeopleSoft},
-			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX}			
+			PeopleSoft:{
+				AX:applicationEdges.PeopleSoft_AX,
+				GSMS:applicationEdges.PeopleSoft_GSMS
+			}			
 		}
 
 	},//end PeopleSoftConnections
@@ -366,17 +380,20 @@ var applicationConnections = {
 		nodes:{
 			AX:applicationNodes.AX,
 			CorePoint:applicationNodes.CorePoint,
+			GSMS:applicationNodes.GSMS,
 			Odyssey:applicationNodes.Odyssey,
 			Portal:applicationNodes.Portal,
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
+			GSMS:{Vision:applicationEdges.GSMS_Vision},
 			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
 			SalesForce:{Vision:applicationEdges.SalesForce_Vision},
 			Vision:{
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,
+				GSMS:applicationEdges.Vision_GSMS,
 				Portal:applicationEdges.Vision_Portal
 			}		
 		}
