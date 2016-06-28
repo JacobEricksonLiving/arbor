@@ -93,8 +93,8 @@
             ctx.save()
               // move to the head position of the edge we just drew
               var wt = !isNaN(weight) ? parseFloat(weight) : 1
-              var arrowLength = 6 + wt
-              var arrowWidth = 2 + wt
+              var arrowLength = 8 + wt//was 6
+              var arrowWidth = 3 + wt//was 2
               ctx.fillStyle = (color) ? color : "#cccccc"
               ctx.translate(head.x, head.y);
               ctx.rotate(Math.atan2(head.y - tail.y, head.x - tail.x));
