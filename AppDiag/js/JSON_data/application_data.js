@@ -53,8 +53,13 @@ var applicationNodes = {
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
 	'to':['AX', 'SalesForce'], 
 	'from':[], 'base':false, 'server':'N/A',
-	'description':'Used to Exctract financial data for high level purposes.'},
+	'description':'Exctracts financial data for high level purposes. It shows community and corprate financial data. Displays a summary level of the information.'},
 	
+	JDE : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
+	'to':[], 
+	'from':['Hyperion'], 'base':false, 'server':'N/A',
+	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
+
 	MedicalManager : {'color':'blue','shape':'dot', 'label':'MedicalManager', 'expanded':false, 
 	'to':['Centricity', 'CorePoint'], 
 	'from':['Centricity', 'CorePoint'], 'base':false, 'server':'N/A',
@@ -99,7 +104,7 @@ var applicationNodes = {
 //List of all the application to application edges in the system.
 var applicationEdges ={
 	//note edges are named as Source_Destination
-		AX_Hyperion:{directed:true, weight:5, label:'Extract financial Data'},
+		AX_Hyperion:{directed:true, weight:5, label:'Extract Financial Data'},
 
 		BizTalk_BizTalk360:{directed:true, weight:5, label:'Interfaces'},
 		BizTalk_CorePoint:{directed:true, weight:5, label:'Reconfigure Data'},
@@ -120,6 +125,8 @@ var applicationEdges ={
 
 		GSMS_AX:{directed:true, weight:5, label:'Corprate Housing/Maintance fees'},
 		GSMS_Vision:{directed:true, weight:5, label:'To GSMS:resident data, To Vision:resident billing'},
+
+		JDE_Hyperion:{directed:true, weight:5, label:'Extraxt Financial Data'},
 
 		MedicalManager_Centricity:{directed:true, weight:5, label:'Demographic Data'},
 		MedicalManager_CorePoint:{directed:true, weight:5, label:'Reconfig. Demographic Data to/from Vision'},
@@ -272,14 +279,25 @@ var applicationConnections = {
 	HyperionConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
+			JDE:applicationNodes.JDE,
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			AX:{Hyperion:applicationEdges.AX_Hyperion},
+			JDE:{Hyperion:applicationEdges.JDE_Hyperion},
 			SalesForce:{Hyperion:applicationEdges.SalesForce_Hyperion}
 		}
 
 	},//end HyperionConnections
+
+	JDEConnections: {
+		nodes:{
+			Hyperion:applicationNodes.Hyperion
+		},
+		edges:{
+			JDE:{Hyperion:applicationEdges.JDE_Hyperion}
+		}
+	},//end JDEConnections
 
 	MedicalManagerConnections: {
 		nodes:{
