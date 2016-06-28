@@ -102,14 +102,8 @@ function generateNodes(){
 		case "AX":
 			expandApplicationNode("AX");
 			break;
-		case "AX database":
-			sys.graft(serverConnections.AXServers.database);
-			break;
-		case "AX development":
-			sys.graft(serverConnections.AXServers.development);
-			break;
-		case "AX test":
-			sys.graft(serverConnections.AXServers.test);
+		case "AX pre-production":
+			sys.graft(serverConnections.AXServers.pre-production);
 			break;
 		case "AX production":
 			sys.graft(serverConnections.AXServers.production);
@@ -119,14 +113,8 @@ function generateNodes(){
 		case "BizTalk":
 			expandApplicationNode("BizTalk");
 			break;
-		case "BizTalk database":
-			sys.graft(serverConnections.BizTalkServers.database);
-			break;
-		case "BizTalk development":
-			sys.graft(serverConnections.BizTalkServers.development);
-			break;
-		case "BizTalk test":
-			sys.graft(serverConnections.BizTalkServers.test);
+		case "BizTalk pre-production":
+			sys.graft(serverConnections.BizTalkServers.pre_production);
 			break;
 		case "BizTalk production":
 			sys.graft(serverConnections.BizTalkServers.production);
@@ -136,14 +124,8 @@ function generateNodes(){
 		case "BizTalk360":
 			expandApplicationNode("BizTalk360");
 			break;
-		case "BizTalk360 database":
-			sys.graft(serverConnections.BizTalk360Servers.database);
-			break;
-		case "BizTalk360 development":
-			sys.graft(serverConnections.BizTalk360Servers.development);
-			break;
-		case "BizTalk360 test":
-			sys.graft(serverConnections.BizTalk360Servers.test);
+		case "BizTalk360 pre-production":
+			sys.graft(serverConnections.BizTalk360Servers.pre_production);
 			break;
 		case "BizTalk360 production":
 			sys.graft(serverConnections.BizTalk360Servers.production);
@@ -153,14 +135,8 @@ function generateNodes(){
 		case "Centricity":
 			expandApplicationNode("Centricity");
 			break;
-		case "Centricity database":
-			sys.graft(serverConnections.CentricityServers.database);
-			break;
-		case "Centricity development":
-			sys.graft(serverConnections.CentricityServers.development);
-			break;
-		case "Centricity test":
-			sys.graft(serverConnections.CentricityServers.test);
+		case "Centricity pre-production":
+			sys.graft(serverConnections.CentricityServers.pre_production);
 			break;
 		case "Centricity production":
 			sys.graft(serverConnections.CentricityServers.production);
@@ -170,14 +146,8 @@ function generateNodes(){
 		case "Cofax":
 			expandApplicationNode("Cofax");
 			break;
-		case "Cofax database":
-			sys.graft(serverConnections.CofaxServers.database);
-			break;
-		case "Cofax development":
-			sys.graft(serverConnections.CofaxServers.development);
-			break;
-		case "Cofax test":
-			sys.graft(serverConnections.CofaxServers.test);
+		case "Cofax pre-production":
+			sys.graft(serverConnections.CofaxServers.pre_production);
 			break;
 		case "Cofax production":
 			sys.graft(serverConnections.CofaxServers.production);
@@ -187,14 +157,8 @@ function generateNodes(){
 		case "CorePoint":
 			expandApplicationNode("CorePoint");
 			break;
-		case "CorePoint database":
-			sys.graft(serverConnections.CorePointServers.database);
-			break;
-		case "CorePoint development":
-			sys.graft(serverConnections.CorePointServers.development);
-			break;
-		case "CorePoint test":
-			sys.graft(serverConnections.CorePointServers.test);
+		case "CorePoint pre-production":
+			sys.graft(serverConnections.CorePointServers.pre_production);
 			break;
 		case "CorePoint production":
 			sys.graft(serverConnections.CorePointServers.production);
@@ -204,14 +168,8 @@ function generateNodes(){
 		case "DocuTrack":
 			expandApplicationNode("DocuTrack");
 			break;
-		case "DocuTrack database":
-			sys.graft(serverConnections.DocuTrackServers.database);
-			break;
-		case "DocuTrack development":
-			sys.graft(serverConnections.DocuTrackServers.development);
-			break;
-		case "DocuTrack test":
-			sys.graft(serverConnections.DocuTrackServers.test);
+		case "DocuTrack pre-production":
+			sys.graft(serverConnections.DocuTrackServers.pre_production);
 			break;
 		case "DocuTrack production":
 			sys.graft(serverConnections.DocuTrackServers.production);
@@ -221,14 +179,8 @@ function generateNodes(){
 		case "GSMS":
 			expandApplicationNode("GSMS");
 			break;
-		case "GSMS database":
-			sys.graft(serverConnections.GSMSServers.database);
-			break;
-		case "GSMS development":
-			sys.graft(serverConnections.GSMSServers.development);
-			break;
-		case "GSMS test":
-			sys.graft(serverConnections.GSMSServers.test);
+		case "GSMS pre-production":
+			sys.graft(serverConnections.GSMSServers.pre_production);
 			break;
 		case "GSMS production":
 			sys.graft(serverConnections.GSMSServers.production);
@@ -238,14 +190,8 @@ function generateNodes(){
 		case "Hyperion":
 			expandApplicationNode("Hyperion");
 			break;
-		case "Hyperion database":
-			sys.graft(serverConnections.HyperionServers.database);
-			break;
-		case "Hyperion development":
-			sys.graft(serverConnections.HyperionServers.development);
-			break;
-		case "Hyperion test":
-			sys.graft(serverConnections.HyperionServers.test);
+		case "Hyperion pre-production":
+			sys.graft(serverConnections.HyperionServers.pre_production);
 			break;
 		case "Hyperion production":
 			sys.graft(serverConnections.HyperionServers.production);
@@ -255,14 +201,8 @@ function generateNodes(){
 		case "MedicalManager":
 			expandApplicationNode("MedicalManager");
 			break;
-		case "MedicalManager database":
-			sys.graft(serverConnections.MedicalManagerServers.database);
-			break;
-		case "MedicalManager development":
-			sys.graft(serverConnections.MedicalManagerServers.development);
-			break;
-		case "MedicalManager test":
-			sys.graft(serverConnections.MedicalManagerServers.test);
+		case "MedicalManager pre-production":
+			sys.graft(serverConnections.MedicalManagerServers.pre_production);
 			break;
 		case "MedicalManager production":
 			sys.graft(serverConnections.MedicalManagerServers.production);
@@ -272,14 +212,8 @@ function generateNodes(){
 		case "NetMenu":
 			expandApplicationNode("NetMenu");
 			break;
-		case "NetMenu database":
-			sys.graft(serverConnections.NetMenuServers.database);
-			break;
-		case "NetMenu development":
-			sys.graft(serverConnections.NetMenuServers.development);
-			break;
-		case "NetMenu test":
-			sys.graft(serverConnections.NetMenuServers.test);
+		case "NetMenu pre-production":
+			sys.graft(serverConnections.NetMenuServers.pre_production);
 			break;
 		case "NetMenu production":
 			sys.graft(serverConnections.NetMenuServers.production);
@@ -289,14 +223,8 @@ function generateNodes(){
 		case "Odyssey":
 			expandApplicationNode("Odyssey");
 			break;
-		case "Odyssey database":
-			sys.graft(serverConnections.OdysseyServers.database);
-			break;
-		case "Odyssey development":
-			sys.graft(serverConnections.OdysseyServers.development);
-			break;
-		case "Odyssey test":
-			sys.graft(serverConnections.OdysseyServers.test);
+		case "Odyssey pre-production":
+			sys.graft(serverConnections.OdysseyServers.pre_production);
 			break;
 		case "Odyssey production":
 			sys.graft(serverConnections.OdysseyServers.production);
@@ -306,14 +234,8 @@ function generateNodes(){
 		case "PeopleSoft":
 			expandApplicationNode("PeopleSoft");
 			break;
-		case "PeopleSoft database":
-			sys.graft(serverConnections.PeopleSoftServers.database);
-			break;
-		case "PeopleSoft development":
-			sys.graft(serverConnections.PeopleSoftServers.development);
-			break;
-		case "PeopleSoft test":
-			sys.graft(serverConnections.PeopleSoftServers.test);
+		case "PeopleSoft pre-production":
+			sys.graft(serverConnections.PeopleSoftServers.pre_production);
 			break;
 		case "PeopleSoft production":
 			sys.graft(serverConnections.PeopleSoftServers.production);
@@ -323,14 +245,8 @@ function generateNodes(){
 		case "Portal":
 			expandApplicationNode("Portal");
 			break;
-		case "Portal database":
-			sys.graft(serverConnections.PortalServers.database);
-			break;
-		case "Portal development":
-			sys.graft(serverConnections.PortalServers.development);
-			break;
-		case "Portal test":
-			sys.graft(serverConnections.PortalServers.test);
+		case "Portal pre-production":
+			sys.graft(serverConnections.PortalServers.pre_production);
 			break;
 		case "Portal production":
 			sys.graft(serverConnections.PortalServers.production);
@@ -340,14 +256,8 @@ function generateNodes(){
 		case "SalesForce":
 			expandApplicationNode("SalesForce");
 			break;
-		case "SalesForce database":
-			sys.graft(serverConnections.SalesForceServers.database);
-			break;
-		case "SalesForce development":
-			sys.graft(serverConnections.SalesForceServers.development);
-			break;
-		case "SalesForce test":
-			sys.graft(serverConnections.SalesForceServers.test);
+		case "SalesForce pre-production":
+			sys.graft(serverConnections.SalesForceServers.pre_production);
 			break;
 		case "SalesForce production":
 			sys.graft(serverConnections.SalesForceServers.production);
@@ -357,14 +267,8 @@ function generateNodes(){
 		case "Simphony":
 			expandApplicationNode("Simphony");
 			break;
-		case "Simphony database":
-			sys.graft(serverConnections.SimphonyServers.database);
-			break;
-		case "Simphony development":
-			sys.graft(serverConnections.SimphonyServers.development);
-			break;
-		case "Simphony test":
-			sys.graft(serverConnections.SimphonyServers.test);
+		case "Simphony pre-production":
+			sys.graft(serverConnections.SimphonyServers.pre_production);
 			break;
 		case "Simphony production":
 			sys.graft(serverConnections.SimphonyServers.production);
@@ -374,14 +278,8 @@ function generateNodes(){
 		case "Vision":
 			expandApplicationNode("Vision");
 			break;
-		case "Vision database":
-			sys.graft(serverConnections.VisionServers.database);
-			break;
-		case "Vision development":
-			sys.graft(serverConnections.VisionServers.development);
-			break;
-		case "Vision test":
-			sys.graft(serverConnections.VisionServers.test);
+		case "Vision pre-production":
+			sys.graft(serverConnections.VisionServers.pre_production);
 			break;
 		case "Vision production":
 			sys.graft(serverConnections.VisionServers.production);
