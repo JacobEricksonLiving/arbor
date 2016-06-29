@@ -122,9 +122,9 @@
               ctx.font = ".75em Arial";
               ctx.textAlign = "center";
               ctx.lineWidth = 4;
-              ctx.strokeStyle = 'rgba(255,255,255,1)';
+              ctx.strokeStyle = 'rgba(255,255,255,0)';//display text: 'rgba(255,255,255,1)', invis text: 'rgba(255,255,255,0)' 
               ctx.strokeText(label, mid_x, mid_y);
-              ctx.fillStyle = "black";
+              ctx.fillStyle = 'rgba(0,0,0,0)';//display text: "black", invis text: 'rgba(0,0,0,0)'
               ctx.fillText(label, mid_x, mid_y);
             ctx.restore();
           }
@@ -270,12 +270,9 @@
               $('#info').html(coord + "<br>" + hex);
               var node1 = particleSystem.nearest(_mouseP);
               var node2 = particleSystem.nearestNext(_mouseP, node1);
-              console.log(node2.point.x)
               sys.eachEdge(function(edge, pt1, pt2){
-                console.log(pt1)
-                console.log(edge.source._p, edge.target._p)
-                if( pt1===pt2 ){
-                  alert();
+                //if it is the edge between node1 and node2
+                if( (edge.source===node1.node && edge.target===node2.node) || (edge.source===node2.node && edge.target===node1.node) ){
                   sys.pruneEdge(edge);
                 }
               });
@@ -329,26 +326,27 @@
         
         //called functions for detectEdgeLabel
         function findPos(obj) {
-        var curleft = 0, curtop = 0;
-        if (obj.offsetParent) {
-          do {
-            curleft += obj.offsetLeft;
-            curtop += obj.offsetTop;
-          } while (obj = obj.offsetParent);
-            return { x: curleft, y: curtop };
+          var curleft = 0, curtop = 0;
+          if (obj.offsetParent) {
+            do {
+              curleft += obj.offsetLeft;
+              curtop += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+              return { x: curleft, y: curtop };
           }
           return undefined;
         }
+
         //called functions for detectEdgeLabel
         function rgbToHex(r, g, b) {
-        if (r > 255 || g > 255 || b > 255)
-          throw "Invalid color component";
-          return ((r << 16) | (g << 8) | b).toString(16);
+          if (r > 255 || g > 255 || b > 255)
+            throw "Invalid color component";
+            return ((r << 16) | (g << 8) | b).toString(16);
         }
 
       }//end initMouseHandling
 
-    }
+    }//end redraw
 
     // helpers for figuring out where to draw arrows (thanks springy.js)
     var intersect_line_line = function(p1, p2, p3, p4)
