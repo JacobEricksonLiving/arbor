@@ -98,6 +98,87 @@ function expandApplicationNode(nName){
 	}
 }//end expandApplicationNode
 
+//switch case for which label to display when mousing over and edge
+function generateEdgeLabel(eName){
+	switch(eName){
+		case "AX_Hyperion":
+			return "Extract Financial Data";
+			break;
+
+		case "BizTalk_BizTalk360":
+			return "Interfaces";
+		case "BizTalk_CorePoint":
+			return "Reconfigue Data";
+		case "BizTalk_Odyssey":
+			return "Reconfig. Demographic Data from Vision";
+
+		case "Centricity_MedicalManager":
+			return "Demographic Data";
+		case "Centricity_Portal":
+			return "ERM Data";
+
+		case "Cofax_AX":
+			return "Document Images";
+		case "Cofax_PeopleSoft":
+			return "Document Images";
+
+		case "CorePoint_BizTalk":
+			return "Reconfigure Data";
+		case "CorePoint_MedicalManager":
+			return "Reconfig. Demographic Data to/from Vision";
+		case "CorePoint_NetMenu":
+			return "";
+		case "CorePoint_Vision":
+			return "Demographic Data";
+
+		case "DocuTrack_Centricity":
+			return "Scanned Documents";
+
+		case "GSMS_AX":
+			return "Corprate Housing/Maintance fees";
+		case "GSMS_Vision":
+			return "To GSMS:resident data, To Vision:resident billing";
+
+		case "JDE_Hyperion":
+			return "Extraxt Financial Data";
+
+		case "MedicalManager_Centricity":
+			return "Demographic Data";
+		case "MedicalManager_CorePoint":
+			return "Reconfig. Demographic Data to/from Vision";
+
+		case "NetMenu_Simphony":
+			return "Menu Items";
+
+		case "Odyssey_Vision":
+			return "Accounts receivable";
+
+		case "PeopleSoft_AX":
+			return "Wage Fee Files";
+		case "PeopleSoft_GSMS":
+			return "Employee name/department/id for ticket";
+
+		case "SalesForce_Hyperion":
+			return "";
+		case "SalesForce_Vision":
+			return "";
+
+		case "Simphony_AX":
+			return "Dinning Revenue";
+		case "Simphony_NetMenu":
+			return "Menu Items";
+
+		case "Vision_AX":
+			return "Billing from Residents";
+		case "Vision_CorePoint":
+			return "Demographic Data";
+		case "Vision_GSMS":
+			return "To GSMS:resident data, To Vision:resident billing";
+		case "Vision_Portal":
+			return "ERM Data";
+	}//end switch case
+}//end generateEdgeLabel
+
 //switch case for different commands when clicking the Generate button
 function generateNodes(){
 	var inputText = document.getElementById("input");
@@ -303,6 +384,9 @@ function generateNodes(){
 
 		case "generate all applications":
 			generateAllApplications();
+			break;
+		case "generate all edge labels":
+			generateAllEdgeLabels();
 			break;
 		default:
 			alert("Please enter correct command");
@@ -603,6 +687,9 @@ function removeNodes(){
 		case "remove all applications":
 			removeAllApplications();
 			break;
+		case "remove all edge labels":
+			removeAllEdgeLabels();
+			break;
 		default:
 			alert("Please enter correct command");
 	}
@@ -627,6 +714,20 @@ function removeAllApplications(){
 			clipNode(nodeObj);
 		}				
 	}
+}
+
+function generateAllEdgeLabels(){
+	sys.eachEdge(function(edge, pt1, pt1){
+		edge.data.label = generateEdgeLabel(edge.data.name);//set label field = to the correct label
+	});
+}
+
+function removeAllEdgeLabels(){
+	sys.eachEdge(function(edge, pt1, pt2){
+		if(edge.data.label!==''){
+			edge.data.label = '';
+		}
+	});
 }
 
 //function which removes edges of a node but not the node itself.
