@@ -273,7 +273,7 @@
               sys.eachEdge(function(edge, pt1, pt2){
                 //if it is the edge between node1 and node2
                 if( (edge.source===node1.node && edge.target===node2.node) || (edge.source===node2.node && edge.target===node1.node) ){
-                  sys.pruneEdge(edge);
+                  
                 }
               });
             }
