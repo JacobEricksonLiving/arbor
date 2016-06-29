@@ -122,9 +122,9 @@
               ctx.font = ".75em Arial";
               ctx.textAlign = "center";
               ctx.lineWidth = 4;
-              ctx.strokeStyle = 'rgba(255,255,255,0)';//display text: 'rgba(255,255,255,1)', invis text: 'rgba(255,255,255,0)' 
+              ctx.strokeStyle = 'rgba(255,255,255,1)';//display text: 'rgba(255,255,255,1)', invis text: 'rgba(255,255,255,0)' 
               ctx.strokeText(label, mid_x, mid_y);
-              ctx.fillStyle = 'rgba(0,0,0,0)';//display text: "black", invis text: 'rgba(0,0,0,0)'
+              ctx.fillStyle = 'rgba(0,0,0,1)';//display text: "black" or 'rgba(0,0,0,1)', invis text: 'rgba(0,0,0,0)'
               ctx.fillText(label, mid_x, mid_y);
             ctx.restore();
           }
@@ -273,12 +273,17 @@
               sys.eachEdge(function(edge, pt1, pt2){
                 //if it is the edge between node1 and node2
                 if( (edge.source===node1.node && edge.target===node2.node) || (edge.source===node2.node && edge.target===node1.node) ){
-                  
-                }
+                  edge.data.label = generateEdgeLabel(edge.data.name);//set label field = to the correct label
+                }//end if( (edge.source===.....))
+              });
+            }//if hex===#cccccc
+            if(hex!=="#cccccc"){
+              sys.eachEdge(function(edge, pt1, pt2){
+                edge.data.label = '';
               });
             }
-            
-          },
+                      
+          },//end detectEdgeLabel
 
           dragged:function(e){
             var old_nearest = nearest && nearest.node._id
