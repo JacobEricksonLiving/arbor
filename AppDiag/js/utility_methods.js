@@ -180,16 +180,17 @@ function generateEdgeLabel(eName){
 }//end generateEdgeLabel
 
 //switch case for different commands when clicking the Generate button
-function generateNodes(){
+function generate(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
 
+		//node section
 		case "AX":
 			expandApplicationNode("AX");
 			break;
 		case "AX pre-production":
-			sys.graft(serverConnections.AXServers.pre-production);
+			sys.graft(serverConnections.AXServers.pre_production);
 			break;
 		case "AX production":
 			sys.graft(serverConnections.AXServers.production);
@@ -381,7 +382,118 @@ function generateNodes(){
 		case "Vision production":
 			sys.graft(serverConnections.VisionServers.production);
 			break;
+		//end node section
 
+
+		//edgeLabel section
+		case "AX-->Hyperion":
+			applicationEdges.AX_Hyperion.label = generateEdgeLabel("AX_Hyperion");
+			break;
+
+		case "BizTalk-->BizTalk360":
+			applicationEdges.BizTalk_BizTalk360.label = generateEdgeLabel("BizTalk_BizTalk360");
+			break;
+		case "BizTalk-->CorePoint":
+			applicationEdges.BizTalk_CorePoint.label = generateEdgeLabel("BizTalk_CorePoint");
+			break;
+		case "BizTalk-->Odyssey":
+			applicationEdges.BizTalk_Odyssey.label = generateEdgeLabel("BizTalk_Odyssey");
+			break;
+
+		case "Centricity-->MedicalManager":
+			applicationEdges.Centricity_MedicalManager.label = generateEdgeLabel("Centricity_MedicalManager");
+			break;
+		case "Centricity-->Portal":
+			applicationEdges.Centricity_Portal.label = generateEdgeLabel("Centricity_Portal");
+			break;
+
+		case "Cofax-->AX":
+			applicationEdges.Cofax_AX.label = generateEdgeLabel("Cofax_AX");
+			break;
+		case "Cofax-->PeopleSoft":
+			applicationEdges.Cofax_PeopleSoft.label = generateEdgeLabel("Cofax_PeopleSoft");
+			break;
+
+		case "CorePoint-->BizTalk":
+			applicationEdges.CorePoint_BizTalk.label = generateEdgeLabel("CorePoint_BizTalk");
+			break;
+		case "CorePoint-->MedicalManager":
+			applicationEdges.CorePoint_MedicalManager.label = generateEdgeLabel("CorePoint_MedicalManager");
+			break;
+		case "CorePoint-->NetMenu":
+			applicationEdges.CorePoint_NetMenu.label = generateEdgeLabel("CorePoint_NetMenu");
+			break;
+		case "CorePoint-->Vision":
+			applicationEdges.CorePoint_Vision.label = generateEdgeLabel("CorePoint_Vision");
+			break;
+
+		case "DocuTrack-->Centricity":
+			applicationEdges.DocuTrack_Centricity.label = generateEdgeLabel("DocuTrack_Centricity");
+			break;
+
+		case "GSMS-->AX":
+			applicationEdges.GSMS_AX.label = generateEdgeLabel("GSMS_AX");
+			break;
+		case "GSMS-->Vision":
+			applicationEdges.GSMS_Vision.label = generateEdgeLabel("GSMS_Vision");
+			break;
+
+		case "JDE-->Hyperion":
+			applicationEdges.JDE_Hyperion.label = generateEdgeLabel("JDE_Hyperion");
+			break;
+
+		case "MedicalManager-->Centricity":
+			applicationEdges.MedicalManager_Centricity.label = generateEdgeLabel("MedicalManager_Centricity");
+			break;
+		case "MedicalManager-->CorePoint":
+			applicationEdges.MedicalManager_CorePoint.label = generateEdgeLabel("MedicalManager_CorePoint");
+			break;
+
+		case "NetMenu-->Simphony":
+			applicationEdges.NetMenu_Simphony.label = generateEdgeLabel("NetMenu_Simphony");
+			break;
+
+		case "Odyssey-->Vision":
+			applicationEdges.Odyssey_Vision.label = generateEdgeLabel("Odyssey_Vision");
+			break;
+
+		case "PeopleSoft-->AX":
+			applicationEdges.PeopleSoft_AX.label = generateEdgeLabel("PeopleSoft_AX");
+			break;
+		case "PeopleSoft-->GSMS":
+			applicationEdges.PeopleSoft_GSMS.label = generateEdgeLabel("PeopleSoft_GSMS");
+			break;
+
+		case "SalesForce-->Hyperion":
+			applicationEdges.SalesForce_Hyperion.label = generateEdgeLabel("SalesForce_Hyperion");
+			break;
+		case "SalesForce-->Vision":
+			applicationEdges.SalesForce_Vision.label = generateEdgeLabel("SalesForce_Vision");
+			break;
+
+		case "Simphony-->AX":
+			applicationEdges.Simphony_AX.label = generateEdgeLabel("Simphony_AX");
+			break;
+		case "Simphony-->NetMenu":
+			applicationEdges.Simphony_NetMenu.label = generateEdgeLabel("Simphony_NetMenu");
+			break;
+
+		case "Vision-->AX":
+			applicationEdges.Vision_AX.label = generateEdgeLabel("Vision_AX");
+			break;
+		case "Vision-->CorePoint":
+			applicationEdges.Vision_CorePoint.label = generateEdgeLabel("Vision_CorePoint");
+			break;
+		case "Vision-->GSMS":
+			applicationEdges.Vision_GSMS.label = generateEdgeLabel("Vision_GSMS");
+			break;
+		case "Vision-->Portal":
+			applicationEdges.Vision_Portal.label = generateEdgeLabel("Vision_Portal");
+			break;
+		//end edgeLabel section
+
+
+		//extra cases
 		case "generate all applications":
 			generateAllApplications();
 			break;
@@ -394,7 +506,7 @@ function generateNodes(){
 }  
 
 //switch case for different commands when clicking the Remove button
-function removeNodes(){
+function removed(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
@@ -716,12 +828,14 @@ function removeAllApplications(){
 	}
 }
 
+//function that generaets all the labels for edges
 function generateAllEdgeLabels(){
 	sys.eachEdge(function(edge, pt1, pt1){
 		edge.data.label = generateEdgeLabel(edge.data.name);//set label field = to the correct label
 	});
 }
 
+//function that removes all the labels from edges
 function removeAllEdgeLabels(){
 	sys.eachEdge(function(edge, pt1, pt2){
 		if(edge.data.label!==''){
