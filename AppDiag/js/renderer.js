@@ -267,7 +267,7 @@
             var p = c.getImageData(x, y, 1, 1).data; 
             var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
             if(hex==="#cccccc"){
-              $('#info').html(coord + "<br>" + hex);
+              //$('#info').html(coord + "<br>" + hex);//used to output the coordinates and colore
               var node1 = particleSystem.nearest(_mouseP);
               var node2 = particleSystem.nearestNext(_mouseP, node1);
               sys.eachEdge(function(edge, pt1, pt2){
@@ -324,7 +324,7 @@
           div.innerHTML = "";
           div.innerHTML += "NAME: " + nearest.node.name + "<br /><br />";
           div.innerHTML += "DESCRIPTION: " + nearest.node.data.description + "<br /><br />";
-          div.innerHTML += "EXPANDED: " + nearest.node.data.expanded +"<br /><br />";
+          //div.innerHTML += "EXPANDED: " + nearest.node.data.expanded +"<br /><br />";
           return false;
         });
 
