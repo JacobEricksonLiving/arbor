@@ -31,7 +31,7 @@ var applicationNodes = {
 	'to':[], 
 	'from':['AX', 'PeopleSoft'], 
 	'base':false, 'server':'N/A',
-	'description':'Converts documents into usable computer images.'},
+	'description':'Converts documents into usable computer images.'},//need to meet
 	
 	CorePoint : {'color':'red','shape':'dot', 'label':'CorePoint', 'expanded':false, 
 	'to':['BizTalk', 'MedicalManager', 'Vision'], 
@@ -78,7 +78,7 @@ var applicationNodes = {
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
 	'to':['Cofax'], 
 	'from':['GSMS'], 'base':false, 'server':'N/A',
-	'description':''},
+	'description':''},//need to meet
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
 	'to':['Centricity', 'Vision'], 
@@ -88,7 +88,7 @@ var applicationNodes = {
 	SalesForce : {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 
 	'to':[], 
 	'from':['Hyperion', 'Vision'], 'base':false, 'server':'N/A',
-	'description':''},
+	'description':''},//need to meet
 	
 	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
 	'to':['NetMenu'], 
