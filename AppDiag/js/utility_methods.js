@@ -189,8 +189,8 @@ function generate(){
 		case "AX":
 			expandApplicationNode("AX");
 			break;
-		case "AX pre-production":
-			sys.graft(serverConnections.AXServers.pre_production);
+		case "AX non-production":
+			sys.graft(serverConnections.AXServers.non_production);
 			break;
 		case "AX production":
 			sys.graft(serverConnections.AXServers.production);
@@ -200,8 +200,8 @@ function generate(){
 		case "BizTalk":
 			expandApplicationNode("BizTalk");
 			break;
-		case "BizTalk pre-production":
-			sys.graft(serverConnections.BizTalkServers.pre_production);
+		case "BizTalk non-production":
+			sys.graft(serverConnections.BizTalkServers.non_production);
 			break;
 		case "BizTalk production":
 			sys.graft(serverConnections.BizTalkServers.production);
@@ -211,8 +211,8 @@ function generate(){
 		case "BizTalk360":
 			expandApplicationNode("BizTalk360");
 			break;
-		case "BizTalk360 pre-production":
-			sys.graft(serverConnections.BizTalk360Servers.pre_production);
+		case "BizTalk360 non-production":
+			sys.graft(serverConnections.BizTalk360Servers.non_production);
 			break;
 		case "BizTalk360 production":
 			sys.graft(serverConnections.BizTalk360Servers.production);
@@ -222,8 +222,8 @@ function generate(){
 		case "Centricity":
 			expandApplicationNode("Centricity");
 			break;
-		case "Centricity pre-production":
-			sys.graft(serverConnections.CentricityServers.pre_production);
+		case "Centricity non-production":
+			sys.graft(serverConnections.CentricityServers.non_production);
 			break;
 		case "Centricity production":
 			sys.graft(serverConnections.CentricityServers.production);
@@ -233,8 +233,8 @@ function generate(){
 		case "Cofax":
 			expandApplicationNode("Cofax");
 			break;
-		case "Cofax pre-production":
-			sys.graft(serverConnections.CofaxServers.pre_production);
+		case "Cofax non-production":
+			sys.graft(serverConnections.CofaxServers.non_production);
 			break;
 		case "Cofax production":
 			sys.graft(serverConnections.CofaxServers.production);
@@ -244,8 +244,8 @@ function generate(){
 		case "CorePoint":
 			expandApplicationNode("CorePoint");
 			break;
-		case "CorePoint pre-production":
-			sys.graft(serverConnections.CorePointServers.pre_production);
+		case "CorePoint non-production":
+			sys.graft(serverConnections.CorePointServers.non_production);
 			break;
 		case "CorePoint production":
 			sys.graft(serverConnections.CorePointServers.production);
@@ -255,8 +255,8 @@ function generate(){
 		case "DocuTrack":
 			expandApplicationNode("DocuTrack");
 			break;
-		case "DocuTrack pre-production":
-			sys.graft(serverConnections.DocuTrackServers.pre_production);
+		case "DocuTrack non-production":
+			sys.graft(serverConnections.DocuTrackServers.non_production);
 			break;
 		case "DocuTrack production":
 			sys.graft(serverConnections.DocuTrackServers.production);
@@ -266,8 +266,8 @@ function generate(){
 		case "GSMS":
 			expandApplicationNode("GSMS");
 			break;
-		case "GSMS pre-production":
-			sys.graft(serverConnections.GSMSServers.pre_production);
+		case "GSMS non-production":
+			sys.graft(serverConnections.GSMSServers.non_production);
 			break;
 		case "GSMS production":
 			sys.graft(serverConnections.GSMSServers.production);
@@ -277,8 +277,8 @@ function generate(){
 		case "Hyperion":
 			expandApplicationNode("Hyperion");
 			break;
-		case "Hyperion pre-production":
-			sys.graft(serverConnections.HyperionServers.pre_production);
+		case "Hyperion non-production":
+			sys.graft(serverConnections.HyperionServers.non_production);
 			break;
 		case "Hyperion production":
 			sys.graft(serverConnections.HyperionServers.production);
@@ -288,8 +288,8 @@ function generate(){
 		case "JDE":
 			expandApplicationNode("JDE");
 			break;
-		case "JDE pre-production":
-			sys.graft(serverConnections.JDEServers.pre_production);
+		case "JDE non-production":
+			sys.graft(serverConnections.JDEServers.non_production);
 			break;
 		case "JDE production":
 			sys.graft(serverConnections.JDEServers.production);
@@ -299,8 +299,8 @@ function generate(){
 		case "MedicalManager":
 			expandApplicationNode("MedicalManager");
 			break;
-		case "MedicalManager pre-production":
-			sys.graft(serverConnections.MedicalManagerServers.pre_production);
+		case "MedicalManager non-production":
+			sys.graft(serverConnections.MedicalManagerServers.non_production);
 			break;
 		case "MedicalManager production":
 			sys.graft(serverConnections.MedicalManagerServers.production);
@@ -310,8 +310,8 @@ function generate(){
 		case "NetMenu":
 			expandApplicationNode("NetMenu");
 			break;
-		case "NetMenu pre-production":
-			sys.graft(serverConnections.NetMenuServers.pre_production);
+		case "NetMenu non-production":
+			sys.graft(serverConnections.NetMenuServers.non_production);
 			break;
 		case "NetMenu production":
 			sys.graft(serverConnections.NetMenuServers.production);
@@ -321,8 +321,8 @@ function generate(){
 		case "Odyssey":
 			expandApplicationNode("Odyssey");
 			break;
-		case "Odyssey pre-production":
-			sys.graft(serverConnections.OdysseyServers.pre_production);
+		case "Odyssey non-production":
+			sys.graft(serverConnections.OdysseyServers.non_production);
 			break;
 		case "Odyssey production":
 			sys.graft(serverConnections.OdysseyServers.production);
@@ -332,8 +332,8 @@ function generate(){
 		case "PeopleSoft":
 			expandApplicationNode("PeopleSoft");
 			break;
-		case "PeopleSoft pre-production":
-			sys.graft(serverConnections.PeopleSoftServers.pre_production);
+		case "PeopleSoft non-production":
+			sys.graft(serverConnections.PeopleSoftServers.non_production);
 			break;
 		case "PeopleSoft production":
 			sys.graft(serverConnections.PeopleSoftServers.production);
@@ -343,8 +343,8 @@ function generate(){
 		case "Portal":
 			expandApplicationNode("Portal");
 			break;
-		case "Portal pre-production":
-			sys.graft(serverConnections.PortalServers.pre_production);
+		case "Portal non-production":
+			sys.graft(serverConnections.PortalServers.non_production);
 			break;
 		case "Portal production":
 			sys.graft(serverConnections.PortalServers.production);
@@ -354,8 +354,8 @@ function generate(){
 		case "SalesForce":
 			expandApplicationNode("SalesForce");
 			break;
-		case "SalesForce pre-production":
-			sys.graft(serverConnections.SalesForceServers.pre_production);
+		case "SalesForce non-production":
+			sys.graft(serverConnections.SalesForceServers.non_production);
 			break;
 		case "SalesForce production":
 			sys.graft(serverConnections.SalesForceServers.production);
@@ -365,8 +365,8 @@ function generate(){
 		case "Simphony":
 			expandApplicationNode("Simphony");
 			break;
-		case "Simphony pre-production":
-			sys.graft(serverConnections.SimphonyServers.pre_production);
+		case "Simphony non-production":
+			sys.graft(serverConnections.SimphonyServers.non_production);
 			break;
 		case "Simphony production":
 			sys.graft(serverConnections.SimphonyServers.production);
@@ -376,8 +376,8 @@ function generate(){
 		case "Vision":
 			expandApplicationNode("Vision");
 			break;
-		case "Vision pre-production":
-			sys.graft(serverConnections.VisionServers.pre_production);
+		case "Vision non-production":
+			sys.graft(serverConnections.VisionServers.non_production);
 			break;
 		case "Vision production":
 			sys.graft(serverConnections.VisionServers.production);
@@ -514,8 +514,8 @@ function removed(){
 		case "AX":
 			alert("Red nodes cannot be removed");
 			break;
-		case "AX pre-production":
-			for(node in serverConnections.AXServers.pre_production.nodes){
+		case "AX non-production":
+			for(node in serverConnections.AXServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -530,8 +530,8 @@ function removed(){
 			applicationNodes.BizTalk.expanded = false;
 			sys.pruneNode("BizTalk");
 			break;
-		case "BizTalk pre-production":
-			for(node in serverConnections.BizTalkServers.pre_production.nodes){
+		case "BizTalk non-production":
+			for(node in serverConnections.BizTalkServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -546,8 +546,8 @@ function removed(){
 			applicationNodes.BizTalk360.expanded = false;
 			sys.pruneNode("BizTalk360");
 			break;
-		case "BizTalk360 pre-production":
-			for(node in serverConnections.BizTalk360Servers.pre_production.nodes){
+		case "BizTalk360 non-production":
+			for(node in serverConnections.BizTalk360Servers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -562,8 +562,8 @@ function removed(){
 			applicationNodes.Centricity.expanded = false;
 			sys.pruneNode("Centricity");
 			break;
-		case "Centricity pre-production":
-			for(node in serverConnections.CentricityServers.pre_production.nodes){
+		case "Centricity non-production":
+			for(node in serverConnections.CentricityServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -578,8 +578,8 @@ function removed(){
 			applicationNodes.Cofax.expanded = false;
 			sys.pruneNode("Cofax");
 			break;
-		case "Cofax pre-production":
-			for(node in serverConnections.CofaxServers.pre_production.nodes){
+		case "Cofax non-production":
+			for(node in serverConnections.CofaxServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -593,8 +593,8 @@ function removed(){
 		case "CorePoint":
 			alert("Red nodes cannot be removed");
 			break;
-		case "CorePoint pre-production":
-			for(node in serverConnections.CorePointServers.pre_production.nodes){
+		case "CorePoint non-production":
+			for(node in serverConnections.CorePointServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -609,8 +609,8 @@ function removed(){
 			applicationNodes.DocuTrack.expanded = false;
 			sys.pruneNode("DocuTrack");
 			break;
-		case "DocuTrack pre-production":
-			for(node in serverConnections.DocuTrackServers.pre_production.nodes){
+		case "DocuTrack non-production":
+			for(node in serverConnections.DocuTrackServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -625,8 +625,8 @@ function removed(){
 			applicationNodes.GSMS.expanded = false;
 			sys.pruneNode("GSMS");
 			break;
-		case "GSMS pre-production":
-			for(node in serverConnections.GSMSServers.pre_production.nodes){
+		case "GSMS non-production":
+			for(node in serverConnections.GSMSServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -641,8 +641,8 @@ function removed(){
 			applicationNodes.Hyperion.expanded = false;
 			sys.pruneNode("Hyperion");
 			break;
-		case "Hyperion pre-production":
-			for(node in serverConnections.HyperionServers.pre_production.nodes){
+		case "Hyperion non-production":
+			for(node in serverConnections.HyperionServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -657,8 +657,8 @@ function removed(){
 			applicationNodes.JDE.expanded = false;
 			sys.pruneNode("JDE");
 			break;
-		case "JDE pre-production":
-			for(node in serverConnections.JDEServers.pre_production.nodes){
+		case "JDE non-production":
+			for(node in serverConnections.JDEServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -673,8 +673,8 @@ function removed(){
 			applicationNodes.MedicalManager.expanded = false;
 			sys.pruneNode("MedicalManager");
 			break;
-		case "MedicalManager pre-production":
-			for(node in serverConnections.MedicalManagerServers.pre_production.nodes){
+		case "MedicalManager non-production":
+			for(node in serverConnections.MedicalManagerServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -689,8 +689,8 @@ function removed(){
 			applicationNodes.NetMenu.expanded = false;
 			sys.pruneNode("NetMenu");
 			break;
-		case "NetMenu pre-production":
-			for(node in serverConnections.NetMenuServers.pre_production.nodes){
+		case "NetMenu non-production":
+			for(node in serverConnections.NetMenuServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -705,8 +705,8 @@ function removed(){
 			applicationNodes.Odyssey.expanded = false;
 			sys.pruneNode("Odyssey");
 			break;
-		case "Odyssey pre-production":
-			for(node in serverConnections.OdysseyServers.pre_production.nodes){
+		case "Odyssey non-production":
+			for(node in serverConnections.OdysseyServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -721,8 +721,8 @@ function removed(){
 			applicationNodes.PeopleSoft.expanded = false;
 			sys.pruneNode("PeopleSoft");
 			break;
-		case "PeopleSoft pre-production":
-			for(node in serverConnections.PeopleSoftServers.pre_production.nodes){
+		case "PeopleSoft non-production":
+			for(node in serverConnections.PeopleSoftServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -737,8 +737,8 @@ function removed(){
 			applicationNodes.Portal.expanded = false;
 			sys.pruneNode("Portal");
 			break;
-		case "Portal pre-production":
-			for(node in serverConnections.PortalServers.pre_production.nodes){
+		case "Portal non-production":
+			for(node in serverConnections.PortalServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -753,8 +753,8 @@ function removed(){
 			applicationNodes.SalesForce.expanded = false;
 			sys.pruneNode("SalesForce");
 			break;
-		case "SalesForce pre-production":
-			for(node in serverConnections.SalesForceServers.pre_production.nodes){
+		case "SalesForce non-production":
+			for(node in serverConnections.SalesForceServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -769,8 +769,8 @@ function removed(){
 			applicationNodes.Simphony.expanded = false;
 			sys.pruneNode("Simphony");
 			break;
-		case "Simphony pre-production":
-			for(node in serverConnections.SimphonyServers.pre_production.nodes){
+		case "Simphony non-production":
+			for(node in serverConnections.SimphonyServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
@@ -784,8 +784,8 @@ function removed(){
 		case "Vision":
 			alert("Red nodes cannot be removed");
 			break;
-		case "Vision pre-production":
-			for(node in serverConnections.VisionServers.pre_production.nodes){
+		case "Vision non-production":
+			for(node in serverConnections.VisionServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

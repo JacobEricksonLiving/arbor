@@ -7,7 +7,7 @@ Holds the information on each serverNode in the system as well as their connecti
 //List of the connections for each serverNode in the system.
 var serverConnections = {
 	AXServers : {
-		pre_production:{
+		non_production:{
 			nodes:{
 				md1_devap38:{'color':'LightGreen', 'server':true, 'label':'md1-devap38', 'description':'QA'},
 				md1_devap39:{'color':'LightGreen', 'server':true, 'label':'md1-devap39', 'description':'QA'},
@@ -48,7 +48,7 @@ var serverConnections = {
 	},//end AXServers
 
 	BizTalkServers :{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -68,7 +68,7 @@ var serverConnections = {
 	},//end BizTalkServers
 
 	BizTalk360Servers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -88,12 +88,18 @@ var serverConnections = {
 	},//BizTalk360Servers
 
 	CentricityServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
-
+				md1_ap78:{'color':'seagreen', 'server':true, 'label':'md1-ap78', 'description':'Test Server of JBoss'},
+				md1_testdb23:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb23', 'description':'Primary test Database'},
+				md1_testxa15:{'color':'SeaGreen', 'server':true, 'label':'md1-testxa15', 'description':''}
 			},
 			edges:{
-
+				Centricity:{
+					md1_ap78:{weight:2},
+					md1_testdb23:{weight:2},
+					md1_testxa15:{weight:2}
+				}
 			}
 		},
 
@@ -138,7 +144,7 @@ var serverConnections = {
 	},//end CentricityServers
 
 	CofaxServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -158,7 +164,7 @@ var serverConnections = {
 	},//end CofaxServers
 
 	CorePointServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -178,7 +184,7 @@ var serverConnections = {
 	},//end CorePointServers
 
 	DocuTrackServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 				
 			},
@@ -203,7 +209,7 @@ var serverConnections = {
 	},//end DocuTrackServers
 
 	GSMSServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 				md1_devap01:{'color':'LightGreen', 'server':true, 'label':'md1-devap01', 'description':''},
 				md1_testap11:{'color':'SeaGreen', 'server':true, 'label':'md1-testap11', 'description':''},
@@ -243,7 +249,7 @@ var serverConnections = {
 	},//end GSMSServers
 
 	HyperionServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 				md1_devap04:{'color':'LightGreen', 'server':true, 'label':'md1-devap04', 'description':'Essbase Server'},
 				md1_devws02:{'color':'wheat', 'server':true, 'label':'md1-devws02', 'description':'Foundation Services'},
@@ -279,7 +285,7 @@ var serverConnections = {
 	},//end HyperionServers
 
 	JDEServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -299,7 +305,7 @@ var serverConnections = {
 	},//end JDEServers
 
 	MedicalManagerServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -319,7 +325,7 @@ var serverConnections = {
 	},//end MedicalManagerServers
 
 	NetMenuServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -339,7 +345,7 @@ var serverConnections = {
 	},//end NetMenuServers
 
 	OdysseyServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 				
 			},
@@ -363,7 +369,7 @@ var serverConnections = {
 	},//end OdysseyServers
 
 	PeopleSoftServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -384,7 +390,7 @@ var serverConnections = {
 	},//end PeopleSoftServers
 
 	PortalServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -404,7 +410,7 @@ var serverConnections = {
 	},//end PortalServers
 
 	SalesForceServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 
 			},
@@ -454,7 +460,7 @@ var serverConnections = {
 	},//end SimphonyServers
 
 	VisionServers:{
-		pre_production:{
+		non_production:{
 			nodes:{
 				md1_testdb19:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb19', 'description':''},
 				md1_testdb30:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb30', 'description':''},
