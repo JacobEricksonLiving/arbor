@@ -1,0 +1,199 @@
+{
+	"applicationEdges": {
+		"AX_Hyperion": {
+			"name": "AX_Hyperion",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"BizTalk_BizTalk360": {
+			"name": "BizTalk_BizTalk360",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"BizTalk_CorePoint": {
+			"name": "BizTalk_CorePoint",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"BizTalk_Odyssey": {
+			"name": "BizTalk_Odyssey",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"Centricity_MedicalManager": {
+			"name": "Centricity_MedicalManager",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"Centricity_Portal": {
+			"name": "Centricity_Portal",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"Cofax_AX": {
+			"name": "Cofax_AX",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"Cofax_PeopleSoft": {
+			"name": "Cofax_PeopleSoft",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"CorePoint_BizTalk": {
+			"name": "CorePoint_BizTalk",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"CorePoint_MedicalManager": {
+			"name": "CorePoint_MedicalManager",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"CorePoint_NetMenu": {
+			"name": "CorePoint_NetMenu",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"CorePoint_Vision": {
+			"name": "CorePoint_Vision",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"DocuTrack_Centricity": {
+			"name": "DocuTrack_Centricity",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"GSMS_AX": {
+			"name": "GSMS_AX",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"GSMS_Vision": {
+			"name": "GSMS_Vision",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"JDE_Hyperion": {
+			"name": "JDE_Hyperion",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"MedicalManager_Centricity": {
+			"name": "MedicalManager_Centricity",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"MedicalManager_CorePoint": {
+			"name": "MedicalManager_CorePoint",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"NetMenu_Simphony": {
+			"name": "NetMenu_Simphony",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"Odyssey_Vision": {
+			"name": "Odyssey_Vision",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"PeopleSoft_AX": {
+			"name": "PeopleSoft_AX",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"PeopleSoft_GSMS": {
+			"name": "PeopleSoft_GSMS",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"SalesForce_Hyperion": {
+			"name": "SalesForce_Hyperion",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"SalesForce_Vision": {
+			"name": "SalesForce_Vision",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"Simphony_AX": {
+			"name": "Simphony_AX",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"Simphony_NetMenu": {
+			"name": "Simphony_NetMenu",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+
+		"Vision_AX": {
+			"name": "Vision_AX",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"Vision_CorePoint": {
+			"name": "Vision_CorePoint",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"Vision_GSMS": {
+			"name": "Vision_GSMS",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		},
+		"Vision_Portal": {
+			"name": "Vision_Portal",
+			"directed": true,
+			"weight": 6,
+			"label": ""
+		}
+
+	}
+}
