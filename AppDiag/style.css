@@ -1,4 +1,4 @@
-#welcome{
+#textPanel{
   position:absolute;
   right:0px;
   top:0;
@@ -10,7 +10,19 @@
   background:white;
 }
 
-#info{
+#topInfo{
+  position:absolute;
+  right:0px;
+  top:0%;
+  width:256px;
+  bottom:0px;
+  overflow:hidden;
+  border:1px solid #ccb;
+  padding-left:0px;
+  background:white;
+}
+
+#nodeInfo{
   position:absolute;
   right:0px;
   top:25%;
@@ -25,7 +37,7 @@
 #input_output{
   position:absolute;
   right:0px;
-  top:50%;
+  top:40%;
   width:256px;
   bottom:0px;
   overflow:hidden;

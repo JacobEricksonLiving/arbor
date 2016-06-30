@@ -318,7 +318,7 @@
         $(canvas).mousemove(handler.detectEdgeLabel);//when mouseover do detectEdgeLabel
         //disable contextmenu from displaying also display info on node on right click
         $(canvas).bind('contextmenu', function(e){
-          var div = document.getElementById('info');
+          var div = document.getElementById('nodeInfo');
           //var content = document.createTextNode("Hello"); possible option if below does not work
           //div.appendChild(content);
           div.innerHTML = "";
