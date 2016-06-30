@@ -203,6 +203,16 @@
                         }
                       }            
                     });
+                    
+                    //if clickedNode has server nodes displayed
+                    edgesFromClicked = sys.getEdgesFrom(clickedNode);
+                    sys.eachEdge(function(edge, pt1, pt2){
+                      if( jQuery.inArray(edge, edgesFromClicked)!==-1 && edge.source===clickedNode && edge.target.data.server){
+                        console.log(edge.target.data.server)
+                        sys.pruneNode(edge.target);                
+                      }
+                    });
+                    
                     sys.pruneNode(clickedNode);
                   }//end if not base node
 

@@ -9,95 +9,95 @@ Holds the information on each applicationNode in the system as well as their con
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 
 	'to':['Cofax', 'GSMS', 'PeopleSoft', 'Simphony', 'Vision'], 
-	'from':['Hyperion'], 'base':true, 'server':'N/A', 
+	'from':['Hyperion'], 'base':true, 'server':false, 
 	'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 
 	'to':['CorePoint'], 
-	'from':['BizTalk360', 'CorePoint'], 'base':false, 'server':'N/A',
+	'from':['BizTalk360', 'CorePoint'], 'base':false, 'server':false,
 	'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'},
 	
 	BizTalk360 : {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 
 	'to':['BizTalk'], 
-	'from':[], 'base':false, 'server':'N/A',
+	'from':[], 'base':false, 'server':false,
 	'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
 	
 	Centricity : {'color':'blue','shape':'dot', 'label':'Centricity', 'expanded':false, 
 	'to':['MedicalManager','Portal'], 
-	'from':['DocuTrack', 'MedicalManager'], 'base':false, 'server':'N/A',
+	'from':['DocuTrack', 'MedicalManager'], 'base':false, 'server':false,
 	'description':'Keeps track of outpatient medical data. Going to change to new application soon'},
 	
 	Cofax : {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 
 	'to':[], 
 	'from':['AX', 'PeopleSoft'], 
-	'base':false, 'server':'N/A',
+	'base':false, 'server':false,
 	'description':'Converts documents into usable computer images.'},//need to meet
 	
 	CorePoint : {'color':'red','shape':'dot', 'label':'CorePoint', 'expanded':false, 
 	'to':['BizTalk', 'MedicalManager', 'Vision'], 
 	'from':['BizTalk', 'MedicalManager', 'NetMenu', 'Vision'], 
-	'base':true, 'server':'N/A',
+	'base':true, 'server':false,
 	'description':'Designed to handle healthcare information. CorePoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
 	
 	DocuTrack:{'color':'blue','shape':'dot', 'label':'DocuTrack', 'expanded':false, 
 	'to':[], 
 	'from':['Centricity'], 
-	'base':false, 'server':'N/A',
+	'base':false, 'server':false,
 	'description':'Used to scan documents into Centricity'},
 
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
 	'to':['PeopleSoft', 'Vision'], 
-	'from':['AX', 'Vision'], 'base':false, 'server':'N/A',
+	'from':['AX', 'Vision'], 'base':false, 'server':false,
 	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of who is charged.'},
 	
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
 	'to':['AX', 'SalesForce'], 
-	'from':[], 'base':false, 'server':'N/A',
+	'from':[], 'base':false, 'server':false,
 	'description':'Exctracts financial data for high level purposes. It shows community and corprate financial data. Displays a summary level of the information.'},
 	
 	JDE : {'color':'blue','shape':'dot', 'label':'JDE', 'expanded':false, 
 	'to':[], 
-	'from':['Hyperion'], 'base':false, 'server':'N/A',
+	'from':['Hyperion'], 'base':false, 'server':false,
 	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
 
 	MedicalManager : {'color':'blue','shape':'dot', 'label':'MedicalManager', 'expanded':false, 
 	'to':['Centricity', 'CorePoint'], 
-	'from':['Centricity', 'CorePoint'], 'base':false, 'server':'N/A',
+	'from':['Centricity', 'CorePoint'], 'base':false, 'server':false,
 	'description':'Houses demographic information and handles appointments/billing on site.'},
 
 	NetMenu : {'color':'blue','shape':'dot', 'label':'NetMenu', 'expanded':false, 
 	'to':['NetMenu', 'Simphony'], 
-	'from':['Simphony'], 'base':false, 'server':'N/A',
+	'from':['Simphony'], 'base':false, 'server':false,
 	'description':'Note: not yet in use. Allows a chef to create a menu item then directly communicate that information Simphony'},
 	
 	Odyssey : {'color':'blue', 'shape':'dot', 'label':'Odyssey', 'expanded':false, 
 	'to':['BizTalk'], 
-	'from':['Vision'], 'base':false, 'server':'N/A',
+	'from':['Vision'], 'base':false, 'server':false,
 	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information recieved form Vision'},
 	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
 	'to':['Cofax'], 
-	'from':['GSMS'], 'base':false, 'server':'N/A',
+	'from':['GSMS'], 'base':false, 'server':false,
 	'description':''},//need to meet
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
 	'to':['Centricity', 'Vision'], 
-	'from':[], 'base':false, 'server':'N/A',
+	'from':[], 'base':false, 'server':false,
 	'description':'Allows user to view information held in Centricity and Vision from the opposite application.'},
 
 	SalesForce : {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 
 	'to':[], 
-	'from':['Hyperion', 'Vision'], 'base':false, 'server':'N/A',
+	'from':['Hyperion', 'Vision'], 'base':false, 'server':false,
 	'description':''},//need to meet
 	
 	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
 	'to':['NetMenu'], 
-	'from':['NetMenu'], 'base':false, 'server':'N/A',
+	'from':['NetMenu'], 'base':false, 'server':false,
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
 	'to':['CorePoint', 'GSMS', 'Odyssey', 'SalesForce'], 
-	'from':['AX', 'CorePoint', 'GSMS','Portal'], 'base':true, 'server':'N/A',
+	'from':['AX', 'CorePoint', 'GSMS','Portal'], 'base':true, 'server':false,
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 

@@ -9,12 +9,12 @@ var serverConnections = {
 	AXServers : {
 		pre_production:{
 			nodes:{
-				md1_devap38:{'color':'LightGreen', 'label':'md1-devap38', 'description':'QA'},
-				md1_devap39:{'color':'LightGreen', 'label':'md1-devap39', 'description':'QA'},
-				md1_devap40:{'color':'LightGreen', 'label':'md1-devap40', 'description':'QA'},
-				md1_devap41:{'color':'LightGreen', 'label':'md1-devap41', 'description':'DEV-STG'},
-				md1_testap27:{'color':'SeaGreen', 'label':'md1-testap27', 'description':'TEST'},
-				md1_testap28:{'color':'SeaGreen', 'label':'md1-testap28', 'description':'TRAIN'},
+				md1_devap38:{'color':'LightGreen', 'server':true, 'label':'md1-devap38', 'description':'QA'},
+				md1_devap39:{'color':'LightGreen', 'server':true, 'label':'md1-devap39', 'description':'QA'},
+				md1_devap40:{'color':'LightGreen', 'server':true, 'label':'md1-devap40', 'description':'QA'},
+				md1_devap41:{'color':'LightGreen', 'server':true, 'label':'md1-devap41', 'description':'DEV-STG'},
+				md1_testap27:{'color':'SeaGreen', 'server':true, 'label':'md1-testap27', 'description':'TEST'},
+				md1_testap28:{'color':'SeaGreen', 'server':true, 'label':'md1-testap28', 'description':'TRAIN'},
 
 			},
 			edges:{
@@ -31,10 +31,10 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_ap90:{'color':'green', 'label':'md1-ap90', 'description':''},
-				md1_ap91:{'color':'green', 'label':'md1-ap91', 'description':''},
-				md1_ap92:{'color':'green', 'label':'md1-ap92', 'description':''},
-				md1_db39:{'color':'purple', 'label':'md1-db39', 'description':'SQL AX'},
+				md1_ap90:{'color':'green', 'server':true, 'label':'md1-ap90', 'description':''},
+				md1_ap91:{'color':'green', 'server':true, 'label':'md1-ap91', 'description':''},
+				md1_ap92:{'color':'green', 'server':true, 'label':'md1-ap92', 'description':''},
+				md1_db39:{'color':'purple', 'server':true, 'label':'md1-db39', 'description':'SQL AX'},
 			},
 			edges:{
 				AX:{
@@ -99,21 +99,21 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_ap10:{'color':'green', 'label':'md1-ap10', 'description':'Report Server'},
-				md1_ap14:{'color':'green', 'label':'md1-ap14', 'description':'Utility Integration Server'},
-				md1_ap37:{'color':'green', 'label':'md1-ap37', 'description':'ePerscription Server'},
-				md1_ap42:{'color':'green', 'label':'md1-ap42', 'description':'CorePoint Server'},
-				md1_ap51:{'color':'green', 'label':'md1-ap51', 'description':'Secure Messaging/Patient Portal'},
-				md1_ap52:{'color':'green', 'label':'md1-ap52', 'description':'Houses/Configure files for DocuTrack'},
-				md1_ap53:{'color':'green', 'label':'md1-ap53', 'description':'Data Transfer Station. Inbound'},
-				md1_ap54:{'color':'green', 'label':'md1-ap54', 'description':'Data Transfer Station. Outbound'},
-				md1_ap55:{'color':'green', 'label':'md1-ap55', 'description':'Data Transfer Station. Clinical'},
-				md1_ap73:{'color':'green', 'label':'md1-ap73', 'description':'Java Boss Server. Runs Reports. Secure Messaging/Patient Portal.'},
-				md1_ap74:{'color':'green', 'label':'md1-ap74', 'description':'java Boss Server. CorePoint Server used to export changes.'},
-				md1_db16:{'color':'purple', 'label':'md1-db16', 'description':'Primary database'},
-				md1_db25:{'color':'purple', 'label':'md1-db16', 'description':'Shared DB used for Secure Messaging/Patient Portal'},	
-				Minnow_01:{'color':'green', 'label':'Minnow-01', 'description':'DMZ Web Server for Secure Messaging/Patient Portal'},
-				xa102__xa117:{'color':'green', 'label':'xa102--xa117', 'description':'Some are in reserver'}
+				md1_ap10:{'color':'green', 'server':true, 'label':'md1-ap10', 'description':'Report Server'},
+				md1_ap14:{'color':'green', 'server':true, 'label':'md1-ap14', 'description':'Utility Integration Server'},
+				md1_ap37:{'color':'green', 'server':true, 'label':'md1-ap37', 'description':'ePerscription Server'},
+				md1_ap42:{'color':'green', 'server':true, 'label':'md1-ap42', 'description':'CorePoint Server'},
+				md1_ap51:{'color':'green', 'server':true, 'label':'md1-ap51', 'description':'Secure Messaging/Patient Portal'},
+				md1_ap52:{'color':'green', 'server':true, 'label':'md1-ap52', 'description':'Houses/Configure files for DocuTrack'},
+				md1_ap53:{'color':'green', 'server':true, 'label':'md1-ap53', 'description':'Data Transfer Station. Inbound'},
+				md1_ap54:{'color':'green', 'server':true, 'label':'md1-ap54', 'description':'Data Transfer Station. Outbound'},
+				md1_ap55:{'color':'green', 'server':true, 'label':'md1-ap55', 'description':'Data Transfer Station. Clinical'},
+				md1_ap73:{'color':'green', 'server':true, 'label':'md1-ap73', 'description':'Java Boss Server. Runs Reports. Secure Messaging/Patient Portal.'},
+				md1_ap74:{'color':'green', 'server':true, 'label':'md1-ap74', 'description':'java Boss Server. CorePoint Server used to export changes.'},
+				md1_db16:{'color':'purple', 'server':true, 'label':'md1-db16', 'description':'Primary database'},
+				md1_db25:{'color':'purple', 'server':true, 'label':'md1-db16', 'description':'Shared DB used for Secure Messaging/Patient Portal'},	
+				Minnow_01:{'color':'green', 'server':true, 'label':'Minnow-01', 'description':'DMZ Web Server for Secure Messaging/Patient Portal'},
+				xa102__xa117:{'color':'green', 'server':true, 'label':'xa102--xa117', 'description':'Some are in reserver'}
 			},
 			edges:{
 				Centricity:{
@@ -188,9 +188,9 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_db04:{'color':'purple', 'label':'md1-db04', 'description':'Shared DB'},
-				md1_xa100:{'color':'green', 'label':'md1-xa100', 'description':''},
-				md1_xa101:{'color':'green', 'label':'md1-xa101', 'description':''}
+				md1_db04:{'color':'purple', 'server':true, 'label':'md1-db04', 'description':'Shared DB'},
+				md1_xa100:{'color':'green', 'server':true, 'label':'md1-xa100', 'description':''},
+				md1_xa101:{'color':'green', 'server':true, 'label':'md1-xa101', 'description':''}
 			},
 			edges:{
 				DocuTrack:{
@@ -205,12 +205,12 @@ var serverConnections = {
 	GSMSServers:{
 		pre_production:{
 			nodes:{
-				md1_devap01:{'color':'LightGreen', 'label':'md1-devap01', 'description':''},
-				md1_testap11:{'color':'SeaGreen', 'label':'md1-testap11', 'description':''},
-				md1_testap12:{'color':'SeaGreen', 'label':'md1-testap12', 'description':''},
-				md1_testap13:{'color':'SeaGreen', 'label':'md1-testap13', 'description':''},
-				md1_ws05:{'color':'brown', 'label':'md1-ws05', 'description':''},//may need to change the color here
-				md1_ws07:{'color':'brown', 'label':'md1-ws07', 'description':''}//may change color here
+				md1_devap01:{'color':'LightGreen', 'server':true, 'label':'md1-devap01', 'description':''},
+				md1_testap11:{'color':'SeaGreen', 'server':true, 'label':'md1-testap11', 'description':''},
+				md1_testap12:{'color':'SeaGreen', 'server':true, 'label':'md1-testap12', 'description':''},
+				md1_testap13:{'color':'SeaGreen', 'server':true, 'label':'md1-testap13', 'description':''},
+				md1_ws05:{'color':'brown', 'server':true, 'label':'md1-ws05', 'description':''},//may need to change the color here
+				md1_ws07:{'color':'brown', 'server':true, 'label':'md1-ws07', 'description':''}//may change color here
 			},
 			edges:{
 				GSMS:{
@@ -226,10 +226,10 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				csl_ws01:{'color':'green', 'label':'csl-ws01', 'description':''},
-				csl_ap11:{'color':'green', 'label':'csl-ap11', 'description':''},
-				csl_ap12:{'color':'green', 'label':'csl-ws01', 'description':''},
-				md1_testap25:{'color':'SeaGreen', 'label':'csl-ws01', 'description':''},
+				csl_ws01:{'color':'green', 'server':true, 'label':'csl-ws01', 'description':''},
+				csl_ap11:{'color':'green', 'server':true, 'label':'csl-ap11', 'description':''},
+				csl_ap12:{'color':'green', 'server':true, 'label':'csl-ws01', 'description':''},
+				md1_testap25:{'color':'SeaGreen', 'server':true, 'label':'csl-ws01', 'description':''},
 			},
 			edges:{
 				GSMS:{
@@ -245,10 +245,10 @@ var serverConnections = {
 	HyperionServers:{
 		pre_production:{
 			nodes:{
-				md1_devap04:{'color':'LightGreen', 'label':'md1-devap04', 'description':'Essbase Server'},
-				md1_devws02:{'color':'wheat', 'label':'md1-devws02', 'description':'Foundation Services'},
-				md1_devws03:{'color':'wheat', 'label':'md1-devws03', 'description':'Planning/Reporting/Analysis Web Server 1'},
-				md1_testdb5:{'color':'MediumPurple', 'label':'md1-testdb5', 'description':'Relational Database Server'}
+				md1_devap04:{'color':'LightGreen', 'server':true, 'label':'md1-devap04', 'description':'Essbase Server'},
+				md1_devws02:{'color':'wheat', 'server':true, 'label':'md1-devws02', 'description':'Foundation Services'},
+				md1_devws03:{'color':'wheat', 'server':true, 'label':'md1-devws03', 'description':'Planning/Reporting/Analysis Web Server 1'},
+				md1_testdb5:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb5', 'description':'Relational Database Server'}
 			},
 			edges:{
 				Hyperion:{
@@ -262,10 +262,10 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_ap25:{'color':'green', 'label':'md1-ap25', 'description':'Foundation Services'},
-				md1_ap26:{'color':'green', 'label':'md1-ap26', 'description':'Essbase Server'},
-				md1_db36:{'color':'purple', 'label':'md1-db36', 'description':'Relational Database Server'},
-				md1_ws14:{'color':'brown', 'label':'md1-ws14', 'description':'Planning/Reporting/Analysis '}
+				md1_ap25:{'color':'green', 'server':true, 'label':'md1-ap25', 'description':'Foundation Services'},
+				md1_ap26:{'color':'green', 'server':true, 'label':'md1-ap26', 'description':'Essbase Server'},
+				md1_db36:{'color':'purple', 'server':true, 'label':'md1-db36', 'description':'Relational Database Server'},
+				md1_ws14:{'color':'brown', 'server':true, 'label':'md1-ws14', 'description':'Planning/Reporting/Analysis '}
 			},
 			edges:{
 				Hyperion:{
@@ -350,8 +350,8 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_db03:{'color':'purple', 'label':'md1-db03', 'description':''},
-				md1_ap68:{'color':'green', 'label':'md1-ap68', 'description':''}
+				md1_db03:{'color':'purple', 'server':true, 'label':'md1-db03', 'description':''},
+				md1_ap68:{'color':'green', 'server':true, 'label':'md1-ap68', 'description':''}
 			},
 			edges:{
 				Odyssey:{
@@ -374,8 +374,8 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_ap86:{'color':'green', 'label':'md1-ap86', 'description':'PSNT Prcs Scheduler, TCC and Kronos Batch Files run from this server'},
-				md1_ap87:{'color':'green', 'label':'md1-ap87', 'description':'PSNT Prcs Scheduler'}
+				md1_ap86:{'color':'green', 'server':true, 'label':'md1-ap86', 'description':'PSNT Prcs Scheduler, TCC and Kronos Batch Files run from this server'},
+				md1_ap87:{'color':'green', 'server':true, 'label':'md1-ap87', 'description':'PSNT Prcs Scheduler'}
 			},
 			edges:{
 
@@ -435,11 +435,11 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_ap64:{'color':'green', 'label':'md1-ap64'},
-				md1_ap65:{'color':'green', 'label':'md1-ap65'},
-				md1_ap66:{'color':'green', 'label':'md1-ap66'},
-				md1_ap67:{'color':'green', 'label':'md1-ap67'},
-				md1_db25:{'color':'purple', 'label':'md1-db25', 'description':''}
+				md1_ap64:{'color':'green', 'server':true, 'label':'md1-ap64'},
+				md1_ap65:{'color':'green', 'server':true, 'label':'md1-ap65'},
+				md1_ap66:{'color':'green', 'server':true, 'label':'md1-ap66'},
+				md1_ap67:{'color':'green', 'server':true, 'label':'md1-ap67'},
+				md1_db25:{'color':'purple', 'server':true, 'label':'md1-db25', 'description':''}
 			},
 			edges:{
 				Simphony:{
@@ -456,16 +456,16 @@ var serverConnections = {
 	VisionServers:{
 		pre_production:{
 			nodes:{
-				md1_testdb19:{'color':'MediumPurple', 'label':'md1-testdb19', 'description':''},
-				md1_testdb30:{'color':'MediumPurple', 'label':'md1-testdb30', 'description':''},
-				md1_testdb31:{'color':'MediumPurple', 'label':'md1-testdb31', 'description':''},
-				md1_testdb32:{'color':'MediumPurple', 'label':'md1-testdb32', 'description':''},
-				md1_testdb33:{'color':'MediumPurple', 'label':'md1-testdb33', 'description':''},
-				md1_testws05:{'color':'peru', 'label':'md1-testws05', 'description':'ICD10'},
-				md1_testws06:{'color':'peru', 'label':'md1-testws06', 'description':'DEV'},
-				md1_testws07:{'color':'peru', 'label':'md1-testws07', 'description':'EA'},
-				md1_testws08:{'color':'peru', 'label':'md1-testws08', 'description':'TEST'},
-				md1_testws31:{'color':'peru', 'label':'md1-testws31', 'description':'TRAIN'}
+				md1_testdb19:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb19', 'description':''},
+				md1_testdb30:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb30', 'description':''},
+				md1_testdb31:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb31', 'description':''},
+				md1_testdb32:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb32', 'description':''},
+				md1_testdb33:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb33', 'description':''},
+				md1_testws05:{'color':'peru', 'server':true, 'label':'md1-testws05', 'description':'ICD10'},
+				md1_testws06:{'color':'peru', 'server':true, 'label':'md1-testws06', 'description':'DEV'},
+				md1_testws07:{'color':'peru', 'server':true, 'label':'md1-testws07', 'description':'EA'},
+				md1_testws08:{'color':'peru', 'server':true, 'label':'md1-testws08', 'description':'TEST'},
+				md1_testws31:{'color':'peru', 'server':true, 'label':'md1-testws31', 'description':'TRAIN'}
 			},
 			edges:{
 				Vision:{
@@ -485,11 +485,11 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-				md1_db11:{'color':'purple', 'label':'md1-db11', 'description':''},
-				md1_ws36:{'color':'brown', 'label':'md1-ws36', 'description':''},
-				md1_ws37:{'color':'brown', 'label':'md1-ws37', 'description':''},
-				md1_ws38:{'color':'brown', 'label':'md1-ws38', 'description':''},
-				md1_ws39:{'color':'brown', 'label':'md1-ws39', 'description':''}
+				md1_db11:{'color':'purple', 'server':true, 'label':'md1-db11', 'description':''},
+				md1_ws36:{'color':'brown', 'server':true, 'label':'md1-ws36', 'description':''},
+				md1_ws37:{'color':'brown', 'server':true, 'label':'md1-ws37', 'description':''},
+				md1_ws38:{'color':'brown', 'server':true, 'label':'md1-ws38', 'description':''},
+				md1_ws39:{'color':'brown', 'server':true, 'label':'md1-ws39', 'description':''}
 			},
 			edges:{
 				Vision:{
