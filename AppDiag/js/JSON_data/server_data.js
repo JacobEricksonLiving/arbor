@@ -9,12 +9,12 @@ var serverConnections = {
 	AXServers : {
 		pre_production:{
 			nodes:{
-				md1_devap38:{'color':'orange', 'label':'md1-devap38', 'description':'QA'},
-				md1_devap39:{'color':'orange', 'label':'md1-devap39', 'description':'QA'},
-				md1_devap40:{'color':'orange', 'label':'md1-devap40', 'description':'QA'},
-				md1_devap41:{'color':'orange', 'label':'md1-devap41', 'description':'DEV-STG'},
-				md1_testap27:{'color':'brown', 'label':'md1-testap27', 'description':'TEST'},
-				md1_testap28:{'color':'brown', 'label':'md1-testap28', 'description':'TRAIN'},
+				md1_devap38:{'color':'LightGreen', 'label':'md1-devap38', 'description':'QA'},
+				md1_devap39:{'color':'LightGreen', 'label':'md1-devap39', 'description':'QA'},
+				md1_devap40:{'color':'LightGreen', 'label':'md1-devap40', 'description':'QA'},
+				md1_devap41:{'color':'LightGreen', 'label':'md1-devap41', 'description':'DEV-STG'},
+				md1_testap27:{'color':'SeaGreen', 'label':'md1-testap27', 'description':'TEST'},
+				md1_testap28:{'color':'SeaGreen', 'label':'md1-testap28', 'description':'TRAIN'},
 
 			},
 			edges:{
@@ -205,10 +205,10 @@ var serverConnections = {
 	GSMSServers:{
 		pre_production:{
 			nodes:{
-				md1_devap01:{'color':'orange', 'label':'md1-devap01', 'description':''},
-				md1_testap11:{'color':'brown', 'label':'md1-testap11', 'description':''},
-				md1_testap12:{'color':'brown', 'label':'md1-testap12', 'description':''},
-				md1_testap13:{'color':'brown', 'label':'md1-testap13', 'description':''},
+				md1_devap01:{'color':'LightGreen', 'label':'md1-devap01', 'description':''},
+				md1_testap11:{'color':'SeaGreen', 'label':'md1-testap11', 'description':''},
+				md1_testap12:{'color':'SeaGreen', 'label':'md1-testap12', 'description':''},
+				md1_testap13:{'color':'SeaGreen', 'label':'md1-testap13', 'description':''},
 				md1_ws05:{'color':'brown', 'label':'md1-ws05', 'description':''},//may need to change the color here
 				md1_ws07:{'color':'brown', 'label':'md1-ws07', 'description':''}//may change color here
 			},
@@ -229,7 +229,7 @@ var serverConnections = {
 				csl_ws01:{'color':'green', 'label':'csl-ws01', 'description':''},
 				csl_ap11:{'color':'green', 'label':'csl-ap11', 'description':''},
 				csl_ap12:{'color':'green', 'label':'csl-ws01', 'description':''},
-				md1_testap25:{'color':'green', 'label':'csl-ws01', 'description':''},
+				md1_testap25:{'color':'SeaGreen', 'label':'csl-ws01', 'description':''},
 			},
 			edges:{
 				GSMS:{
@@ -245,10 +245,10 @@ var serverConnections = {
 	HyperionServers:{
 		pre_production:{
 			nodes:{
-				md1_devap04:{'color':'orange', 'label':'md1-devap04', 'description':'Essbase Server'},
-				md1_devws02:{'color':'orange', 'label':'md1-devws02', 'description':'Foundation Services'},
-				md1_devws03:{'color':'orange', 'label':'md1-devws03', 'description':'Planning/Reporting/Analysis Web Server 1'},
-				md1_testdb5:{'color':'brown', 'label':'md1-testdb5', 'description':'Relational Database Server'}
+				md1_devap04:{'color':'LightGreen', 'label':'md1-devap04', 'description':'Essbase Server'},
+				md1_devws02:{'color':'wheat', 'label':'md1-devws02', 'description':'Foundation Services'},
+				md1_devws03:{'color':'wheat', 'label':'md1-devws03', 'description':'Planning/Reporting/Analysis Web Server 1'},
+				md1_testdb5:{'color':'MediumPurple', 'label':'md1-testdb5', 'description':'Relational Database Server'}
 			},
 			edges:{
 				Hyperion:{
@@ -265,7 +265,7 @@ var serverConnections = {
 				md1_ap25:{'color':'green', 'label':'md1-ap25', 'description':'Foundation Services'},
 				md1_ap26:{'color':'green', 'label':'md1-ap26', 'description':'Essbase Server'},
 				md1_db36:{'color':'purple', 'label':'md1-db36', 'description':'Relational Database Server'},
-				md1_ws14:{'color':'green', 'label':'md1-ws14', 'description':'Planning/Reporting/Analysis '}
+				md1_ws14:{'color':'brown', 'label':'md1-ws14', 'description':'Planning/Reporting/Analysis '}
 			},
 			edges:{
 				Hyperion:{
@@ -456,16 +456,16 @@ var serverConnections = {
 	VisionServers:{
 		pre_production:{
 			nodes:{
-				md1_testdb19:{'color':'purple', 'label':'md1-testdb19', 'description':''},
-				md1_testdb30:{'color':'purple', 'label':'md1-testdb30', 'description':''},
-				md1_testdb31:{'color':'purple', 'label':'md1-testdb31', 'description':''},
-				md1_testdb32:{'color':'purple', 'label':'md1-testdb32', 'description':''},
-				md1_testdb33:{'color':'purple', 'label':'md1-testdb33', 'description':''},
-				md1_testws05:{'color':'brown', 'label':'md1-testws05', 'description':'ICD10'},
-				md1_testws06:{'color':'brown', 'label':'md1-testws06', 'description':'DEV'},
-				md1_testws07:{'color':'brown', 'label':'md1-testws07', 'description':'EA'},
-				md1_testws08:{'color':'brown', 'label':'md1-testws08', 'description':'TEST'},
-				md1_testws31:{'color':'brown', 'label':'md1-testws31', 'description':'TRAIN'}
+				md1_testdb19:{'color':'MediumPurple', 'label':'md1-testdb19', 'description':''},
+				md1_testdb30:{'color':'MediumPurple', 'label':'md1-testdb30', 'description':''},
+				md1_testdb31:{'color':'MediumPurple', 'label':'md1-testdb31', 'description':''},
+				md1_testdb32:{'color':'MediumPurple', 'label':'md1-testdb32', 'description':''},
+				md1_testdb33:{'color':'MediumPurple', 'label':'md1-testdb33', 'description':''},
+				md1_testws05:{'color':'peru', 'label':'md1-testws05', 'description':'ICD10'},
+				md1_testws06:{'color':'peru', 'label':'md1-testws06', 'description':'DEV'},
+				md1_testws07:{'color':'peru', 'label':'md1-testws07', 'description':'EA'},
+				md1_testws08:{'color':'peru', 'label':'md1-testws08', 'description':'TEST'},
+				md1_testws31:{'color':'peru', 'label':'md1-testws31', 'description':'TRAIN'}
 			},
 			edges:{
 				Vision:{
@@ -486,10 +486,10 @@ var serverConnections = {
 		production:{
 			nodes:{
 				md1_db11:{'color':'purple', 'label':'md1-db11', 'description':''},
-				md1_ws36:{'color':'green', 'label':'md1-ws36', 'description':''},
-				md1_ws37:{'color':'green', 'label':'md1-ws37', 'description':''},
-				md1_ws38:{'color':'green', 'label':'md1-ws38', 'description':''},
-				md1_ws39:{'color':'green', 'label':'md1-ws39', 'description':''}
+				md1_ws36:{'color':'brown', 'label':'md1-ws36', 'description':''},
+				md1_ws37:{'color':'brown', 'label':'md1-ws37', 'description':''},
+				md1_ws38:{'color':'brown', 'label':'md1-ws38', 'description':''},
+				md1_ws39:{'color':'brown', 'label':'md1-ws39', 'description':''}
 			},
 			edges:{
 				Vision:{
