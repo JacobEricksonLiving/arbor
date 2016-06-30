@@ -193,13 +193,13 @@
                     sys.eachNode(function(node, pt){
                       for(i=0; i<clickedNode.data.to.length; ++i){//check the to array
                         if(clickedNode.data.to[i]===node.name){//if the node has edge to clickedNode
-                          node.data.expanded = false;
+                          node.data.expanded = false;//set it to not expanded
                         }
                       }
 
                       for(i=0; i<clickedNode.data.from.length; ++i){//check from array
                         if(clickedNode.data.from[i]===node.name){//if node has edge from clickedNode
-                          node.data.expanded = false;
+                          node.data.expanded = false;//set it to not expanded
                         }
                       }            
                     });
