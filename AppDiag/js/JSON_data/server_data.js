@@ -118,7 +118,7 @@ var serverConnections = {
 				md1_ap74:{'color':'green', 'server':true, 'label':'md1-ap74', 'description':'java Boss Server. CorePoint Server used to export changes.'},
 				md1_db16:{'color':'purple', 'server':true, 'label':'md1-db16', 'description':'Primary database'},
 				md1_db25:{'color':'purple', 'server':true, 'label':'md1-db16', 'description':'Shared DB used for Secure Messaging/Patient Portal'},	
-				Minnow_01:{'color':'green', 'server':true, 'label':'Minnow-01', 'description':'DMZ Web Server for Secure Messaging/Patient Portal'},
+				minnow_01:{'color':'green', 'server':true, 'label':'minnow-01', 'description':'DMZ Web Server for Secure Messaging/Patient Portal'},
 				xa102__xa117:{'color':'green', 'server':true, 'label':'xa102--xa117', 'description':'Some are in reserver'}
 			},
 			edges:{
@@ -136,7 +136,7 @@ var serverConnections = {
 					md1_ap74:{weight:2},
 					md1_db16:{weight:2},
 					md1_db25:{weight:2},
-					Minnow_01:{weight:2},
+					minnow_01:{weight:2},
 					xa102__xa117:{weight:2}
 				}
 			}
@@ -392,19 +392,23 @@ var serverConnections = {
 	PortalServers:{
 		non_production:{
 			nodes:{
-
+				md1_testws24:{'color':'peru', 'server':true, 'label':'md1-testws24', 'description':''}
 			},
 			edges:{
-
+				Portal:{
+					md1_testws24:{weight:2}
+				}
 			}
 		},
 
 		production:{
 			nodes:{
-
+				minnow_02:{'color':'green', 'server':true, 'label':'minnow-02', 'description':''}
 			},
 			edges:{
-
+				Portal:{
+					minnow_02:{weight:2}
+				}
 			}
 		}
 	},//end PortalServers
