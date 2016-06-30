@@ -188,6 +188,14 @@
                } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
 
+                  //if clickedNode has server nodes displayed remove them
+                  edgesFromClicked = sys.getEdgesFrom(clickedNode);
+                  sys.eachEdge(function(edge, pt1, pt2){
+                    if( jQuery.inArray(edge, edgesFromClicked)!==-1 && edge.source===clickedNode && edge.target.data.server){
+                      sys.pruneNode(edge.target);                
+                    }
+                  });
+
                   //if it is not a base node
                   if(!clickedNode.data.base){
                     sys.eachNode(function(node, pt){
@@ -203,16 +211,7 @@
                         }
                       }            
                     });
-                    
-                    //if clickedNode has server nodes displayed
-                    edgesFromClicked = sys.getEdgesFrom(clickedNode);
-                    sys.eachEdge(function(edge, pt1, pt2){
-                      if( jQuery.inArray(edge, edgesFromClicked)!==-1 && edge.source===clickedNode && edge.target.data.server){
-                        console.log(edge.target.data.server)
-                        sys.pruneNode(edge.target);                
-                      }
-                    });
-                    
+                    //remove clickedNode
                     sys.pruneNode(clickedNode);
                   }//end if not base node
 
@@ -260,7 +259,6 @@
                       }//end from forloop 
 
                     });//end sys.eachNode
-
                   }//is base node
                }//end if clicked is not expanded
             } //end if dragged
