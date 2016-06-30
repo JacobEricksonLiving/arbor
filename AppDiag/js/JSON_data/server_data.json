@@ -204,10 +204,10 @@
 						"label": "md1-db16",
 						"description": "Shared DB used for Secure Messaging/Patient Portal"
 					},
-					"Minnow_01": {
+					"minnow_01": {
 						"color": "green",
 						"server": true,
-						"label": "Minnow-01",
+						"label": "minnow-01",
 						"description": "DMZ Web Server for Secure Messaging/Patient Portal"
 					},
 					"xa102__xa117": {
@@ -506,13 +506,23 @@
 		"PortalServers": {
 			"non_production": {
 				"nodes": {
-
+					"md1_testws24": {
+						"color":"peru",
+						"server":true,
+						"label": "md1-testws24",
+						"description":""
+					}
 				}
 			},
 
 			"production": {
 				"nodes": {
-
+					"minnow_02":{
+						"color":"green",
+						"server":true,
+						"label":"minnow-02",
+						"description":""
+					}
 				}
 			}
 		},
