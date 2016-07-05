@@ -783,6 +783,42 @@
 	},
 
 	"Application":{
+		"name":"JDE",
+
+		"color":"blue",
+		"shape":"dot", 
+		"label":"JDE", 
+		"expanded":false, 
+		"to":[], 
+		"from":["Hyperion"], "base":false, "server":false,
+		"description":"Previos application used for financial data before AX. Still sends information to Hyperion.",
+
+		"edges":{
+			"JDE_Hyperion":{
+				"name":"JDE_Hyperion", 
+				"directed":true, 
+				"weight":6, 
+				"label":"",
+				"description":""
+			}
+		},
+
+		"Servers":{
+			"non-production":{
+				"nodes":{
+
+				}
+			},
+
+			"production":{
+				"nodes":{
+
+				}
+			}
+		}
+	},
+
+	"Application":{
 		"name":"MedicalManager",
 
 		"color": "blue",
