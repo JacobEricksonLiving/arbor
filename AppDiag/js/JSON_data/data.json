@@ -1,5 +1,5 @@
-[
-	{
+{
+	"Application":{
 		"name" : "AX",
 		
 		"color": "red",
@@ -130,7 +130,7 @@
 	},
 
 
-	{
+	"Application":{
 		"name" : "BizTalk",
 		
 		"color": "blue",
@@ -189,7 +189,7 @@
 	},
 
 
-	{
+	"Application":{
 		"name":"BizTalk360",
 
 		"color": "blue",
@@ -226,7 +226,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"Centricity",
 
 		"color": "blue",
@@ -391,7 +391,7 @@
 	},
 
 
-	{
+	"Application":{
 		"name":"Cofax",
 
 		"color": "blue",
@@ -435,7 +435,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"CorePoint",
 
 		"color": "red",
@@ -514,7 +514,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"DocuTrack",
 
 		"color": "blue",
@@ -569,7 +569,7 @@
 	},
 
 
-	{
+	"Application":{
 		"name":"GSMS",
 
 		"color": "blue",
@@ -685,7 +685,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"Hyperion",
 
 		"color": "blue",
@@ -782,7 +782,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"JDE",
 
 		"color":"blue",
@@ -818,7 +818,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"MedicalManager",
 
 		"color": "blue",
@@ -876,7 +876,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"NetMenu",
 
 		"color": "blue",
@@ -927,7 +927,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"Odyssey",
 
 		"color": "blue",
@@ -982,7 +982,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"PeopleSoft",
 
 		"color": "blue",
@@ -1044,7 +1044,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"Portal",
 
 		"color": "blue",
@@ -1098,7 +1098,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"SalesForce",
 
 		"color": "blue",
@@ -1142,7 +1142,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"Simphony",
 
 		"color": "blue",
@@ -1218,7 +1218,7 @@
 		}
 	},
 
-	{
+	"Application":{
 		"name":"Vision",
 
 		"color": "red",
@@ -1394,4 +1394,4 @@
 
 
 
-]
+}
