@@ -1,6 +1,5 @@
 /*
 server_data.js
-
 Holds the information on each serverNode in the system as well as their connections
 */
 
