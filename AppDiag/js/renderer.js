@@ -188,7 +188,7 @@
                } else {//expanded = true so remove node
                   clickedNode.data.expanded = false;
 
-                  //if clickedNode has server nodes displayed remove them
+                  //if clickedNode has server nodes displayed then remove them
                   edgesFromClicked = sys.getEdgesFrom(clickedNode);
                   sys.eachEdge(function(edge, pt1, pt2){
                     if( jQuery.inArray(edge, edgesFromClicked)!==-1 && edge.source===clickedNode && edge.target.data.server){
