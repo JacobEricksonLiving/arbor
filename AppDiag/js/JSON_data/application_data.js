@@ -83,7 +83,14 @@ var applicationNodes = {
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
 	'to':['Centricity', 'Vision'], 
 	'from':[], 'base':false, 'server':false,
-	'description':'Allows user to view information held in Centricity and Vision from the opposite application.'},
+	'description':'Allows user to view information held in Centricity and Vision from the opposite application.'
+	},
+
+	RemedyForce : {'color':'blue','shape':'dot', 'label':'RemedyForce', 'expanded':false, 
+	'to':["PeopleSoft", "Vision"], 
+	'from':["AX", "Vision"], 'base':false, 'server':false,
+	'description':'Creates Help Desk Tickets by getting Resident/Employee information form Vision/PeopleSoft respectively. Sends financial cost to appropriate application once complete.'
+	},
 
 	SalesMarketing:{ "color":"blue", "shape":"dot", "label":"SalesMarketing", "expanded":false,
 	"to":[],
@@ -144,7 +151,11 @@ var applicationEdges ={
 
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
+		PeopleSoft_RemedyForce:{name:"PeopleSoft_RemedyForce", directed:true, weight:6, label:""},
 		PeopleSoft_ServiceMax:{name:"PeopleSoft_ServiceMax", directed:true, weight:6, label:""},
+
+		RemedyForce_AX:{name:"RemedyForce_AX", directed:true, weight:6, label:""},
+		RemedyForce_Vision:{name:"RemedyForce_Vision", directed:true, weight:6, label:""},
 
 		ServiceMax_AX:{name:"ServiceMax_AX", directed:true, weight:6, label:""},
 		ServiceMax_Vision:{name:"ServiceMax_Vision", directed:true, weight:6, label:""},
@@ -158,6 +169,7 @@ var applicationEdges ={
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
 		Vision_GSMS:{name:'Vision_GSMS', directed:true, weight:6, label:''},
 		Vision_Portal:{name:'Vision_Portal', directed:true, weight:6, label:''},
+		Vision_RemedyForce:{name:"Vision_RemedyForce", directed:true, weight:6, label:""},
 		Vision_ServiceMax:{name:"Vision_ServiceMax", directed:true, weight:6, label:""}
 	
 }
@@ -170,6 +182,7 @@ var applicationConnections = {
 			GSMS:applicationNodes.GSMS,
 			Hyperion:applicationNodes.Hyperion,
 			PeopleSoft:applicationNodes.PeopleSoft,
+			RemedyForce:applicationNodes.RemedyForce,
 			ServiceMax:applicationNodes.ServiceMax,
 			Simphony:applicationNodes.Simphony,
 			Vision:applicationNodes.Vision
@@ -180,6 +193,7 @@ var applicationConnections = {
 			CoFax:{AX:applicationEdges.CoFax_AX},
 			GSMS:{AX:applicationEdges.GSMS_AX},
 			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX},
+			RemedyForce:{AX:applicationEdges.RemedyForce_AX},
 			ServiceMax:{AX:applicationEdges.ServiceMax_AX},
 			Simphony:{AX:applicationEdges.Simphony_AX},
 			Vision:{AX:applicationEdges.Vision_AX}
@@ -355,6 +369,7 @@ var applicationConnections = {
 			AX:applicationNodes.AX,
 			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
+			RemedyForce:applicationNodes.RemedyForce,
 			ServiceMax:applicationNodes.ServiceMax
 		},
 		edges:{
@@ -362,6 +377,7 @@ var applicationConnections = {
 			PeopleSoft:{
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS,
+				RemedyForce:applicationEdges.PeopleSoft_RemedyForce,
 				ServiceMax:applicationEdges.PeopleSoft_ServiceMax
 			}			
 		}
@@ -379,6 +395,22 @@ var applicationConnections = {
 		}
 	},//end PortalConnections
 
+	RemedyForceConnections:{
+		nodes:{
+			AX:applicationNodes.AX,
+			PeopleSoft:applicationNodes.PeopleSoft,
+			Vision:applicationNodes.Vision
+		},
+		edges:{
+			PeopleSoft:{RemedyForce:applicationEdges.PeopleSoft_RemedyForce},
+			RemedyForce:{
+				AX:applicationEdges.RemedyForce_AX,
+				Vision:applicationEdges.RemedyForce_Vision
+			},
+			Vision:{RemedyForce:applicationEdges.Vision_RemedyForce}
+		}
+	},//end RemedyForceConnections
+
 	SalesMarketingConnections:{
 		nodes:{
 			Vision:applicationNodes.Vision
@@ -391,9 +423,11 @@ var applicationConnections = {
 	ServiceMaxConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
+			PeopleSoft:applicationNodes.PeopleSoft,
 			Vision:applicationNodes.Vision
 		},
 		edges:{
+			PeopleSoft:{ServiceMax:applicationEdges.PeopleSoft_ServiceMax},
 			ServiceMax:{
 				AX:applicationEdges.ServiceMax_AX,
 				Vision:applicationEdges.ServiceMax_Vision
@@ -425,6 +459,7 @@ var applicationConnections = {
 			GSMS:applicationNodes.GSMS,
 			Odyssey:applicationNodes.Odyssey,
 			Portal:applicationNodes.Portal,
+			RemedyForce:applicationNodes.RemedyForce,
 			SalesMarketing:applicationNodes.SalesMarketing,
 			ServiceMax:applicationNodes.ServiceMax
 		},
@@ -432,6 +467,7 @@ var applicationConnections = {
 			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
 			GSMS:{Vision:applicationEdges.GSMS_Vision},
 			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
+			RemedyForce:{RemedyForce:applicationEdges.RemedyForce_Vision},
 			SalesMarketing:{Vision:applicationEdges.SalesMarketing_Vision},
 			ServiceMax:{Vision:applicationEdges.ServiceMax_Vision},
 			Vision:{
@@ -439,6 +475,7 @@ var applicationConnections = {
 				CorePoint:applicationEdges.Vision_CorePoint,
 				GSMS:applicationEdges.Vision_GSMS,
 				Portal:applicationEdges.Vision_Portal,
+				RemedyForce:applicationEdges.Vision_RemedyForce,
 				ServiceMax:applicationEdges.ServiceMax_Vision
 			}		
 		}

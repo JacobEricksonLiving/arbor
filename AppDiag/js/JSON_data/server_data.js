@@ -475,6 +475,26 @@ var serverConnections = {
 		}
 	},//end PortalServers
 
+	RemedyForceServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end RemedyForceServers
+
 	SalesMarketingServers:{
 		non_production:{
 			nodes:{
