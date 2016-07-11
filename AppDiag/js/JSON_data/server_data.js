@@ -8,16 +8,17 @@ var serverConnections = {
 	AXServers : {
 		non_production:{
 			nodes:{
+				AXNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
 				md1_devap38:{'color':'LightGreen', 'server':true, 'label':'md1-devap38', 'description':'QA'},
 				md1_devap39:{'color':'LightGreen', 'server':true, 'label':'md1-devap39', 'description':'QA'},
 				md1_devap40:{'color':'LightGreen', 'server':true, 'label':'md1-devap40', 'description':'QA'},
 				md1_devap41:{'color':'LightGreen', 'server':true, 'label':'md1-devap41', 'description':'DEV-STG'},
 				md1_testap27:{'color':'SeaGreen', 'server':true, 'label':'md1-testap27', 'description':'TEST'},
 				md1_testap28:{'color':'SeaGreen', 'server':true, 'label':'md1-testap28', 'description':'TRAIN'},
-
 			},
 			edges:{
-				AX:{
+				AXNon_production:{
+					AX:{weight:4},
 					md1_devap38:{weight:2},
 					md1_devap39:{weight:2},
 					md1_devap40:{weight:2},
@@ -30,13 +31,15 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				AXProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_ap90:{'color':'green', 'server':true, 'label':'md1-ap90', 'description':''},
 				md1_ap91:{'color':'green', 'server':true, 'label':'md1-ap91', 'description':''},
 				md1_ap92:{'color':'green', 'server':true, 'label':'md1-ap92', 'description':''},
 				md1_db39:{'color':'purple', 'server':true, 'label':'md1-db39', 'description':'SQL AX'},
 			},
 			edges:{
-				AX:{
+				AXProduction:{
+					AX:{weight:4},
 					md1_ap90:{weight:2},
 					md1_ap91:{weight:2},
 					md1_ap92:{weight:2},
@@ -89,12 +92,14 @@ var serverConnections = {
 	CentricityServers:{
 		non_production:{
 			nodes:{
+				CentricityNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
 				md1_ap78:{'color':'seagreen', 'server':true, 'label':'md1-ap78', 'description':'Test Server of JBoss'},
 				md1_testdb23:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb23', 'description':'Primary test Database'},
 				md1_testxa15:{'color':'SeaGreen', 'server':true, 'label':'md1-testxa15', 'description':''}
 			},
 			edges:{
-				Centricity:{
+				CentricityNon_Production:{
+					Centricity:{weight:4},
 					md1_ap78:{weight:2},
 					md1_testdb23:{weight:2},
 					md1_testxa15:{weight:2}
@@ -104,6 +109,7 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				CentricityProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_ap10:{'color':'green', 'server':true, 'label':'md1-ap10', 'description':'Report Server'},
 				md1_ap14:{'color':'green', 'server':true, 'label':'md1-ap14', 'description':'Utility Integration Server'},
 				md1_ap37:{'color':'green', 'server':true, 'label':'md1-ap37', 'description':'ePerscription Server'},
@@ -121,7 +127,8 @@ var serverConnections = {
 				xa102__xa117:{'color':'green', 'server':true, 'label':'xa102--xa117', 'description':'Some are in reserver'}
 			},
 			edges:{
-				Centricity:{
+				CentricityProduction:{
+					Centricity:{weight:4},
 					md1_ap10:{weight:2},
 					md1_ap14:{weight:2},
 					md1_ap37:{weight:2},
@@ -193,12 +200,14 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				DocuTrackProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_db04:{'color':'purple', 'server':true, 'label':'md1-db04', 'description':'Shared DB'},
 				md1_xa100:{'color':'green', 'server':true, 'label':'md1-xa100', 'description':''},
 				md1_xa101:{'color':'green', 'server':true, 'label':'md1-xa101', 'description':''}
 			},
 			edges:{
-				DocuTrack:{
+				DocuTrackProduction:{
+					DocuTrack:{weight:4},
 					md1_db04:{weight:2},
 					md1_xa100:{weight:2},
 					md1_xa101:{weight:2}
@@ -210,6 +219,7 @@ var serverConnections = {
 	GSMSServers:{
 		non_production:{
 			nodes:{
+				GSMSNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
 				md1_devap01:{'color':'LightGreen', 'server':true, 'label':'md1-devap01', 'description':''},
 				md1_testap11:{'color':'SeaGreen', 'server':true, 'label':'md1-testap11', 'description':''},
 				md1_testap12:{'color':'SeaGreen', 'server':true, 'label':'md1-testap12', 'description':''},
@@ -218,7 +228,8 @@ var serverConnections = {
 				md1_ws07:{'color':'brown', 'server':true, 'label':'md1-ws07', 'description':''}//may change color here
 			},
 			edges:{
-				GSMS:{
+				GSMSNon_Production:{
+					GSMS:{weight:4},
 					md1_devap01:{weight:2},
 					md1_testap11:{weight:2},
 					md1_testap12:{weight:2},
@@ -231,13 +242,15 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				GSMSProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				csl_ws01:{'color':'green', 'server':true, 'label':'csl-ws01', 'description':''},
 				csl_ap11:{'color':'green', 'server':true, 'label':'csl-ap11', 'description':''},
 				csl_ap12:{'color':'green', 'server':true, 'label':'csl-ws01', 'description':''},
 				md1_testap25:{'color':'SeaGreen', 'server':true, 'label':'csl-ws01', 'description':''},
 			},
 			edges:{
-				GSMS:{
+				GSMSProduction:{
+					GSMS:{weight:4},
 					csl_ws01:{weight:2},
 					csl_ap11:{weight:2},
 					csl_ap12:{weight:2},
@@ -250,13 +263,15 @@ var serverConnections = {
 	HyperionServers:{
 		non_production:{
 			nodes:{
+				HyperionNon_Production:{"color":"green", "server":true, "label":"Non_Production", "description":""},
 				md1_devap04:{'color':'LightGreen', 'server':true, 'label':'md1-devap04', 'description':'Essbase Server'},
 				md1_devws02:{'color':'wheat', 'server':true, 'label':'md1-devws02', 'description':'Foundation Services'},
 				md1_devws03:{'color':'wheat', 'server':true, 'label':'md1-devws03', 'description':'Planning/Reporting/Analysis Web Server 1'},
 				md1_testdb5:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb5', 'description':'Relational Database Server'}
 			},
 			edges:{
-				Hyperion:{
+				HyperionNon_Production:{
+					Hyperion:{weight:4},
 					md1_devap04:{weight:2},
 					md1_devws02:{weight:2},
 					md1_devws03:{weight:2},
@@ -267,13 +282,15 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				HyperionProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_ap25:{'color':'green', 'server':true, 'label':'md1-ap25', 'description':'Foundation Services'},
 				md1_ap26:{'color':'green', 'server':true, 'label':'md1-ap26', 'description':'Essbase Server'},
 				md1_db36:{'color':'purple', 'server':true, 'label':'md1-db36', 'description':'Relational Database Server'},
 				md1_ws14:{'color':'brown', 'server':true, 'label':'md1-ws14', 'description':'Planning/Reporting/Analysis '}
 			},
 			edges:{
-				Hyperion:{
+				HyperionProduction:{
+					Hyperion:{weight:4},
 					md1_ap25:{weight:2},
 					md1_ap26:{weight:2},
 					md1_db36:{weight:2},
@@ -355,11 +372,13 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				OdysseyProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_db03:{'color':'purple', 'server':true, 'label':'md1-db03', 'description':''},
 				md1_ap68:{'color':'green', 'server':true, 'label':'md1-ap68', 'description':''}
 			},
 			edges:{
-				Odyssey:{
+				OdysseyProduction:{
+					Odyssey:{weight:4},
 					md1_db03:{weight:2},
 					md1_ap68:{weight:2}
 				}
@@ -379,6 +398,7 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				PeopleSoftProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_ap86:{'color':'green', 'server':true, 'label':'md1-ap86', 'description':'PSNT Prcs Scheduler, TCC and Kronos Batch Files run from this server'},
 				md1_ap87:{'color':'green', 'server':true, 'label':'md1-ap87', 'description':'PSNT Prcs Scheduler'}
 			},
@@ -391,10 +411,12 @@ var serverConnections = {
 	PortalServers:{
 		non_production:{
 			nodes:{
+				PortalNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
 				md1_testws24:{'color':'peru', 'server':true, 'label':'md1-testws24', 'description':''}
 			},
 			edges:{
-				Portal:{
+				PortalNon_Production:{
+					Portal:{weight:4},
 					md1_testws24:{weight:2}
 				}
 			}
@@ -402,10 +424,12 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				PortalProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				minnow_02:{'color':'green', 'server':true, 'label':'minnow-02', 'description':''}
 			},
 			edges:{
-				Portal:{
+				PortalProduction:{
+					Portal:{weight:4},
 					minnow_02:{weight:2}
 				}
 			}
@@ -444,6 +468,7 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				SimphonyProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_ap64:{'color':'green', 'server':true, 'label':'md1-ap64'},
 				md1_ap65:{'color':'green', 'server':true, 'label':'md1-ap65'},
 				md1_ap66:{'color':'green', 'server':true, 'label':'md1-ap66'},
@@ -451,7 +476,8 @@ var serverConnections = {
 				md1_db25:{'color':'purple', 'server':true, 'label':'md1-db25', 'description':''}
 			},
 			edges:{
-				Simphony:{
+				SimphonyProduction:{
+					Simphony:{weight:4},
 					md1_ap64:{weight:2},
 					md1_ap65:{weight:2},
 					md1_ap66:{weight:2},
@@ -465,6 +491,7 @@ var serverConnections = {
 	VisionServers:{
 		non_production:{
 			nodes:{
+				VisionNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
 				md1_testdb19:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb19', 'description':''},
 				md1_testdb30:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb30', 'description':''},
 				md1_testdb31:{'color':'MediumPurple', 'server':true, 'label':'md1-testdb31', 'description':''},
@@ -477,7 +504,8 @@ var serverConnections = {
 				md1_testws31:{'color':'peru', 'server':true, 'label':'md1-testws31', 'description':'TRAIN'}
 			},
 			edges:{
-				Vision:{
+				VisionNon_Production:{
+					Vision:{weight:4},
 					md1_testdb19:{weight:2},
 					md1_testdb30:{weight:2},
 					md1_testdb31:{weight:2},
@@ -494,6 +522,7 @@ var serverConnections = {
 
 		production:{
 			nodes:{
+				VisionProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_db11:{'color':'purple', 'server':true, 'label':'md1-db11', 'description':''},
 				md1_ws36:{'color':'brown', 'server':true, 'label':'md1-ws36', 'description':''},
 				md1_ws37:{'color':'brown', 'server':true, 'label':'md1-ws37', 'description':''},
@@ -501,7 +530,8 @@ var serverConnections = {
 				md1_ws39:{'color':'brown', 'server':true, 'label':'md1-ws39', 'description':''}
 			},
 			edges:{
-				Vision:{
+				VisionProduction:{
+					Vision:{weight:4},
 					md1_db11:{weight:2},
 					md1_ws36:{weight:2},
 					md1_ws37:{weight:2},
