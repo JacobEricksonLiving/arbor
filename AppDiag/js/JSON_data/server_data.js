@@ -495,6 +495,26 @@ var serverConnections = {
 		}
 	},//end SalesMarketingServers
 
+	ServiceMaxServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end ServiceMaxServers
+
 	SimphonyServers:{
 		non_production:{
 			nodes:{

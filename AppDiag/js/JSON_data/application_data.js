@@ -8,7 +8,7 @@ Holds the information on each applicationNode in the system as well as their con
 //List of all the applicationNodes in the system
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 
-	'to':['CoFax', 'GSMS', 'PeopleSoft', 'Simphony', 'Vision'], 
+	'to':['CoFax', 'GSMS', 'PeopleSoft',"ServiceMax", 'Simphony', 'Vision'], 
 	'from':['Hyperion'], 'base':true, 'server':false, 
 	'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	
@@ -76,25 +76,31 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information recieved form Vision'},
 	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
-	'to':['CoFax'], 
+	'to':['CoFax', "ServiceMax"], 
 	'from':['GSMS'], 'base':false, 'server':false,
-	'description':''},//need to meet
+	'description':''},
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
 	'to':['Centricity', 'Vision'], 
 	'from':[], 'base':false, 'server':false,
 	'description':'Allows user to view information held in Centricity and Vision from the opposite application.'},
-	
-	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
-	'to':['NetMenu'], 
-	'from':['NetMenu'], 'base':false, 'server':false,
-	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
-	
+
 	SalesMarketing:{ "color":"blue", "shape":"dot", "label":"SalesMarketing", "expanded":false,
 	"to":[],
 	"from":["Vision"], "base":false, "server":false,
 	"description":"Receives data on new resident and converts it into a contact. Then sends new contact to Vision"
 	},
+
+	ServiceMax:{ "color":"blue", "shape":"dot", "label":"ServiceMax", "expanded":false,
+	"to":["PeopleSoft", "Vision"],
+	"from":["AX", "Vision"], "base":false, "server":false,
+	"description":"Field Services Application"
+	},
+
+	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
+	'to':['NetMenu'], 
+	'from':['NetMenu'], 'base':false, 'server':false,
+	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
 	'to':['CorePoint', 'GSMS', 'Odyssey'], 
@@ -138,6 +144,10 @@ var applicationEdges ={
 
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
+		PeopleSoft_ServiceMax:{name:"PeopleSoft_ServiceMax", directed:true, weight:6, label:""},
+
+		ServiceMax_AX:{name:"ServiceMax_AX", directed:true, weight:6, label:""},
+		ServiceMax_Vision:{name:"ServiceMax_Vision", directed:true, weight:6, label:""},
 
 		Simphony_AX:{name:'Simphony_AX', directed:true, weight:6, label:''},
 		Simphony_NetMenu:{name:'Simphony_NetMenu', directed:true, weight:6, label:''},
@@ -147,7 +157,8 @@ var applicationEdges ={
 		Vision_AX:{name:'Vision_AX', directed:true, weight:6, label:''},
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
 		Vision_GSMS:{name:'Vision_GSMS', directed:true, weight:6, label:''},
-		Vision_Portal:{name:'Vision_Portal', directed:true, weight:6, label:''}
+		Vision_Portal:{name:'Vision_Portal', directed:true, weight:6, label:''},
+		Vision_ServiceMax:{name:"Vision_ServiceMax", directed:true, weight:6, label:""}
 	
 }
 
@@ -159,6 +170,7 @@ var applicationConnections = {
 			GSMS:applicationNodes.GSMS,
 			Hyperion:applicationNodes.Hyperion,
 			PeopleSoft:applicationNodes.PeopleSoft,
+			ServiceMax:applicationNodes.ServiceMax,
 			Simphony:applicationNodes.Simphony,
 			Vision:applicationNodes.Vision
 		},
@@ -168,6 +180,7 @@ var applicationConnections = {
 			CoFax:{AX:applicationEdges.CoFax_AX},
 			GSMS:{AX:applicationEdges.GSMS_AX},
 			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX},
+			ServiceMax:{AX:applicationEdges.ServiceMax_AX},
 			Simphony:{AX:applicationEdges.Simphony_AX},
 			Vision:{AX:applicationEdges.Vision_AX}
 		}
@@ -341,13 +354,15 @@ var applicationConnections = {
 		nodes:{
 			AX:applicationNodes.AX,
 			CoFax:applicationNodes.CoFax,
-			GSMS:applicationNodes.GSMS
+			GSMS:applicationNodes.GSMS,
+			ServiceMax:applicationNodes.ServiceMax
 		},
 		edges:{
 			CoFax:{PeopleSoft:applicationEdges.CoFax_PeopleSoft},
 			PeopleSoft:{
 				AX:applicationEdges.PeopleSoft_AX,
-				GSMS:applicationEdges.PeopleSoft_GSMS
+				GSMS:applicationEdges.PeopleSoft_GSMS,
+				ServiceMax:applicationEdges.PeopleSoft_ServiceMax
 			}			
 		}
 
@@ -373,6 +388,21 @@ var applicationConnections = {
 		}
 	},//end SalesMarketingConnections
 
+	ServiceMaxConnections : {
+		nodes:{
+			AX:applicationNodes.AX,
+			Vision:applicationNodes.Vision
+		},
+		edges:{
+			ServiceMax:{
+				AX:applicationEdges.ServiceMax_AX,
+				Vision:applicationEdges.ServiceMax_Vision
+			},
+			Vision:{ServiceMax:applicationEdges.Vision_ServiceMax}
+		}
+
+	},//end ServiceMaxConnections
+
 	SimphonyConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
@@ -395,18 +425,21 @@ var applicationConnections = {
 			GSMS:applicationNodes.GSMS,
 			Odyssey:applicationNodes.Odyssey,
 			Portal:applicationNodes.Portal,
-			SalesMarketing:applicationNodes.SalesMarketing
+			SalesMarketing:applicationNodes.SalesMarketing,
+			ServiceMax:applicationNodes.ServiceMax
 		},
 		edges:{
 			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
 			GSMS:{Vision:applicationEdges.GSMS_Vision},
 			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
 			SalesMarketing:{Vision:applicationEdges.SalesMarketing_Vision},
+			ServiceMax:{Vision:applicationEdges.ServiceMax_Vision},
 			Vision:{
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,
 				GSMS:applicationEdges.Vision_GSMS,
-				Portal:applicationEdges.Vision_Portal
+				Portal:applicationEdges.Vision_Portal,
+				ServiceMax:applicationEdges.ServiceMax_Vision
 			}		
 		}
 

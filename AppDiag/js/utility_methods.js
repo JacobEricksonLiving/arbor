@@ -85,6 +85,11 @@ function expandApplicationNode(nName){
 			applicationNodes.SalesMarketing.expanded = true;
 			sys.graft(applicationConnections.SalesMarketingConnections);
 			break;
+		case "ServiceMax":
+			sys.addNode('ServiceMax', applicationNodes.ServiceMax);
+			applicationNodes.ServiceMax.expanded = true;
+			sys.graft(applicationConnections.ServiceMaxConnections);
+			break;
 		case "Simphony":
 			sys.addNode('Simphony', applicationNodes.Simphony);
 			applicationNodes.Simphony.expanded = true;
@@ -161,6 +166,12 @@ function generateEdgeLabel(eName){
 		case "SalesMarketing_Vision":
 			return "New Resident Demographics";
 
+		case "ServiceMax_AX":
+			return "Maintance Fees";
+		case "ServiceMax_Vision":
+			return "To ServiceMax:resident data, To Vision:resident billing";
+
+
 		case "Simphony_AX":
 			return "Dinning Revenue";
 		case "Simphony_NetMenu":
@@ -174,6 +185,8 @@ function generateEdgeLabel(eName){
 			return "To GSMS:resident data, To Vision:resident billing";
 		case "Vision_Portal":
 			return "ERM Data";
+		case "Vision_ServiceMax":
+			return "To ServiceMax:resident data, To Vision:resident billing";
 	}//end switch case
 }//end generateEdgeLabel
 
@@ -360,6 +373,17 @@ function generate(){
 			break;
 
 
+		case "ServiceMax":
+			expandApplicationNode("ServiceMax");
+			break;
+		case "ServiceMax non-production":
+			sys.graft(serverConnections.ServiceMaxServers.non_production);
+			break;
+		case "ServiceMax production":
+			sys.graft(serverConnections.ServiceMaxServers.production);
+			break;
+
+
 		case "Simphony":
 			expandApplicationNode("Simphony");
 			break;
@@ -466,6 +490,13 @@ function generate(){
 			applicationEdges.SalesMarketing_Vision.label = generateEdgeLabel("SalesMarketing_Vision");
 			break;
 
+		case "ServiceMax-->AX":
+			applicationEdges.ServiceMax_AX.label = generateEdgeLabel("ServiceMax_AX");
+			break
+		case "ServiceMax-->Vision":
+			applicationEdges.ServiceMax_Vision.label = generateEdgeLabel("ServiceMax_Vision");
+			break;
+
 		case "Simphony-->AX":
 			applicationEdges.Simphony_AX.label = generateEdgeLabel("Simphony_AX");
 			break;
@@ -484,6 +515,9 @@ function generate(){
 			break;
 		case "Vision-->Portal":
 			applicationEdges.Vision_Portal.label = generateEdgeLabel("Vision_Portal");
+			break;
+		case "Vision-->ServiceMax":
+			applicationEdges.Vision_ServiceMax.label = generateEdgeLabel("Vision_ServiceMax");
 			break;
 		//end edgeLabel section
 
@@ -755,6 +789,22 @@ function removed(){
 			break;
 		case "SalesMarketing production":
 			for(node in serverConnections.SalesMarketingServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "ServiceMax":
+			applicationNodes.ServiceMax.expanded = false;
+			sys.pruneNode("ServiceMax");
+			break;
+		case "ServiceMax non-production":
+			for(node in serverConnections.ServiceMaxServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "ServiceMax production":
+			for(node in serverConnections.ServiceMaxServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
