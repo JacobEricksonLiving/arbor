@@ -90,6 +90,12 @@ var applicationNodes = {
 	'from':['NetMenu'], 'base':false, 'server':false,
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
+	SalesMarketing:{ "color":"blue", "shape":"dot", "label":"SalesMarketing", "expanded":false,
+	"to":[],
+	"from":["Vision"], "base":false, "server":false,
+	"description":"Receives data on new resident and converts it into a contact. Then sends new contact to Vision"
+	},
+
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
 	'to':['CorePoint', 'GSMS', 'Odyssey'], 
 	'from':['AX', 'CorePoint', 'GSMS','Portal'], 'base':true, 'server':false,
@@ -135,6 +141,8 @@ var applicationEdges ={
 
 		Simphony_AX:{name:'Simphony_AX', directed:true, weight:6, label:''},
 		Simphony_NetMenu:{name:'Simphony_NetMenu', directed:true, weight:6, label:''},
+
+		SalesMarketing_Vision:{name:"SalesMarketing_Vision", directed:true, weight:6, label:""},
 
 		Vision_AX:{name:'Vision_AX', directed:true, weight:6, label:''},
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
@@ -356,6 +364,15 @@ var applicationConnections = {
 		}
 	},//end PortalConnections
 
+	SalesMarketingConnections:{
+		nodes:{
+			Vision:applicationNodes.Vision
+		},
+		edges:{
+			SalesMarketing:{Vision:applicationEdges.SalesMarketing_Vision}
+		}
+	},//end SalesMarketingConnections
+
 	SimphonyConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
@@ -377,12 +394,14 @@ var applicationConnections = {
 			CorePoint:applicationNodes.CorePoint,
 			GSMS:applicationNodes.GSMS,
 			Odyssey:applicationNodes.Odyssey,
-			Portal:applicationNodes.Portal
+			Portal:applicationNodes.Portal,
+			SalesMarketing:applicationNodes.SalesMarketing
 		},
 		edges:{
 			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
 			GSMS:{Vision:applicationEdges.GSMS_Vision},
 			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
+			SalesMarketing:{Vision:applicationEdges.SalesMarketing_Vision},
 			Vision:{
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,

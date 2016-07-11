@@ -80,6 +80,11 @@ function expandApplicationNode(nName){
 			applicationNodes.Portal.expanded = true;
 			sys.graft(applicationConnections.PortalConnections);
 			break; 
+		case "SalesMarketing":
+			sys.addNode('SalesMarketing', applicationNodes.SalesMarketing);
+			applicationNodes.SalesMarketing.expanded = true;
+			sys.graft(applicationConnections.SalesMarketingConnections);
+			break;
 		case "Simphony":
 			sys.addNode('Simphony', applicationNodes.Simphony);
 			applicationNodes.Simphony.expanded = true;
@@ -152,6 +157,9 @@ function generateEdgeLabel(eName){
 			return "Wage Fee Files";
 		case "PeopleSoft_GSMS":
 			return "Employee name/department/id for ticket";
+
+		case "SalesMarketing_Vision":
+			return "New Resident Demographics";
 
 		case "Simphony_AX":
 			return "Dinning Revenue";
@@ -341,6 +349,17 @@ function generate(){
 			break;
 
 
+		case "SalesMarketing":
+			expandApplicationNode("SalesMarketing");
+			break;
+		case "SalesMarketing non-production":
+			sys.graft(serverConnections.SalesMarketingServers.non_production);
+			break;
+		case "SalesMarketing production":
+			sys.graft(serverConnections.SalesMarketingServers.production);
+			break;
+
+
 		case "Simphony":
 			expandApplicationNode("Simphony");
 			break;
@@ -441,6 +460,10 @@ function generate(){
 			break;
 		case "PeopleSoft-->GSMS":
 			applicationEdges.PeopleSoft_GSMS.label = generateEdgeLabel("PeopleSoft_GSMS");
+			break;
+
+		case "SalesMarketing-->Vision":
+			applicationEdges.SalesMarketing_Vision.label = generateEdgeLabel("SalesMarketing_Vision");
 			break;
 
 		case "Simphony-->AX":
@@ -716,6 +739,22 @@ function removed(){
 			break;
 		case "Portal production":
 			for(node in serverConnections.PortalServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "SalesMarketing":
+			applicationNodes.SalesMarketing.expanded = false;
+			sys.pruneNode("SalesMarketing");
+			break;
+		case "SalesMarketing non-production":
+			for(node in serverConnections.SalesMarketingServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "SalesMarketing production":
+			for(node in serverConnections.SalesMarketingServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

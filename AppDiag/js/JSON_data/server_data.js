@@ -475,8 +475,28 @@ var serverConnections = {
 		}
 	},//end PortalServers
 
+	SalesMarketingServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end SalesMarketingServers
+
 	SimphonyServers:{
-		database:{
+		non_production:{
 			nodes:{
 				
 			},
