@@ -149,7 +149,7 @@ var serverConnections = {
 		}
 	},//end CentricityServers
 
-	CofaxServers:{
+	CoFaxServers:{
 		non_production:{
 			nodes:{
 
@@ -167,7 +167,7 @@ var serverConnections = {
 
 			}
 		}
-	},//end CofaxServers
+	},//end CoFaxServers
 
 	CorePointServers:{
 		non_production:{

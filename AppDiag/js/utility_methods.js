@@ -25,10 +25,10 @@ function expandApplicationNode(nName){
 			applicationNodes.Centricity.expanded = true;
 			sys.graft(applicationConnections.CentricityConnections);
 			break;
-		case "Cofax":
-			sys.addNode('Cofax', applicationNodes.Cofax);
-			applicationNodes.Cofax.expanded = true;
-			sys.graft(applicationConnections.CofaxConnections);
+		case "CoFax":
+			sys.addNode('CoFax', applicationNodes.CoFax);
+			applicationNodes.CoFax.expanded = true;
+			sys.graft(applicationConnections.CoFaxConnections);
 			break;
 		case "CorePoint":
 			sys.addNode('CorePoint', applicationNodes.CorePoint);
@@ -117,9 +117,9 @@ function generateEdgeLabel(eName){
 		case "Centricity_Portal":
 			return "ERM Data";
 
-		case "Cofax_AX":
+		case "CoFax_AX":
 			return "Document Images";
-		case "Cofax_PeopleSoft":
+		case "CoFax_PeopleSoft":
 			return "Document Images";
 
 		case "CorePoint_BizTalk":
@@ -230,14 +230,14 @@ function generate(){
 			break;
 
 
-		case "Cofax":
-			expandApplicationNode("Cofax");
+		case "CoFax":
+			expandApplicationNode("CoFax");
 			break;
-		case "Cofax non-production":
-			sys.graft(serverConnections.CofaxServers.non_production);
+		case "CoFax non-production":
+			sys.graft(serverConnections.CoFaxServers.non_production);
 			break;
-		case "Cofax production":
-			sys.graft(serverConnections.CofaxServers.production);
+		case "CoFax production":
+			sys.graft(serverConnections.CoFaxServers.production);
 			break;
 
 
@@ -407,11 +407,11 @@ function generate(){
 			applicationEdges.Centricity_Portal.label = generateEdgeLabel("Centricity_Portal");
 			break;
 
-		case "Cofax-->AX":
-			applicationEdges.Cofax_AX.label = generateEdgeLabel("Cofax_AX");
+		case "CoFax-->AX":
+			applicationEdges.CoFax_AX.label = generateEdgeLabel("CoFax_AX");
 			break;
-		case "Cofax-->PeopleSoft":
-			applicationEdges.Cofax_PeopleSoft.label = generateEdgeLabel("Cofax_PeopleSoft");
+		case "CoFax-->PeopleSoft":
+			applicationEdges.CoFax_PeopleSoft.label = generateEdgeLabel("CoFax_PeopleSoft");
 			break;
 
 		case "CorePoint-->BizTalk":
@@ -574,17 +574,17 @@ function removed(){
 			break;
 
 
-		case "Cofax":
-			applicationNodes.Cofax.expanded = false;
-			sys.pruneNode("Cofax");
+		case "CoFax":
+			applicationNodes.CoFax.expanded = false;
+			sys.pruneNode("CoFax");
 			break;
-		case "Cofax non-production":
-			for(node in serverConnections.CofaxServers.non_production.nodes){
+		case "CoFax non-production":
+			for(node in serverConnections.CoFaxServers.non_production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
-		case "Cofax production":
-			for(node in serverConnections.CofaxServers.production.nodes){
+		case "CoFax production":
+			for(node in serverConnections.CoFaxServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

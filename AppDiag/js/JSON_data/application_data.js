@@ -8,7 +8,7 @@ Holds the information on each applicationNode in the system as well as their con
 //List of all the applicationNodes in the system
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 
-	'to':['Cofax', 'GSMS', 'PeopleSoft', 'Simphony', 'Vision'], 
+	'to':['CoFax', 'GSMS', 'PeopleSoft', 'Simphony', 'Vision'], 
 	'from':['Hyperion'], 'base':true, 'server':false, 
 	'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	
@@ -27,7 +27,7 @@ var applicationNodes = {
 	'from':['DocuTrack', 'MedicalManager'], 'base':false, 'server':false,
 	'description':'Keeps track of outpatient medical data. Going to change to new application soon'},
 	
-	Cofax : {'color':'blue','shape':'dot', 'label':'Cofax', 'expanded':false, 
+	CoFax : {'color':'blue','shape':'dot', 'label':'CoFax', 'expanded':false, 
 	'to':[], 
 	'from':['AX', 'PeopleSoft'], 
 	'base':false, 'server':false,
@@ -76,7 +76,7 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information recieved form Vision'},
 	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
-	'to':['Cofax'], 
+	'to':['CoFax'], 
 	'from':['GSMS'], 'base':false, 'server':false,
 	'description':''},//need to meet
 	
@@ -113,8 +113,8 @@ var applicationEdges ={
 		Centricity_MedicalManager:{name:'Centricity_MedicalManager', directed:true, weight:6, label:''},
 		Centricity_Portal:{name:'Centricity_Portal', directed:true, weight:6, label:''},
 
-		Cofax_AX:{name:'Cofax_AX', directed:true, weight:6, label:''},
-		Cofax_PeopleSoft:{name:'Cofax_PeopleSoft', directed:true, weight:6, label:''},
+		CoFax_AX:{name:'CoFax_AX', directed:true, weight:6, label:''},
+		CoFax_PeopleSoft:{name:'CoFax_PeopleSoft', directed:true, weight:6, label:''},
 
 		CorePoint_BizTalk:{name:'CorePoint_BizTalk', directed:true, weight:6, label:''},
 		CorePoint_MedicalManager:{name:'CorePoint_MedicalManager', directed:true, weight:6, label:''},
@@ -155,7 +155,7 @@ var applicationEdges ={
 var applicationConnections = {
 	AXConnections : {
 		nodes:{
-			Cofax : applicationNodes.Cofax,
+			CoFax : applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
 			Hyperion:applicationNodes.Hyperion,
 			PeopleSoft:applicationNodes.PeopleSoft,
@@ -165,7 +165,7 @@ var applicationConnections = {
 
 		edges:{
 			AX:{Hyperion:applicationEdges.AX_Hyperion},
-			Cofax:{AX:applicationEdges.Cofax_AX},
+			CoFax:{AX:applicationEdges.CoFax_AX},
 			GSMS:{AX:applicationEdges.GSMS_AX},
 			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX},
 			Simphony:{AX:applicationEdges.Simphony_AX},
@@ -217,19 +217,19 @@ var applicationConnections = {
 
 	},//end CentricityConnections
 
-	CofaxConnections : {
+	CoFaxConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
 			PeopleSoft:applicationNodes.PeopleSoft
 		},
 		edges:{
-			Cofax:{
-				AX:applicationEdges.Cofax_AX,
-				PeopleSoft:applicationEdges.Cofax_PeopleSoft
+			CoFax:{
+				AX:applicationEdges.CoFax_AX,
+				PeopleSoft:applicationEdges.CoFax_PeopleSoft
 			}
 		}
 
-	},//end CofaxConnections
+	},//end CoFaxConnections
 
 	CorePointConnections : {
 		nodes:{
@@ -342,11 +342,11 @@ var applicationConnections = {
 	PeopleSoftConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
-			Cofax:applicationNodes.Cofax,
+			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS
 		},
 		edges:{
-			Cofax:{PeopleSoft:applicationEdges.Cofax_PeopleSoft},
+			CoFax:{PeopleSoft:applicationEdges.CoFax_PeopleSoft},
 			PeopleSoft:{
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS
