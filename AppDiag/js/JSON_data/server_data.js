@@ -389,10 +389,38 @@ var serverConnections = {
 	PeopleSoftServers:{
 		non_production:{
 			nodes:{
+				PeopleSoftNon_Production:{"color":"green", "server":true, "label":"Production", "description":""},
+				md1_testap08:{'color':'green', 'server':true, 'label':'md1-testap08', 'description':'Demo'},
+				md1_testap09:{'color':'green', 'server':true, 'label':'md1-testap09', 'description':'Oracle Secure Enterprise Search'},
+				md1_ap18:{'color':'green', 'server':true, 'label':'md1-ap18', 'description':'Oracle Secure Enterprise Search'},
+				md1_testap65:{'color':'green', 'server':true, 'label':'md1-testap65', 'description':'Development'},
+				md1_testap66:{'color':'green', 'server':true, 'label':'md1-testap66', 'description':'Test'},
+				md1_testap67:{'color':'green', 'server':true, 'label':'md1-testap67', 'description':'UAT'},
+				md1_testdb06:{'color':'green', 'server':true, 'label':'md1-testdb06', 'description':'Demo. Portal-PSPTDMO, LMS-PSELDMO, HR-PSHRDMO'},
+				md1_db10:{'color':'green', 'server':true, 'label':'md1-db10', 'description':'Oracle Secure Enterprise. PSESPRD'},
+				md1_testdb21:{'color':'green', 'server':true, 'label':'md1-testdb21', 'description':'Oracle Secure Enterprise Search. PSESTST'},
+				md1_testdb25:{'color':'green', 'server':true, 'label':'md1-testdb25', 'description':'Test. Portal-PSPTTST, LMS-PSELTST, HR-PSHRTST'},
+				md1_testdb29:{'color':'green', 'server':true, 'label':'md1-testdb29', 'description':'UAT. Portal-PSPTUAT, LMS-PSELUAT, HR-PSHRUAT'},
+				md1_testdb39:{'color':'green', 'server':true, 'label':'md1-testdb39', 'description':'Development. Portal-PSPTDEV, LMS-PSELDEV, HR-PSHR853'}
+
 
 			},
 			edges:{
-
+				PeopleSoftNon_Production:{
+					PeopleSoft:{weight:4},
+					md1_testap08:{weight:2},
+					md1_testap09:{weight:2},
+					md1_ap18:{weight:2},
+					md1_testap65:{weight:2},
+					md1_testap66:{weight:2},
+					md1_testap67:{weight:2},
+					md1_testdb06:{weight:2},
+					md1_db10:{weight:2},
+					md1_testdb21:{weight:2},
+					md1_testdb25:{weight:2},
+					md1_testdb29:{weight:2},
+					md1_testdb39:{weight:2}
+				}
 			}
 		},
 
@@ -400,9 +428,20 @@ var serverConnections = {
 			nodes:{
 				PeopleSoftProduction:{"color":"green", "server":true, "label":"Production", "description":""},
 				md1_ap86:{'color':'green', 'server':true, 'label':'md1-ap86', 'description':'PSNT Prcs Scheduler, TCC and Kronos Batch Files run from this server'},
-				md1_ap87:{'color':'green', 'server':true, 'label':'md1-ap87', 'description':'PSNT Prcs Scheduler'}
+				md1_ap87:{'color':'green', 'server':true, 'label':'md1-ap87', 'description':'PSNT2 Prcs Scheduler'},
+				md1_ap88:{'color':'green', 'server':true, 'label':'md1-ap88', 'description':'PSNT3 Prcs Scheduler'},
+				md1_ap89:{'color':'green', 'server':true, 'label':'md1-ap89', 'description':'IB Gateway Report Node'},
+				md1_db23:{'color':'green', 'server':true, 'label':'md1-db23', 'description':'Production. Portal-PSPTPRD, LMS-PSELPRD, HR-HRPRD'}
 			},
 			edges:{
+				PeopleSoftProduction:{
+					PeopleSoft:{weight:4},
+					md1_ap86:{weight:2},
+					md1_ap87:{weight:2},
+					md1_ap88:{weight:2},
+					md1_ap89:{weight:2},
+					md1_db23:{weight:2}
+				}
 
 			}
 		}
