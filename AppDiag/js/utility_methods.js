@@ -80,11 +80,6 @@ function expandApplicationNode(nName){
 			applicationNodes.Portal.expanded = true;
 			sys.graft(applicationConnections.PortalConnections);
 			break; 
-		case "SalesForce":
-			sys.addNode('SalesForce', applicationNodes.SalesForce);
-			applicationNodes.SalesForce.expanded = true;
-			sys.graft(applicationConnections.SalesForceConnections);
-			break;
 		case "Simphony":
 			sys.addNode('Simphony', applicationNodes.Simphony);
 			applicationNodes.Simphony.expanded = true;
@@ -157,11 +152,6 @@ function generateEdgeLabel(eName){
 			return "Wage Fee Files";
 		case "PeopleSoft_GSMS":
 			return "Employee name/department/id for ticket";
-
-		case "SalesForce_Hyperion":
-			return "";
-		case "SalesForce_Vision":
-			return "";
 
 		case "Simphony_AX":
 			return "Dinning Revenue";
@@ -351,17 +341,6 @@ function generate(){
 			break;
 
 
-		case "SalesForce":
-			expandApplicationNode("SalesForce");
-			break;
-		case "SalesForce non-production":
-			sys.graft(serverConnections.SalesForceServers.non_production);
-			break;
-		case "SalesForce production":
-			sys.graft(serverConnections.SalesForceServers.production);
-			break;
-
-
 		case "Simphony":
 			expandApplicationNode("Simphony");
 			break;
@@ -462,13 +441,6 @@ function generate(){
 			break;
 		case "PeopleSoft-->GSMS":
 			applicationEdges.PeopleSoft_GSMS.label = generateEdgeLabel("PeopleSoft_GSMS");
-			break;
-
-		case "SalesForce-->Hyperion":
-			applicationEdges.SalesForce_Hyperion.label = generateEdgeLabel("SalesForce_Hyperion");
-			break;
-		case "SalesForce-->Vision":
-			applicationEdges.SalesForce_Vision.label = generateEdgeLabel("SalesForce_Vision");
 			break;
 
 		case "Simphony-->AX":
@@ -744,22 +716,6 @@ function removed(){
 			break;
 		case "Portal production":
 			for(node in serverConnections.PortalServers.production.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-
-
-		case "SalesForce":
-			applicationNodes.SalesForce.expanded = false;
-			sys.pruneNode("SalesForce");
-			break;
-		case "SalesForce non-production":
-			for(node in serverConnections.SalesForceServers.non_production.nodes){
-				sys.pruneNode(node);
-			}
-			break;
-		case "SalesForce production":
-			for(node in serverConnections.SalesForceServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

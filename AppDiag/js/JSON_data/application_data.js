@@ -51,7 +51,7 @@ var applicationNodes = {
 	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of who is charged.'},
 	
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
-	'to':['AX', 'SalesForce'], 
+	'to':['AX'], 
 	'from':[], 'base':false, 'server':false,
 	'description':'Exctracts financial data for high level purposes. It shows community and corprate financial data. Displays a summary level of the information.'},
 	
@@ -84,11 +84,6 @@ var applicationNodes = {
 	'to':['Centricity', 'Vision'], 
 	'from':[], 'base':false, 'server':false,
 	'description':'Allows user to view information held in Centricity and Vision from the opposite application.'},
-
-	SalesForce : {'color':'blue', 'shape':'dot', 'label':'SalesForce', 'expanded':false, 
-	'to':[], 
-	'from':['Hyperion', 'Vision'], 'base':false, 'server':false,
-	'description':''},//need to meet
 	
 	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
 	'to':['NetMenu'], 
@@ -96,7 +91,7 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
 	
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
-	'to':['CorePoint', 'GSMS', 'Odyssey', 'SalesForce'], 
+	'to':['CorePoint', 'GSMS', 'Odyssey'], 
 	'from':['AX', 'CorePoint', 'GSMS','Portal'], 'base':true, 'server':false,
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
@@ -137,9 +132,6 @@ var applicationEdges ={
 
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
-
-		SalesForce_Hyperion:{name:'SalesForce_Hyperion', directed:true, weight:6, label:''},
-		SalesForce_Vision:{name:'SalesForce_Vision', directed:true, weight:6, label:''},
 
 		Simphony_AX:{name:'Simphony_AX', directed:true, weight:6, label:''},
 		Simphony_NetMenu:{name:'Simphony_NetMenu', directed:true, weight:6, label:''},
@@ -280,13 +272,11 @@ var applicationConnections = {
 	HyperionConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
-			JDE:applicationNodes.JDE,
-			SalesForce:applicationNodes.SalesForce
+			JDE:applicationNodes.JDE
 		},
 		edges:{
 			AX:{Hyperion:applicationEdges.AX_Hyperion},
-			JDE:{Hyperion:applicationEdges.JDE_Hyperion},
-			SalesForce:{Hyperion:applicationEdges.SalesForce_Hyperion}
+			JDE:{Hyperion:applicationEdges.JDE_Hyperion}
 		}
 
 	},//end HyperionConnections
@@ -366,20 +356,6 @@ var applicationConnections = {
 		}
 	},//end PortalConnections
 
-	SalesForceConnections : {
-		nodes:{
-			Hyperion:applicationNodes.Hyperion,
-			Vision:applicationNodes.Vision
-		},
-		edges:{
-			SalesForce:{
-				Hyperion:applicationEdges.SalesForce_Hyperion,
-				Vision:applicationEdges.SalesForce_Vision
-			}
-		}
-
-	},//end SalesForceConnections
-
 	SimphonyConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
@@ -401,14 +377,12 @@ var applicationConnections = {
 			CorePoint:applicationNodes.CorePoint,
 			GSMS:applicationNodes.GSMS,
 			Odyssey:applicationNodes.Odyssey,
-			Portal:applicationNodes.Portal,
-			SalesForce:applicationNodes.SalesForce
+			Portal:applicationNodes.Portal
 		},
 		edges:{
 			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
 			GSMS:{Vision:applicationEdges.GSMS_Vision},
 			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
-			SalesForce:{Vision:applicationEdges.SalesForce_Vision},
 			Vision:{
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,

@@ -475,26 +475,6 @@ var serverConnections = {
 		}
 	},//end PortalServers
 
-	SalesForceServers:{
-		non_production:{
-			nodes:{
-
-			},
-			edges:{
-
-			}
-		},
-
-		production:{
-			nodes:{
-
-			},
-			edges:{
-
-			}
-		}
-	},//end SalesForceServers
-
 	SimphonyServers:{
 		database:{
 			nodes:{
