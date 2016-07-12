@@ -442,10 +442,22 @@ var serverConnections = {
 	NetMenuServers:{
 		non_production:{
 			nodes:{
-
+				NetMenuNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
+				md1_testap16:{"color":"purple", "server":true, "label":"md1-testap16", "description":""},
+				md1_testap17:{"color":"purple", "server":true, "label":"md1-testap17", "description":""},
+				md1_testws01:{"color":"purple", "server":true, "label":"md1-testws01", "description":""},
+				md1_testws22:{"color":"purple", "server":true, "label":"md1-testws22", "description":""},
+				md1_testws25:{"color":"purple", "server":true, "label":"md1-testws25", "description":""},
 			},
 			edges:{
-
+				NetMenuNon_Production:{
+					NetMenu:{weight:4},
+					md1_testap16:{weight:2},
+					md1_testap17:{weight:2},
+					md1_testws01:{weight:2},
+					md1_testws22:{weight:2},
+					md1_testws25:{weight:2}
+				}
 			}
 		},
 
@@ -462,10 +474,14 @@ var serverConnections = {
 	OdysseyServers:{
 		non_production:{
 			nodes:{
-				
+				OdysseyNon_Production:{"color":"green", "server":true, "label":"Production", "description":""},
+				md1_testap56:{"color":"purple", "server":true, "label":"md1-testap56", "description":""},
 			},
 			edges:{
-				
+				OdysseyNon_Production:{
+					Odyssey:{weight:4},
+					md1_testap56:{weight:2}
+				}
 			}
 		},
 
