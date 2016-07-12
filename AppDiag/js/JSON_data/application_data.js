@@ -10,7 +10,7 @@ var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 
 	'to':['CoFax', 'GSMS', 'PeopleSoft',"ServiceMax", 'Simphony', 'Vision'], 
 	'from':['Hyperion'], 'base':true, 'server':false, 
-	'description':'Handles all finacial data. Recieves large files dropped at a time. Connections to AX represent transfer of finacial data.'},
+	'description':'Handles all finacial data. receives large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 
 	'to':['CorePoint'], 
@@ -49,7 +49,7 @@ var applicationNodes = {
 	'to':[], 
 	'from':["SalesForceApps"], 
 	'base':false, 'server':false,
-	'description':'Internal optional medical care if resident insurance does not cover needs.'},
+	'description':'Internal optional medical insurance if resident insurance does not cover needs. receives resident info form Vision'},
 
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
 	'to':['PeopleSoft', 'Vision'], 
@@ -69,7 +69,7 @@ var applicationNodes = {
 	Luminate : {'color':'blue','shape':'dot', 'label':'Luminate', 'expanded':false, 
 	'to':[], 
 	'from':["SalesForceApps"], 'base':false, 'server':false,
-	'description':'Philanthropy Application. Both Residents/Employees can send donations and this application manages the process.'
+	'description':'Philanthropy Application. Both Residents/Employees can send donations and this application manages the process. receives demographic info from PeopleSoft/Vision.'
 	},
 
 	MedicalManager : {'color':'blue','shape':'dot', 'label':'MedicalManager', 'expanded':false, 
@@ -85,7 +85,7 @@ var applicationNodes = {
 	Odyssey : {'color':'blue', 'shape':'dot', 'label':'Odyssey', 'expanded':false, 
 	'to':['BizTalk'], 
 	'from':['Vision'], 'base':false, 'server':false,
-	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information recieved form Vision'},
+	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information received form Vision'},
 	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
 	'to':['CoFax', "ServiceMax"], 
@@ -101,13 +101,13 @@ var applicationNodes = {
 	RemedyForce : {'color':'blue','shape':'dot', 'label':'RemedyForce', 'expanded':false, 
 	'to':[], 
 	'from':["SalesForceApps"], 'base':false, 'server':false,
-	'description':'Creates Help Desk Tickets by getting Resident/Employee information form Vision/PeopleSoft respectively. Sends financial cost to appropriate application once complete.'
+	'description':'Creates Help Desk Tickets by getting Resident/Employee information form Vision/PeopleSoft respectively. Sends financial cost to appropriate application(AX/Vision) once complete.'
 	},
 
 	Riskonnect: {'color':'blue','shape':'dot', 'label':'Riskonnect', 'expanded':false, 
 	'to':[], 
 	'from':["SalesForceApps"], 'base':false, 'server':false,
-	'description':'Handles Employee/Resident accident process. Then sends information to external insurance.'
+	'description':'Handles Employee/Resident accident process. Then sends information to external insurance. receives data form PeopleSoft/Vision.'
 	},
 
 	SalesForce: {'color':'blue','shape':'dot', 'label':'SalesForce', 'expanded':false, 
@@ -119,7 +119,7 @@ var applicationNodes = {
 	SalesForceApps:{'color':'blue','shape':'dot', 'label':'SalesForceApps', 'expanded':false, 
 	'to':["EricksonAdvantage", "Luminate", "RemedyForce", "Risckonnect", "SalesMarketing", "ServiceMax"], 
 	'from':["SalesForce"], 'base':false, 'server':false,
-	'description':'Applications flowing to this node are built on SalesForce.'
+	'description':'Applications connected to this node are built on SalesForce.'
 	},
 
 	SalesMarketing:{ "color":"blue", "shape":"dot", "label":"SalesMarketing", "expanded":false,
@@ -131,7 +131,7 @@ var applicationNodes = {
 	ServiceMax:{ "color":"blue", "shape":"dot", "label":"ServiceMax", "expanded":false,
 	"to":[],
 	"from":["SalesForceApps"], "base":false, "server":false,
-	"description":"Field Services Application"
+	"description":"Field Services Application. Creates ticket by getting Resident/Employee information form Vision/PeopleSoft respectively. Sends financial cost to appropriate application(AX/Vision) once complete."
 	},
 
 	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
