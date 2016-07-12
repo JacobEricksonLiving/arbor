@@ -8,7 +8,7 @@ Holds the information on each applicationNode in the system as well as their con
 //List of all the applicationNodes in the system
 var applicationNodes = {
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 
-	'to':['CoFax', 'GSMS', 'PeopleSoft',"ServiceMax", 'Simphony', 'Vision'], 
+	'to':['CoFax', 'GSMS', 'PeopleSoft',"SalesForce", 'Simphony', 'Vision'], 
 	'from':['Hyperion'], 'base':true, 'server':false, 
 	'description':'Handles all finacial data. receives large files dropped at a time. Connections to AX represent transfer of finacial data.'},
 	
@@ -93,9 +93,9 @@ var applicationNodes = {
 	'from':['Vision'], 'base':false, 'server':false,
 	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information received form Vision'},
 	
-	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
-	'to':['CoFax', "Kronos", "ServiceMax"], 
-	'from':['GSMS', "Kronos"], 'base':false, 'server':false,
+	PeopleSoft : {'color':'red','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
+	'to':['CoFax', "Kronos", "Taleo"], 
+	'from':["AX", "GSMS", "Kronos", "SalesForce", "Taleo"], 'base':true, 'server':false,
 	'description':''},
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
@@ -154,7 +154,7 @@ var applicationNodes = {
 
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
 	'to':['CorePoint', 'GSMS', 'Odyssey'], 
-	'from':['AX', 'CorePoint', 'GSMS','Portal'], 'base':true, 'server':false,
+	'from':['AX', 'CorePoint', 'GSMS', 'Portal', "SalesForce"], 'base':true, 'server':false,
 	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
 }
 
