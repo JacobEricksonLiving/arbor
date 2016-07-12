@@ -359,6 +359,26 @@ var serverConnections = {
 		}
 	},//end JDEServers
 
+	KronosServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end KronosServers
+
 	MedicalManagerServers:{
 		non_production:{
 			nodes:{

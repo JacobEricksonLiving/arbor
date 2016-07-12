@@ -66,6 +66,12 @@ var applicationNodes = {
 	'from':['Hyperion'], 'base':false, 'server':false,
 	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
 
+	Kronos:{'color':'blue','shape':'dot', 'label':'Kronos', 'expanded':false, 
+	'to':["Vision"], 
+	'from':["Vision"], 'base':false, 'server':false,
+	'description':'Kronos is the time entry system for the company. Keeps track of punchs in and out'
+	},
+
 	Luminate : {'color':'blue','shape':'dot', 'label':'Luminate', 'expanded':false, 
 	'to':[], 
 	'from':["SalesForceApps"], 'base':false, 'server':false,
@@ -88,8 +94,8 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information received form Vision'},
 	
 	PeopleSoft : {'color':'blue','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
-	'to':['CoFax', "ServiceMax"], 
-	'from':['GSMS'], 'base':false, 'server':false,
+	'to':['CoFax', "Kronos", "ServiceMax"], 
+	'from':['GSMS', "Kronos"], 'base':false, 'server':false,
 	'description':''},
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
@@ -172,6 +178,8 @@ var applicationEdges ={
 
 		JDE_Hyperion:{name:'JDE_Hyperion', directed:true, weight:6, label:''},
 
+		Kronos_PeopleSoft:{name:"Kronos_PeopleSoft", directed:true, weight:6, label:""},
+
 		MedicalManager_Centricity:{name:'MedicalManager_Centricity', directed:true, weight:6, label:''},
 		MedicalManager_CorePoint:{name:'MedicalManager_CorePoint', directed:true, weight:6, label:''},
 
@@ -181,6 +189,7 @@ var applicationEdges ={
 
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
+		PeopleSoft_Kronos:{name:"PeopleSoft_Kronos", directed:true, weight:6, label:""},
 		PeopleSoft_SalesForce:{name:"PeopleSoft_SalesForce", directed:true, weight:6, label:""},
 
 		SalesForce_AX:{name:"SalesForce_AX", directed:true, weight:6, label:""},
@@ -371,6 +380,16 @@ var applicationConnections = {
 		}
 	},//end JDEConnections
 
+	KronosConnections: {
+		nodes:{
+			PeopleSoft:applicationNodes.PeopleSoft
+		},
+		edges:{
+			Kronos:{PeopleSoft:applicationEdges.Kronos_PeopleSoft},
+			PeopleSoft:{Kronos:applicationEdges.PeopleSoft_Kronos}
+		}
+	},//end KronosConnections
+
 	MedicalManagerConnections: {
 		nodes:{
 			Centricity:applicationNodes.Centricity,
@@ -415,13 +434,16 @@ var applicationConnections = {
 			AX:applicationNodes.AX,
 			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
+			Kronos:applicationNodes.Kronos,
 			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			CoFax:{PeopleSoft:applicationEdges.CoFax_PeopleSoft},
+			Kronos:{PeopleSoft:applicationEdges.Kronos_PeopleSoft},
 			PeopleSoft:{
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS,
+				Kronos:applicationEdges.PeopleSoft_Kronos,
 				SalesForce:applicationEdges.PeopleSoft_SalesForce
 			}			
 		}

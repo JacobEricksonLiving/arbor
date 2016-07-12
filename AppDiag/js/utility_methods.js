@@ -65,6 +65,11 @@ function expandApplicationNode(nName){
 			applicationNodes.JDE.expanded = true;
 			sys.graft(applicationConnections.JDEConnections);
 			break;
+		case "Kronos":
+			sys.addNode('Kronos', applicationNodes.Kronos);
+			applicationNodes.Kronos.expanded = true;
+			sys.graft(applicationConnections.KronosConnections);
+			break;
 		case "MedicalManager":
 			sys.addNode('MedicalManager', applicationNodes.MedicalManager);
 			applicationNodes.MedicalManager.expanded = true;
@@ -178,6 +183,9 @@ function generateEdgeLabel(eName){
 		case "JDE_Hyperion":
 			return "Extraxt Financial Data";
 
+		case "Kronos_PeopleSoft":
+			return "To Kronos:changes in Employee info. To PeopleSoft:payroll data.";
+
 		case "MedicalManager_Centricity":
 			return "Demographic Data";
 		case "MedicalManager_CorePoint":
@@ -193,6 +201,8 @@ function generateEdgeLabel(eName){
 			return "Wage Fee Files";
 		case "PeopleSoft_GSMS":
 			return "Employee name/department/id for ticket";
+		case "PeopleSoft_Kronos":
+			return "To Kronos:changes in Employee info. To PeopleSoft:payroll data.";
 		case "PeopleSoft_SalesForce":
 			return "Employee Demographic Information";
 
@@ -370,6 +380,17 @@ function generate(){
 			break;
 		case "JDE production":
 			sys.graft(serverConnections.JDEServers.production);
+			break;
+
+
+		case "Kronos":
+			expandApplicationNode("Kronos");
+			break;
+		case "Kronos non-production":
+			sys.graft(serverConnections.KronosServers.non_production);
+			break;
+		case "Kronos production":
+			sys.graft(serverConnections.KronosServers.production);
 			break;
 
 
@@ -574,6 +595,10 @@ function generate(){
 			applicationEdges.JDE_Hyperion.label = generateEdgeLabel("JDE_Hyperion");
 			break;
 
+		case "Kronos-->PeopleSoft":
+			applicationEdges.Kronos_PeopleSoft.label = generateEdgeLabel("Kronos_PeopleSoft");
+			break;
+
 		case "MedicalManager-->Centricity":
 			applicationEdges.MedicalManager_Centricity.label = generateEdgeLabel("MedicalManager_Centricity");
 			break;
@@ -594,6 +619,9 @@ function generate(){
 			break;
 		case "PeopleSoft-->GSMS":
 			applicationEdges.PeopleSoft_GSMS.label = generateEdgeLabel("PeopleSoft_GSMS");
+			break;
+		case "PeopleSoft-->Kronos":
+			applicationEdges.PeopleSoft_Kronos.label = generateEdgeLabel("PeopleSoft_Kronos");
 			break;
 		case "PeopleSoft-->SalesForce":
 			applicationEdges.PeopleSoft_SalesForce.label = generateEdgeLabel("PeopleSoft_SalesForce");
@@ -853,6 +881,22 @@ function removed(){
 			break;
 		case "JDE production":
 			for(node in serverConnections.JDEServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "Kronos":
+			applicationNodes.Kronos.expanded = false;
+			sys.pruneNode("Kronos");
+			break;
+		case "Kronos non-production":
+			for(node in serverConnections.KronosServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Kronos production":
+			for(node in serverConnections.KronosServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
