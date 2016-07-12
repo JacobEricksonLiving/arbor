@@ -260,6 +260,26 @@ var serverConnections = {
 		}
 	},//end GSMSServers
 
+	LuminateServers:{
+		non_production:{
+			nodes:{
+				
+			},
+			edges:{
+			
+			}
+		},
+
+		production:{
+			nodes:{
+				
+			},
+			edges:{
+				
+			}
+		}
+	},//end LuminateServers
+
 	HyperionServers:{
 		non_production:{
 			nodes:{

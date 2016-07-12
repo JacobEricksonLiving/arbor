@@ -60,6 +60,12 @@ var applicationNodes = {
 	'from':['Hyperion'], 'base':false, 'server':false,
 	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
 
+	Luminate : {'color':'blue','shape':'dot', 'label':'Luminate', 'expanded':false, 
+	'to':["PeopleSoft", "Vision"], 
+	'from':[], 'base':false, 'server':false,
+	'description':'Philanthropy Application. Both Residents/Employees can send donations and this application manages the process.'
+	},
+
 	MedicalManager : {'color':'blue','shape':'dot', 'label':'MedicalManager', 'expanded':false, 
 	'to':['Centricity', 'CorePoint'], 
 	'from':['Centricity', 'CorePoint'], 'base':false, 'server':false,
@@ -92,7 +98,7 @@ var applicationNodes = {
 	'description':'Creates Help Desk Tickets by getting Resident/Employee information form Vision/PeopleSoft respectively. Sends financial cost to appropriate application once complete.'
 	},
 
-	Riskonnect: {'color':'blue','shape':'dot', 'label':'RemedyForce', 'expanded':false, 
+	Riskonnect: {'color':'blue','shape':'dot', 'label':'Riskonnect', 'expanded':false, 
 	'to':["PeopleSoft", "Vision"], 
 	'from':[], 'base':false, 'server':false,
 	'description':'Handles Employee/Resident accident process. Then sends information to external insurance.'
@@ -157,6 +163,7 @@ var applicationEdges ={
 
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
+		PeopleSoft_Luminate:{name:"PeopleSoft_Luminate", directed:true, weight:6, label:""},
 		PeopleSoft_RemedyForce:{name:"PeopleSoft_RemedyForce", directed:true, weight:6, label:""},
 		PeopleSoft_Riskonnect:{name:"PeopleSoft_Riskonnect", directed:true, weight:6, label:""},
 		PeopleSoft_ServiceMax:{name:"PeopleSoft_ServiceMax", directed:true, weight:6, label:""},
@@ -175,6 +182,7 @@ var applicationEdges ={
 		Vision_AX:{name:'Vision_AX', directed:true, weight:6, label:''},
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
 		Vision_GSMS:{name:'Vision_GSMS', directed:true, weight:6, label:''},
+		Vision_Luminate:{name:"Vision_Luminate", directed:true, weight:6, label:""},
 		Vision_Portal:{name:'Vision_Portal', directed:true, weight:6, label:''},
 		Vision_RemedyForce:{name:"Vision_RemedyForce", directed:true, weight:6, label:""},
 		Vision_Riskonnect:{name:"Vision_Riskonnect", directed:true, weight:6, label:""},
@@ -312,6 +320,17 @@ var applicationConnections = {
 		}
 	},//end GSMSConnections
 
+	LuminateConnections : {
+		nodes:{
+			PeopleSoft:applicationNodes.PeopleSoft,
+			Vision:applicationNodes.Vision
+		},
+		edges:{
+			PeopleSoft:{Luminate:applicationEdges.PeopleSoft_Luminate},
+			Vision:{Luminate:applicationEdges.Vision_Luminate}
+		}
+	},//end LuminateConnections
+
 	HyperionConnections : {
 		nodes:{
 			AX:applicationNodes.AX,
@@ -377,6 +396,7 @@ var applicationConnections = {
 			AX:applicationNodes.AX,
 			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
+			Luminate:applicationNodes.Luminate,
 			RemedyForce:applicationNodes.RemedyForce,
 			Riskonnect:applicationNodes.Riskonnect,
 			ServiceMax:applicationNodes.ServiceMax
@@ -386,6 +406,7 @@ var applicationConnections = {
 			PeopleSoft:{
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS,
+				Luminate:applicationEdges.PeopleSoft_Luminate,
 				RemedyForce:applicationEdges.PeopleSoft_RemedyForce,
 				Riskonnect:applicationEdges.PeopleSoft_Riskonnect,
 				ServiceMax:applicationEdges.PeopleSoft_ServiceMax
@@ -478,6 +499,7 @@ var applicationConnections = {
 			AX:applicationNodes.AX,
 			CorePoint:applicationNodes.CorePoint,
 			GSMS:applicationNodes.GSMS,
+			Luminate:applicationNodes.Luminate,
 			Odyssey:applicationNodes.Odyssey,
 			Portal:applicationNodes.Portal,
 			RemedyForce:applicationNodes.RemedyForce,
@@ -496,6 +518,7 @@ var applicationConnections = {
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,
 				GSMS:applicationEdges.Vision_GSMS,
+				Luminate:applicationEdges.Vision_Luminate,
 				Portal:applicationEdges.Vision_Portal,
 				RemedyForce:applicationEdges.Vision_RemedyForce,
 				Riskonnect:applicationEdges.Vision_Riskonnect,

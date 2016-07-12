@@ -45,6 +45,11 @@ function expandApplicationNode(nName){
 			applicationNodes.GSMS.expanded = true;
 			sys.graft(applicationConnections.GSMSConnections);
 			break;
+		case "Luminate":
+			sys.addNode('Luminate', applicationNodes.Luminate);
+			applicationNodes.Luminate.expanded = true;
+			sys.graft(applicationConnections.LuminateConnections);
+			break;
 		case "Hyperion":
 			sys.addNode('Hyperion', applicationNodes.Hyperion);
 			applicationNodes.Hyperion.expanded = true;
@@ -172,6 +177,8 @@ function generateEdgeLabel(eName){
 			return "Wage Fee Files";
 		case "PeopleSoft_GSMS":
 			return "Employee name/department/id for ticket";
+		case "PeopleSoft_Luminate":
+			return "Employee Demographic Information";
 		case "PeopleSoft_RemedyForce":
 			return "Employee name/department/id for ticket";
 		case "PeopleSoft_Riskonnect":
@@ -204,6 +211,8 @@ function generateEdgeLabel(eName){
 			return "Demographic Data";
 		case "Vision_GSMS":
 			return "To GSMS:resident data, To Vision:resident billing";
+		case "Vision_Luminate":
+			return "Resident Demographic Information";
 		case "Vision_Portal":
 			return "ERM Data";
 		case "Vision_RemedyForce":
@@ -307,6 +316,17 @@ function generate(){
 			break;
 		case "GSMS production":
 			sys.graft(serverConnections.GSMSServers.production);
+			break;
+
+
+		case "Luminate":
+			expandApplicationNode("Luminate");
+			break;
+		case "Luminate non-production":
+			sys.graft(serverConnections.LuminateServers.non_production);
+			break;
+		case "Luminate production":
+			sys.graft(serverConnections.LuminateServers.production);
 			break;
 
 
@@ -532,6 +552,9 @@ function generate(){
 		case "PeopleSoft-->GSMS":
 			applicationEdges.PeopleSoft_GSMS.label = generateEdgeLabel("PeopleSoft_GSMS");
 			break;
+		case "PeopleSoft-->Luminate":
+			applicationEdges.PeopleSoft_Luminate.label = generateEdgeLabel("PeopleSoft_Luminate");
+			break;
 		case "PeopleSoft-->RemedyForce":
 			applicationEdges.PeopleSoft_RemedyForce.label = generateEdgeLabel("PeopleSoft_RemedyForce");
 			break;
@@ -575,6 +598,9 @@ function generate(){
 			break;
 		case "Vision-->GSMS":
 			applicationEdges.Vision_GSMS.label = generateEdgeLabel("Vision_GSMS");
+			break;
+		case "Vision-->Luminate":
+			applicationEdges.Vision_Luminate.label = generateEdgeLabel("Vision_Luminate");
 			break;
 		case "Vision-->Portal":
 			applicationEdges.Vision_Portal.label = generateEdgeLabel("Vision_Portal");
@@ -730,6 +756,22 @@ function removed(){
 			break;
 		case "GSMS production":
 			for(node in serverConnections.GSMSServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "Luminate":
+			applicationNodes.Luminate.expanded = false;
+			sys.pruneNode("Luminate");
+			break;
+		case "Luminate non-production":
+			for(node in serverConnections.LuminateServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Luminate production":
+			for(node in serverConnections.LuminateServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
