@@ -686,6 +686,26 @@ var serverConnections = {
 		}
 	},//end SimphonyServers
 
+	TaleoServers:{
+		non_production:{
+			nodes:{
+				
+			},
+			edges:{
+				
+			}
+		},
+
+		production:{
+			nodes:{
+			
+			},
+			edges:{
+				
+			}
+		}
+	},//end TaleoServers
+
 	VisionServers:{
 		non_production:{
 			nodes:{

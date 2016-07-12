@@ -143,7 +143,14 @@ var applicationNodes = {
 	Simphony : {'color':'blue','shape':'dot', 'label':'Simphony', 'expanded':false, 
 	'to':['NetMenu'], 
 	'from':['NetMenu'], 'base':false, 'server':false,
-	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'},
+	'description':'Point of Sale(POS) applications. This is the applications that runs the Kitcken Display Systems(KDS) for vendors. Also responsible for sending financial data to AX'
+	},
+
+	Taleo: {'color':'blue','shape':'dot', 'label':'Taleo', 'expanded':false, 
+	'to':["PeopleSoft"], 
+	'from':["PeopleSoft"], 'base':false, 'server':false,
+	'description':'Recruiting System. Used to apply to jobs in the company.'
+	},
 
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
 	'to':['CorePoint', 'GSMS', 'Odyssey'], 
@@ -191,6 +198,7 @@ var applicationEdges ={
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
 		PeopleSoft_Kronos:{name:"PeopleSoft_Kronos", directed:true, weight:6, label:""},
 		PeopleSoft_SalesForce:{name:"PeopleSoft_SalesForce", directed:true, weight:6, label:""},
+		PeopleSoft_Taleo:{name:"PeopleSoft_Taleo", directed:true, weight:6, label:""},
 
 		SalesForce_AX:{name:"SalesForce_AX", directed:true, weight:6, label:""},
 		SalesForce_SalesForceApps:{name:"SalesForce_SalesForceApps", directed:true, weight:6, label:""},
@@ -205,6 +213,8 @@ var applicationEdges ={
 
 		Simphony_AX:{name:'Simphony_AX', directed:true, weight:6, label:''},
 		Simphony_NetMenu:{name:'Simphony_NetMenu', directed:true, weight:6, label:''},
+
+		Taleo_PeopleSoft:{name:"Taleo_PeopleSoft", directed:true, weight:6, label:""},
 
 		Vision_AX:{name:'Vision_AX', directed:true, weight:6, label:''},
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
@@ -435,7 +445,8 @@ var applicationConnections = {
 			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
 			Kronos:applicationNodes.Kronos,
-			SalesForce:applicationNodes.SalesForce
+			SalesForce:applicationNodes.SalesForce,
+			Taleo:applicationNodes.Taleo
 		},
 		edges:{
 			CoFax:{PeopleSoft:applicationEdges.CoFax_PeopleSoft},
@@ -444,8 +455,10 @@ var applicationConnections = {
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS,
 				Kronos:applicationEdges.PeopleSoft_Kronos,
-				SalesForce:applicationEdges.PeopleSoft_SalesForce
-			}			
+				SalesForce:applicationEdges.PeopleSoft_SalesForce,
+				Taleo:applicationEdges.Taleo_PeopleSoft
+			},
+			Taleo:{PeopleSoft:applicationEdges.PeopleSoft_Taleo}			
 		}
 
 	},//end PeopleSoftConnections
@@ -553,6 +566,16 @@ var applicationConnections = {
 		}
 
 	},//end SimphonyConnections
+
+	TaleoConnections : {
+		nodes:{
+			PeopleSoft:applicationNodes.PeopleSoft
+		},
+		edges:{
+			PeopleSoft:{Taleo:applicationEdges.PeopleSoft_Taleo},
+			Taleo:{PeopleSoft:applicationEdges.Taleo_PeopleSoft}
+		}
+	},//end TaleoConnections
 
 	VisionConnections : {
 		nodes:{

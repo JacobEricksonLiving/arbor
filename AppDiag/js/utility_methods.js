@@ -131,6 +131,11 @@ function expandApplicationNode(nName){
 			applicationNodes.Simphony.expanded = true;
 			sys.graft(applicationConnections.SimphonyConnections);
 			break;   
+		case "Taleo":
+			sys.addNode('Taleo', applicationNodes.Taleo);
+			applicationNodes.Taleo.expanded = true;
+			sys.graft(applicationConnections.TaleoConnections);
+			break;
 		case "Vision":
 			sys.addNode('Vision', applicationNodes.Vision);
 			applicationNodes.Vision.expanded = true;
@@ -205,6 +210,8 @@ function generateEdgeLabel(eName){
 			return "To Kronos:changes in Employee info. To PeopleSoft:payroll data.";
 		case "PeopleSoft_SalesForce":
 			return "Employee Demographic Information";
+		case "PeopleSoft_Taleo":
+			return "To Taleo: Demographic Data. To PeopleSoft: New Hire Data";
 
 		case "SalesForce_AX":
 			return "Corprate Maintance Fees";
@@ -230,6 +237,9 @@ function generateEdgeLabel(eName){
 			return "Dinning Revenue";
 		case "Simphony_NetMenu":
 			return "Menu Items";
+
+		case "Taleo_PeopleSoft":
+			return "To Taleo: Demographic Data. To PeopleSoft: New Hire Data";
 
 		case "Vision_AX":
 			return "Billing from Residents";
@@ -526,6 +536,17 @@ function generate(){
 			break;
 
 
+		case "Taleo":
+			expandApplicationNode("Taleo");
+			break;
+		case "Taleo non-production":
+			sys.graft(serverConnections.TaleoServers.non_production);
+			break;
+		case "Taleo production":
+			sys.graft(serverConnections.TaleoServers.production);
+			break;
+
+
 		case "Vision":
 			expandApplicationNode("Vision");
 			break;
@@ -626,6 +647,9 @@ function generate(){
 		case "PeopleSoft-->SalesForce":
 			applicationEdges.PeopleSoft_SalesForce.label = generateEdgeLabel("PeopleSoft_SalesForce");
 			break;
+		case "PeopleSoft-->Taleo":
+			applicationEdges.PeopleSoft_Taleo.label = generateEdgeLabel("PeopleSoft_Taleo");
+			break;
 
 		case "SalesForce-->AX":
 			applicationEdges.SalesForce_AX.label = generateEdgeLabel("SalesForce_AX");
@@ -658,6 +682,10 @@ function generate(){
 			break;
 		case "Simphony-->NetMenu":
 			applicationEdges.Simphony_NetMenu.label = generateEdgeLabel("Simphony_NetMenu");
+			break;
+
+		case "Taleo_PeopleSoft":
+			applicationEdges.Taleo_PeopleSoft.label = generateEdgeLabel("Taleo_PeopleSoft");
 			break;
 
 		case "Vision-->AX":
@@ -1092,6 +1120,22 @@ function removed(){
 			break;
 		case "Simphony production":
 			for(node in serverConnections.SimphonyServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "Taleo":
+			applicationNodes.Taleo.expanded = false;
+			sys.pruneNode("Taleo");
+			break;
+		case "Taleo non-production":
+			for(node in serverConnections.TaleoServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Taleo production":
+			for(node in serverConnections.TaleoServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
