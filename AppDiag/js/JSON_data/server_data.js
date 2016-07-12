@@ -326,7 +326,7 @@ var serverConnections = {
 	HyperionServers:{
 		non_production:{
 			nodes:{
-				HyperionNon_Production:{"color":"green", "server":true, "label":"Non_Production", "description":""},
+				HyperionNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
 				md1_devap04:{'color':'LightGreen', 'server':true, 'label':'md1-devap04', 'description':'Essbase Server'},
 				md1_devws02:{'color':'wheat', 'server':true, 'label':'md1-devws02', 'description':'Foundation Services'},
 				md1_devws03:{'color':'wheat', 'server':true, 'label':'md1-devws03', 'description':'Planning/Reporting/Analysis Web Server 1'},
@@ -386,19 +386,35 @@ var serverConnections = {
 	KronosServers:{
 		non_production:{
 			nodes:{
-
+				KronosNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},
+				md1_db18:{"color":"LightGreen", "server":true, "label":"md1-db18", "description":"Test"},
+				md1_testap62:{"color":"LightGreen", "server":true, "label":"md1-testap62", "description":""},
+				md1_testap63:{"color":"LightGreen", "server":true, "label":"md1-testap63", "description":""}
 			},
 			edges:{
-
+				KronosNon_Production:{
+					Kronos:{weight:4},
+					md1_db18:{weight:2},
+					md1_testap62:{weight:2},
+					md1_testap63:{weight:2}
+				}
 			}
 		},
 
 		production:{
 			nodes:{
-
+				KronosProduction:{"color":"green", "server":true, "label":"Production", "description":""},
+				md1_db47:{"color":"LightGreen", "server":true, "label":"md1-db47", "description":""},
+				md1_ap84:{"color":"Green", "server":true, "label":"md1-ap84", "description":""},
+				md1_ap85:{"color":"Green", "server":true, "label":"md1-ap85", "description":""}
 			},
 			edges:{
-
+				KronosProduction:{
+					Kronos:{weight:4},
+					md1_db47:{weight:2},
+					md1_ap84:{weight:2},
+					md1_ap85:{weight:2}
+				}
 			}
 		}
 	},//end KronosServers
