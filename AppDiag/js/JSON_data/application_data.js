@@ -7,10 +7,17 @@ Holds the information on each applicationNode in the system as well as their con
 
 //List of all the applicationNodes in the system
 var applicationNodes = {
+	ActiveDirectory : {'color':'blue','shape':'dot', 'label':'ActiveDirectory', 'expanded':false, 
+	'to':["PeopleSoft"], 
+	'from':["PeopleSoft"], 'base':false, 'server':false, 
+	'description':'Active Directory contains all the username and password information for employees.'
+	},
+
 	AX : {'color':'red','shape':'dot', 'label':'AX', 'expanded':false, 
 	'to':['CoFax', 'GSMS', 'PeopleSoft',"SalesForce", 'Simphony', 'Vision'], 
 	'from':['Hyperion'], 'base':true, 'server':false, 
-	'description':'Handles all finacial data. receives large files dropped at a time. Connections to AX represent transfer of finacial data.'},
+	'description':'Handles all finacial data. receives large files dropped at a time. Connections to AX represent transfer of finacial data.'
+	},
 	
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 
 	'to':['CorePoint'], 
@@ -94,8 +101,8 @@ var applicationNodes = {
 	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information received form Vision'},
 	
 	PeopleSoft : {'color':'red','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
-	'to':['CoFax', "Kronos", "Taleo"], 
-	'from':["AX", "GSMS", "Kronos", "SalesForce", "Taleo"], 'base':true, 'server':false,
+	'to':["ActiveDirectory", 'CoFax', "Kronos", "Taleo"], 
+	'from':["ActiveDirectory", "AX", "GSMS", "Kronos", "SalesForce", "Taleo"], 'base':true, 'server':false,
 	'description':''},
 	
 	Portal : {'color':'blue','shape':'dot', 'label':'Portal', 'expanded':false, 
@@ -161,6 +168,8 @@ var applicationNodes = {
 //List of all the application to application edges in the system.
 var applicationEdges ={
 	//note edges are named as Source_Destination
+		ActiveDirectory_PeopleSoft:{name:"ActiveDirectory_PeopleSoft", directed:true, weight:6, label:""},
+
 		AX_Hyperion:{name:'AX_Hyperion', directed:true, weight:6, label:''},
 
 		BizTalk_BizTalk360:{name:'BizTalk_BizTalk360', directed:true, weight:6, label:''},
@@ -194,6 +203,7 @@ var applicationEdges ={
 
 		Odyssey_Vision:{name:'Odyssey_Vision', directed:true, weight:6, label:''},
 
+		PeopleSoft_ActiveDirectory:{name:"PeopleSoft_ActiveDirectory", directed:true, weight:6, label:""},
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
 		PeopleSoft_Kronos:{name:"PeopleSoft_Kronos", directed:true, weight:6, label:""},
@@ -225,6 +235,17 @@ var applicationEdges ={
 
 //List of the connections for each applicationNode in the system.
 var applicationConnections = {
+	ActiveDirectoryConnections : {
+		nodes:{
+			PeopleSoft:applicationNodes.PeopleSoft
+		},
+
+		edges:{
+			ActiveDirectory:{PeopleSoft:applicationEdges.ActiveDirectory_PeopleSoft},
+			PeopleSoft:{ActiveDirectory:applicationEdges.PeopleSoft_ActiveDirectory}
+		}
+	},//end ActiveDirectoryConnections
+
 	AXConnections : {
 		nodes:{
 			CoFax : applicationNodes.CoFax,
@@ -441,6 +462,7 @@ var applicationConnections = {
 
 	PeopleSoftConnections : {
 		nodes:{
+			ActiveDirectory:applicationNodes.ActiveDirectory,
 			AX:applicationNodes.AX,
 			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
@@ -449,9 +471,11 @@ var applicationConnections = {
 			Taleo:applicationNodes.Taleo
 		},
 		edges:{
+			ActiveDirectory:{PeopleSoft:applicationEdges.ActiveDirectory_PeopleSoft},
 			CoFax:{PeopleSoft:applicationEdges.CoFax_PeopleSoft},
 			Kronos:{PeopleSoft:applicationEdges.Kronos_PeopleSoft},
 			PeopleSoft:{
+				ActiveDirectory:applicationEdges.PeopleSoft_ActiveDirectory,
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS,
 				Kronos:applicationEdges.PeopleSoft_Kronos,

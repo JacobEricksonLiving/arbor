@@ -5,7 +5,27 @@ Holds the information on each serverNode in the system as well as their connecti
 
 //List of the connections for each serverNode in the system.
 var serverConnections = {
-	AXServers : {
+	ActiveDirectoryServers : {
+		non_production:{
+			nodes:{
+				
+			},
+			edges:{
+				
+			}
+		},
+
+		production:{
+			nodes:{
+				
+			},
+			edges:{
+				
+			}
+		}
+	},//end ActiveDirectoryServers
+
+	AXServers:{
 		non_production:{
 			nodes:{
 				AXNon_Production:{"color":"green", "server":true, "label":"Non-Production", "description":""},

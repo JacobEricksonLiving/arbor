@@ -5,6 +5,11 @@ Contains functions which are called throughout the entire Application Diagram Pr
 //switch case for which applicationNode connections should be graphed
 function expandApplicationNode(nName){
 	switch(nName){
+		case "ActiveDirectory":
+			sys.addNode('ActiveDirectory', applicationNodes.ActiveDirectory);
+			applicationNodes.ActiveDirectory.expanded = true;
+			sys.graft(applicationConnections.ActiveDirectoryConnections);
+			break;
 		case "AX":
 			sys.addNode('AX', applicationNodes.AX);
 			applicationNodes.AX.expanded = true;
@@ -147,6 +152,8 @@ function expandApplicationNode(nName){
 //switch case for which label to display when mousing over and edge
 function generateEdgeLabel(eName){
 	switch(eName){
+		case "ActiveDirectory_PeopleSoft":
+			return "To ActiveDirectory:Updated access info. To PeopleSoft: Username/Password";
 		case "AX_Hyperion":
 			return "Extract Financial Data";
 			break;
@@ -202,6 +209,8 @@ function generateEdgeLabel(eName){
 		case "Odyssey_Vision":
 			return "Accounts receivable";
 
+		case "PeopleSoft_ActiveDirectory":
+			return "To ActiveDirectory:Updated access info. To PeopleSoft: Username/Password";
 		case "PeopleSoft_AX":
 			return "Wage Fee Files";
 		case "PeopleSoft_GSMS":
@@ -261,6 +270,16 @@ function generate(){
 	switch(nName){
 
 		//node section
+		case "ActiveDirectory":
+			expandApplicationNode("ActiveDirectory");
+			break;
+		case "ActiveDirectory non-production":
+			sys.graft(serverConnections.ActiveDirectoryServers.non_production);
+			break;
+		case "ActiveDirectory production":
+			sys.graft(serverConnections.ActiveDirectoryServers.production);
+			break;
+
 		case "AX":
 			expandApplicationNode("AX");
 			break;
@@ -560,6 +579,10 @@ function generate(){
 
 
 		//edgeLabel section
+		case "ActiveDirectory-->PeopleSoft":
+			applicationEdges.ActiveDirectory_PeopleSoft.label = generateEdgeLabel("ActiveDirectory_PeopleSoft");
+			break;
+
 		case "AX-->Hyperion":
 			applicationEdges.AX_Hyperion.label = generateEdgeLabel("AX_Hyperion");
 			break;
@@ -635,6 +658,9 @@ function generate(){
 			applicationEdges.Odyssey_Vision.label = generateEdgeLabel("Odyssey_Vision");
 			break;
 
+		case "PeopleSoft-->ActiveDirectory":
+			applicationEdges.PeopleSoft_ActiveDirectory.label = generateEdgeLabel("PeopleSoft_ActiveDirectory");
+			break;
 		case "PeopleSoft-->AX":
 			applicationEdges.PeopleSoft_AX.label = generateEdgeLabel("PeopleSoft_AX");
 			break;
@@ -723,6 +749,21 @@ function removed(){
 	var inputText = document.getElementById("input");
 	var nName = inputText.value;
 	switch(nName){
+
+		case "ActiveDirectory":
+			applicationNodes.ActiveDirectory.expanded = false;
+			sys.pruneNode("ActiveDirectory");
+			break;
+		case "ActiveDirectory non-production":
+			for(node in serverConnections.ActiveDirectoryServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "ActiveDirectory production":
+			for(node in serverConnections.ActiveDirectoryServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
 
 		case "AX":
 			alert("Red nodes cannot be removed");
