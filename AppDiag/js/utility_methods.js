@@ -85,6 +85,11 @@ function expandApplicationNode(nName){
 			applicationNodes.RemedyForce.expanded = true;
 			sys.graft(applicationConnections.RemedyForceConnections);
 			break; 
+		case "Riskonnect":
+			sys.addNode('Riskonnect', applicationNodes.Riskonnect);
+			applicationNodes.Riskonnect.expanded = true;
+			sys.graft(applicationConnections.RiskonnectConnections);
+			break; 
 		case "SalesMarketing":
 			sys.addNode('SalesMarketing', applicationNodes.SalesMarketing);
 			applicationNodes.SalesMarketing.expanded = true;
@@ -169,13 +174,15 @@ function generateEdgeLabel(eName){
 			return "Employee name/department/id for ticket";
 		case "PeopleSoft_RemedyForce":
 			return "Employee name/department/id for ticket";
+		case "PeopleSoft_Riskonnect":
+			return "Employee Demographic Information";
 		case "PeopleSoft_ServiceMax":
 			return "Employee name/department/id for ticket";
 
 		case "RemedyForce_AX":
 			return "Corprate Maintance Fees";
 		case "RemedyForce_Vision":
-			return "To RemedyForce:resident data, To Vision:resident billing"
+			return "To RemedyForce:resident data, To Vision:resident billing";
 
 		case "SalesMarketing_Vision":
 			return "New Resident Demographics";
@@ -201,6 +208,8 @@ function generateEdgeLabel(eName){
 			return "ERM Data";
 		case "Vision_RemedyForce":
 			return "To RemedyForce:resident data, To Vision:resident billing";
+		case "Vision_Riskonnect":
+			return "Resident Demographic Information";
 		case "Vision_ServiceMax":
 			return "To ServiceMax:resident data, To Vision:resident billing";
 	}//end switch case
@@ -389,6 +398,17 @@ function generate(){
 			break;
 
 
+		case "Riskonnect":
+			expandApplicationNode("Riskonnect");
+			break;
+		case "Riskonnect non-production":
+			sys.graft(serverConnections.RiskonnectServers.non_production);
+			break;
+		case "Riskonnect production":
+			sys.graft(serverConnections.RiskonnectServers.production);
+			break;
+
+
 		case "SalesMarketing":
 			expandApplicationNode("SalesMarketing");
 			break;
@@ -515,6 +535,9 @@ function generate(){
 		case "PeopleSoft-->RemedyForce":
 			applicationEdges.PeopleSoft_RemedyForce.label = generateEdgeLabel("PeopleSoft_RemedyForce");
 			break;
+		case "PeopleSoft-->Riskonnect":
+			applicationEdges.PeopleSoft_Riskonnect.label = generateEdgeLabel("PeopleSoft_Riskonnect");
+			break;
 		case "PeopleSoft-->ServiceMax":
 			applicationEdges.PeopleSoft_ServiceMax.label = generateEdgeLabel("PeopleSoft_ServiceMax");
 			break;
@@ -558,6 +581,10 @@ function generate(){
 			break;
 		case "Vision-->RemedyForce":
 			applicationEdges.Vision_RemedyForce.label = generateEdgeLabel("Vision_RemedyForce");
+			break;
+		case "Vision-->Riskonnect":
+			applicationEdges.Vision_Riskonnect.label = generateEdgeLabel("Vision_Riskonnect");
+			break;
 		case "Vision-->ServiceMax":
 			applicationEdges.Vision_ServiceMax.label = generateEdgeLabel("Vision_ServiceMax");
 			break;
@@ -831,6 +858,22 @@ function removed(){
 			break;
 		case "RemedyForce production":
 			for(node in serverConnections.RemedyForceServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "Riskonnect":
+			applicationNodes.Riskonnect.expanded = false;
+			sys.pruneNode("Riskonnect");
+			break;
+		case "Riskonnect non-production":
+			for(node in serverConnections.RiskonnectServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "Riskonnect production":
+			for(node in serverConnections.RiskonnectServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

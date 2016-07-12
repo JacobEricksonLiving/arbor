@@ -495,6 +495,26 @@ var serverConnections = {
 		}
 	},//end RemedyForceServers
 
+	RiskonnectServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end RiskonnectServers
+
 	SalesMarketingServers:{
 		non_production:{
 			nodes:{
