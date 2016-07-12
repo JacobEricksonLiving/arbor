@@ -100,6 +100,16 @@ function expandApplicationNode(nName){
 			applicationNodes.Riskonnect.expanded = true;
 			sys.graft(applicationConnections.RiskonnectConnections);
 			break; 
+		case "SalesForce":
+			sys.addNode('SalesForce', applicationNodes.SalesForce);
+			applicationNodes.SalesForce.expanded = true;
+			sys.graft(applicationConnections.SalesForceConnections);
+			break; 
+		case "SalesForceApps":
+			sys.addNode('SalesForceApps', applicationNodes.SalesForceApps);
+			applicationNodes.SalesForceApps.expanded = true;
+			sys.graft(applicationConnections.SalesForceAppsConnections);
+			break; 
 		case "SalesMarketing":
 			sys.addNode('SalesMarketing', applicationNodes.SalesMarketing);
 			applicationNodes.SalesMarketing.expanded = true;
@@ -182,28 +192,28 @@ function generateEdgeLabel(eName){
 			return "Wage Fee Files";
 		case "PeopleSoft_GSMS":
 			return "Employee name/department/id for ticket";
-		case "PeopleSoft_Luminate":
+		case "PeopleSoft_SalesForce":
 			return "Employee Demographic Information";
-		case "PeopleSoft_RemedyForce":
-			return "Employee name/department/id for ticket";
-		case "PeopleSoft_Riskonnect":
-			return "Employee Demographic Information";
-		case "PeopleSoft_ServiceMax":
-			return "Employee name/department/id for ticket";
 
-		case "RemedyForce_AX":
+		case "SalesForce_AX":
 			return "Corprate Maintance Fees";
-		case "RemedyForce_Vision":
-			return "To RemedyForce:resident data, To Vision:resident billing";
+		case "SalesForce_SalesForceApps":
+			return "Apps Built on SalesForce";
+		case "SalesForce_Vision":
+			return "To SalesForce:resident data, to Vision:resident billing";
 
-		case "SalesMarketing_Vision":
-			return "New Resident Demographics";
-
-		case "ServiceMax_AX":
-			return "Maintance Fees";
-		case "ServiceMax_Vision":
-			return "To ServiceMax:resident data, To Vision:resident billing";
-
+		case "SalesForceApps_EricksonAdvantage":
+			return "Resident Info from Vision";
+		case "SalesForceApps_Luminate":
+			return "Demographic Info from PeopleSoft/Vision";
+		case "SalesForceApps_RemedyForce":
+			return "Demographic data from PeopleSoft/Vision. Sends Financial data to Vision/AX";
+		case "SalesForceApps_Riskonnect":
+			return "Demographic Info from PeopleSoft/Vision";
+		case "SalesForceApps_SalesMarketing":
+			return "Sends Demographic data to Vision";
+		case "SalesForceApps_ServiceMax":
+			return "Demographic data from PeopleSoft/Vision. Sends Financial data to Vision/AX";
 
 		case "Simphony_AX":
 			return "Dinning Revenue";
@@ -214,20 +224,12 @@ function generateEdgeLabel(eName){
 			return "Billing from Residents";
 		case "Vision_CorePoint":
 			return "Demographic Data";
-		case "Vision_EricksonAdvantage":
-			return "Resident Demographic Information";
 		case "Vision_GSMS":
 			return "To GSMS:resident data, To Vision:resident billing";
-		case "Vision_Luminate":
-			return "Resident Demographic Information";
 		case "Vision_Portal":
 			return "ERM Data";
-		case "Vision_RemedyForce":
-			return "To RemedyForce:resident data, To Vision:resident billing";
-		case "Vision_Riskonnect":
-			return "Resident Demographic Information";
-		case "Vision_ServiceMax":
-			return "To ServiceMax:resident data, To Vision:resident billing";
+		case "Vision_SalesForce":
+			return "To SalesForce:resident data, To Vision:resident billing";
 	}//end switch case
 }//end generateEdgeLabel
 
@@ -447,6 +449,28 @@ function generate(){
 			break;
 
 
+		case "SalesForce":
+			expandApplicationNode("SalesForce");
+			break;
+		case "SalesForce non-production":
+			sys.graft(serverConnections.SalesForceServers.non_production);
+			break;
+		case "SalesForce production":
+			sys.graft(serverConnections.SalesForceServers.production);
+			break;
+
+
+		case "SalesForceApps":
+			expandApplicationNode("SalesForceApps");
+			break;
+		case "SalesForceApps non-production":
+			sys.graft(serverConnections.SalesForceAppsServers.non_production);
+			break;
+		case "SalesForceApps production":
+			sys.graft(serverConnections.SalesForceAppsServers.production);
+			break;
+
+
 		case "SalesMarketing":
 			expandApplicationNode("SalesMarketing");
 			break;
@@ -570,35 +594,34 @@ function generate(){
 		case "PeopleSoft-->GSMS":
 			applicationEdges.PeopleSoft_GSMS.label = generateEdgeLabel("PeopleSoft_GSMS");
 			break;
-		case "PeopleSoft-->Luminate":
-			applicationEdges.PeopleSoft_Luminate.label = generateEdgeLabel("PeopleSoft_Luminate");
-			break;
-		case "PeopleSoft-->RemedyForce":
-			applicationEdges.PeopleSoft_RemedyForce.label = generateEdgeLabel("PeopleSoft_RemedyForce");
-			break;
-		case "PeopleSoft-->Riskonnect":
-			applicationEdges.PeopleSoft_Riskonnect.label = generateEdgeLabel("PeopleSoft_Riskonnect");
-			break;
-		case "PeopleSoft-->ServiceMax":
-			applicationEdges.PeopleSoft_ServiceMax.label = generateEdgeLabel("PeopleSoft_ServiceMax");
+		case "PeopleSoft-->SalesForce":
+			applicationEdges.PeopleSoft_SalesForce.label = generateEdgeLabel("PeopleSoft_SalesForce");
 			break;
 
-		case "RemedyForce-->AX":
-			applicationEdges.RemedyForce_AX.label = generateEdgeLabel("RemedyForce_AX");
+		case "SalesForce-->AX":
+			applicationEdges.SalesForce_AX.label = generateEdgeLabel("SalesForce_AX");
 			break;
-		case "RemedyForce-->Vision":
-			applicationEdges.RemedyForce_Vision.label = generateEdgeLabel("RemedyForce_Vision");
-			break;
-
-		case "SalesMarketing-->Vision":
-			applicationEdges.SalesMarketing_Vision.label = generateEdgeLabel("SalesMarketing_Vision");
+		case "SalesForce-->Vision":
+			applicationEdges.SalesForce_Vision.label = generateEdgeLabel("SalesForce_Vision");
 			break;
 
-		case "ServiceMax-->AX":
-			applicationEdges.ServiceMax_AX.label = generateEdgeLabel("ServiceMax_AX");
-			break
-		case "ServiceMax-->Vision":
-			applicationEdges.ServiceMax_Vision.label = generateEdgeLabel("ServiceMax_Vision");
+		case "SalesForceApps-->EricksonAdvantage":
+			applicationEdges.SalesForceApps_EricksonAdvantage.label = generateEdgeLabel("SalesForceApps_EricksonAdvantage");
+			break;
+		case "SalesForceApps-->Luminate":
+			applicationEdges.SalesForceApps_Luminate.label = generateEdgeLabel("SalesForceApps_Luminate");
+			break;
+		case "SalesForceApps-->RemedyForce":
+			applicationEdges.SalesForceApps_RemedyForce.label = generateEdgeLabel("SalesForceApps_RemedyForce");
+			break;
+		case "SalesForceApps-->Riskonnect":
+			applicationEdges.SalesForceApps_Riskonnect.label = generateEdgeLabel("SalesForceApps_Riskonnect");
+			break;
+		case "SalesForceApps-->SalesMarketing":
+			applicationEdges.SalesForceApps_SalesMarketing.label = generateEdgeLabel("SalesForceApps_SalesMarketing");
+			break;
+		case "SalesForceApps-->ServiceMax":
+			applicationEdges.SalesForceApps_ServiceMax.label = generateEdgeLabel("SalesForceApps_ServiceMax");
 			break;
 
 		case "Simphony-->AX":
@@ -614,26 +637,14 @@ function generate(){
 		case "Vision-->CorePoint":
 			applicationEdges.Vision_CorePoint.label = generateEdgeLabel("Vision_CorePoint");
 			break;
-		case "Vision-->EricksonAdvantage":
-			applicationEdges.Vision_EricksonAdvantage.label = generateEdgeLabel("Vision_EricksonAdvantage");
-			break;	
 		case "Vision-->GSMS":
 			applicationEdges.Vision_GSMS.label = generateEdgeLabel("Vision_GSMS");
-			break;
-		case "Vision-->Luminate":
-			applicationEdges.Vision_Luminate.label = generateEdgeLabel("Vision_Luminate");
 			break;
 		case "Vision-->Portal":
 			applicationEdges.Vision_Portal.label = generateEdgeLabel("Vision_Portal");
 			break;
-		case "Vision-->RemedyForce":
-			applicationEdges.Vision_RemedyForce.label = generateEdgeLabel("Vision_RemedyForce");
-			break;
-		case "Vision-->Riskonnect":
-			applicationEdges.Vision_Riskonnect.label = generateEdgeLabel("Vision_Riskonnect");
-			break;
-		case "Vision-->ServiceMax":
-			applicationEdges.Vision_ServiceMax.label = generateEdgeLabel("Vision_ServiceMax");
+		case "Vision-->SalesForce":
+			applicationEdges.Vision_SalesForce.label = generateEdgeLabel("Vision_SalesForce");
 			break;
 		//end edgeLabel section
 
@@ -953,6 +964,38 @@ function removed(){
 			break;
 		case "Riskonnect production":
 			for(node in serverConnections.RiskonnectServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "SalesForce":
+			applicationNodes.SalesForce.expanded = false;
+			sys.pruneNode("SalesForce");
+			break;
+		case "SalesForce non-production":
+			for(node in serverConnections.SalesForceServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "SalesForce production":
+			for(node in serverConnections.SalesForceServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "SalesForceApps":
+			applicationNodes.SalesForceApps.expanded = false;
+			sys.pruneNode("SalesForceApps");
+			break;
+		case "SalesForceApps non-production":
+			for(node in serverConnections.SalesForceAppsServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "SalesForceApps production":
+			for(node in serverConnections.SalesForceAppsServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;

@@ -554,6 +554,46 @@ var serverConnections = {
 		}
 	},//end RiskonnectServers
 
+	SalesForceServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end SalesForceServers
+
+	SalesForceAppsServers:{
+		non_production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		},
+
+		production:{
+			nodes:{
+
+			},
+			edges:{
+
+			}
+		}
+	},//end SalesForceAppsServers
+
 	SalesMarketingServers:{
 		non_production:{
 			nodes:{

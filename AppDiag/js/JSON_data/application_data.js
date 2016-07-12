@@ -47,7 +47,7 @@ var applicationNodes = {
 
 	EricksonAdvantage:{'color':'blue','shape':'dot', 'label':'EricksonAdvantage', 'expanded':false, 
 	'to':[], 
-	'from':["Vision"], 
+	'from':["SalesForceApps"], 
 	'base':false, 'server':false,
 	'description':'Internal optional medical care if resident insurance does not cover needs.'},
 
@@ -67,8 +67,8 @@ var applicationNodes = {
 	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
 
 	Luminate : {'color':'blue','shape':'dot', 'label':'Luminate', 'expanded':false, 
-	'to':["PeopleSoft", "Vision"], 
-	'from':[], 'base':false, 'server':false,
+	'to':[], 
+	'from':["SalesForceApps"], 'base':false, 'server':false,
 	'description':'Philanthropy Application. Both Residents/Employees can send donations and this application manages the process.'
 	},
 
@@ -99,26 +99,38 @@ var applicationNodes = {
 	},
 
 	RemedyForce : {'color':'blue','shape':'dot', 'label':'RemedyForce', 'expanded':false, 
-	'to':["PeopleSoft", "Vision"], 
-	'from':["AX", "Vision"], 'base':false, 'server':false,
+	'to':[], 
+	'from':["SalesForceApps"], 'base':false, 'server':false,
 	'description':'Creates Help Desk Tickets by getting Resident/Employee information form Vision/PeopleSoft respectively. Sends financial cost to appropriate application once complete.'
 	},
 
 	Riskonnect: {'color':'blue','shape':'dot', 'label':'Riskonnect', 'expanded':false, 
-	'to':["PeopleSoft", "Vision"], 
-	'from':[], 'base':false, 'server':false,
+	'to':[], 
+	'from':["SalesForceApps"], 'base':false, 'server':false,
 	'description':'Handles Employee/Resident accident process. Then sends information to external insurance.'
+	},
+
+	SalesForce: {'color':'blue','shape':'dot', 'label':'SalesForce', 'expanded':false, 
+	'to':["PeopleSoft", "SalesForceApps", "Vision"], 
+	'from':["AX", "Vision"], 'base':false, 'server':false,
+	'description':'Cloud package that other apps are built on. Connections to SalesForce represent all possible connections from SalesForce apps. Reffer to specific app for connection information.'
+	},
+
+	SalesForceApps:{'color':'blue','shape':'dot', 'label':'SalesForceApps', 'expanded':false, 
+	'to':["EricksonAdvantage", "Luminate", "RemedyForce", "Risckonnect", "SalesMarketing", "ServiceMax"], 
+	'from':["SalesForce"], 'base':false, 'server':false,
+	'description':'Applications flowing to this node are built on SalesForce.'
 	},
 
 	SalesMarketing:{ "color":"blue", "shape":"dot", "label":"SalesMarketing", "expanded":false,
 	"to":[],
-	"from":["Vision"], "base":false, "server":false,
+	"from":["SalesForceApps"], "base":false, "server":false,
 	"description":"Receives data on new resident and converts it into a contact. Then sends new contact to Vision"
 	},
 
 	ServiceMax:{ "color":"blue", "shape":"dot", "label":"ServiceMax", "expanded":false,
-	"to":["PeopleSoft", "Vision"],
-	"from":["AX", "Vision"], "base":false, "server":false,
+	"to":[],
+	"from":["SalesForceApps"], "base":false, "server":false,
 	"description":"Field Services Application"
 	},
 
@@ -169,32 +181,27 @@ var applicationEdges ={
 
 		PeopleSoft_AX:{name:'PeopleSoft_AX', directed:true, weight:6, label:''},
 		PeopleSoft_GSMS:{name:'PeopleSoft_GSMS', directed:true, weight:6, label:''},
-		PeopleSoft_Luminate:{name:"PeopleSoft_Luminate", directed:true, weight:6, label:""},
-		PeopleSoft_RemedyForce:{name:"PeopleSoft_RemedyForce", directed:true, weight:6, label:""},
-		PeopleSoft_Riskonnect:{name:"PeopleSoft_Riskonnect", directed:true, weight:6, label:""},
-		PeopleSoft_ServiceMax:{name:"PeopleSoft_ServiceMax", directed:true, weight:6, label:""},
+		PeopleSoft_SalesForce:{name:"PeopleSoft_SalesForce", directed:true, weight:6, label:""},
 
-		RemedyForce_AX:{name:"RemedyForce_AX", directed:true, weight:6, label:""},
-		RemedyForce_Vision:{name:"RemedyForce_Vision", directed:true, weight:6, label:""},
+		SalesForce_AX:{name:"SalesForce_AX", directed:true, weight:6, label:""},
+		SalesForce_SalesForceApps:{name:"SalesForce_SalesForceApps", directed:true, weight:6, label:""},
+		SalesForce_Vision:{name:"SalesForce_Vision", directed:true, weight:6, label:""},
 
-		ServiceMax_AX:{name:"ServiceMax_AX", directed:true, weight:6, label:""},
-		ServiceMax_Vision:{name:"ServiceMax_Vision", directed:true, weight:6, label:""},
+		SalesForceApps_EricksonAdvantage:{name:"SalesForceApps_EricksonAdvantage", directed:false, weight:6, label:""},
+		SalesForceApps_Luminate:{name:"SalesForceApps_Luminate", directed:false, weight:6, label:""},
+		SalesForceApps_RemedyForce:{name:"SalesForceApps_RemedyForce", directed:false, weight:6, label:""},
+		SalesForceApps_Riskonnect:{name:"SalesForceApps_Riskonnect", directed:false, weight:6, label:""},
+		SalesForceApps_SalesMarketing:{name:"SalesForceApps_SalesMarketing", directed:false, weight:6, label:""},
+		SalesForceApps_ServiceMax:{name:"SalesForceApps_ServiceMax", directed:false, weight:6, label:""},
 
 		Simphony_AX:{name:'Simphony_AX', directed:true, weight:6, label:''},
 		Simphony_NetMenu:{name:'Simphony_NetMenu', directed:true, weight:6, label:''},
 
-		SalesMarketing_Vision:{name:"SalesMarketing_Vision", directed:true, weight:6, label:""},
-
 		Vision_AX:{name:'Vision_AX', directed:true, weight:6, label:''},
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
-		Vision_EricksonAdvantage:{name:"Vision_EricksonAdvantage", directed:true, weight:6, label:""},
 		Vision_GSMS:{name:'Vision_GSMS', directed:true, weight:6, label:''},
-		Vision_Luminate:{name:"Vision_Luminate", directed:true, weight:6, label:""},
 		Vision_Portal:{name:'Vision_Portal', directed:true, weight:6, label:''},
-		Vision_RemedyForce:{name:"Vision_RemedyForce", directed:true, weight:6, label:""},
-		Vision_Riskonnect:{name:"Vision_Riskonnect", directed:true, weight:6, label:""},
-		Vision_ServiceMax:{name:"Vision_ServiceMax", directed:true, weight:6, label:""}
-	
+		Vision_SalesForce:{name:"Vision_SalesForce", directed:true, weight:6, label:""}
 }
 
 //List of the connections for each applicationNode in the system.
@@ -205,8 +212,7 @@ var applicationConnections = {
 			GSMS:applicationNodes.GSMS,
 			Hyperion:applicationNodes.Hyperion,
 			PeopleSoft:applicationNodes.PeopleSoft,
-			RemedyForce:applicationNodes.RemedyForce,
-			ServiceMax:applicationNodes.ServiceMax,
+			SalesForce:applicationNodes.SalesForce,
 			Simphony:applicationNodes.Simphony,
 			Vision:applicationNodes.Vision
 		},
@@ -216,8 +222,7 @@ var applicationConnections = {
 			CoFax:{AX:applicationEdges.CoFax_AX},
 			GSMS:{AX:applicationEdges.GSMS_AX},
 			PeopleSoft:{AX:applicationEdges.PeopleSoft_AX},
-			RemedyForce:{AX:applicationEdges.RemedyForce_AX},
-			ServiceMax:{AX:applicationEdges.ServiceMax_AX},
+			SalesForce:{AX:applicationEdges.SalesForce_AX},
 			Simphony:{AX:applicationEdges.Simphony_AX},
 			Vision:{AX:applicationEdges.Vision_AX}
 		}
@@ -313,10 +318,10 @@ var applicationConnections = {
 
 	EricksonAdvantageConnections:{
 		nodes:{
-			Vision:applicationNodes.Vision
+			SalesForceApps:applicationNodes.SalesForceApps
 		},
 		edges:{
-			Vision:{EricksonAdvantage:applicationEdges.Vision_EricksonAdvantage}
+			SalesForceApps:{EricksonAdvantage:applicationEdges.SalesForceApps_EricksonAdvantage}
 		}
 	},//end DocuTrakcConnections
 
@@ -338,12 +343,10 @@ var applicationConnections = {
 
 	LuminateConnections : {
 		nodes:{
-			PeopleSoft:applicationNodes.PeopleSoft,
-			Vision:applicationNodes.Vision
+			SalesForceApps:applicationNodes.SalesForceApps
 		},
 		edges:{
-			PeopleSoft:{Luminate:applicationEdges.PeopleSoft_Luminate},
-			Vision:{Luminate:applicationEdges.Vision_Luminate}
+			SalesForceApps:{Luminate:applicationEdges.SalesForceApps_Luminate}
 		}
 	},//end LuminateConnections
 
@@ -412,20 +415,14 @@ var applicationConnections = {
 			AX:applicationNodes.AX,
 			CoFax:applicationNodes.CoFax,
 			GSMS:applicationNodes.GSMS,
-			Luminate:applicationNodes.Luminate,
-			RemedyForce:applicationNodes.RemedyForce,
-			Riskonnect:applicationNodes.Riskonnect,
-			ServiceMax:applicationNodes.ServiceMax
+			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			CoFax:{PeopleSoft:applicationEdges.CoFax_PeopleSoft},
 			PeopleSoft:{
 				AX:applicationEdges.PeopleSoft_AX,
 				GSMS:applicationEdges.PeopleSoft_GSMS,
-				Luminate:applicationEdges.PeopleSoft_Luminate,
-				RemedyForce:applicationEdges.PeopleSoft_RemedyForce,
-				Riskonnect:applicationEdges.PeopleSoft_Riskonnect,
-				ServiceMax:applicationEdges.PeopleSoft_ServiceMax
+				SalesForce:applicationEdges.PeopleSoft_SalesForce
 			}			
 		}
 
@@ -444,53 +441,78 @@ var applicationConnections = {
 
 	RemedyForceConnections:{
 		nodes:{
-			AX:applicationNodes.AX,
-			PeopleSoft:applicationNodes.PeopleSoft,
-			Vision:applicationNodes.Vision
+			SalesForceApps:applicationNodes.SalesForceApps
 		},
 		edges:{
-			PeopleSoft:{RemedyForce:applicationEdges.PeopleSoft_RemedyForce},
-			RemedyForce:{
-				AX:applicationEdges.RemedyForce_AX,
-				Vision:applicationEdges.RemedyForce_Vision
-			},
-			Vision:{RemedyForce:applicationEdges.Vision_RemedyForce}
+			SalesForceApps:{RemedyForce:applicationEdges.SalesForceApps_RemedyForce}
 		}
 	},//end RemedyForceConnections
 
 	RiskonnectConnections:{
 		nodes:{
-			PeopleSoft:applicationNodes.PeopleSoft,
-			Vision:applicationNodes.Vision
+			SalesForceApps:applicationNodes.SalesForceApps
 		},
 		edges:{
-			PeopleSoft:{Riskonnect:applicationEdges.PeopleSoft_Riskonnect},
-			Vision:{Riskonnect:applicationEdges.Vision_Riskonnect}
+			SalesForceApps:{Riskonnect:applicationEdges.SalesForceApps_Riskonnect}
 		}
 	},//end RiskonnectConnections
 
-	SalesMarketingConnections:{
+	SalesForceConnections:{
 		nodes:{
+			AX:applicationNodes.AX,
+			PeopleSoft:applicationNodes.PeopleSoft,
+			SalesForceApps:applicationNodes.SalesForceApps,
 			Vision:applicationNodes.Vision
 		},
 		edges:{
-			SalesMarketing:{Vision:applicationEdges.SalesMarketing_Vision}
+			SalesForce:{
+				AX:applicationEdges.SalesForce_AX,
+				PeopleSoft:applicationEdges.PeopleSoft_SalesForce,
+				SalesForceApps:applicationEdges.SalesForce_SalesForceApps,
+				Vision:applicationEdges.Vision_SalesForce
+			},
+			Vision:{SalesForce:applicationEdges.Vision_SalesForce}
+		}
+	},//end SalesForceConnections
+
+	SalesForceAppsConnections:{
+		nodes:{
+			EricksonAdvantage:applicationNodes.EricksonAdvantage,
+			Luminate:applicationNodes.Luminate,
+			RemedyForce:applicationNodes.RemedyForce,
+			Riskonnect:applicationNodes.Riskonnect,
+			SalesForce:applicationNodes.SalesForce,
+			SalesMarketing:applicationNodes.SalesMarketing,
+			ServiceMax:applicationNodes.ServiceMax
+		},
+		edges:{
+			SalesForce:{SalesForceApps:applicationEdges.SalesForce_SalesForceApps},
+			SalesForceApps:{
+				EricksonAdvantage:applicationEdges.SalesForceApps_EricksonAdvantage,
+				Luminate:applicationEdges.SalesForceApps_Luminate,
+				RemedyForce:applicationEdges.SalesForceApps_RemedyForce,
+				Riskonnect:applicationEdges.SalesForceApps_Riskonnect,
+				SalesMarketing:applicationEdges.SalesForceApps_SalesMarketing,
+				ServiceMax:applicationEdges.SalesForceApps_ServiceMax
+			}
+		}
+	},//end SalesForceAppsConnections
+
+	SalesMarketingConnections:{
+		nodes:{
+			SalesForceApps:applicationNodes.SalesForceApps
+		},
+		edges:{
+			SalesForceApps:{SalesMarketing:applicationEdges.SalesForceApps_SalesMarketing}
 		}
 	},//end SalesMarketingConnections
 
 	ServiceMaxConnections : {
 		nodes:{
-			AX:applicationNodes.AX,
-			PeopleSoft:applicationNodes.PeopleSoft,
-			Vision:applicationNodes.Vision
+			SalesForceApps:applicationNodes.SalesForceApps
 		},
 		edges:{
-			PeopleSoft:{ServiceMax:applicationEdges.PeopleSoft_ServiceMax},
-			ServiceMax:{
-				AX:applicationEdges.ServiceMax_AX,
-				Vision:applicationEdges.ServiceMax_Vision
-			},
-			Vision:{ServiceMax:applicationEdges.Vision_ServiceMax}
+			SalesForceApps:{ServiceMax:applicationEdges.SalesForceApps_ServiceMax}
 		}
 
 	},//end ServiceMaxConnections
@@ -514,33 +536,22 @@ var applicationConnections = {
 		nodes:{
 			AX:applicationNodes.AX,
 			CorePoint:applicationNodes.CorePoint,
-			EricksonAdvantage:applicationNodes.EricksonAdvantage,
 			GSMS:applicationNodes.GSMS,
-			Luminate:applicationNodes.Luminate,
 			Odyssey:applicationNodes.Odyssey,
 			Portal:applicationNodes.Portal,
-			RemedyForce:applicationNodes.RemedyForce,
-			Riskonnect:applicationNodes.Riskonnect,
-			SalesMarketing:applicationNodes.SalesMarketing,
-			ServiceMax:applicationNodes.ServiceMax
+			SalesForce:applicationNodes.SalesForce
 		},
 		edges:{
 			CorePoint:{Vision:applicationEdges.CorePoint_Vision},
 			GSMS:{Vision:applicationEdges.GSMS_Vision},
 			Odyssey:{Vision:applicationEdges.Odyssey_Vision},
-			RemedyForce:{RemedyForce:applicationEdges.RemedyForce_Vision},
-			SalesMarketing:{Vision:applicationEdges.SalesMarketing_Vision},
-			ServiceMax:{Vision:applicationEdges.ServiceMax_Vision},
+			SalesForce:{Vision:applicationEdges.SalesForce_Vision},
 			Vision:{
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,
-				EricksonAdvantage:applicationEdges.Vision_EricksonAdvantage,
 				GSMS:applicationEdges.Vision_GSMS,
-				Luminate:applicationEdges.Vision_Luminate,
 				Portal:applicationEdges.Vision_Portal,
-				RemedyForce:applicationEdges.Vision_RemedyForce,
-				Riskonnect:applicationEdges.Vision_Riskonnect,
-				ServiceMax:applicationEdges.Vision_ServiceMax
+				SalesForce:applicationEdges.Vision_SalesForce
 			}		
 		}
 
