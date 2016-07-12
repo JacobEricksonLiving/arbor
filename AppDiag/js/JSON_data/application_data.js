@@ -22,56 +22,66 @@ var applicationNodes = {
 	BizTalk : {'color':'blue','shape':'dot', 'label':'BizTalk', 'expanded':false, 
 	'to':['CorePoint'], 
 	'from':['BizTalk360', 'CorePoint'], 'base':false, 'server':false,
-	'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'},
+	'description':'Used to reconfigure data for other applications then send the data downstream. Also refered to as ECIX.'
+	},
 	
 	BizTalk360 : {'color':'blue','shape':'dot', 'label':'BizTalk360', 'expanded':false, 
 	'to':['BizTalk'], 
 	'from':[], 'base':false, 'server':false,
-	'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'},
+	'description':'This is an interface for BizTalk. It allows nonadministrators to access BizTalk.'
+	},
 	
 	Centricity : {'color':'blue','shape':'dot', 'label':'Centricity', 'expanded':false, 
 	'to':['MedicalManager','Portal'], 
 	'from':['DocuTrack', 'MedicalManager'], 'base':false, 'server':false,
-	'description':'Keeps track of outpatient medical data. Going to change to new application soon'},
+	'description':'Keeps track of outpatient medical data. Going to change to new application soon'
+	},
 	
 	CoFax : {'color':'blue','shape':'dot', 'label':'CoFax', 'expanded':false, 
 	'to':[], 
 	'from':['AX', 'PeopleSoft'], 
 	'base':false, 'server':false,
-	'description':'Converts documents into usable computer images.'},//need to meet
+	'description':'Converts documents into usable computer images.'
+	},
 	
 	CorePoint : {'color':'red','shape':'dot', 'label':'CorePoint', 'expanded':false, 
 	'to':['BizTalk', 'MedicalManager', 'Vision'], 
 	'from':['BizTalk', 'MedicalManager', 'NetMenu', 'Vision'], 
 	'base':true, 'server':false,
-	'description':'Designed to handle healthcare information. CorePoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'},
+	'description':'Designed to handle healthcare information. CorePoint reformats data for other applications and puts the data through logic checks. It then sends an xml message if it passes these checks.'
+	},
 	
 	DocuTrack:{'color':'blue','shape':'dot', 'label':'DocuTrack', 'expanded':false, 
 	'to':[], 
 	'from':['Centricity'], 
 	'base':false, 'server':false,
-	'description':'Used to scan documents into Centricity'},
+	'description':'Used to scan documents into Centricity'
+	},
 
 	EricksonAdvantage:{'color':'blue','shape':'dot', 'label':'EricksonAdvantage', 'expanded':false, 
 	'to':[], 
 	'from':["SalesForceApps"], 
 	'base':false, 'server':false,
-	'description':'Internal optional medical insurance if resident insurance does not cover needs. receives resident info form Vision'},
+	'description':'Internal optional medical insurance if resident insurance does not cover needs. receives resident info form Vision'
+	},
 
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
 	'to':['PeopleSoft', 'Vision'], 
 	'from':['AX', 'Vision'], 'base':false, 'server':false,
-	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of who is charged.'},
+	'description':'(General Service Management System) This is a field services application. It creates tickets for maintance and keeps track of who is charged.'
+	},
 	
 	Hyperion : {'color':'blue','shape':'dot', 'label':'Hyperion', 'expanded':false, 
 	'to':['AX'], 
 	'from':[], 'base':false, 'server':false,
-	'description':'Exctracts financial data for high level purposes. It shows community and corprate financial data. Displays a summary level of the information.'},
+	'description':'Exctracts financial data for high level purposes. It shows community and corprate financial data. Displays a summary level of the information.'
+	},
 	
 	JDE : {'color':'blue','shape':'dot', 'label':'JDE', 'expanded':false, 
 	'to':[], 
 	'from':['Hyperion'], 'base':false, 'server':false,
-	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'},
+	'description':'Previos application used for financial data before AX. Still sends information to Hyperion.'
+	},
 
 	Kronos:{'color':'blue','shape':'dot', 'label':'Kronos', 'expanded':false, 
 	'to':["Vision"], 
@@ -88,17 +98,20 @@ var applicationNodes = {
 	MedicalManager : {'color':'blue','shape':'dot', 'label':'MedicalManager', 'expanded':false, 
 	'to':['Centricity', 'CorePoint'], 
 	'from':['Centricity', 'CorePoint'], 'base':false, 'server':false,
-	'description':'Houses demographic information and handles appointments/billing on site.'},
+	'description':'Houses demographic information and handles appointments/billing on site.'
+	},
 
 	NetMenu : {'color':'blue','shape':'dot', 'label':'NetMenu', 'expanded':false, 
 	'to':['NetMenu', 'Simphony'], 
 	'from':['Simphony'], 'base':false, 'server':false,
-	'description':'Note: not yet in use. Allows a chef to create a menu item then directly communicate that information Simphony'},
+	'description':'Note: not yet in use. Allows a chef to create a menu item then directly communicate that information Simphony'
+	},
 	
 	Odyssey : {'color':'blue', 'shape':'dot', 'label':'Odyssey', 'expanded':false, 
 	'to':['BizTalk'], 
 	'from':['Vision'], 'base':false, 'server':false,
-	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information received form Vision'},
+	'description':'Point of Sale(POS) application. Handles charges such as gift cards, meal plans, and department/resident charges. Also generates meal plan for resident based on information received form Vision'
+	},
 	
 	PeopleSoft : {'color':'red','shape':'dot', 'label':'PeopleSoft', 'expanded':false, 
 	'to':["ActiveDirectory", 'CoFax', "Kronos", "Taleo"], 
@@ -162,7 +175,8 @@ var applicationNodes = {
 	Vision : {'color':'red','shape':'dot', 'label':'Vision', 'expanded':false, 
 	'to':['CorePoint', 'GSMS', 'Odyssey'], 
 	'from':['AX', 'CorePoint', 'GSMS', 'Portal', "SalesForce"], 'base':true, 'server':false,
-	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'}
+	'description':'Census Software. Handles new resident information inclucding an EMR and current living status. Vision also keeps track of financial data on residents that do not include food costs'
+	}
 }
 
 //List of all the application to application edges in the system.
