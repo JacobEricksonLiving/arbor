@@ -713,10 +713,18 @@ var serverConnections = {
 	SimphonyServers:{
 		non_production:{
 			nodes:{
-				
+				SimphonyNon_Production:{"color":"green", "server":true, "label":"Production", "description":""},
+				md1_testap26:{"color":"purple", "server":true, "label":"md1-testap26", "description":""},
+				md1_testap54:{"color":"purple", "server":true, "label":"md1-testap54", "description":""},
+				md1_testap55:{"color":"purple", "server":true, "label":"md1-testap55", "description":""},
 			},
 			edges:{
-				
+				SimphonyNon_Production:{
+					Simphony:{weight:4},
+					md1_testap26:{weight:2},
+					md1_testap54:{weight:2},
+					md1_testap55:{weight:2}
+				}
 			}
 		},
 
