@@ -216,6 +216,25 @@ var serverConnections = {
 		}
 	},//end DocuTrackServers
 
+	EricksonAdvantageServers:{
+		non_production:{
+			nodes:{
+				
+			},
+			edges:{
+			}
+		},
+
+		production:{
+			nodes:{
+			
+			},
+			edges:{
+				
+			}
+		}
+	},//end EricksonAdvantageServers
+
 	GSMSServers:{
 		non_production:{
 			nodes:{

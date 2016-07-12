@@ -45,6 +45,12 @@ var applicationNodes = {
 	'base':false, 'server':false,
 	'description':'Used to scan documents into Centricity'},
 
+	EricksonAdvantage:{'color':'blue','shape':'dot', 'label':'EricksonAdvantage', 'expanded':false, 
+	'to':[], 
+	'from':["Vision"], 
+	'base':false, 'server':false,
+	'description':'Internal optional medical care if resident insurance does not cover needs.'},
+
 	GSMS : {'color':'blue','shape':'dot', 'label':'GSMS', 'expanded':false, 
 	'to':['PeopleSoft', 'Vision'], 
 	'from':['AX', 'Vision'], 'base':false, 'server':false,
@@ -181,6 +187,7 @@ var applicationEdges ={
 
 		Vision_AX:{name:'Vision_AX', directed:true, weight:6, label:''},
 		Vision_CorePoint:{name:'Vision_CorePoint', directed:true, weight:6, label:''},
+		Vision_EricksonAdvantage:{name:"Vision_EricksonAdvantage", directed:true, weight:6, label:""},
 		Vision_GSMS:{name:'Vision_GSMS', directed:true, weight:6, label:''},
 		Vision_Luminate:{name:"Vision_Luminate", directed:true, weight:6, label:""},
 		Vision_Portal:{name:'Vision_Portal', directed:true, weight:6, label:''},
@@ -302,7 +309,16 @@ var applicationConnections = {
 		edges:{
 			DocuTrack:{Centricity:applicationEdges.DocuTrack_Centricity}
 		}
-	},
+	},//end DocuTrakcConnections
+
+	EricksonAdvantageConnections:{
+		nodes:{
+			Vision:applicationNodes.Vision
+		},
+		edges:{
+			Vision:{EricksonAdvantage:applicationEdges.Vision_EricksonAdvantage}
+		}
+	},//end DocuTrakcConnections
 
 	GSMSConnections : {
 		nodes:{
@@ -498,6 +514,7 @@ var applicationConnections = {
 		nodes:{
 			AX:applicationNodes.AX,
 			CorePoint:applicationNodes.CorePoint,
+			EricksonAdvantage:applicationNodes.EricksonAdvantage,
 			GSMS:applicationNodes.GSMS,
 			Luminate:applicationNodes.Luminate,
 			Odyssey:applicationNodes.Odyssey,
@@ -517,6 +534,7 @@ var applicationConnections = {
 			Vision:{
 				AX:applicationEdges.Vision_AX,
 				CorePoint:applicationEdges.Vision_CorePoint,
+				EricksonAdvantage:applicationEdges.Vision_EricksonAdvantage,
 				GSMS:applicationEdges.Vision_GSMS,
 				Luminate:applicationEdges.Vision_Luminate,
 				Portal:applicationEdges.Vision_Portal,

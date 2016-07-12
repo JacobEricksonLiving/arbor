@@ -40,6 +40,11 @@ function expandApplicationNode(nName){
 			applicationNodes.DocuTrack.expanded = true;
 			sys.graft(applicationConnections.DocuTrackConnections);
 			break; 
+		case "EricksonAdvantage":
+			sys.addNode('EricksonAdvantage', applicationNodes.EricksonAdvantage);
+			applicationNodes.EricksonAdvantage.expanded = true;
+			sys.graft(applicationConnections.EricksonAdvantageConnections);
+			break; 
 		case "GSMS":
 			sys.addNode('GSMS', applicationNodes.GSMS);
 			applicationNodes.GSMS.expanded = true;
@@ -209,6 +214,8 @@ function generateEdgeLabel(eName){
 			return "Billing from Residents";
 		case "Vision_CorePoint":
 			return "Demographic Data";
+		case "Vision_EricksonAdvantage":
+			return "Resident Demographic Information";
 		case "Vision_GSMS":
 			return "To GSMS:resident data, To Vision:resident billing";
 		case "Vision_Luminate":
@@ -305,6 +312,17 @@ function generate(){
 			break;
 		case "DocuTrack production":
 			sys.graft(serverConnections.DocuTrackServers.production);
+			break;
+
+
+		case "EricksonAdvantage":
+			expandApplicationNode("EricksonAdvantage");
+			break;
+		case "EricksonAdvantage non-production":
+			sys.graft(serverConnections.EricksonAdvantageServers.non_production);
+			break;
+		case "EricksonAdvantage production":
+			sys.graft(serverConnections.EricksonAdvantageServers.production);
 			break;
 
 
@@ -596,6 +614,9 @@ function generate(){
 		case "Vision-->CorePoint":
 			applicationEdges.Vision_CorePoint.label = generateEdgeLabel("Vision_CorePoint");
 			break;
+		case "Vision-->EricksonAdvantage":
+			applicationEdges.Vision_EricksonAdvantage.label = generateEdgeLabel("Vision_EricksonAdvantage");
+			break;	
 		case "Vision-->GSMS":
 			applicationEdges.Vision_GSMS.label = generateEdgeLabel("Vision_GSMS");
 			break;
@@ -740,6 +761,22 @@ function removed(){
 			break;
 		case "DocuTrack production":
 			for(node in serverConnections.DocuTrackServers.production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+
+
+		case "EricksonAdvantage":
+			applicationNodes.EricksonAdvantage.expanded = false;
+			sys.pruneNode("EricksonAdvantage");
+			break;
+		case "EricksonAdvantage non-production":
+			for(node in serverConnections.EricksonAdvantageServers.non_production.nodes){
+				sys.pruneNode(node);
+			}
+			break;
+		case "EricksonAdvantage production":
+			for(node in serverConnections.EricksonAdvantageServers.production.nodes){
 				sys.pruneNode(node);
 			}
 			break;
