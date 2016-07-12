@@ -104,6 +104,7 @@ function expandApplicationNode(nName){
 			sys.addNode('SalesForce', applicationNodes.SalesForce);
 			applicationNodes.SalesForce.expanded = true;
 			sys.graft(applicationConnections.SalesForceConnections);
+			expandApplicationNode("SalesForceApps");
 			break; 
 		case "SalesForceApps":
 			sys.addNode('SalesForceApps', applicationNodes.SalesForceApps);
@@ -971,7 +972,10 @@ function removed(){
 
 		case "SalesForce":
 			applicationNodes.SalesForce.expanded = false;
-			sys.pruneNode("SalesForce");
+			sys.pruneNode("SalesForceApps");
+			for(node in applicationConnections.SalesForceAppsConnections.nodes){
+				sys.pruneNode(node);
+			}
 			break;
 		case "SalesForce non-production":
 			for(node in serverConnections.SalesForceServers.non_production.nodes){
