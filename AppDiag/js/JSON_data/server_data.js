@@ -181,10 +181,14 @@ var serverConnections = {
 
 		production:{
 			nodes:{
-
+				CoFaxProduction:{"color":"green", "server":true, "label":"Production", "description":""},
+				md1_ap01:{'color':'purple', 'server':true, 'label':'md1-ap01', 'description':''}
 			},
 			edges:{
-
+				CoFaxProduction:{
+					CoFax:{weight:4},
+					md1_ap01:{weight:2}
+				}
 			}
 		}
 	},//end CoFaxServers
